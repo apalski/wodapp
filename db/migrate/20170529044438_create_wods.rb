@@ -4,6 +4,7 @@ class CreateWods < ActiveRecord::Migration
     	t.string :name
     	t.datetime :date
     	t.integer :type
+      t.integer :result
     	t.boolean :pr, default: false
     	t.integer :user_id
     	
