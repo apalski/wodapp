@@ -35,9 +35,9 @@ ActiveRecord::Schema.define(version: 20170529044453) do
     t.string   "name"
     t.string   "email"
     t.string   "password_digest"
-    t.boolean  "admin",           default: false
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.integer  "role"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "wods", force: :cascade do |t|
