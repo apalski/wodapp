@@ -5,6 +5,6 @@ class Movement < ActiveRecord::Base
 	has_many :wods, through: :move_wods
 
 	validates :name, presence: true
-	validates :name, uniqueness: :true
-	validates :type, {in: %w(time, weight, repetitions)}
+	validates :name, uniqueness: true
+	validates :type, inclusion: {in: %w(time weight repetitions)}
 end

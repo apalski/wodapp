@@ -3,7 +3,7 @@ class CreateWods < ActiveRecord::Migration
     create_table :wods do |t|
     	t.string :name
     	t.datetime :date
-    	t.integer :type
+    	t.string :type
       t.integer :result
     	t.boolean :pr, default: false
     	t.integer :user_id

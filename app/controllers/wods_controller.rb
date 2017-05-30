@@ -1,7 +1,7 @@
 class WodsController < ApplicationController
 	
 	def index
-		@mwods = Wod.all
+		@wods = Wod.all
 	end
 
 	def new
@@ -10,8 +10,8 @@ class WodsController < ApplicationController
 
 	def create
 		@wod = Wod.new(wod_params)
-		if @mwod.save
-			redirect_to wod_path(@mwod)
+		if @wod.save
+			redirect_to wod_path(@wod)
 		else
 			render :new
 		end		
@@ -23,7 +23,7 @@ class WodsController < ApplicationController
 
 	def edit
 		set_wod
-		if @mwod.update(wod_params)
+		if @wod.update(wod_params)
 			redirect_to wod_path(@wod)
 		else
 			render :edit

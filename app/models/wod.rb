@@ -5,6 +5,6 @@ class Wod < ActiveRecord::Base
 	has_many :movements, through: :move_wods
 
 	validates :name, presence: true
-	validates :name, uniqueness: :true
-	validates :type, {in: %w(for_time, for_weight, for_repetitions)}
+	validates :name, uniqueness: true
+	validates :type, inclusion: {in: %w(time weight repetitions)}
 end
