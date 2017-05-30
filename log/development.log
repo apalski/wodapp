@@ -2364,3 +2364,95 @@ Processing by MovementsController#index as HTML
   [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements"
   Rendered movements/index.html.erb within layouts/application (8.8ms)
 Completed 200 OK in 37ms (Views: 25.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/movements/new" for ::1 at 2017-05-30 13:55:09 +1000
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by MovementsController#new as HTML
+  Rendered movements/_form.html.erb (0.8ms)
+  Rendered movements/new.html.erb within layouts/application (10.8ms)
+Completed 500 Internal Server Error in 41ms
+
+SyntaxError (/Users/Annette/Dev/Rails/wodapp/app/views/movements/_form.html.erb:15: syntax error, unexpected keyword_ensure, expecting keyword_end
+/Users/Annette/Dev/Rails/wodapp/app/views/movements/_form.html.erb:17: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/views/movements/_form.html.erb:15: syntax error, unexpected keyword_ensure, expecting keyword_end
+  app/views/movements/_form.html.erb:17: syntax error, unexpected end-of-input, expecting keyword_end
+  app/views/movements/new.html.erb:1:in `_app_views_movements_new_html_erb__1293256906316647222_70138054252180'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (11.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (69.5ms)
+
+
+Started GET "/movements/new" for ::1 at 2017-05-30 13:55:32 +1000
+Processing by MovementsController#new as HTML
+  Rendered movements/_form.html.erb (403.8ms)
+  Rendered movements/new.html.erb within layouts/application (406.4ms)
+Completed 200 OK in 412ms (Views: 411.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/movements/new" for ::1 at 2017-05-30 13:56:10 +1000
+Processing by MovementsController#new as HTML
+  Rendered movements/_form.html.erb (4.1ms)
+  Rendered movements/new.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 11ms (Views: 11.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/movements/new" for ::1 at 2017-05-30 13:57:50 +1000
+Processing by MovementsController#new as HTML
+  Rendered movements/_form.html.erb (3.8ms)
+  Rendered movements/new.html.erb within layouts/application (5.6ms)
+Completed 500 Internal Server Error in 11ms
+
+ActionView::Template::Error (No route matches {:action=>"edit", :controller=>"movements"} missing required keys: [:id]):
+     5: 	<%= f.label :date %>
+     6: 	<%= date_select :movement, :date %><br>
+     7: 	<%= f.label :result %>
+     8: 	<% if edit_movement_path %>
+     9: 		<%= f.text_field :result %><br>
+    10: 	<% end %>	
+    11: 	<%= f.label :movement_type %>
+  app/views/movements/_form.html.erb:8:in `block in _app_views_movements__form_html_erb__319904247265149443_70138055318880'
+  app/views/movements/_form.html.erb:2:in `_app_views_movements__form_html_erb__319904247265149443_70138055318880'
+  app/views/movements/new.html.erb:1:in `_app_views_movements_new_html_erb__1293256906316647222_70138054252180'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (56.3ms)
+
+
+Started GET "/movements/new" for ::1 at 2017-05-30 13:58:07 +1000
+Processing by MovementsController#new as HTML
+  Rendered movements/_form.html.erb (31.0ms)
+  Rendered movements/new.html.erb within layouts/application (33.7ms)
+Completed 500 Internal Server Error in 38ms
+
+ActionView::Template::Error (undefined local variable or method `current_path' for #<#<Class:0x007f9493a01890>:0x007f94947a9e20>
+Did you mean?  current_page?):
+     5: 	<%= f.label :date %>
+     6: 	<%= date_select :movement, :date %><br>
+     7: 	<%= f.label :result %>
+     8: 	<% if current_path == edit_movement_path %>
+     9: 		<%= f.text_field :result %><br>
+    10: 	<% end %>	
+    11: 	<%= f.label :movement_type %>
+  app/views/movements/_form.html.erb:8:in `block in _app_views_movements__form_html_erb__319904247265149443_70138074700260'
+  app/views/movements/_form.html.erb:2:in `_app_views_movements__form_html_erb__319904247265149443_70138074700260'
+  app/views/movements/new.html.erb:1:in `_app_views_movements_new_html_erb__1293256906316647222_70138054252180'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (59.1ms)
+
+
+Started GET "/movements/new" for ::1 at 2017-05-30 13:58:33 +1000
+Processing by MovementsController#new as HTML
+  Rendered movements/_form.html.erb (3.8ms)
+  Rendered movements/new.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 12ms (Views: 11.3ms | ActiveRecord: 0.0ms)

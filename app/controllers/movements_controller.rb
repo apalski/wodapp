@@ -2,10 +2,15 @@ class MovementsController < ApplicationController
 
 	def index
 		@movements = Movement.all
+		@user = current_user
 	end
 
 	def new
-		@movement = Movement.new
+		if current_user.admin == true
+			@movement = Movement.new
+		else
+			redirect_to movements_path, alert: "You are not able to create movements"
+		end		
 	end
 
 	def create

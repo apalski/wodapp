@@ -1,17 +1,17 @@
 # coding: utf-8
 DATA = {
   :user_keys =>
-    ["name", "email", "password"],
+    ["name", "email", "password", "admin"],
   :users => [
-    ["Max Charles", "max@gmail.com", "friedfish"],
-    ["Skai Jackson", "skai@gmail.com", "frenchfries"],
-    ["Kaleo Elam", "kaleo@gmail.com", "muddypond"],
-    ["Megan Charpentier", "megan@gmail.com", "kermit124"],
-    ["Hayden Byerly", "hayden@gmail.com", "sausageroll"],
-    ["Tenzing Norgay Trainor", "tenzing@gmail.com", "specialegg"],
-    ["Davis Cleveland", "davis@gmail.com", "mintslice"],
-    ["Cole Sand", "cole@gmail.com", "cravingmore"],
-    ["Quvenzhané Wallis", "quv@gmail.com", "passionpop"]
+    ["Max Charles", "max@gmail.com", "friedfish", true],
+    ["Skai Jackson", "skai@gmail.com", "frenchfries", false],
+    ["Kaleo Elam", "kaleo@gmail.com", "muddypond", false],
+    ["Megan Charpentier", "megan@gmail.com", "kermit124", false],
+    ["Hayden Byerly", "hayden@gmail.com", "sausageroll", false],
+    ["Tenzing Norgay Trainor", "tenzing@gmail.com", "specialegg", false],
+    ["Davis Cleveland", "davis@gmail.com", "mintslice", false],
+    ["Cole Sand", "cole@gmail.com", "cravingmore", false],
+    ["Quvenzhané Wallis", "quv@gmail.com", "passionpop", true]
   ],
   :movement_keys =>
    ["name", "date", "movement_type", "result", "pr"],
