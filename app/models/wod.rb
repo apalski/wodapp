@@ -6,5 +6,5 @@ class Wod < ActiveRecord::Base
 
 	validates :name, presence: true
 	validates :name, uniqueness: true
-	validates :type, inclusion: {in: %w(time weight repetitions), message: "%{value} is not a valid type"}
+	validates :wod_type, inclusion: {in: %w(time weight repetitions), message: "%{value} is not a valid type"}
 end

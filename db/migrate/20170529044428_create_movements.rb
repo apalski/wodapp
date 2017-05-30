@@ -2,9 +2,9 @@ class CreateMovements < ActiveRecord::Migration
   def change
     create_table :movements do |t|
     	t.string :name
-    	t.datetime :date
-    	t.integer :result
-    	t.string :type
+    	t.date :date
+    	t.string :movement_type
+      t.float :result, :precision => 2, :scale => 2
     	t.boolean :pr, default: false
     	t.integer :user_id
     	

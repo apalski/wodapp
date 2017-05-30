@@ -22,13 +22,13 @@ ActiveRecord::Schema.define(version: 20170529044453) do
 
   create_table "movements", force: :cascade do |t|
     t.string   "name"
-    t.datetime "date"
-    t.integer  "result"
-    t.string   "type"
-    t.boolean  "pr",         default: false
+    t.date     "date"
+    t.string   "movement_type"
+    t.float    "result"
+    t.boolean  "pr",            default: false
     t.integer  "user_id"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -42,9 +42,9 @@ ActiveRecord::Schema.define(version: 20170529044453) do
 
   create_table "wods", force: :cascade do |t|
     t.string   "name"
-    t.datetime "date"
-    t.string   "type"
-    t.integer  "result"
+    t.date     "date"
+    t.string   "wod_type"
+    t.float    "result"
     t.boolean  "pr",         default: false
     t.integer  "user_id"
     t.datetime "created_at",                 null: false

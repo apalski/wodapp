@@ -2,9 +2,9 @@ class CreateWods < ActiveRecord::Migration
   def change
     create_table :wods do |t|
     	t.string :name
-    	t.datetime :date
-    	t.string :type
-      t.integer :result
+    	t.date :date
+    	t.string :wod_type
+      t.float :result, :precision => 2, :scale => 2
     	t.boolean :pr, default: false
     	t.integer :user_id
     	

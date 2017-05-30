@@ -1,10 +1,19 @@
 
-<h1>These are all your movement choices</h1>
+<h1>These are your movement results</h1>
 
-<%= @movements.each do |movement| %>
-	<%= movement.name %>
-	<%= movement.date %>
-	<%= movement.result %>
-	<%= movement.type %>
-	>%= movement.pr %>
-<% end %>	
+<ul>
+	<% @movements.each do |movement| %>
+		<li>Movement: <%= movement.name %></li><br>
+		<li>Date Completed: <%= movement.date %></li><br>
+		<% if movement.movement_type == "time" %>
+			<li>Result Achieved: <%= movement.result %> minutes</li><br>
+		<% elsif movement.movement_type == "weight" %>
+			<li>Result Achieved: <%= movement.result %> kgs</li><br>
+		<% elsif movement.movement_type == "repetitions" %>
+			<li>Result Achieved: <%= movement.result %> reps</li><br>
+		<% end %>			
+		<li>Movement done for: <%= movement.movement_type %></li><br>
+		<li>PR? (true/false): <%= movement.pr %></li>
+		<h3>_______________________</h3><br>
+	<% end %>	
+</ul>
