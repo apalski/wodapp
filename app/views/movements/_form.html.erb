@@ -1,0 +1,13 @@
+
+<%= form_for @movement do |f| %>
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+	<%= f.label :date %>
+	<%= date_select :movement, :date %>
+	<%= f.label :result %>
+	<%= f.text_field :result %>
+	<%= f.label :from %>
+	<%= f.select :from, ["time", "weight", "repetitions"], :prompt => "Select One" %>
+	<%= f.label :pr %>
+	<%= f.check_box :pr %>
+<%= f.submit %>	
