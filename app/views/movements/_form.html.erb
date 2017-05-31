@@ -1,23 +1,17 @@
 
 
 	<%= form_for @movement do |f| %>
-		<% if @user.admin == true %>
-			<%= f.label :name %>
-			<%= f.text_field :name %><br>
-			<%= f.label :movement_type %>
-			<%= f.select :movement_type, ["time", "weight", "repetitions"], :prompt => "Select One" %><br>
-		<% end %>	
-		<% if @user.admin == false %>
-			<%= f.label :name %>
-			<% names = Movement.all.map {|move| [move.name]} %>
-			<%= f.select :name, names %><br>
-			<%= f.label :date %>
-			<%= date_select :movement, :date %><br>
-			<%= f.label :result %>
-			<%= f.text_field :result %><br>
-			<%= f.label :pr %>
-			<%= f.check_box :pr %><br>
-		<% end %>	
+		<%= f.label :name %>
+		<% names = Movement.all.map {|move| [move.name]} %>
+		<%= f.select :name, names, :prompt => "Select One" %><br>
+		<%= f.label :movement_type %>
+		<%= f.select :movement_type, ["time", "weight", "repetitions"], :prompt => "Select One" %><br>
+		<%= f.label :date %>
+		<%= date_select :movement, :date %><br>
+		<%= f.label :result %>
+		<%= f.text_field :result %><br>
+		<%= f.label :pr %>
+		<%= f.check_box :pr %><br>
 		<%= f.submit %>	
 	<% end %>	
 	

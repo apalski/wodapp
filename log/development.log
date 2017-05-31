@@ -7612,3 +7612,411 @@ Processing by MovementsController#create as HTML
   Rendered movements/_form.html.erb (6.3ms)
   Rendered movements/new.html.erb within layouts/application (8.2ms)
 Completed 200 OK in 17ms (Views: 12.8ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/movements" for ::1 at 2017-05-31 18:11:29 +1000
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by MovementsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wG20z9iRqVmEHbYw9/CzzJ7rvjI3l9F9E7WK+laNTffCpKBm5cNTwY5xIcY/hIQyupv65tHPiRUkrlHDZJeMnQ==", "movement"=>{"name"=>"Push Jerk", "date(1i)"=>"2017", "date(2i)"=>"5", "date(3i)"=>"31", "result"=>"65", "pr"=>"1"}, "commit"=>"Create Movement"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mMovement Load (0.3ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  Rendered movements/_form.html.erb (35.0ms)
+  Rendered movements/new.html.erb within layouts/application (45.0ms)
+Completed 200 OK in 519ms (Views: 64.0ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/movements/new" for ::1 at 2017-05-31 18:12:20 +1000
+Processing by MovementsController#new as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mMovement Load (0.2ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  Rendered movements/_form.html.erb (5.4ms)
+  Rendered movements/new.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 12ms (Views: 11.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/movements" for ::1 at 2017-05-31 18:12:38 +1000
+Processing by MovementsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OtiUYCEM8xcJhDQekgP0/K/7z7k8Tb//W/GU+yvWchg4EYDJHF4JjwPoo+had8MCi4uLbdoV55ds6k/CGcyzcg==", "movement"=>{"name"=>"Dead Lift", "movement_type"=>"weight", "date(1i)"=>"2017", "date(2i)"=>"5", "date(3i)"=>"31", "result"=>"105", "pr"=>"1"}, "commit"=>"Create Movement"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "movements" ("name", "result", "movement_type", "pr", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["name", "Dead Lift"], ["result", 105.0], ["movement_type", "weight"], ["pr", "t"], ["date", "2017-05-31"], ["created_at", "2017-05-31 08:12:38.585231"], ["updated_at", "2017-05-31 08:12:38.585231"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/movements/11
+Completed 302 Found in 8ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/movements/11" for ::1 at 2017-05-31 18:12:38 +1000
+Processing by MovementsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[35mMovement Load (0.2ms)[0m  SELECT  "movements".* FROM "movements" WHERE "movements"."id" = ? LIMIT 1  [["id", 11]]
+  Rendered movements/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 9ms (Views: 8.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/movements/11" for ::1 at 2017-05-31 18:13:27 +1000
+Processing by MovementsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT  "movements".* FROM "movements" WHERE "movements"."id" = ? LIMIT 1[0m  [["id", 11]]
+  Rendered movements/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 7ms (Views: 6.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/movements/11" for ::1 at 2017-05-31 18:15:18 +1000
+Processing by MovementsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[35mMovement Load (0.1ms)[0m  SELECT  "movements".* FROM "movements" WHERE "movements"."id" = ? LIMIT 1  [["id", 11]]
+  Rendered movements/_new.html.erb (32.9ms)
+  Rendered movements/show.html.erb within layouts/application (35.3ms)
+Completed 500 Internal Server Error in 40ms
+
+ActionView::Template::Error (undefined local variable or method `movement' for #<#<Class:0x007fe6f240ccf8>:0x007fe6f7b75648>
+Did you mean?  @movement):
+    1: 
+    2: 		<li>Movement: <%= movement.name %></li><br>
+    3: 		<li>Date Completed: <%= movement.date %></li><br>
+    4: 		<% if movement.movement_type == "time" %>
+    5: 			<li>Result Achieved: <%= movement.result %> minutes</li><br>
+  app/views/movements/_new.html.erb:2:in `_app_views_movements__new_html_erb__3643907849567963051_70314949403280'
+  app/views/movements/show.html.erb:4:in `_app_views_movements_show_html_erb___2052342807221468315_70314987575340'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.8ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (62.3ms)
+
+
+Started GET "/movements/11" for ::1 at 2017-05-31 18:16:14 +1000
+Processing by MovementsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT  "movements".* FROM "movements" WHERE "movements"."id" = ? LIMIT 1[0m  [["id", 11]]
+  Rendered movements/show.html.erb within layouts/application (25.1ms)
+Completed 500 Internal Server Error in 30ms
+
+ActionView::Template::Error (undefined local variable or method `movement' for #<#<Class:0x007fe6f240ccf8>:0x007fe6f79fc118>
+Did you mean?  @movement):
+    1: 
+    2: <h1>Your movement is: <%= @movement.name %></h1>
+    3: 
+    4: <%= render movement %>
+  app/views/movements/show.html.erb:4:in `_app_views_movements_show_html_erb___2052342807221468315_70314982389480'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.5ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (54.0ms)
+
+
+Started GET "/movements/11" for ::1 at 2017-05-31 18:17:20 +1000
+Processing by MovementsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[35mMovement Load (0.1ms)[0m  SELECT  "movements".* FROM "movements" WHERE "movements"."id" = ? LIMIT 1  [["id", 11]]
+  Rendered movements/show.html.erb within layouts/application (24.9ms)
+Completed 500 Internal Server Error in 33ms
+
+ActionView::Template::Error (undefined local variable or method `movement' for #<#<Class:0x007fe6f240ccf8>:0x007fe6f339d348>
+Did you mean?  @movement):
+    1: 
+    2: <h1>Your movement is: <%= @movement.name %></h1>
+    3: 
+    4: <%= render 'new', locals: {movement: movement} %>
+  app/views/movements/show.html.erb:4:in `_app_views_movements_show_html_erb___2052342807221468315_70314949869520'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (59.7ms)
+
+
+Started GET "/movements" for ::1 at 2017-05-31 18:17:52 +1000
+Processing by MovementsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered movements/_new.html.erb (35.4ms)
+  Rendered movements/index.html.erb within layouts/application (38.7ms)
+Completed 500 Internal Server Error in 45ms
+
+ActionView::Template::Error (undefined local variable or method `movement' for #<#<Class:0x007fe6f240ccf8>:0x007fe6f4808788>
+Did you mean?  movement_url
+               @movements):
+    1: 
+    2: 		<li>Movement: <%= movement.name %></li><br>
+    3: 		<li>Date Completed: <%= movement.date %></li><br>
+    4: 		<% if movement.movement_type == "time" %>
+    5: 			<li>Result Achieved: <%= movement.result %> minutes</li><br>
+  app/views/movements/_new.html.erb:2:in `_app_views_movements__new_html_erb__3643907849567963051_70314949403280'
+  app/views/movements/index.html.erb:6:in `block in _app_views_movements_index_html_erb___1154684931383961970_70314960619660'
+  app/views/movements/index.html.erb:5:in `_app_views_movements_index_html_erb___1154684931383961970_70314960619660'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.7ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (53.2ms)
+
+
+Started GET "/movements" for ::1 at 2017-05-31 18:17:55 +1000
+Processing by MovementsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered movements/_new.html.erb (32.7ms)
+  Rendered movements/index.html.erb within layouts/application (35.6ms)
+Completed 500 Internal Server Error in 42ms
+
+ActionView::Template::Error (undefined local variable or method `movement' for #<#<Class:0x007fe6f240ccf8>:0x007fe6f3247ed0>
+Did you mean?  movement_url
+               @movements):
+    1: 
+    2: 		<li>Movement: <%= movement.name %></li><br>
+    3: 		<li>Date Completed: <%= movement.date %></li><br>
+    4: 		<% if movement.movement_type == "time" %>
+    5: 			<li>Result Achieved: <%= movement.result %> minutes</li><br>
+  app/views/movements/_new.html.erb:2:in `_app_views_movements__new_html_erb__3643907849567963051_70314949403280'
+  app/views/movements/index.html.erb:6:in `block in _app_views_movements_index_html_erb___1154684931383961970_70314960619660'
+  app/views/movements/index.html.erb:5:in `_app_views_movements_index_html_erb___1154684931383961970_70314960619660'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (52.0ms)
+
+
+Started GET "/movements" for ::1 at 2017-05-31 18:19:07 +1000
+Processing by MovementsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mMovement Load (0.3ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered movements/index.html.erb within layouts/application (3.5ms)
+Completed 500 Internal Server Error in 10ms
+
+ActionView::Template::Error (wrong number of arguments (given 3, expected 0..2)):
+    3: 
+    4: <ul>
+    5: 	<% @movements.each do |movement| %>
+    6: 		<%= render 'new', :movement, movement %>
+    7: 	<% end %>	
+    8: </ul>
+  app/views/movements/index.html.erb:6:in `block in _app_views_movements_index_html_erb___1154684931383961970_70314950298200'
+  app/views/movements/index.html.erb:5:in `_app_views_movements_index_html_erb___1154684931383961970_70314950298200'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (53.8ms)
+
+
+Started GET "/movements" for ::1 at 2017-05-31 18:19:34 +1000
+Processing by MovementsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered movements/index.html.erb within layouts/application (0.6ms)
+Completed 500 Internal Server Error in 7ms
+
+SyntaxError (/Users/Annette/Dev/Rails/wodapp/app/views/movements/index.html.erb:6: syntax error, unexpected ','
+...nder 'new', locals: {movement:, movement} );@output_buffer.s...
+...                               ^
+/Users/Annette/Dev/Rails/wodapp/app/views/movements/index.html.erb:7: syntax error, unexpected keyword_end, expecting ')'
+'.freeze;	 end 	
+         	    ^
+/Users/Annette/Dev/Rails/wodapp/app/views/movements/index.html.erb:9: syntax error, unexpected keyword_ensure, expecting ')'
+/Users/Annette/Dev/Rails/wodapp/app/views/movements/index.html.erb:11: syntax error, unexpected keyword_end, expecting ')'):
+  app/views/movements/index.html.erb:6: syntax error, unexpected ','
+  app/views/movements/index.html.erb:7: syntax error, unexpected keyword_end, expecting ')'
+  app/views/movements/index.html.erb:9: syntax error, unexpected keyword_ensure, expecting ')'
+  app/views/movements/index.html.erb:11: syntax error, unexpected keyword_end, expecting ')'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (54.6ms)
+
+
+Started GET "/movements" for ::1 at 2017-05-31 18:21:10 +1000
+Processing by MovementsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mMovement Load (0.3ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  Rendered movements/_new.html.erb (36.8ms)
+  Rendered movements/index.html.erb within layouts/application (40.1ms)
+Completed 500 Internal Server Error in 47ms
+
+ActionView::Template::Error (undefined local variable or method `movement' for #<#<Class:0x007fe6f240ccf8>:0x007fe6f245f9a8>
+Did you mean?  movement_url
+               @movements):
+    1: 
+    2: 		<li>Movement: <%= movement.name %></li><br>
+    3: 		<li>Date Completed: <%= movement.date %></li><br>
+    4: 		<% if movement.movement_type == "time" %>
+    5: 			<li>Result Achieved: <%= movement.result %> minutes</li><br>
+  app/views/movements/_new.html.erb:2:in `_app_views_movements__new_html_erb__3643907849567963051_70314949403280'
+  app/views/movements/index.html.erb:6:in `block in _app_views_movements_index_html_erb___1154684931383961970_70314941935340'
+  app/views/movements/index.html.erb:5:in `_app_views_movements_index_html_erb___1154684931383961970_70314941935340'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (51.2ms)
+
+
+Started GET "/movements" for ::1 at 2017-05-31 18:22:47 +1000
+Processing by MovementsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mMovement Load (0.4ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  Rendered movements/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 8ms (Views: 6.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/movements" for ::1 at 2017-05-31 18:24:13 +1000
+Processing by MovementsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered movements/index.html.erb within layouts/application (0.7ms)
+Completed 500 Internal Server Error in 7ms
+
+SyntaxError (/Users/Annette/Dev/Rails/wodapp/app/views/movements/index.html.erb:6: syntax error, unexpected ','
+...nder 'new', locals: {movement:, @movement} );@output_buffer....
+...                               ^
+/Users/Annette/Dev/Rails/wodapp/app/views/movements/index.html.erb:7: syntax error, unexpected keyword_end, expecting ')'
+'.freeze;	 end 	
+         	    ^
+/Users/Annette/Dev/Rails/wodapp/app/views/movements/index.html.erb:9: syntax error, unexpected keyword_ensure, expecting ')'
+/Users/Annette/Dev/Rails/wodapp/app/views/movements/index.html.erb:11: syntax error, unexpected keyword_end, expecting ')'):
+  app/views/movements/index.html.erb:6: syntax error, unexpected ','
+  app/views/movements/index.html.erb:7: syntax error, unexpected keyword_end, expecting ')'
+  app/views/movements/index.html.erb:9: syntax error, unexpected keyword_ensure, expecting ')'
+  app/views/movements/index.html.erb:11: syntax error, unexpected keyword_end, expecting ')'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.8ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (61.6ms)
+
+
+Started GET "/movements" for ::1 at 2017-05-31 18:25:14 +1000
+Processing by MovementsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered movements/index.html.erb within layouts/application (0.5ms)
+Completed 500 Internal Server Error in 7ms
+
+SyntaxError (/Users/Annette/Dev/Rails/wodapp/app/views/movements/index.html.erb:6: syntax error, unexpected tIDENTIFIER, expecting =>
+...w', locals: {@movement movement} );@output_buffer.safe_appen...
+...                               ^
+/Users/Annette/Dev/Rails/wodapp/app/views/movements/index.html.erb:7: syntax error, unexpected keyword_end, expecting ')'
+'.freeze;	 end 	
+         	    ^
+/Users/Annette/Dev/Rails/wodapp/app/views/movements/index.html.erb:9: syntax error, unexpected keyword_ensure, expecting ')'
+/Users/Annette/Dev/Rails/wodapp/app/views/movements/index.html.erb:11: syntax error, unexpected keyword_end, expecting ')'):
+  app/views/movements/index.html.erb:6: syntax error, unexpected tIDENTIFIER, expecting =>
+  app/views/movements/index.html.erb:7: syntax error, unexpected keyword_end, expecting ')'
+  app/views/movements/index.html.erb:9: syntax error, unexpected keyword_ensure, expecting ')'
+  app/views/movements/index.html.erb:11: syntax error, unexpected keyword_end, expecting ')'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.7ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (51.9ms)
+
+
+Started GET "/movements" for ::1 at 2017-05-31 18:26:39 +1000
+Processing by MovementsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered movements/index.html.erb within layouts/application (0.4ms)
+Completed 500 Internal Server Error in 6ms
+
+SyntaxError (/Users/Annette/Dev/Rails/wodapp/app/views/movements/index.html.erb:5: formal argument cannot be an instance variable
+'.freeze;	 @movements.each do |@movement| 
+         	                              ^):
+  app/views/movements/index.html.erb:5: formal argument cannot be an instance variable
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (57.4ms)
+
+
+Started GET "/movements" for ::1 at 2017-05-31 18:27:12 +1000
+Processing by MovementsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered movements/_new.html.erb (35.3ms)
+  Rendered movements/index.html.erb within layouts/application (38.4ms)
+Completed 500 Internal Server Error in 45ms
+
+ActionView::Template::Error (undefined local variable or method `movement' for #<#<Class:0x007fe6f240ccf8>:0x007fe6f21bdda8>
+Did you mean?  movement_url
+               @movements):
+    1: 
+    2: 		<li>Movement: <%= movement.name %></li><br>
+    3: 		<li>Date Completed: <%= movement.date %></li><br>
+    4: 		<% if movement.movement_type == "time" %>
+    5: 			<li>Result Achieved: <%= movement.result %> minutes</li><br>
+  app/views/movements/_new.html.erb:2:in `_app_views_movements__new_html_erb__3643907849567963051_70314940467220'
+  app/views/movements/index.html.erb:6:in `block in _app_views_movements_index_html_erb___1154684931383961970_70314940545920'
+  app/views/movements/index.html.erb:5:in `_app_views_movements_index_html_erb___1154684931383961970_70314940545920'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (10.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (59.8ms)
+
+
+Started GET "/movements/1" for ::1 at 2017-05-31 18:28:23 +1000
+Processing by MovementsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT  "movements".* FROM "movements" WHERE "movements"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered movements/_new.html.erb (22.9ms)
+  Rendered movements/show.html.erb within layouts/application (25.6ms)
+Completed 500 Internal Server Error in 32ms
+
+ActionView::Template::Error (undefined local variable or method `movement' for #<#<Class:0x007fe6f240ccf8>:0x007fe6f2465df8>
+Did you mean?  @movement):
+    1: 
+    2: 		<li>Movement: <%= movement.name %></li><br>
+    3: 		<li>Date Completed: <%= movement.date %></li><br>
+    4: 		<% if movement.movement_type == "time" %>
+    5: 			<li>Result Achieved: <%= movement.result %> minutes</li><br>
+  app/views/movements/_new.html.erb:2:in `_app_views_movements__new_html_erb__3643907849567963051_70314940467220'
+  app/views/movements/show.html.erb:4:in `_app_views_movements_show_html_erb___2052342807221468315_70314941949200'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (56.2ms)
+
+
+Started GET "/movements/1" for ::1 at 2017-05-31 18:29:10 +1000
+Processing by MovementsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mMovement Load (0.2ms)[0m  SELECT  "movements".* FROM "movements" WHERE "movements"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered movements/_new.html.erb (0.6ms)
+  Rendered movements/show.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 8ms (Views: 7.5ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/movements" for ::1 at 2017-05-31 18:29:44 +1000
+Processing by MovementsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OtiUYCEM8xcJhDQekgP0/K/7z7k8Tb//W/GU+yvWchg4EYDJHF4JjwPoo+had8MCi4uLbdoV55ds6k/CGcyzcg==", "movement"=>{"name"=>"Dead Lift", "movement_type"=>"weight", "date(1i)"=>"2017", "date(2i)"=>"5", "date(3i)"=>"31", "result"=>"105", "pr"=>"1"}, "commit"=>"Create Movement"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "movements" ("name", "result", "movement_type", "pr", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Dead Lift"], ["result", 105.0], ["movement_type", "weight"], ["pr", "t"], ["date", "2017-05-31"], ["created_at", "2017-05-31 08:29:44.775696"], ["updated_at", "2017-05-31 08:29:44.775696"]]
+  [1m[35m (1.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/movements/12
+Completed 302 Found in 5ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/movements/12" for ::1 at 2017-05-31 18:29:44 +1000
+Processing by MovementsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT  "movements".* FROM "movements" WHERE "movements"."id" = ? LIMIT 1[0m  [["id", 12]]
+  Rendered movements/_new.html.erb (0.1ms)
+  Rendered movements/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 8ms (Views: 7.8ms | ActiveRecord: 0.1ms)

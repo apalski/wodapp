@@ -1,5 +1,4 @@
 
-<h1>The new movement is: </h1>
+<h1>Your movement is: <%= @movement.name %></h1>
 
-<h2><%= @movement.name %></h2>
-<h2>It is done for <%= @movement.movement_type %></h2>
+<%= render 'new', movement: @movement %>
