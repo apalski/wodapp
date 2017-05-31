@@ -3045,3 +3045,32 @@ ActionView::Template::Error (undefined method `role' for nil:NilClass):
   Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
   Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
   Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (49.3ms)
+
+
+Started GET "/sessions/new" for ::1 at 2017-05-31 10:44:21 +1000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#new as HTML
+  Rendered sessions/_form.html.erb (0.4ms)
+  Rendered sessions/new.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 29ms (Views: 28.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2017-05-31 10:44:45 +1000
+Processing by UsersController#new as HTML
+  Rendered sessions/_form.html.erb (0.0ms)
+  Rendered users/new.html.erb within layouts/application (418.1ms)
+Completed 200 OK in 451ms (Views: 426.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/new" for ::1 at 2017-05-31 10:45:06 +1000
+Processing by UsersController#new as HTML
+  Rendered sessions/_form.html.erb (0.4ms)
+  Rendered users/new.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 11ms (Views: 10.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2017-05-31 10:45:23 +1000
+Processing by UsersController#new as HTML
+  Rendered sessions/_form.html.erb (0.0ms)
+  Rendered users/new.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 10ms (Views: 9.7ms | ActiveRecord: 0.0ms)
