@@ -41,7 +41,7 @@ class WodsController < ApplicationController
 	end
 
 	def wod_params
-		params.require(:wod).permit(:name, :date, :result, :type, :pr)
+		params.require(:wod).permit(:name, :date, :result, :wod_type, :pr)
 	end
 
 	

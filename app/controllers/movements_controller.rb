@@ -7,9 +7,12 @@ class MovementsController < ApplicationController
 
 	def new
 		@movement = Movement.new
+		@moves = Movement.all
+		@user = current_user
 	end
 
 	def create
+		@user = current_user
 		@movement = Movement.new(movement_params)
 		if @movement.save
 			redirect_to movement_path(@movement)
@@ -42,6 +45,6 @@ class MovementsController < ApplicationController
 	end
 
 	def movement_params
-		params.require(:movement).permit(:name, :date, :result, :type, :pr)
+		params.require(:movement).permit(:name, :date, :result, :movement_type, :pr)
 	end
 end
