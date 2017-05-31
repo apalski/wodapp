@@ -4445,3 +4445,1567 @@ Did you mean?  logout_path):
   Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
   Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
   Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (58.1ms)
+
+
+Started GET "/logout" for ::1 at 2017-05-31 11:54:44 +1000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 14ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-05-31 11:54:44 +1000
+Processing by ApplicationController#welcome as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Redirected to http://localhost:3000/sessions/new
+Completed 302 Found in 23ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/sessions/new" for ::1 at 2017-05-31 11:54:44 +1000
+Processing by SessionsController#new as HTML
+  Rendered sessions/_form.html.erb (0.6ms)
+  Rendered sessions/new.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 26ms (Views: 26.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2017-05-31 11:56:01 +1000
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Max Charles", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."name" = ? LIMIT 1[0m  [["name", "Max Charles"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 101ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2017-05-31 11:56:01 +1000
+Processing by ApplicationController#welcome as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Redirected to http://localhost:3000/sessions/new
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/sessions/new" for ::1 at 2017-05-31 11:56:01 +1000
+Processing by SessionsController#new as HTML
+  Rendered sessions/_form.html.erb (0.1ms)
+  Rendered sessions/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 11ms (Views: 10.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2017-05-31 11:57:26 +1000
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Max Charles", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."name" = ? LIMIT 1[0m  [["name", "Max Charles"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 87ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/" for ::1 at 2017-05-31 11:57:26 +1000
+Processing by ApplicationController#welcome as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Redirected to http://localhost:3000/sessions/new
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/sessions/new" for ::1 at 2017-05-31 11:57:26 +1000
+Processing by SessionsController#new as HTML
+  Rendered sessions/_form.html.erb (0.0ms)
+  Rendered sessions/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 10ms (Views: 9.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2017-05-31 11:58:04 +1000
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Max Charles", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity
+Completed 422 Unprocessable Entity in 0ms
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  actionpack (4.2.0) lib/action_controller/metal/request_forgery_protection.rb:181:in `handle_unverified_request'
+  actionpack (4.2.0) lib/action_controller/metal/request_forgery_protection.rb:209:in `handle_unverified_request'
+  actionpack (4.2.0) lib/action_controller/metal/request_forgery_protection.rb:204:in `verify_authenticity_token'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:427:in `block in make_lambda'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:163:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_process_action_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal.rb:236:in `block in action'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:42:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  rack (1.6.5) lib/rack/etag.rb:24:in `call'
+  rack (1.6.5) lib/rack/conditionalget.rb:38:in `call'
+  rack (1.6.5) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.5) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.5) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  thin (1.7.0) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.7.0) lib/thin/connection.rb:84:in `catch'
+  thin (1.7.0) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.7.0) lib/thin/connection.rb:53:in `process'
+  thin (1.7.0) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.2.3) lib/eventmachine.rb:194:in `run_machine'
+  eventmachine (1.2.3) lib/eventmachine.rb:194:in `run'
+  thin (1.7.0) lib/thin/backends/base.rb:73:in `start'
+  thin (1.7.0) lib/thin/server.rb:162:in `start'
+  rack (1.6.5) lib/rack/handler/thin.rb:19:in `run'
+  rack (1.6.5) lib/rack/server.rb:286:in `start'
+  railties (4.2.0) lib/rails/commands/server.rb:80:in `start'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:80:in `block in server'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:75:in `tap'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:75:in `server'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+  railties (4.2.0) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:8:in `require'
+  bin/rails:8:in `<main>'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (63.3ms)
+
+
+Started POST "/sessions" for ::1 at 2017-05-31 11:59:34 +1000
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Max Charles", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity
+Completed 422 Unprocessable Entity in 0ms
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  actionpack (4.2.0) lib/action_controller/metal/request_forgery_protection.rb:181:in `handle_unverified_request'
+  actionpack (4.2.0) lib/action_controller/metal/request_forgery_protection.rb:209:in `handle_unverified_request'
+  actionpack (4.2.0) lib/action_controller/metal/request_forgery_protection.rb:204:in `verify_authenticity_token'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:427:in `block in make_lambda'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:163:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_process_action_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal.rb:236:in `block in action'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:42:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  rack (1.6.5) lib/rack/etag.rb:24:in `call'
+  rack (1.6.5) lib/rack/conditionalget.rb:38:in `call'
+  rack (1.6.5) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.5) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.5) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  thin (1.7.0) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.7.0) lib/thin/connection.rb:84:in `catch'
+  thin (1.7.0) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.7.0) lib/thin/connection.rb:53:in `process'
+  thin (1.7.0) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.2.3) lib/eventmachine.rb:194:in `run_machine'
+  eventmachine (1.2.3) lib/eventmachine.rb:194:in `run'
+  thin (1.7.0) lib/thin/backends/base.rb:73:in `start'
+  thin (1.7.0) lib/thin/server.rb:162:in `start'
+  rack (1.6.5) lib/rack/handler/thin.rb:19:in `run'
+  rack (1.6.5) lib/rack/server.rb:286:in `start'
+  railties (4.2.0) lib/rails/commands/server.rb:80:in `start'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:80:in `block in server'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:75:in `tap'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:75:in `server'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+  railties (4.2.0) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:8:in `require'
+  bin/rails:8:in `<main>'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (54.9ms)
+
+
+Started POST "/sessions" for ::1 at 2017-05-31 12:00:01 +1000
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Max Charles", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity
+Completed 422 Unprocessable Entity in 1ms
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  actionpack (4.2.0) lib/action_controller/metal/request_forgery_protection.rb:181:in `handle_unverified_request'
+  actionpack (4.2.0) lib/action_controller/metal/request_forgery_protection.rb:209:in `handle_unverified_request'
+  actionpack (4.2.0) lib/action_controller/metal/request_forgery_protection.rb:204:in `verify_authenticity_token'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:427:in `block in make_lambda'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:163:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_process_action_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal.rb:236:in `block in action'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:42:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  rack (1.6.5) lib/rack/etag.rb:24:in `call'
+  rack (1.6.5) lib/rack/conditionalget.rb:38:in `call'
+  rack (1.6.5) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.5) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.5) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  thin (1.7.0) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.7.0) lib/thin/connection.rb:84:in `catch'
+  thin (1.7.0) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.7.0) lib/thin/connection.rb:53:in `process'
+  thin (1.7.0) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.2.3) lib/eventmachine.rb:194:in `run_machine'
+  eventmachine (1.2.3) lib/eventmachine.rb:194:in `run'
+  thin (1.7.0) lib/thin/backends/base.rb:73:in `start'
+  thin (1.7.0) lib/thin/server.rb:162:in `start'
+  rack (1.6.5) lib/rack/handler/thin.rb:19:in `run'
+  rack (1.6.5) lib/rack/server.rb:286:in `start'
+  railties (4.2.0) lib/rails/commands/server.rb:80:in `start'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:80:in `block in server'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:75:in `tap'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:75:in `server'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+  railties (4.2.0) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:8:in `require'
+  bin/rails:8:in `<main>'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.7ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (55.3ms)
+
+
+Started POST "/sessions" for ::1 at 2017-05-31 12:02:47 +1000
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Max Charles", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity
+Completed 500 Internal Server Error in 5ms
+
+NoMethodError (undefined method `[]' for nil:NilClass):
+  app/controllers/sessions_controller.rb:9:in `create'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (50.4ms)
+
+
+Started POST "/sessions" for ::1 at 2017-05-31 12:03:08 +1000
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Max Charles", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."name" = ? LIMIT 1[0m  [["name", "Max Charles"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 90ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2017-05-31 12:03:08 +1000
+Processing by ApplicationController#welcome as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Redirected to http://localhost:3000/sessions/new
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/sessions/new" for ::1 at 2017-05-31 12:03:08 +1000
+Processing by SessionsController#new as HTML
+  Rendered sessions/_form.html.erb (0.1ms)
+  Rendered sessions/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 10ms (Views: 10.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2017-05-31 13:20:20 +1000
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Max Charles", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity
+Completed 422 Unprocessable Entity in 1ms
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  actionpack (4.2.0) lib/action_controller/metal/request_forgery_protection.rb:181:in `handle_unverified_request'
+  actionpack (4.2.0) lib/action_controller/metal/request_forgery_protection.rb:209:in `handle_unverified_request'
+  actionpack (4.2.0) lib/action_controller/metal/request_forgery_protection.rb:204:in `verify_authenticity_token'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:427:in `block in make_lambda'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:163:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_process_action_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal.rb:236:in `block in action'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:42:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  rack (1.6.5) lib/rack/etag.rb:24:in `call'
+  rack (1.6.5) lib/rack/conditionalget.rb:38:in `call'
+  rack (1.6.5) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.5) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.5) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  thin (1.7.0) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.7.0) lib/thin/connection.rb:84:in `catch'
+  thin (1.7.0) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.7.0) lib/thin/connection.rb:53:in `process'
+  thin (1.7.0) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.2.3) lib/eventmachine.rb:194:in `run_machine'
+  eventmachine (1.2.3) lib/eventmachine.rb:194:in `run'
+  thin (1.7.0) lib/thin/backends/base.rb:73:in `start'
+  thin (1.7.0) lib/thin/server.rb:162:in `start'
+  rack (1.6.5) lib/rack/handler/thin.rb:19:in `run'
+  rack (1.6.5) lib/rack/server.rb:286:in `start'
+  railties (4.2.0) lib/rails/commands/server.rb:80:in `start'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:80:in `block in server'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:75:in `tap'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:75:in `server'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+  railties (4.2.0) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:8:in `require'
+  bin/rails:8:in `<main>'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (59.6ms)
+
+
+Started POST "/sessions" for ::1 at 2017-05-31 13:22:00 +1000
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Max Charles", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity
+Completed 422 Unprocessable Entity in 1ms
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  actionpack (4.2.0) lib/action_controller/metal/request_forgery_protection.rb:181:in `handle_unverified_request'
+  actionpack (4.2.0) lib/action_controller/metal/request_forgery_protection.rb:209:in `handle_unverified_request'
+  actionpack (4.2.0) lib/action_controller/metal/request_forgery_protection.rb:204:in `verify_authenticity_token'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:427:in `block in make_lambda'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:163:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_process_action_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal.rb:236:in `block in action'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:42:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  rack (1.6.5) lib/rack/etag.rb:24:in `call'
+  rack (1.6.5) lib/rack/conditionalget.rb:38:in `call'
+  rack (1.6.5) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.5) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.5) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  thin (1.7.0) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.7.0) lib/thin/connection.rb:84:in `catch'
+  thin (1.7.0) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.7.0) lib/thin/connection.rb:53:in `process'
+  thin (1.7.0) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.2.3) lib/eventmachine.rb:194:in `run_machine'
+  eventmachine (1.2.3) lib/eventmachine.rb:194:in `run'
+  thin (1.7.0) lib/thin/backends/base.rb:73:in `start'
+  thin (1.7.0) lib/thin/server.rb:162:in `start'
+  rack (1.6.5) lib/rack/handler/thin.rb:19:in `run'
+  rack (1.6.5) lib/rack/server.rb:286:in `start'
+  railties (4.2.0) lib/rails/commands/server.rb:80:in `start'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:80:in `block in server'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:75:in `tap'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:75:in `server'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+  railties (4.2.0) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:8:in `require'
+  bin/rails:8:in `<main>'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (55.7ms)
+
+
+Started POST "/sessions" for ::1 at 2017-05-31 13:23:23 +1000
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Max Charles", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity
+Completed 422 Unprocessable Entity in 1ms
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  actionpack (4.2.0) lib/action_controller/metal/request_forgery_protection.rb:181:in `handle_unverified_request'
+  actionpack (4.2.0) lib/action_controller/metal/request_forgery_protection.rb:209:in `handle_unverified_request'
+  actionpack (4.2.0) lib/action_controller/metal/request_forgery_protection.rb:204:in `verify_authenticity_token'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:427:in `block in make_lambda'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:163:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_process_action_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal.rb:236:in `block in action'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:42:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  rack (1.6.5) lib/rack/etag.rb:24:in `call'
+  rack (1.6.5) lib/rack/conditionalget.rb:38:in `call'
+  rack (1.6.5) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.5) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.5) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  thin (1.7.0) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.7.0) lib/thin/connection.rb:84:in `catch'
+  thin (1.7.0) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.7.0) lib/thin/connection.rb:53:in `process'
+  thin (1.7.0) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.2.3) lib/eventmachine.rb:194:in `run_machine'
+  eventmachine (1.2.3) lib/eventmachine.rb:194:in `run'
+  thin (1.7.0) lib/thin/backends/base.rb:73:in `start'
+  thin (1.7.0) lib/thin/server.rb:162:in `start'
+  rack (1.6.5) lib/rack/handler/thin.rb:19:in `run'
+  rack (1.6.5) lib/rack/server.rb:286:in `start'
+  railties (4.2.0) lib/rails/commands/server.rb:80:in `start'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:80:in `block in server'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:75:in `tap'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:75:in `server'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+  railties (4.2.0) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:8:in `require'
+  bin/rails:8:in `<main>'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (49.0ms)
+
+
+Started POST "/sessions" for ::1 at 2017-05-31 13:24:10 +1000
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Max Charles", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity
+Completed 422 Unprocessable Entity in 0ms
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  actionpack (4.2.0) lib/action_controller/metal/request_forgery_protection.rb:181:in `handle_unverified_request'
+  actionpack (4.2.0) lib/action_controller/metal/request_forgery_protection.rb:209:in `handle_unverified_request'
+  actionpack (4.2.0) lib/action_controller/metal/request_forgery_protection.rb:204:in `verify_authenticity_token'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:427:in `block in make_lambda'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:163:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_process_action_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal.rb:236:in `block in action'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:42:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  rack (1.6.5) lib/rack/etag.rb:24:in `call'
+  rack (1.6.5) lib/rack/conditionalget.rb:38:in `call'
+  rack (1.6.5) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.5) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.5) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  thin (1.7.0) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.7.0) lib/thin/connection.rb:84:in `catch'
+  thin (1.7.0) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.7.0) lib/thin/connection.rb:53:in `process'
+  thin (1.7.0) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.2.3) lib/eventmachine.rb:194:in `run_machine'
+  eventmachine (1.2.3) lib/eventmachine.rb:194:in `run'
+  thin (1.7.0) lib/thin/backends/base.rb:73:in `start'
+  thin (1.7.0) lib/thin/server.rb:162:in `start'
+  rack (1.6.5) lib/rack/handler/thin.rb:19:in `run'
+  rack (1.6.5) lib/rack/server.rb:286:in `start'
+  railties (4.2.0) lib/rails/commands/server.rb:80:in `start'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:80:in `block in server'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:75:in `tap'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:75:in `server'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+  railties (4.2.0) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:8:in `require'
+  bin/rails:8:in `<main>'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.6ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (50.9ms)
+
+
+Started POST "/sessions" for ::1 at 2017-05-31 13:25:18 +1000
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Quvenzhané Wallis", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity
+Completed 422 Unprocessable Entity in 0ms
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  actionpack (4.2.0) lib/action_controller/metal/request_forgery_protection.rb:181:in `handle_unverified_request'
+  actionpack (4.2.0) lib/action_controller/metal/request_forgery_protection.rb:209:in `handle_unverified_request'
+  actionpack (4.2.0) lib/action_controller/metal/request_forgery_protection.rb:204:in `verify_authenticity_token'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:427:in `block in make_lambda'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:163:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_process_action_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal.rb:236:in `block in action'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:42:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  rack (1.6.5) lib/rack/etag.rb:24:in `call'
+  rack (1.6.5) lib/rack/conditionalget.rb:38:in `call'
+  rack (1.6.5) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.5) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.5) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  thin (1.7.0) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.7.0) lib/thin/connection.rb:84:in `catch'
+  thin (1.7.0) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.7.0) lib/thin/connection.rb:53:in `process'
+  thin (1.7.0) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.2.3) lib/eventmachine.rb:194:in `run_machine'
+  eventmachine (1.2.3) lib/eventmachine.rb:194:in `run'
+  thin (1.7.0) lib/thin/backends/base.rb:73:in `start'
+  thin (1.7.0) lib/thin/server.rb:162:in `start'
+  rack (1.6.5) lib/rack/handler/thin.rb:19:in `run'
+  rack (1.6.5) lib/rack/server.rb:286:in `start'
+  railties (4.2.0) lib/rails/commands/server.rb:80:in `start'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:80:in `block in server'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:75:in `tap'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:75:in `server'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+  railties (4.2.0) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:8:in `require'
+  bin/rails:8:in `<main>'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (54.1ms)
+
+
+Started POST "/sessions" for ::1 at 2017-05-31 13:28:09 +1000
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Quvenzhané Wallis", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."name" = ? LIMIT 1[0m  [["name", "Quvenzhané Wallis"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 10ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2017-05-31 13:28:09 +1000
+Processing by ApplicationController#welcome as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Redirected to http://localhost:3000/sessions/new
+Completed 302 Found in 1ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/sessions/new" for ::1 at 2017-05-31 13:28:09 +1000
+Processing by SessionsController#new as HTML
+  Rendered sessions/_form.html.erb (0.1ms)
+  Rendered sessions/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 11ms (Views: 10.7ms | ActiveRecord: 0.0ms)
+  [1m[36m (1.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (0.9ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateUsers (20170529044413)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "password_digest" varchar, "role" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170529044413"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+Migrating to CreateMovements (20170529044428)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "movements" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "date" date, "movement_type" varchar, "result" float, "pr" boolean DEFAULT 'f', "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170529044428"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+Migrating to CreateWods (20170529044438)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  CREATE TABLE "wods" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "date" date, "wod_type" varchar, "result" float, "pr" boolean DEFAULT 'f', "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170529044438"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+Migrating to CreateMoveWods (20170529044453)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.3ms)[0m  CREATE TABLE "move_wods" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "movement_id" integer, "wod_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170529044453"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."name" = 'Max Charles' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'max@gmail.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("role", "name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["role", 1], ["name", "Max Charles"], ["email", "max@gmail.com"], ["password_digest", "$2a$10$eMbIBol8YkRfoYckB9UAX.fi42xdt51R/7v.rVkg3kszNso4dQvGy"], ["created_at", "2017-05-31 03:29:18.213517"], ["updated_at", "2017-05-31 03:29:18.213517"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."name" = 'Skai Jackson' LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'skai@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("role", "name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["role", 0], ["name", "Skai Jackson"], ["email", "skai@gmail.com"], ["password_digest", "$2a$10$y5X83X68ZoAdN1sBL5bP8OmZ9iPY0vaQJErxQZYLNcVa0RctmY43a"], ["created_at", "2017-05-31 03:29:18.303554"], ["updated_at", "2017-05-31 03:29:18.303554"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."name" = 'Kaleo Elam' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'kaleo@gmail.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("role", "name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["role", 0], ["name", "Kaleo Elam"], ["email", "kaleo@gmail.com"], ["password_digest", "$2a$10$RhTw1eVKjHjK.z9Qyq0G2uXxF/4/IZtf9wfPmNMSXELonI6ssnfka"], ["created_at", "2017-05-31 03:29:18.384495"], ["updated_at", "2017-05-31 03:29:18.384495"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."name" = 'Megan Charpentier' LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'megan@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("role", "name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["role", 0], ["name", "Megan Charpentier"], ["email", "megan@gmail.com"], ["password_digest", "$2a$10$36chNJv7dMUfGvozwYABIO7RX2paFtUq8RnsCPIel/9No/Bg1HLGK"], ["created_at", "2017-05-31 03:29:18.470556"], ["updated_at", "2017-05-31 03:29:18.470556"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."name" = 'Hayden Byerly' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'hayden@gmail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("role", "name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["role", 0], ["name", "Hayden Byerly"], ["email", "hayden@gmail.com"], ["password_digest", "$2a$10$zrcmgE140nQUNVVPySn5HOyfp4XW.2D6pS77b2Jr7d0TMdINEcHQi"], ["created_at", "2017-05-31 03:29:18.557345"], ["updated_at", "2017-05-31 03:29:18.557345"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."name" = 'Tenzing Norgay Trainor' LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'tenzing@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("role", "name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["role", 0], ["name", "Tenzing Norgay Trainor"], ["email", "tenzing@gmail.com"], ["password_digest", "$2a$10$NdJidVApDNj4z7NPe1lkkOgy6JmS3Roz5RANfr5luPRWTvRg0hXn6"], ["created_at", "2017-05-31 03:29:18.628449"], ["updated_at", "2017-05-31 03:29:18.628449"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."name" = 'Davis Cleveland' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'davis@gmail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("role", "name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["role", 0], ["name", "Davis Cleveland"], ["email", "davis@gmail.com"], ["password_digest", "$2a$10$iFZK3ZD97/N3MVWPoBc6juEYcCxjU3g5PgFRCX3kfoNd7G0WgYmyy"], ["created_at", "2017-05-31 03:29:18.704066"], ["updated_at", "2017-05-31 03:29:18.704066"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."name" = 'Cole Sand' LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'cole@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("role", "name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["role", 0], ["name", "Cole Sand"], ["email", "cole@gmail.com"], ["password_digest", "$2a$10$ce7qiVI6qOfvqlMaS.gJ8eW3mzTtL62/jPGbD9LiK6OORwmkQNkZu"], ["created_at", "2017-05-31 03:29:18.784684"], ["updated_at", "2017-05-31 03:29:18.784684"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."name" = 'Quvenzhané Wallis' LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'quv@gmail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("role", "name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["role", 1], ["name", "Quvenzhané Wallis"], ["email", "quv@gmail.com"], ["password_digest", "$2a$10$cULVsSpxGECuVWxP1lFqpuw9gX2bBnILd/j2yIL.cc6ZCHye5qBBi"], ["created_at", "2017-05-31 03:29:18.861379"], ["updated_at", "2017-05-31 03:29:18.861379"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Dead Lift' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "movements" ("name", "date", "movement_type", "result", "pr", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Dead Lift"], ["date", "2017-05-31"], ["movement_type", "weight"], ["result", 100.0], ["pr", "t"], ["created_at", "2017-05-31 03:29:18.887271"], ["updated_at", "2017-05-31 03:29:18.887271"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.2ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Clean & Jerk' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "movements" ("name", "date", "movement_type", "result", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Clean & Jerk"], ["date", "2017-05-31"], ["movement_type", "weight"], ["result", 45.0], ["created_at", "2017-05-31 03:29:18.891251"], ["updated_at", "2017-05-31 03:29:18.891251"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.2ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Push Jerk' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "movements" ("name", "date", "movement_type", "result", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Push Jerk"], ["date", "2017-05-31"], ["movement_type", "weight"], ["result", 38.0], ["created_at", "2017-05-31 03:29:18.895118"], ["updated_at", "2017-05-31 03:29:18.895118"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Push Press' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "movements" ("name", "date", "movement_type", "result", "pr", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Push Press"], ["date", "2017-05-31"], ["movement_type", "weight"], ["result", 35.0], ["pr", "t"], ["created_at", "2017-05-31 03:29:18.898830"], ["updated_at", "2017-05-31 03:29:18.898830"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Snatch' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "movements" ("name", "date", "movement_type", "result", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Snatch"], ["date", "2017-05-31"], ["movement_type", "weight"], ["result", 33.0], ["created_at", "2017-05-31 03:29:18.902662"], ["updated_at", "2017-05-31 03:29:18.902662"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = '400m Run' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "movements" ("name", "date", "movement_type", "result", "pr", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "400m Run"], ["date", "2017-05-31"], ["movement_type", "time"], ["result", 1.36], ["pr", "t"], ["created_at", "2017-05-31 03:29:18.905457"], ["updated_at", "2017-05-31 03:29:18.905457"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Burpees' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "movements" ("name", "date", "movement_type", "result", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Burpees"], ["date", "2017-05-31"], ["movement_type", "repetitions"], ["result", 35.0], ["created_at", "2017-05-31 03:29:18.908107"], ["updated_at", "2017-05-31 03:29:18.908107"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.2ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Air Squats' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "movements" ("name", "date", "movement_type", "result", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Air Squats"], ["date", "2017-05-31"], ["movement_type", "repetitions"], ["result", 50.0], ["created_at", "2017-05-31 03:29:18.911303"], ["updated_at", "2017-05-31 03:29:18.911303"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Box Jumps' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "movements" ("name", "date", "movement_type", "result", "pr", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Box Jumps"], ["date", "2017-05-31"], ["movement_type", "repetitions"], ["result", 25.0], ["pr", "t"], ["created_at", "2017-05-31 03:29:18.914507"], ["updated_at", "2017-05-31 03:29:18.914507"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mWod Exists (0.1ms)[0m  SELECT  1 AS one FROM "wods" WHERE "wods"."name" = 'Helen' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mWod Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "wods" WHERE "wods"."name" = 'Grace' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mWod Exists (0.1ms)[0m  SELECT  1 AS one FROM "wods" WHERE "wods"."name" = 'Dead Lift Day' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mWod Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "wods" WHERE "wods"."name" = 'Murph' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mWod Exists (0.1ms)[0m  SELECT  1 AS one FROM "wods" WHERE "wods"."name" = 'Karen' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+
+
+Started POST "/sessions" for ::1 at 2017-05-31 13:29:36 +1000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Max Charles", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."name" = ? LIMIT 1  [["name", "Max Charles"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 29ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2017-05-31 13:29:36 +1000
+Processing by ApplicationController#welcome as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Redirected to http://localhost:3000/sessions/new
+Completed 302 Found in 12ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/sessions/new" for ::1 at 2017-05-31 13:29:36 +1000
+Processing by SessionsController#new as HTML
+  Rendered sessions/_form.html.erb (0.4ms)
+  Rendered sessions/new.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 31ms (Views: 31.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2017-05-31 13:33:45 +1000
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Max Charles", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."name" = ? LIMIT 1  [["name", "Max Charles"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 9ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2017-05-31 13:33:45 +1000
+Processing by ApplicationController#welcome as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Redirected to http://localhost:3000/sessions/new
+Completed 302 Found in 1ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/sessions/new" for ::1 at 2017-05-31 13:33:45 +1000
+Processing by SessionsController#new as HTML
+  Rendered sessions/_form.html.erb (0.0ms)
+  Rendered sessions/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 9ms (Views: 9.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2017-05-31 13:33:51 +1000
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Max Charles", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."name" = ? LIMIT 1  [["name", "Max Charles"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2017-05-31 13:33:51 +1000
+Processing by ApplicationController#welcome as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Redirected to http://localhost:3000/sessions/new
+Completed 302 Found in 1ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/sessions/new" for ::1 at 2017-05-31 13:33:51 +1000
+Processing by SessionsController#new as HTML
+  Rendered sessions/_form.html.erb (0.1ms)
+  Rendered sessions/new.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 9ms (Views: 8.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2017-05-31 13:35:44 +1000
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Max Charles", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."name" = ? LIMIT 1  [["name", "Max Charles"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 8ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2017-05-31 13:35:44 +1000
+Processing by ApplicationController#welcome as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Redirected to http://localhost:3000/sessions/new
+Completed 302 Found in 1ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/sessions/new" for ::1 at 2017-05-31 13:35:44 +1000
+Processing by SessionsController#new as HTML
+  Rendered sessions/_form.html.erb (0.0ms)
+  Rendered sessions/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 9ms (Views: 8.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2017-05-31 13:38:05 +1000
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Max Charles", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."name" = ? LIMIT 1  [["name", "Max Charles"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."name" = ? LIMIT 1[0m  [["name", "Max Charles"]]
+Completed 500 Internal Server Error in 135617ms
+
+NoMethodError (undefined method `[]' for nil:NilClass):
+  app/controllers/sessions_controller.rb:11:in `create'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (56.0ms)
+
+
+Started POST "/sessions" for ::1 at 2017-05-31 13:40:21 +1000
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Max Charles", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."name" = ? LIMIT 1  [["name", "Max Charles"]]
+Completed 500 Internal Server Error in 11ms
+
+NoMethodError (undefined method `[]' for nil:NilClass):
+  app/controllers/sessions_controller.rb:10:in `create'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.3ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (52.2ms)
+
+
+Started POST "/sessions" for ::1 at 2017-05-31 13:40:54 +1000
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Max Charles", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."name" = ? LIMIT 1[0m  [["name", "Max Charles"]]
+Completed 403 Forbidden in 89ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/sessions/new" for ::1 at 2017-05-31 13:41:22 +1000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#new as HTML
+  Rendered sessions/_form.html.erb (0.4ms)
+  Rendered sessions/new.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 26ms (Views: 25.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2017-05-31 13:41:33 +1000
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Quvenzhané Wallis", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."name" = ? LIMIT 1  [["name", "Quvenzhané Wallis"]]
+Completed 403 Forbidden in 109ms (ActiveRecord: 0.5ms)
+
+
+Started POST "/sessions" for ::1 at 2017-05-31 13:42:22 +1000
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Quvenzhané Wallis", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity
+Completed 422 Unprocessable Entity in 1ms
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  actionpack (4.2.0) lib/action_controller/metal/request_forgery_protection.rb:181:in `handle_unverified_request'
+  actionpack (4.2.0) lib/action_controller/metal/request_forgery_protection.rb:209:in `handle_unverified_request'
+  actionpack (4.2.0) lib/action_controller/metal/request_forgery_protection.rb:204:in `verify_authenticity_token'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:427:in `block in make_lambda'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:163:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_process_action_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal.rb:236:in `block in action'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:42:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  rack (1.6.5) lib/rack/etag.rb:24:in `call'
+  rack (1.6.5) lib/rack/conditionalget.rb:38:in `call'
+  rack (1.6.5) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.5) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.5) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  thin (1.7.0) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.7.0) lib/thin/connection.rb:84:in `catch'
+  thin (1.7.0) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.7.0) lib/thin/connection.rb:53:in `process'
+  thin (1.7.0) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.2.3) lib/eventmachine.rb:194:in `run_machine'
+  eventmachine (1.2.3) lib/eventmachine.rb:194:in `run'
+  thin (1.7.0) lib/thin/backends/base.rb:73:in `start'
+  thin (1.7.0) lib/thin/server.rb:162:in `start'
+  rack (1.6.5) lib/rack/handler/thin.rb:19:in `run'
+  rack (1.6.5) lib/rack/server.rb:286:in `start'
+  railties (4.2.0) lib/rails/commands/server.rb:80:in `start'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:80:in `block in server'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:75:in `tap'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:75:in `server'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+  railties (4.2.0) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:8:in `require'
+  bin/rails:8:in `<main>'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (16.8ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (70.3ms)
+
+
+Started POST "/sessions" for ::1 at 2017-05-31 13:43:01 +1000
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Quvenzhané Wallis", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."name" = ? LIMIT 1[0m  [["name", "Quvenzhané Wallis"]]
+Completed 403 Forbidden in 85ms (ActiveRecord: 0.8ms)
+
+
+Started POST "/sessions" for ::1 at 2017-05-31 13:43:38 +1000
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Quvenzhané Wallis", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."name" = ? LIMIT 1  [["name", "Quvenzhané Wallis"]]
+Completed 403 Forbidden in 85ms (ActiveRecord: 0.5ms)
+
+
+Started POST "/sessions" for ::1 at 2017-05-31 13:43:48 +1000
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Quvenzhané Wallis", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity
+Completed 422 Unprocessable Entity in 0ms
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  actionpack (4.2.0) lib/action_controller/metal/request_forgery_protection.rb:181:in `handle_unverified_request'
+  actionpack (4.2.0) lib/action_controller/metal/request_forgery_protection.rb:209:in `handle_unverified_request'
+  actionpack (4.2.0) lib/action_controller/metal/request_forgery_protection.rb:204:in `verify_authenticity_token'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:427:in `block in make_lambda'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:163:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_process_action_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal.rb:236:in `block in action'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:42:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  rack (1.6.5) lib/rack/etag.rb:24:in `call'
+  rack (1.6.5) lib/rack/conditionalget.rb:38:in `call'
+  rack (1.6.5) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.5) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.5) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  thin (1.7.0) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.7.0) lib/thin/connection.rb:84:in `catch'
+  thin (1.7.0) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.7.0) lib/thin/connection.rb:53:in `process'
+  thin (1.7.0) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.2.3) lib/eventmachine.rb:194:in `run_machine'
+  eventmachine (1.2.3) lib/eventmachine.rb:194:in `run'
+  thin (1.7.0) lib/thin/backends/base.rb:73:in `start'
+  thin (1.7.0) lib/thin/server.rb:162:in `start'
+  rack (1.6.5) lib/rack/handler/thin.rb:19:in `run'
+  rack (1.6.5) lib/rack/server.rb:286:in `start'
+  railties (4.2.0) lib/rails/commands/server.rb:80:in `start'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:80:in `block in server'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:75:in `tap'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:75:in `server'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+  railties (4.2.0) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:8:in `require'
+  bin/rails:8:in `<main>'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.7ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (49.3ms)
+
+
+Started POST "/sessions" for ::1 at 2017-05-31 13:44:52 +1000
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Quvenzhané Wallis", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."name" = ? LIMIT 1[0m  [["name", "Quvenzhané Wallis"]]
+Completed 403 Forbidden in 90ms (ActiveRecord: 0.7ms)
+
+
+Started POST "/sessions" for ::1 at 2017-05-31 13:45:49 +1000
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Quvenzhané Wallis", "password"=>"[FILTERED]"}
+Can't verify CSRF token authenticity
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."name" = ? LIMIT 1  [["name", "Quvenzhané Wallis"]]
+Completed 403 Forbidden in 122477ms (ActiveRecord: 0.6ms)
+
+
+Started POST "/sessions" for ::1 at 2017-05-31 13:47:51 +1000
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Quvenzhané Wallis", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."name" = ? LIMIT 1[0m  [["name", "Quvenzhané Wallis"]]
+Completed 403 Forbidden in 84ms (ActiveRecord: 1.0ms)
+
+
+Started POST "/sessions" for ::1 at 2017-05-31 13:48:17 +1000
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Quvenzhané Wallis", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."name" = ? LIMIT 1  [["name", "Quvenzhané Wallis"]]
+Completed 403 Forbidden in 78ms (ActiveRecord: 0.1ms)
+
+
+Started POST "/sessions" for ::1 at 2017-05-31 13:48:35 +1000
+Processing by SessionsController#create as HTML
+  Parameters: {"name"=>"Quvenzhané Wallis", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."name" = ? LIMIT 1[0m  [["name", "Quvenzhané Wallis"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 12ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2017-05-31 13:48:35 +1000
+Processing by ApplicationController#welcome as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 9]]
+Completed 500 Internal Server Error in 5ms
+
+ActionView::MissingTemplate (Missing template application/welcome with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/Annette/Dev/Rails/wodapp/app/views"
+):
+  actionview (4.2.0) lib/action_view/path_set.rb:46:in `find'
+  actionview (4.2.0) lib/action_view/lookup_context.rb:121:in `find'
+  actionview (4.2.0) lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  actionview (4.2.0) lib/action_view/renderer/template_renderer.rb:40:in `determine_template'
+  actionview (4.2.0) lib/action_view/renderer/template_renderer.rb:8:in `render'
+  actionview (4.2.0) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.2.0) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.2.0) lib/action_view/rendering.rb:100:in `_render_template'
+  actionpack (4.2.0) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.2.0) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.2.0) lib/action_controller/metal/renderers.rb:37:in `render_to_body'
+  actionpack (4.2.0) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.2.0) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /Users/Annette/.rvm/rubies/ruby-2.3.1/lib/ruby/2.3.0/benchmark.rb:308:in `realtime'
+  activesupport (4.2.0) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.2.0) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.2.0) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.2.0) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_process_action_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal.rb:236:in `block in action'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:42:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  rack (1.6.5) lib/rack/etag.rb:24:in `call'
+  rack (1.6.5) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.5) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.5) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.5) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  thin (1.7.0) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.7.0) lib/thin/connection.rb:84:in `catch'
+  thin (1.7.0) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.7.0) lib/thin/connection.rb:53:in `process'
+  thin (1.7.0) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.2.3) lib/eventmachine.rb:194:in `run_machine'
+  eventmachine (1.2.3) lib/eventmachine.rb:194:in `run'
+  thin (1.7.0) lib/thin/backends/base.rb:73:in `start'
+  thin (1.7.0) lib/thin/server.rb:162:in `start'
+  rack (1.6.5) lib/rack/handler/thin.rb:19:in `run'
+  rack (1.6.5) lib/rack/server.rb:286:in `start'
+  railties (4.2.0) lib/rails/commands/server.rb:80:in `start'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:80:in `block in server'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:75:in `tap'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:75:in `server'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+  railties (4.2.0) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:8:in `require'
+  bin/rails:8:in `<main>'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/missing_template.html.erb within rescues/layout (50.9ms)
+
+
+Started GET "/" for ::1 at 2017-05-31 13:49:55 +1000
+Processing by ApplicationController#welcome as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 9]]
+  Rendered application/welcome.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 0.1ms)
