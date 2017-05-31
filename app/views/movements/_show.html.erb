@@ -1,6 +1,6 @@
 
 		<li>Movement: <%= movement.name %></li><br>
-		<li>Date Completed: <%= movement.date %></li><br>
+		<li>Date Completed: <%= movement.date.strftime("%d %B %Y") %></li><br>
 		<% if movement.movement_type == "time" %>
 			<li>Result Achieved: <%= movement.result %> minutes</li><br>
 		<% elsif movement.movement_type == "weight" %>

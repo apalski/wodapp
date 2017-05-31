@@ -27,15 +27,16 @@ class MovementsController < ApplicationController
 
 	def edit
 		set_movement
+		
+	end
+
+	def update
+		set_movement
 		if @movement.update(movement_params)
 			redirect_to movement_path(@movement)
 		else
 			render :edit
 		end		
-	end
-
-	def update
-		set_movement
 	end
 
 	private
