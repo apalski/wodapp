@@ -1,10 +1,10 @@
 
 <h1>Please login</h1>
 
-<%= form_for @user do |f| %>
-	<%= f.label :name %>
-	<%= f.text_field :name %>
-	<%= f.label :password %>
-	<%= f.text_field :password %>
-	<%= f.submit %>
-<% end %>	
+<form action="/sessions" method="post">
+	<label>Name: </label>
+	<input type="text" name="name" id="user_name" /><br>
+	<label>Password: </label>
+	<input type="text" name="password" id="user_password" /><br>
+	<input type="submit" value="Login" />
+</form>	

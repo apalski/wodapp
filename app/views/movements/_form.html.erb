@@ -1,4 +1,5 @@
-	
+
+
 	<%= form_for @movement do |f| %>
 		<% if @user.admin? %>
 			<%= f.label :name %>
@@ -8,7 +9,7 @@
 			<%= f.label :movement_type %>
 			<%= f.select :movement_type, ["time", "weight", "repetitions"], :prompt => "Select One" %><br>
 		<% end %>	
-		if @user.user? %>
+		<% if @user.user? %>
 			<%= f.label :result %>
 			<%= f.text_field :result %><br>
 			<%= f.label :pr %>
