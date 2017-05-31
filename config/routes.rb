@@ -6,4 +6,7 @@ Rails.application.routes.draw do
 
  root 'application#welcome'
 
+ resources :wods, only [:show] do
+ 	resources :movements, only: [:index, :show]
+ end	
 end
