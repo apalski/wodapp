@@ -7,14 +7,4 @@ class User < ActiveRecord::Base
 	validates :name, :email, presence: true
 	validates :name,:email, uniqueness: true
 	validates :password, length: {minimum: 6}
-
-	enum role: [:user, :admin]
-
-	after_initialize :set_default_role, if: :new_record?
-
-	private
-
-	def set_default_role
-		self.role ||= :user
-	end
 end
