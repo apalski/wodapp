@@ -8,5 +8,6 @@ class ApplicationController < ActionController::Base
 
 	def welcome
 		redirect_to controller: 'sessions', action: 'new' unless current_user
+		@user = current_user
 	end
 end

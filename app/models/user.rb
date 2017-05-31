@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 	has_secure_password
 	validates :name, :email, presence: true
 	validates :name,:email, uniqueness: true
-	#validates :password, length: {minimum: 6}
+	validates :password, length: {minimum: 6}
 
 	enum role: [:user, :admin]
 
