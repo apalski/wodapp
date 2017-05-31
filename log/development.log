@@ -6161,3 +6161,45 @@ Processing by ApplicationController#welcome as HTML
   [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
   Rendered application/welcome.html.erb within layouts/application (0.1ms)
 Completed 200 OK in 18ms (Views: 6.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/movements" for ::1 at 2017-05-31 14:09:57 +1000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by MovementsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mMovement Load (0.2ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  Rendered movements/index.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 70ms (Views: 22.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/movements/new" for ::1 at 2017-05-31 14:10:05 +1000
+Processing by MovementsController#new as HTML
+  Rendered movements/_form.html.erb (6.7ms)
+  Rendered movements/new.html.erb within layouts/application (14.1ms)
+Completed 500 Internal Server Error in 22ms
+
+ActionView::Template::Error (undefined method `admin?' for nil:NilClass):
+    1: 
+    2: 
+    3: 	<%= form_for @movement do |f| %>
+    4: 		<% if @user.admin? %>
+    5: 			<%= f.label :name %>
+    6: 			<%= f.text_field :name %><br>
+    7: 			<%= f.label :date %>
+  app/views/movements/_form.html.erb:4:in `block in _app_views_movements__form_html_erb___1370040915274900572_70103506248120'
+  app/views/movements/_form.html.erb:3:in `_app_views_movements__form_html_erb___1370040915274900572_70103506248120'
+  app/views/movements/new.html.erb:1:in `_app_views_movements_new_html_erb__23421046887208213_70103506188360'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (54.8ms)
+
+
+Started GET "/" for ::1 at 2017-05-31 14:10:22 +1000
+Processing by ApplicationController#welcome as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered application/welcome.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 8ms (Views: 6.6ms | ActiveRecord: 0.1ms)
