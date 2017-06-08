@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20170529044453) do
     t.datetime "updated_at",                      null: false
   end
 
-  create_table "wods", force: :cascade do |t|
+  create_table "userwods", force: :cascade do |t|
     t.string   "name"
     t.date     "date"
     t.string   "wod_type"

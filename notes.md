@@ -12,9 +12,11 @@ Project must haves:
 
 
 	1. Members/Users/Owner - user_admin
-	2. WODs
-	3. Movements
-	4. PRs
+	2. user_WODs
+	3. user_Movements
+	4. owner_WODs
+	5. owner_Movements
+	6. PRs
 
 
 1. Users
@@ -35,21 +37,23 @@ Project must haves:
 	Users can view all their WODs, individual WODs and the WODs they PR'd in
 	Users can view all their movements, individual movements and the movements they have PR'd in
 
-2. WODs
+2. user_WODs
 	WODs have a name (actual name or the date), date, result, type (either 'for time', 'for weight' or 'for repetitions'), movements and PR (boolean true/false)
 	WODs belong to a user
 	WODs have many movements
 
-	WODs are selected from a list of existing WODs created by Admin user
+	WODs are selected from a list of existing WODs created by Admin user - from a dropdown list of WOD names, the user receives the WOD description and can then enter a result or PR.
 	WODs can be listed by name (and then best result)? to group the same WOD to compare results
 
-3. Movements
+3. user_Movements
 	Movements have a name, date, result, type ('time', 'weight' or 'repetitions') and PR (boolean true/false)
 	Movements belong to a user
 	Movements have many WODs
 
 	Movements are selected from a list of existing WODs created by the Admin user
 	Movements can be displayed by name (and then by best result)? to group the same movement to compare results
+
+4. owner_WODs
 
 4. PRs are a boolean field in WODs and movements	
 	PRs can be listed by all, by WOD or by individual movements

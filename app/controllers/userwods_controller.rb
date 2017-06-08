@@ -1,15 +1,15 @@
-class WodsController < ApplicationController
+class UserwodsController < ApplicationController
 	
 	def index
-		@wods = Wod.all
+		@wods = Userwod.all
 	end
 
 	def new
-		@wod = Wod.new
+		@wod = Userwod.new
 	end
 
 	def create
-		@wod = Wod.new(wod_params)
+		@wod = Userwod.new(wod_params)
 		if @wod.save
 			redirect_to wod_path(@wod)
 		else
@@ -37,7 +37,7 @@ class WodsController < ApplicationController
 	private
 
 	def set_wod
-		@wod = Wod.find(params[:id])
+		@wod = Userwod.find(params[:id])
 	end
 
 	def wod_params

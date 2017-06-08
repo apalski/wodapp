@@ -1,0 +1,20 @@
+
+
+<%= form_for @wod do |f| %>
+		<%= f.label :name %>
+		<% names = Userwod.all.map {|moves| [moves.name]} %>
+		<%= f.select :name, names, :prompt => "Select One", :selected => params[:name] %><br>
+		
+		<%= @wod.name %>
+		<%= @wod.date %>
+
+		<%= f.label :wod_type %>
+		<%= f.select :wod_type, ["time", "weight", "repetitions"], :prompt => "Select One" %><br>
+		<%= f.label :date %>
+		<%= date_select :wod, :date %><br>
+		<%= f.label :result %>
+		<%= f.text_field :result %><br>
+		<%= f.label :pr %>
+		<%= f.check_box :pr %><br>
+		<%= f.submit %>	
+	<% end %>	

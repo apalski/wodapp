@@ -27,9 +27,9 @@ DATA = {
     ["Box Jumps", Date.today, "repetitions", 25, true]
   ],
 
-  :wod_keys =>
+  :userwod_keys =>
     ["name", "date", "wod_type", "result", "pr"],
-  :wods => [
+  :userwods => [
     ["Helen", Date.today, 5.01, "time", true],
     ["Grace", Date.today, 4.85, "time", false],
     ["Dead Lift Day", Date.today, 100, "weight", true],
@@ -65,10 +65,10 @@ def make_movements
 end
 
 def make_wods
-  DATA[:wods].each do |wod|
-    new_wod = Wod.new
+  DATA[:userwods].each do |wod|
+    new_wod = Userwod.new
     wod.each_with_index do |attribute, i|
-      new_wod.send(DATA[:wod_keys][i]+"=", attribute)
+      new_wod.send(DATA[:userwod_keys][i]+"=", attribute)
     end
     new_wod.save
   end

@@ -1,6 +1,6 @@
 class CreateWods < ActiveRecord::Migration
   def change
-    create_table :wods do |t|
+    create_table :userwods do |t|
     	t.string :name
     	t.date :date
     	t.string :wod_type
