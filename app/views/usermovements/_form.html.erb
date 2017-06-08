@@ -2,10 +2,8 @@
 
 	<%= form_for @movement do |f| %>
 		<%= f.label :name %>
-		<% names = Usermovement.all.map {|move| [move.name]} %>
+		<% names = Movement.all.map {|move| [move.name]} %>
 		<%= f.select :name, names, :prompt => "Select One" %><br>
-		<%= f.label :movement_type %>
-		<%= f.select :movement_type, ["time", "weight", "repetitions"], :prompt => "Select One" %><br>
 		<%= f.label :date %>
 		<%= date_select :movement, :date %><br>
 		<%= f.label :result %>
