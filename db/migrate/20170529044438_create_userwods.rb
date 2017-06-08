@@ -3,7 +3,6 @@ class CreateUserwods < ActiveRecord::Migration
     create_table :userwods do |t|
     	t.string :name
     	t.date :date
-    	t.string :wod_type
       t.float :result, :precision => 2, :scale => 2
     	t.boolean :pr, default: false
     	t.integer :user_id
