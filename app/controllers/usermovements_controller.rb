@@ -46,6 +46,6 @@ class UsermovementsController < ApplicationController
 	end
 
 	def movement_params
-		params.require(:movement).permit(:name, :date, :result, :movement_type, :pr)
+		params.require(:movement).permit(:name, :date, :result, :pr)
 	end
 end
