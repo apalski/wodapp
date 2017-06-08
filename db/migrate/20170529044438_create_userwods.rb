@@ -1,4 +1,4 @@
-class CreateWods < ActiveRecord::Migration
+class CreateUserwods < ActiveRecord::Migration
   def change
     create_table :userwods do |t|
     	t.string :name

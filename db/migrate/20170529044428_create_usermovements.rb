@@ -1,4 +1,4 @@
-class CreateMovements < ActiveRecord::Migration
+class CreateUsermovements < ActiveRecord::Migration
   def change
     create_table :usermovements do |t|
     	t.string :name
