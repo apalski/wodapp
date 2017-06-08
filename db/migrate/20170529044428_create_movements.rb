@@ -1,6 +1,6 @@
 class CreateMovements < ActiveRecord::Migration
   def change
-    create_table :movements do |t|
+    create_table :usermovements do |t|
     	t.string :name
     	t.date :date
     	t.string :movement_type

@@ -13,9 +13,9 @@ DATA = {
     ["Cole Sand", "cole@gmail.com", "cravingmore", false],
     ["Quvenzhané Wallis", "quv@gmail.com", "passionpop", true]
   ],
-  :movement_keys =>
+  :usermovement_keys =>
    ["name", "date", "movement_type", "result", "pr"],
-  :movements => [
+  :usermovements => [
     ["Dead Lift", Date.today,"weight", 100, true],
     ["Clean & Jerk", Date.today, "weight", 45, false],
     ["Push Jerk", Date.today, "weight", 38, false],
@@ -55,10 +55,10 @@ def make_users
 end
 
 def make_movements
-  DATA[:movements].each do |movement|
-    new_movement = Movement.new
+  DATA[:usermovements].each do |movement|
+    new_movement = Usermovement.new
     movement.each_with_index do |attribute, i|
-      new_movement.send(DATA[:movement_keys][i]+"=", attribute)
+      new_movement.send(DATA[:usermovement_keys][i]+"=", attribute)
     end
     new_movement.save
   end

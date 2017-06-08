@@ -1,19 +1,19 @@
-class MovementsController < ApplicationController
+class UsermovementsController < ApplicationController
 
 	def index
-		@movements = Movement.all
+		@movements = Usermovement.all
 		@user = current_user
 	end
 
 	def new
-		@movement = Movement.new
-		@moves = Movement.all
+		@movement = Usermovement.new
+		@moves = Usermovement.all
 		@user = current_user
 	end
 
 	def create
 		@user = current_user
-		@movement = Movement.new(movement_params)
+		@movement = Usermovement.new(movement_params)
 		if @movement.save
 			redirect_to movement_path(@movement)
 		else
@@ -42,7 +42,7 @@ class MovementsController < ApplicationController
 	private
 
 	def set_movement
-		@movement = Movement.find(params[:id])
+		@movement = Usermovement.find(params[:id])
 	end
 
 	def movement_params

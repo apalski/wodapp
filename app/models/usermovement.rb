@@ -1,4 +1,4 @@
-class Movement < ActiveRecord::Base
+class Usermovement < ActiveRecord::Base
 
 	belongs_to :user
 	has_many :move_wods
