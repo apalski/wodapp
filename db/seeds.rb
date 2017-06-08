@@ -1,7 +1,7 @@
 # coding: utf-8
 DATA = {
   :user_keys =>
-    ["name", "email", "password", "admin"],
+    ["name", "email", "password", "owner"],
   :users => [
     ["Max Charles", "max@gmail.com", "friedfish", true],
     ["Skai Jackson", "skai@gmail.com", "frenchfries", false],
@@ -11,30 +11,30 @@ DATA = {
     ["Tenzing Norgay Trainor", "tenzing@gmail.com", "specialegg", false],
     ["Davis Cleveland", "davis@gmail.com", "mintslice", false],
     ["Cole Sand", "cole@gmail.com", "cravingmore", false],
-    ["Quvenzhané Wallis", "quv@gmail.com", "passionpop", true]
+    ["Quvenzhané Wallis", "quv@gmail.com", "passionpop", false]
   ],
-  :usermovement_keys =>
-   ["name", "date", "movement_type", "result", "pr"],
-  :usermovements => [
-    ["Dead Lift", Date.today,"weight", 100, true],
-    ["Clean & Jerk", Date.today, "weight", 45, false],
-    ["Push Jerk", Date.today, "weight", 38, false],
-    ["Push Press", Date.today, "weight", 35, true],
-    ["Snatch", Date.today, "weight", 33, false],
-    ["400m Run", Date.today, "time", 1.36, true],
-    ["Burpees", Date.today, "repetitions", 35, false],
-    ["Air Squats", Date.today, "repetitions", 50, false],
-    ["Box Jumps", Date.today, "repetitions", 25, true]
+  :movement_keys =>
+   ["name", "movement_type", "owner_id"],
+  :movements => [
+    ["Dead Lift", "weight", 1],
+    ["Clean & Jerk", "weight", 1],
+    ["Push Jerk", "weight", 1],
+    ["Push Press", "weight", 1],
+    ["Snatch", "weight", 1],
+    ["400m Run", "time", 1],
+    ["Burpees", "repetitions", 1],
+    ["Air Squats", "repetitions", 1],
+    ["Box Jumps", "repetitions", 1]
   ],
 
-  :userwod_keys =>
-    ["name", "date", "wod_type", "result", "pr"],
-  :userwods => [
-    ["Helen", Date.today, 5.01, "time", true],
-    ["Grace", Date.today, 4.85, "time", false],
-    ["Dead Lift Day", Date.today, 100, "weight", true],
-    ["Murph", Date.today, 25, "time", false],
-    ["Karen", Date.today, 160, "repetitions", true]
+  :wod_keys =>
+    ["name", "wod_type", "owner_id"],
+  :wods => [
+    ["Helen", "time", 1],
+    ["Grace", "time", 1],
+    ["Dead Lift Day", "weight", 1],
+    ["Murph", "time", 1],
+    ["Karen", "repetitions", 1]
   ] 
 }
 
@@ -55,20 +55,20 @@ def make_users
 end
 
 def make_movements
-  DATA[:usermovements].each do |movement|
-    new_movement = Usermovement.new
+  DATA[:movements].each do |movement|
+    new_movement = Movement.new
     movement.each_with_index do |attribute, i|
-      new_movement.send(DATA[:usermovement_keys][i]+"=", attribute)
+      new_movement.send(DATA[:movement_keys][i]+"=", attribute)
     end
     new_movement.save
   end
 end
 
 def make_wods
-  DATA[:userwods].each do |wod|
-    new_wod = Userwod.new
+  DATA[:wods].each do |wod|
+    new_wod = Wod.new
     wod.each_with_index do |attribute, i|
-      new_wod.send(DATA[:userwod_keys][i]+"=", attribute)
+      new_wod.send(DATA[:wod_keys][i]+"=", attribute)
     end
     new_wod.save
   end
