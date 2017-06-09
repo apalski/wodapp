@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 20170608045642) do
   end
 
   create_table "wods", force: :cascade do |t|
-    t.string   "name"
+    t.string   "title"
     t.string   "wod_type"
     t.integer  "owner_id"
     t.datetime "created_at", null: false

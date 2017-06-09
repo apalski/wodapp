@@ -2,20 +2,11 @@
 <h1>Create a new WOD</h1>
 
 <%= form_for @wod do |f| %>
-	<%= f.label :name %>
-	<%= f.text_field :name %><br><br>
+	<%= f.label :title %>
+	<%= f.text_field :title %><br><br>
 	<%= f.label :wod_type %>
 	<%= f.select :wod_type, ["weight", "time", "repetitions"], :prompt => "Select One" %><br><br>
 	<%= render "movement", f: f %><br>
-	<%= render "movement", f: f %><br>
-	<%= render "movement", f: f %><br>
-	<%= f.label :movement %>
-	<%= f.fields_for :movements, @wod.movements.build do |movements_fields| %>
-		<%= movements_fields.label :name %>
-		<%= movements_fields.text_field :name %>
-		<%= movements_fields.label :movement_type %>
-		<%= movements_fields.text_field :movement_type %>
-	<% end %>	
 	<%= f.submit %>
 <% end %>
 	

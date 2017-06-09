@@ -2,5 +2,5 @@
 <%= f.label :quantity %>
 <%= f.text_field :quantity %>
 <%= f.label :movement %>
-<% names = @movements.map {|move| [move.name]} %>
-<%= f.select :name, names, :prompt => "Select One" %><br>
+<% names = Movement.all.map {|move| [move.name]} %>
+<%= f.select :movements, names, :prompt => "Select One" %><br>

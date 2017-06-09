@@ -28,7 +28,7 @@ DATA = {
   ],
 
   :wod_keys =>
-    ["name", "wod_type", "owner_id"],
+    ["title", "wod_type", "owner_id"],
   :wods => [
     ["Helen", "time", 1],
     ["Grace", "time", 1],

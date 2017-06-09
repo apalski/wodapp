@@ -6,15 +6,13 @@ class Wod < ActiveRecord::Base
 	has_many :move_wods
 	has_many :movements, through: :move_wods
 
-	validates :name, presence: true
-	validates :name, uniqueness: true
+	validates :title, presence: true
+	validates :title, uniqueness: true
 	validates :wod_type, inclusion: {in: %w(time weight repetitions), message: "%{value} is not a valid type"}
 
-	def movements_attributes=(movements_hashes)
-		movements_hashes.each do |i, movement_attributes|
-			move = Movement.find_or_create_by(name: movement_attributes[:name])
-			move.movement_type = movement_attributes[:movement_type]
-			move.save
+	def movements_attributes=(movements_attributes)
+		movements_attributes.values.eac do |movement_attribute|
+			move = Movement.find_or_create_by(name: movement_attribute[:name], movement_type: movement_attribute[:movement_type])
 			self.movements << move
 		end	
 	end
