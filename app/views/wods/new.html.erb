@@ -9,9 +9,12 @@
 	<%= render "movement", f: f %><br>
 	<%= render "movement", f: f %><br>
 	<%= render "movement", f: f %><br>
+	<%= f.label :movement %>
 	<%= f.fields_for :movements, @wod.movements.build do |movements_fields| %>
-		<%= categories_fields.text_field :name %>
-		<%= categories_fields.text_field :movement_type %>
+		<%= movements_fields.label :name %>
+		<%= movements_fields.text_field :name %>
+		<%= movements_fields.label :movement_type %>
+		<%= movements_fields.text_field :movement_type %>
 	<% end %>	
 	<%= f.submit %>
 <% end %>
