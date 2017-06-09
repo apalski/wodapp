@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :wods
+  resources :wods, only: [:index]
 
-  resources :movements
+  # resources :movements
 
  resources :users, :usermovements, :userwods, :sessions
 
@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
  root 'application#welcome'
 
- # resources :wods, only [:show] do
- # 	resources :movements, only: [:index, :show]
- # end	
+ resources :wods, only: [:show] do
+ 	resources :movements, only: [:index, :show]
+ end	
 end

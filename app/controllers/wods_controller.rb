@@ -6,11 +6,9 @@ class WodsController < ApplicationController
 
 	def new
 		@wod = Wod.new
-		@wods = Wod.all
 	end
 
 	def create
-		@wods = Wod.all
 		@wod = Wod.new(wod_params)
 		if @wod.save
 			redirect_to wod_path(@wod)
