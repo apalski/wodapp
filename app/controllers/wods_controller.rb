@@ -6,6 +6,7 @@ class WodsController < ApplicationController
 
 	def new
 		@wod = Wod.new
+		@movements = Movement.all
 	end
 
 	def create
@@ -41,7 +42,7 @@ class WodsController < ApplicationController
 	end
 
 	def wod_params
-		params.require(:wod).permit(:name, :wod_type)
+		params.require(:wod).permit(:name, :wod_type, movement_ids: [])
 	end
 
 	

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :wods, only: [:index]
+  resources :wods, only: [:index, :new]
 
   # resources :movements
 

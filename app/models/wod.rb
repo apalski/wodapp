@@ -1,5 +1,7 @@
 class Wod < ActiveRecord::Base
 
+	attr_accessor :quantity
+
 	belongs_to :owner, :class_name => "User"
 	has_many :move_wods
 	has_many :movements, through: :move_wods
