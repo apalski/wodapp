@@ -21750,3 +21750,308 @@ Processing by MovementsController#show as HTML
   Rendered movements/_show.html.erb (0.2ms)
   Rendered movements/show.html.erb within layouts/application (3.5ms)
 Completed 200 OK in 13ms (Views: 12.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/wods" for ::1 at 2017-06-13 09:38:13 +1000
+Processing by WodsController#index as HTML
+  [1m[36mWod Load (0.2ms)[0m  [1mSELECT "wods".* FROM "wods"[0m
+  [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 1]]
+  Rendered wods/_show.html.erb (2.4ms)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 2]]
+  Rendered wods/_show.html.erb (1.2ms)
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 3]]
+  Rendered wods/_show.html.erb (1.3ms)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 4]]
+  Rendered wods/_show.html.erb (1.0ms)
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 5]]
+  Rendered wods/_show.html.erb (1.2ms)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 6]]
+  Rendered wods/_show.html.erb (1.0ms)
+  Rendered wods/index.html.erb within layouts/application (22.1ms)
+Completed 200 OK in 29ms (Views: 27.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/wods/6" for ::1 at 2017-06-13 09:38:37 +1000
+Processing by WodsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mWod Load (0.1ms)[0m  SELECT  "wods".* FROM "wods" WHERE "wods"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mMovement Load (0.2ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 6]]
+  Rendered wods/_show.html.erb (1.9ms)
+  Rendered wods/show.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 10ms (Views: 9.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/wods/6" for ::1 at 2017-06-13 09:38:55 +1000
+Processing by WodsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mWod Load (0.1ms)[0m  SELECT  "wods".* FROM "wods" WHERE "wods"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mMovement Load (0.2ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 6]]
+  Rendered wods/_show.html.erb (1.8ms)
+  Rendered wods/show.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 13ms (Views: 12.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-13 09:40:23 +1000
+Processing by WodsController#new as HTML
+  Rendered wods/_form.html.erb (33.9ms)
+  Rendered wods/new.html.erb within layouts/application (38.3ms)
+Completed 500 Internal Server Error in 47ms
+
+ActionView::Template::Error (undefined local variable or method `f' for #<#<Class:0x007ff0fb34dae8>:0x007ff0fa8cd7f8>):
+    1: 
+    2: 	<%= f.label :title %>
+    3: 	<%= f.text_field :title %><br><br>
+    4: 	<%= f.label :wod_type %>
+    5: 	<%= f.select :wod_type, ["weight", "time", "repetitions"], :prompt => "Select One" %><br><br>
+  app/views/wods/_form.html.erb:2:in `_app_views_wods__form_html_erb__1237152284757351943_70336464394760'
+  app/views/wods/new.html.erb:5:in `block in _app_views_wods_new_html_erb___394682317110088297_70336486193000'
+  app/views/wods/new.html.erb:4:in `_app_views_wods_new_html_erb___394682317110088297_70336486193000'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.3ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (71.5ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-13 09:40:35 +1000
+Processing by WodsController#new as HTML
+  [1m[35mMovement Load (0.4ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered wods/_form.html.erb (12.4ms)
+  Rendered wods/new.html.erb within layouts/application (21.1ms)
+Completed 200 OK in 31ms (Views: 29.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/wods/1/edit" for ::1 at 2017-06-13 09:41:40 +1000
+
+ActionController::RoutingError (No route matches [GET] "/wods/1/edit"):
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  thin (1.7.0) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.7.0) lib/thin/connection.rb:84:in `catch'
+  thin (1.7.0) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.7.0) lib/thin/connection.rb:53:in `process'
+  thin (1.7.0) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.2.3) lib/eventmachine.rb:194:in `run_machine'
+  eventmachine (1.2.3) lib/eventmachine.rb:194:in `run'
+  thin (1.7.0) lib/thin/backends/base.rb:73:in `start'
+  thin (1.7.0) lib/thin/server.rb:162:in `start'
+  rack (1.6.5) lib/rack/handler/thin.rb:19:in `run'
+  rack (1.6.5) lib/rack/server.rb:286:in `start'
+  railties (4.2.0) lib/rails/commands/server.rb:80:in `start'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:80:in `block in server'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:75:in `tap'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:75:in `server'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+  railties (4.2.0) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:8:in `require'
+  bin/rails:8:in `<main>'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.3ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (6.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (86.9ms)
+
+
+Started GET "/wods/1/edit" for ::1 at 2017-06-13 09:41:58 +1000
+Processing by WodsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mWod Load (0.1ms)[0m  [1mSELECT  "wods".* FROM "wods" WHERE "wods"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 400 Bad Request in 9ms
+
+ActionController::ParameterMissing (param is missing or the value is empty: wod):
+  app/controllers/wods_controller.rb:46:in `wod_params'
+  app/controllers/wods_controller.rb:28:in `edit'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.7ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (62.7ms)
+
+
+Started GET "/wods/1/edit" for ::1 at 2017-06-13 09:43:58 +1000
+Processing by WodsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mWod Load (0.1ms)[0m  SELECT  "wods".* FROM "wods" WHERE "wods"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered wods/edit.html.erb within layouts/application (28.5ms)
+Completed 500 Internal Server Error in 46ms
+
+ActionView::Template::Error (undefined local variable or method `f' for #<#<Class:0x007ff0fb12ee38>:0x007ff0f87b6dd0>):
+    1: 
+    2: <h1>Edit your WOD:</h1>
+    3: 
+    4: <%= render 'form', f: f %>
+  app/views/wods/edit.html.erb:4:in `_app_views_wods_edit_html_erb__2403049784048910483_70336468854140'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (62.3ms)
+
+
+Started GET "/wods/1/edit" for ::1 at 2017-06-13 09:44:38 +1000
+Processing by WodsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mWod Load (0.1ms)[0m  [1mSELECT  "wods".* FROM "wods" WHERE "wods"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered wods/edit.html.erb within layouts/application (47.3ms)
+Completed 500 Internal Server Error in 53ms
+
+ActionView::Template::Error (undefined local variable or method `f' for #<#<Class:0x007ff0fb12ee38>:0x007ff0f5428860>):
+    1: 
+    2: <h1>Edit your WOD:</h1>
+    3: 
+    4: <%= render 'form', f: f, wod: @wod %>
+  app/views/wods/edit.html.erb:4:in `_app_views_wods_edit_html_erb__2403049784048910483_70336435587600'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.8ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.3ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (70.8ms)
+
+
+Started GET "/wods/1/edit" for ::1 at 2017-06-13 09:44:49 +1000
+Processing by WodsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mWod Load (0.1ms)[0m  SELECT  "wods".* FROM "wods" WHERE "wods"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered wods/_form.html.erb (40.5ms)
+  Rendered wods/edit.html.erb within layouts/application (43.8ms)
+Completed 500 Internal Server Error in 51ms
+
+ActionView::Template::Error (undefined local variable or method `f' for #<#<Class:0x007ff0fb12ee38>:0x007ff0fab67a68>):
+    1: 
+    2: 	<%= f.label :title %>
+    3: 	<%= f.text_field :title %><br><br>
+    4: 	<%= f.label :wod_type %>
+    5: 	<%= f.select :wod_type, ["weight", "time", "repetitions"], :prompt => "Select One" %><br><br>
+  app/views/wods/_form.html.erb:2:in `_app_views_wods__form_html_erb__1237152284757351943_70336487520320'
+  app/views/wods/edit.html.erb:4:in `_app_views_wods_edit_html_erb__2403049784048910483_70336487568160'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (57.7ms)
+
+
+Started GET "/wods/1/edit" for ::1 at 2017-06-13 09:45:01 +1000
+Processing by WodsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mWod Load (0.1ms)[0m  [1mSELECT  "wods".* FROM "wods" WHERE "wods"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered wods/edit.html.erb within layouts/application (0.6ms)
+Completed 500 Internal Server Error in 7ms
+
+SyntaxError (/Users/Annette/Dev/Rails/wodapp/app/views/wods/edit.html.erb:4: syntax error, unexpected tLABEL, expecting keyword_do or '{' or '('
+...pend=( render 'form', f: f wod: @wod );@output_buffer.to_s
+...                               ^):
+  app/views/wods/edit.html.erb:4: syntax error, unexpected tLABEL, expecting keyword_do or '{' or '('
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.7ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (62.9ms)
+
+
+Started GET "/wods/1/edit" for ::1 at 2017-06-13 09:45:16 +1000
+Processing by WodsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mWod Load (0.2ms)[0m  SELECT  "wods".* FROM "wods" WHERE "wods"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered wods/edit.html.erb within layouts/application (46.3ms)
+Completed 500 Internal Server Error in 55ms
+
+ActionView::Template::Error (undefined local variable or method `f' for #<#<Class:0x007ff0fb12ee38>:0x007ff0f5263bb0>):
+    1: 
+    2: <h1>Edit your WOD:</h1>
+    3: 
+    4: <%= render 'form', f: f, wod: @wod %>
+  app/views/wods/edit.html.erb:4:in `_app_views_wods_edit_html_erb__2403049784048910483_70336440879340'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (69.6ms)
+
+
+Started GET "/wods/1/edit" for ::1 at 2017-06-13 09:45:26 +1000
+Processing by WodsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mWod Load (0.1ms)[0m  [1mSELECT  "wods".* FROM "wods" WHERE "wods"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered wods/edit.html.erb within layouts/application (51.4ms)
+Completed 500 Internal Server Error in 58ms
+
+ActionView::Template::Error (undefined local variable or method `f' for #<#<Class:0x007ff0fb12ee38>:0x007ff0fb1afdd0>):
+    1: 
+    2: <h1>Edit your WOD:</h1>
+    3: 
+    4: <%= render 'form', f: f %>
+  app/views/wods/edit.html.erb:4:in `_app_views_wods_edit_html_erb__2403049784048910483_70336490858200'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (66.3ms)
+
+
+Started GET "/wods/1/edit" for ::1 at 2017-06-13 09:46:18 +1000
+Processing by WodsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mWod Load (0.2ms)[0m  SELECT  "wods".* FROM "wods" WHERE "wods"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mMovement Load (0.3ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35m (0.2ms)[0m  SELECT "movements".id FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".id FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".id FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".id FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".id FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".id FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".id FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".id FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 1]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT "movements".id FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".id FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".id FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 1]]
+  Rendered wods/_form.html.erb (35.4ms)
+  Rendered wods/edit.html.erb within layouts/application (41.6ms)
+Completed 200 OK in 51ms (Views: 48.8ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/wods/1/edit" for ::1 at 2017-06-13 09:46:37 +1000
+Processing by WodsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mWod Load (0.1ms)[0m  [1mSELECT  "wods".* FROM "wods" WHERE "wods"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mMovement Load (0.3ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36m (0.1ms)[0m  [1mSELECT "movements".id FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".id FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".id FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".id FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".id FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".id FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".id FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".id FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".id FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".id FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".id FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 1]]
+  Rendered wods/_form.html.erb (11.0ms)
+  Rendered wods/edit.html.erb within layouts/application (14.5ms)
+Completed 200 OK in 21ms (Views: 20.1ms | ActiveRecord: 0.6ms)

@@ -1,5 +1,0 @@
-
-<%= f.label :quantity %>
-<%= f.text_field :quantity %>
-<%= f.label :movement %>
-<%= f.collection_select(:movement_ids, Movement.all, :id, :name, include_blank: true) %>

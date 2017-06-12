@@ -1,0 +1,7 @@
+
+<h1>Your WODs:</h1>
+
+<ul>
+<% @wods.each do |wod| %>
+	<%= render 'show', wod: wod %><br>
+<% end %>

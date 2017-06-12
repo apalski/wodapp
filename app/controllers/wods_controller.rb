@@ -25,15 +25,15 @@ class WodsController < ApplicationController
 
 	def edit
 		set_wod
+	end
+
+	def update
+		set_wod
 		if @wod.update(wod_params)
 			redirect_to wod_path(@wod)
 		else
 			render :edit
 		end		
-	end
-
-	def update
-		set_wod
 	end
 
 	private
