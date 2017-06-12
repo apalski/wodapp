@@ -1,0 +1,8 @@
+
+<h1>Your existing movements are:</h1>
+
+<ul>
+	<% @movements.each do |movement| %>
+		<%= render 'show', movement: movement %><br>
+	<% end %>	
+</ul>	

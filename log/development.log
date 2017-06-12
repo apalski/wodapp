@@ -21569,3 +21569,184 @@ ActionView::MissingTemplate (Missing template userwods/show, application/show wi
   Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
   Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
   Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/missing_template.html.erb within rescues/layout (55.0ms)
+
+
+Started GET "/movements" for ::1 at 2017-06-13 09:30:06 +1000
+Processing by MovementsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered movements/_show.html.erb (3.3ms)
+  Rendered movements/index.html.erb within layouts/application (7.0ms)
+Completed 500 Internal Server Error in 20ms
+
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: 
+    2: 	<li>Name: <%= @movement.name %></li><br>
+    3: 	<li>Movement Type: for <%= @movement.movement_type %></li>
+  app/views/movements/_show.html.erb:2:in `_app_views_movements__show_html_erb__2512611695866397577_70336486630940'
+  app/views/movements/index.html.erb:5:in `block in _app_views_movements_index_html_erb__1335945008458430294_70336486733820'
+  app/views/movements/index.html.erb:4:in `_app_views_movements_index_html_erb__1335945008458430294_70336486733820'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.6ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (65.1ms)
+
+
+Started GET "/movements" for ::1 at 2017-06-13 09:31:02 +1000
+Processing by MovementsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered movements/_show.html.erb (3.6ms)
+  Rendered movements/index.html.erb within layouts/application (6.7ms)
+Completed 500 Internal Server Error in 15ms
+
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: 
+    2: 	<li>Name: <%= @movement.name %></li><br>
+    3: 	<li>Movement Type: for <%= @movement.movement_type %></li>
+  app/views/movements/_show.html.erb:2:in `_app_views_movements__show_html_erb__2512611695866397577_70336486630940'
+  app/views/movements/index.html.erb:5:in `block in _app_views_movements_index_html_erb__1335945008458430294_70336491414100'
+  app/views/movements/index.html.erb:4:in `_app_views_movements_index_html_erb__1335945008458430294_70336491414100'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.6ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (8.6ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (68.4ms)
+
+
+Started GET "/movements" for ::1 at 2017-06-13 09:31:14 +1000
+Processing by MovementsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mMovement Load (0.3ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered movements/_show.html.erb (1.0ms)
+  Rendered movements/_show.html.erb (0.1ms)
+  Rendered movements/_show.html.erb (0.1ms)
+  Rendered movements/_show.html.erb (0.2ms)
+  Rendered movements/_show.html.erb (0.1ms)
+  Rendered movements/_show.html.erb (0.1ms)
+  Rendered movements/_show.html.erb (0.3ms)
+  Rendered movements/_show.html.erb (0.1ms)
+  Rendered movements/_show.html.erb (0.2ms)
+  Rendered movements/_show.html.erb (0.1ms)
+  Rendered movements/_show.html.erb (0.1ms)
+  Rendered movements/index.html.erb within layouts/application (40.2ms)
+Completed 200 OK in 49ms (Views: 47.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/movements" for ::1 at 2017-06-13 09:31:25 +1000
+Processing by MovementsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mMovement Load (0.5ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered movements/_show.html.erb (0.1ms)
+  Rendered movements/_show.html.erb (0.1ms)
+  Rendered movements/_show.html.erb (0.1ms)
+  Rendered movements/_show.html.erb (0.1ms)
+  Rendered movements/_show.html.erb (0.1ms)
+  Rendered movements/_show.html.erb (0.1ms)
+  Rendered movements/_show.html.erb (0.3ms)
+  Rendered movements/_show.html.erb (0.1ms)
+  Rendered movements/_show.html.erb (0.1ms)
+  Rendered movements/_show.html.erb (0.1ms)
+  Rendered movements/_show.html.erb (0.2ms)
+  Rendered movements/index.html.erb within layouts/application (33.6ms)
+Completed 200 OK in 43ms (Views: 41.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/movements" for ::1 at 2017-06-13 09:31:57 +1000
+Processing by MovementsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mMovement Load (0.4ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered movements/_show.html.erb (0.9ms)
+  Rendered movements/_show.html.erb (0.1ms)
+  Rendered movements/_show.html.erb (0.1ms)
+  Rendered movements/_show.html.erb (0.1ms)
+  Rendered movements/_show.html.erb (0.1ms)
+  Rendered movements/_show.html.erb (0.2ms)
+  Rendered movements/_show.html.erb (0.1ms)
+  Rendered movements/_show.html.erb (0.1ms)
+  Rendered movements/_show.html.erb (0.1ms)
+  Rendered movements/_show.html.erb (0.1ms)
+  Rendered movements/_show.html.erb (0.1ms)
+  Rendered movements/index.html.erb within layouts/application (40.9ms)
+Completed 200 OK in 52ms (Views: 49.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/movements" for ::1 at 2017-06-13 09:32:15 +1000
+Processing by MovementsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered movements/_show.html.erb (0.2ms)
+  Rendered movements/_show.html.erb (0.2ms)
+  Rendered movements/_show.html.erb (0.1ms)
+  Rendered movements/_show.html.erb (0.1ms)
+  Rendered movements/_show.html.erb (0.1ms)
+  Rendered movements/_show.html.erb (0.1ms)
+  Rendered movements/_show.html.erb (0.1ms)
+  Rendered movements/_show.html.erb (0.2ms)
+  Rendered movements/_show.html.erb (0.1ms)
+  Rendered movements/_show.html.erb (0.1ms)
+  Rendered movements/_show.html.erb (0.0ms)
+  Rendered movements/index.html.erb within layouts/application (35.3ms)
+Completed 200 OK in 45ms (Views: 42.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/movements" for ::1 at 2017-06-13 09:32:37 +1000
+Processing by MovementsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered movements/_show.html.erb (44.3ms)
+  Rendered movements/index.html.erb within layouts/application (48.8ms)
+Completed 500 Internal Server Error in 56ms
+
+ActionView::Template::Error (undefined local variable or method `movement' for #<#<Class:0x007ff0faa0b4d0>:0x007ff0fa943520>
+Did you mean?  movement_url
+               @movements):
+    1: 
+    2: 	
+    3: 	<li>Name: <%= movement.name %></li>
+    4: 	<li>Movement Type: for <%= movement.movement_type %></li>
+  app/views/movements/_show.html.erb:3:in `_app_views_movements__show_html_erb__2512611695866397577_70336468873720'
+  app/views/movements/index.html.erb:6:in `block in _app_views_movements_index_html_erb__1335945008458430294_70336486444900'
+  app/views/movements/index.html.erb:5:in `_app_views_movements_index_html_erb__1335945008458430294_70336486444900'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.3ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.3ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (71.0ms)
+
+
+Started GET "/movements/1" for ::1 at 2017-06-13 09:32:54 +1000
+Processing by MovementsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMovement Load (0.2ms)[0m  [1mSELECT  "movements".* FROM "movements" WHERE "movements"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered movements/_show.html.erb (41.1ms)
+  Rendered movements/show.html.erb within layouts/application (43.5ms)
+Completed 500 Internal Server Error in 51ms
+
+ActionView::Template::Error (undefined local variable or method `movement' for #<#<Class:0x007ff0faa0b4d0>:0x007ff0f80db718>
+Did you mean?  @movement):
+    1: 
+    2: 	
+    3: 	<li>Name: <%= movement.name %></li>
+    4: 	<li>Movement Type: for <%= movement.movement_type %></li>
+  app/views/movements/_show.html.erb:3:in `_app_views_movements__show_html_erb__2512611695866397577_70336468873720'
+  app/views/movements/show.html.erb:5:in `_app_views_movements_show_html_erb___3068095538828385316_70336465241600'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (59.0ms)
+
+
+Started GET "/movements/1" for ::1 at 2017-06-13 09:33:20 +1000
+Processing by MovementsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mMovement Load (0.2ms)[0m  SELECT  "movements".* FROM "movements" WHERE "movements"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered movements/_show.html.erb (0.2ms)
+  Rendered movements/show.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 13ms (Views: 12.4ms | ActiveRecord: 0.2ms)
