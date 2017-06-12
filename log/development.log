@@ -20917,3 +20917,655 @@ Processing by UsermovementsController#edit as HTML
   Rendered usermovements/_form.html.erb (6.8ms)
   Rendered usermovements/edit.html.erb within layouts/application (8.5ms)
 Completed 200 OK in 27ms (Views: 15.8ms | ActiveRecord: 1.0ms)
+
+
+Started PATCH "/usermovements/7" for ::1 at 2017-06-12 23:23:55 +1000
+Processing by UsermovementsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KEgvOAVCh6mTxjSHjbeakFVk10vlFMT2rB7lqLUltZ9fzvlzjyjcvmI+/Ci5xKUz//QnTy2xEVXxtlyvnBtYfA==", "usermovement"=>{"name"=>"Dead Lift", "date(1i)"=>"2017", "date(2i)"=>"6", "date(3i)"=>"11", "result"=>"190", "pr"=>"1"}, "commit"=>"Update Usermovement", "id"=>"7"}
+  [1m[35mUsermovement Load (0.2ms)[0m  SELECT  "usermovements".* FROM "usermovements" WHERE "usermovements"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "usermovements" SET "result" = ?, "updated_at" = ? WHERE "usermovements"."id" = ?  [["result", 190.0], ["updated_at", "2017-06-12 13:23:55.793193"], ["id", 7]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/usermovements/7
+Completed 302 Found in 13ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/usermovements/7" for ::1 at 2017-06-12 23:23:55 +1000
+Processing by UsermovementsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mUsermovement Load (0.1ms)[0m  SELECT  "usermovements".* FROM "usermovements" WHERE "usermovements"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mMovement Load (0.2ms)[0m  [1mSELECT  "movements".* FROM "movements" WHERE "movements"."name" = ? LIMIT 1[0m  [["name", "Dead Lift"]]
+  Rendered usermovements/_show.html.erb (0.2ms)
+  Rendered usermovements/show.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 18ms (Views: 9.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/usermovements" for ::1 at 2017-06-12 23:23:59 +1000
+Processing by UsermovementsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mUsermovement Load (0.2ms)[0m  [1mSELECT "usermovements".* FROM "usermovements"[0m
+  Rendered usermovements/_show.html.erb (0.2ms)
+  Rendered usermovements/_show.html.erb (0.2ms)
+  Rendered usermovements/_show.html.erb (0.2ms)
+  Rendered usermovements/_show.html.erb (0.2ms)
+  Rendered usermovements/_show.html.erb (0.1ms)
+  Rendered usermovements/_show.html.erb (0.1ms)
+  Rendered usermovements/_show.html.erb (0.2ms)
+  Rendered usermovements/index.html.erb within layouts/application (15.5ms)
+Completed 200 OK in 30ms (Views: 20.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/userwods/new" for ::1 at 2017-06-12 23:25:48 +1000
+Processing by UserwodsController#new as HTML
+  [1m[35mWod Load (0.3ms)[0m  SELECT "wods".* FROM "wods"
+  [1m[36mMovement Load (0.2ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 1]]
+  Rendered wods/_show.html.erb (8.1ms)
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 2]]
+  Rendered wods/_show.html.erb (1.0ms)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 3]]
+  Rendered wods/_show.html.erb (1.1ms)
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 4]]
+  Rendered wods/_show.html.erb (0.9ms)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 5]]
+  Rendered wods/_show.html.erb (0.7ms)
+  Rendered userwods/new.html.erb within layouts/application (35.9ms)
+Completed 200 OK in 55ms (Views: 42.3ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/userwods/new" for ::1 at 2017-06-12 23:27:35 +1000
+Processing by UserwodsController#new as HTML
+  [1m[35mWod Load (0.2ms)[0m  SELECT "wods".* FROM "wods"
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 1]]
+  Rendered wods/_show.html.erb (2.1ms)
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 2]]
+  Rendered wods/_show.html.erb (1.3ms)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 3]]
+  Rendered wods/_show.html.erb (1.3ms)
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 4]]
+  Rendered wods/_show.html.erb (1.0ms)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 5]]
+  Rendered wods/_show.html.erb (0.8ms)
+  Rendered userwods/new.html.erb within layouts/application (26.3ms)
+Completed 200 OK in 33ms (Views: 31.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/userwods/new" for ::1 at 2017-06-12 23:28:29 +1000
+Processing by UserwodsController#new as HTML
+  [1m[35mWod Load (0.2ms)[0m  SELECT "wods".* FROM "wods"
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 1]]
+  Rendered wods/_show.html.erb (2.1ms)
+  [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 2]]
+  Rendered wods/_show.html.erb (1.2ms)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 3]]
+  Rendered wods/_show.html.erb (0.9ms)
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 4]]
+  Rendered wods/_show.html.erb (0.9ms)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 5]]
+  Rendered wods/_show.html.erb (0.9ms)
+  Rendered userwods/new.html.erb within layouts/application (20.3ms)
+Completed 200 OK in 25ms (Views: 23.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/userwods/new" for ::1 at 2017-06-12 23:29:02 +1000
+Processing by UserwodsController#new as HTML
+  [1m[35mWod Load (0.1ms)[0m  SELECT "wods".* FROM "wods"
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 1]]
+  Rendered wods/_show.html.erb (2.8ms)
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 2]]
+  Rendered wods/_show.html.erb (0.9ms)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 3]]
+  Rendered wods/_show.html.erb (0.9ms)
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 4]]
+  Rendered wods/_show.html.erb (0.6ms)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 5]]
+  Rendered wods/_show.html.erb (0.6ms)
+  Rendered userwods/new.html.erb within layouts/application (18.4ms)
+Completed 200 OK in 22ms (Views: 21.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/userwods/new" for ::1 at 2017-06-12 23:29:28 +1000
+Processing by UserwodsController#new as HTML
+  [1m[35mWod Load (0.2ms)[0m  SELECT "wods".* FROM "wods"
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 1]]
+  Rendered wods/_show.html.erb (2.0ms)
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 2]]
+  Rendered wods/_show.html.erb (0.9ms)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 3]]
+  Rendered wods/_show.html.erb (0.9ms)
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 4]]
+  Rendered wods/_show.html.erb (0.7ms)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 5]]
+  Rendered wods/_show.html.erb (0.7ms)
+  Rendered userwods/new.html.erb within layouts/application (18.6ms)
+Completed 200 OK in 23ms (Views: 21.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/userwods/new" for ::1 at 2017-06-12 23:29:55 +1000
+Processing by UserwodsController#new as HTML
+  [1m[35mWod Load (0.2ms)[0m  SELECT "wods".* FROM "wods"
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 1]]
+  Rendered wods/_show.html.erb (1.6ms)
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 2]]
+  Rendered wods/_show.html.erb (1.0ms)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 3]]
+  Rendered wods/_show.html.erb (0.9ms)
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 4]]
+  Rendered wods/_show.html.erb (0.9ms)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 5]]
+  Rendered wods/_show.html.erb (0.8ms)
+  Rendered userwods/new.html.erb within layouts/application (18.9ms)
+Completed 200 OK in 24ms (Views: 22.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/userwods/new" for ::1 at 2017-06-12 23:30:29 +1000
+Processing by UserwodsController#new as HTML
+  [1m[35mWod Load (0.2ms)[0m  SELECT "wods".* FROM "wods"
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 1]]
+  Rendered wods/_show.html.erb (1.5ms)
+  [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 2]]
+  Rendered wods/_show.html.erb (1.1ms)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 3]]
+  Rendered wods/_show.html.erb (1.0ms)
+  [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 4]]
+  Rendered wods/_show.html.erb (1.4ms)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 5]]
+  Rendered wods/_show.html.erb (1.2ms)
+  Rendered userwods/new.html.erb within layouts/application (20.2ms)
+Completed 200 OK in 26ms (Views: 24.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/userwods/new" for ::1 at 2017-06-12 23:31:27 +1000
+Processing by UserwodsController#new as HTML
+  [1m[35mWod Load (0.1ms)[0m  SELECT "wods".* FROM "wods"
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 1]]
+  Rendered wods/_show.html.erb (1.2ms)
+  [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 2]]
+  Rendered wods/_show.html.erb (1.7ms)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 3]]
+  Rendered wods/_show.html.erb (1.0ms)
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 4]]
+  Rendered wods/_show.html.erb (0.7ms)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 5]]
+  Rendered wods/_show.html.erb (0.7ms)
+  Rendered userwods/new.html.erb within layouts/application (16.4ms)
+Completed 200 OK in 20ms (Views: 19.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/userwods/new" for ::1 at 2017-06-12 23:31:29 +1000
+Processing by UserwodsController#new as HTML
+  [1m[35mWod Load (0.2ms)[0m  SELECT "wods".* FROM "wods"
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 1]]
+  Rendered wods/_show.html.erb (1.2ms)
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 2]]
+  Rendered wods/_show.html.erb (1.0ms)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 3]]
+  Rendered wods/_show.html.erb (0.7ms)
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 4]]
+  Rendered wods/_show.html.erb (1.0ms)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 5]]
+  Rendered wods/_show.html.erb (0.8ms)
+  Rendered userwods/new.html.erb within layouts/application (16.9ms)
+Completed 200 OK in 21ms (Views: 20.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/userwods/new" for ::1 at 2017-06-12 23:31:32 +1000
+Processing by UserwodsController#new as HTML
+  [1m[35mWod Load (0.2ms)[0m  SELECT "wods".* FROM "wods"
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 1]]
+  Rendered wods/_show.html.erb (1.5ms)
+  [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 2]]
+  Rendered wods/_show.html.erb (1.6ms)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 3]]
+  Rendered wods/_show.html.erb (1.2ms)
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 4]]
+  Rendered wods/_show.html.erb (0.8ms)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 5]]
+  Rendered wods/_show.html.erb (0.8ms)
+  Rendered userwods/new.html.erb within layouts/application (19.9ms)
+Completed 200 OK in 25ms (Views: 24.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/userwods/new" for ::1 at 2017-06-12 23:32:26 +1000
+Processing by UserwodsController#new as HTML
+  [1m[35mWod Load (0.2ms)[0m  SELECT "wods".* FROM "wods"
+  [1m[36mMovement Load (0.2ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 1]]
+  Rendered wods/_show.html.erb (2.3ms)
+  [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 2]]
+  Rendered wods/_show.html.erb (1.6ms)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 3]]
+  Rendered wods/_show.html.erb (1.7ms)
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 4]]
+  Rendered wods/_show.html.erb (1.0ms)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 5]]
+  Rendered wods/_show.html.erb (0.9ms)
+  Rendered userwods/new.html.erb within layouts/application (25.1ms)
+Completed 200 OK in 31ms (Views: 30.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/userwods/new" for ::1 at 2017-06-12 23:32:39 +1000
+Processing by UserwodsController#new as HTML
+  [1m[35mWod Load (0.2ms)[0m  SELECT "wods".* FROM "wods"
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 1]]
+  Rendered wods/_show.html.erb (1.7ms)
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 2]]
+  Rendered wods/_show.html.erb (0.9ms)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 3]]
+  Rendered wods/_show.html.erb (1.0ms)
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 4]]
+  Rendered wods/_show.html.erb (0.8ms)
+  [1m[36mMovement Load (0.2ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 5]]
+  Rendered wods/_show.html.erb (0.9ms)
+  Rendered userwods/new.html.erb within layouts/application (19.3ms)
+Completed 200 OK in 24ms (Views: 23.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-12 23:33:05 +1000
+Processing by WodsController#new as HTML
+  [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered wods/new.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 18ms (Views: 15.8ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/wods" for ::1 at 2017-06-12 23:33:31 +1000
+Processing by WodsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2B/DY+lYiT8Z02inbdA3FJ3EGkBAUdOqcAfMufLtU5WvmRUoYzLSKOgroAhZowi3N1TqRIj0Bgktr3W+29O+dg==", "wod"=>{"title"=>"Frank", "wod_type"=>"time", "movement_ids"=>["1", "3", ""], "movements_attributes"=>{"0"=>{"quantity"=>"5", "name"=>"Chest to Bar", "movement_type"=>"repetitions"}, "1"=>{"quantity"=>"7", "name"=>"Wall Balls", "movement_type"=>"repetitions"}}}, "commit"=>"Create Wod"}
+  [1m[36mMovement Load (0.2ms)[0m  [1mSELECT "movements".* FROM "movements" WHERE "movements"."id" IN (1, 3)[0m
+  [1m[35mMovement Load (0.2ms)[0m  SELECT  "movements".* FROM "movements" WHERE "movements"."name" = ? AND "movements"."movement_type" = ? AND "movements"."quantity" = ? LIMIT 1  [["name", "Chest to Bar"], ["movement_type", "repetitions"], ["quantity", 5]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.3ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Chest to Bar' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "movements" ("name", "movement_type", "quantity", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Chest to Bar"], ["movement_type", "repetitions"], ["quantity", 5], ["created_at", "2017-06-12 13:33:31.567986"], ["updated_at", "2017-06-12 13:33:31.567986"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT  "movements".* FROM "movements" WHERE "movements"."name" = ? AND "movements"."movement_type" = ? AND "movements"."quantity" = ? LIMIT 1[0m  [["name", "Wall Balls"], ["movement_type", "repetitions"], ["quantity", 7]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovement Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Wall Balls' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "movements" ("name", "movement_type", "quantity", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Wall Balls"], ["movement_type", "repetitions"], ["quantity", 7], ["created_at", "2017-06-12 13:33:31.573240"], ["updated_at", "2017-06-12 13:33:31.573240"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mMovement Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "movements" WHERE ("movements"."name" = 'Dead Lift' AND "movements"."id" != 1) LIMIT 1[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE ("movements"."name" = 'Push Jerk' AND "movements"."id" != 3) LIMIT 1
+  [1m[36mMovement Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "movements" WHERE ("movements"."name" = 'Chest to Bar' AND "movements"."id" != 10) LIMIT 1[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE ("movements"."name" = 'Wall Balls' AND "movements"."id" != 11) LIMIT 1
+  [1m[36mWod Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "wods" WHERE "wods"."title" = 'Frank' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "wods" ("title", "wod_type", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "Frank"], ["wod_type", "time"], ["created_at", "2017-06-12 13:33:31.583029"], ["updated_at", "2017-06-12 13:33:31.583029"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "move_wods" ("movement_id", "wod_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["movement_id", 1], ["wod_id", 6], ["created_at", "2017-06-12 13:33:31.584793"], ["updated_at", "2017-06-12 13:33:31.584793"]]
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "move_wods" ("movement_id", "wod_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["movement_id", 3], ["wod_id", 6], ["created_at", "2017-06-12 13:33:31.585951"], ["updated_at", "2017-06-12 13:33:31.585951"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "move_wods" ("movement_id", "wod_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["movement_id", 10], ["wod_id", 6], ["created_at", "2017-06-12 13:33:31.587089"], ["updated_at", "2017-06-12 13:33:31.587089"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "move_wods" ("movement_id", "wod_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["movement_id", 11], ["wod_id", 6], ["created_at", "2017-06-12 13:33:31.588657"], ["updated_at", "2017-06-12 13:33:31.588657"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/wods/6
+Completed 302 Found in 39ms (ActiveRecord: 5.1ms)
+
+
+Started GET "/wods/6" for ::1 at 2017-06-12 23:33:31 +1000
+Processing by WodsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mWod Load (0.2ms)[0m  SELECT  "wods".* FROM "wods" WHERE "wods"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 6]]
+  Rendered wods/_show.html.erb (1.8ms)
+  Rendered wods/show.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 9ms (Views: 8.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/wods/6" for ::1 at 2017-06-12 23:34:05 +1000
+Processing by WodsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mWod Load (0.1ms)[0m  SELECT  "wods".* FROM "wods" WHERE "wods"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 6]]
+  Rendered wods/_show.html.erb (2.3ms)
+  Rendered wods/show.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 9ms (Views: 8.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/wods/6" for ::1 at 2017-06-12 23:34:28 +1000
+Processing by WodsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mWod Load (0.1ms)[0m  SELECT  "wods".* FROM "wods" WHERE "wods"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 6]]
+  Rendered wods/_show.html.erb (2.6ms)
+  Rendered wods/show.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/wods/6" for ::1 at 2017-06-12 23:34:55 +1000
+Processing by WodsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mWod Load (0.1ms)[0m  SELECT  "wods".* FROM "wods" WHERE "wods"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 6]]
+  Rendered wods/_show.html.erb (2.1ms)
+  Rendered wods/show.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 10ms (Views: 8.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/wods/6" for ::1 at 2017-06-12 23:35:07 +1000
+Processing by WodsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mWod Load (0.1ms)[0m  SELECT  "wods".* FROM "wods" WHERE "wods"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 6]]
+  Rendered wods/_show.html.erb (2.1ms)
+  Rendered wods/show.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 12ms (Views: 11.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/userwods/new" for ::1 at 2017-06-12 23:35:26 +1000
+Processing by UserwodsController#new as HTML
+  [1m[35mWod Load (0.2ms)[0m  SELECT "wods".* FROM "wods"
+  [1m[36mMovement Load (0.2ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 1]]
+  Rendered wods/_show.html.erb (1.9ms)
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 2]]
+  Rendered wods/_show.html.erb (0.7ms)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 3]]
+  Rendered wods/_show.html.erb (1.4ms)
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 4]]
+  Rendered wods/_show.html.erb (0.8ms)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 5]]
+  Rendered wods/_show.html.erb (0.8ms)
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 6]]
+  Rendered wods/_show.html.erb (1.0ms)
+  Rendered userwods/new.html.erb within layouts/application (20.7ms)
+Completed 200 OK in 26ms (Views: 24.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/userwods/new" for ::1 at 2017-06-12 23:35:42 +1000
+Processing by UserwodsController#new as HTML
+  [1m[36mWod Load (0.2ms)[0m  [1mSELECT "wods".* FROM "wods"[0m
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 1]]
+  Rendered wods/_show.html.erb (1.5ms)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 2]]
+  Rendered wods/_show.html.erb (0.8ms)
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 3]]
+  Rendered wods/_show.html.erb (0.6ms)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 4]]
+  Rendered wods/_show.html.erb (0.8ms)
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 5]]
+  Rendered wods/_show.html.erb (1.1ms)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 6]]
+  Rendered wods/_show.html.erb (1.1ms)
+  Rendered userwods/new.html.erb within layouts/application (22.2ms)
+Completed 200 OK in 27ms (Views: 25.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/userwods/new" for ::1 at 2017-06-12 23:36:13 +1000
+Processing by UserwodsController#new as HTML
+  [1m[35mWod Load (0.2ms)[0m  SELECT "wods".* FROM "wods"
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 1]]
+  Rendered wods/_show.html.erb (1.5ms)
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 2]]
+  Rendered wods/_show.html.erb (0.8ms)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 3]]
+  Rendered wods/_show.html.erb (0.8ms)
+  [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 4]]
+  Rendered wods/_show.html.erb (1.5ms)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 5]]
+  Rendered wods/_show.html.erb (1.0ms)
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 6]]
+  Rendered wods/_show.html.erb (1.2ms)
+  Rendered userwods/new.html.erb within layouts/application (22.9ms)
+Completed 200 OK in 28ms (Views: 26.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/userwods/new" for ::1 at 2017-06-12 23:36:20 +1000
+Processing by UserwodsController#new as HTML
+  [1m[36mWod Load (0.2ms)[0m  [1mSELECT "wods".* FROM "wods"[0m
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 1]]
+  Rendered wods/_show.html.erb (1.7ms)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 2]]
+  Rendered wods/_show.html.erb (1.0ms)
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 3]]
+  Rendered wods/_show.html.erb (1.0ms)
+  [1m[36mMovement Load (0.2ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 4]]
+  Rendered wods/_show.html.erb (1.6ms)
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 5]]
+  Rendered wods/_show.html.erb (1.1ms)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 6]]
+  Rendered wods/_show.html.erb (1.2ms)
+  Rendered userwods/new.html.erb within layouts/application (23.4ms)
+Completed 200 OK in 28ms (Views: 27.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/userwods/new" for ::1 at 2017-06-12 23:36:26 +1000
+Processing by UserwodsController#new as HTML
+  [1m[35mWod Load (0.2ms)[0m  SELECT "wods".* FROM "wods"
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 1]]
+  Rendered wods/_show.html.erb (1.9ms)
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 2]]
+  Rendered wods/_show.html.erb (1.3ms)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 3]]
+  Rendered wods/_show.html.erb (1.2ms)
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 4]]
+  Rendered wods/_show.html.erb (1.0ms)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 5]]
+  Rendered wods/_show.html.erb (1.0ms)
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 6]]
+  Rendered wods/_show.html.erb (1.2ms)
+  Rendered userwods/new.html.erb within layouts/application (22.3ms)
+Completed 200 OK in 28ms (Views: 26.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/wods/1" for ::1 at 2017-06-12 23:36:38 +1000
+Processing by WodsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mWod Load (0.1ms)[0m  [1mSELECT  "wods".* FROM "wods" WHERE "wods"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 1]]
+  Rendered wods/_show.html.erb (1.3ms)
+  Rendered wods/show.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 9ms (Views: 8.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/wods/1" for ::1 at 2017-06-12 23:36:58 +1000
+Processing by WodsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mWod Load (0.2ms)[0m  [1mSELECT  "wods".* FROM "wods" WHERE "wods"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 1]]
+  Rendered wods/_show.html.erb (2.7ms)
+  Rendered wods/show.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 9ms (Views: 8.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/wods/1" for ::1 at 2017-06-12 23:37:03 +1000
+Processing by WodsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mWod Load (0.1ms)[0m  [1mSELECT  "wods".* FROM "wods" WHERE "wods"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 1]]
+  Rendered wods/_show.html.erb (1.7ms)
+  Rendered wods/show.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 8ms (Views: 7.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/wods/1" for ::1 at 2017-06-12 23:37:11 +1000
+Processing by WodsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mWod Load (0.2ms)[0m  [1mSELECT  "wods".* FROM "wods" WHERE "wods"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 1]]
+  Rendered wods/_show.html.erb (1.7ms)
+  Rendered wods/show.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 11ms (Views: 10.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/wods/1" for ::1 at 2017-06-12 23:37:24 +1000
+Processing by WodsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mWod Load (0.1ms)[0m  [1mSELECT  "wods".* FROM "wods" WHERE "wods"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 1]]
+  Rendered wods/_show.html.erb (1.7ms)
+  Rendered wods/show.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 9ms (Views: 8.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/wods/1" for ::1 at 2017-06-12 23:37:29 +1000
+Processing by WodsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mWod Load (0.2ms)[0m  [1mSELECT  "wods".* FROM "wods" WHERE "wods"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 1]]
+  Rendered wods/_show.html.erb (1.8ms)
+  Rendered wods/show.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 9ms (Views: 8.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/userwods/new" for ::1 at 2017-06-12 23:37:37 +1000
+Processing by UserwodsController#new as HTML
+  [1m[36mWod Load (0.2ms)[0m  [1mSELECT "wods".* FROM "wods"[0m
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 1]]
+  Rendered wods/_show.html.erb (1.0ms)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 2]]
+  Rendered wods/_show.html.erb (0.8ms)
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 3]]
+  Rendered wods/_show.html.erb (0.7ms)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 4]]
+  Rendered wods/_show.html.erb (0.7ms)
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 5]]
+  Rendered wods/_show.html.erb (0.9ms)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 6]]
+  Rendered wods/_show.html.erb (1.0ms)
+  Rendered userwods/new.html.erb within layouts/application (20.3ms)
+Completed 200 OK in 26ms (Views: 24.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/userwods/new" for ::1 at 2017-06-12 23:38:09 +1000
+Processing by UserwodsController#new as HTML
+  [1m[35mWod Load (0.2ms)[0m  SELECT "wods".* FROM "wods"
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 1]]
+  Rendered wods/_show.html.erb (1.8ms)
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 2]]
+  Rendered wods/_show.html.erb (1.1ms)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 3]]
+  Rendered wods/_show.html.erb (0.9ms)
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 4]]
+  Rendered wods/_show.html.erb (0.8ms)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 5]]
+  Rendered wods/_show.html.erb (0.8ms)
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 6]]
+  Rendered wods/_show.html.erb (1.2ms)
+  Rendered userwods/new.html.erb within layouts/application (23.0ms)
+Completed 200 OK in 28ms (Views: 26.8ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/userwods" for ::1 at 2017-06-12 23:38:27 +1000
+Processing by UserwodsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"C5FBHEU/6bLbxV9e+kYLAR4napuL07amT9N1ixqis5B8F5dXz1WypSo9l/HONTSitLean0N2YwUSe8yMM5xecw==", "userwod"=>{"name"=>"Grace", "result"=>"10", "pr"=>"1"}, "wod"=>{"date(1i)"=>"2017", "date(2i)"=>"6", "date(3i)"=>"12"}, "commit"=>"Create Userwod"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "userwods" ("name", "result", "pr", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Grace"], ["result", 10.0], ["pr", "t"], ["created_at", "2017-06-12 13:38:27.784028"], ["updated_at", "2017-06-12 13:38:27.784028"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/userwods/1
+Completed 302 Found in 4ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/userwods/1" for ::1 at 2017-06-12 23:38:27 +1000
+Processing by UserwodsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUserwod Load (0.2ms)[0m  SELECT  "userwods".* FROM "userwods" WHERE "userwods"."id" = ? LIMIT 1  [["id", 1]]
+Completed 500 Internal Server Error in 4ms
+
+ActionView::MissingTemplate (Missing template userwods/show, application/show with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/Annette/Dev/Rails/wodapp/app/views"
+):
+  actionview (4.2.0) lib/action_view/path_set.rb:46:in `find'
+  actionview (4.2.0) lib/action_view/lookup_context.rb:121:in `find'
+  actionview (4.2.0) lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  actionview (4.2.0) lib/action_view/renderer/template_renderer.rb:40:in `determine_template'
+  actionview (4.2.0) lib/action_view/renderer/template_renderer.rb:8:in `render'
+  actionview (4.2.0) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.2.0) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.2.0) lib/action_view/rendering.rb:100:in `_render_template'
+  actionpack (4.2.0) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.2.0) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.2.0) lib/action_controller/metal/renderers.rb:37:in `render_to_body'
+  actionpack (4.2.0) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.2.0) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /Users/Annette/.rvm/rubies/ruby-2.3.1/lib/ruby/2.3.0/benchmark.rb:308:in `realtime'
+  activesupport (4.2.0) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.2.0) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.2.0) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.2.0) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_process_action_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal.rb:236:in `block in action'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:42:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  rack (1.6.5) lib/rack/etag.rb:24:in `call'
+  rack (1.6.5) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.5) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.5) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.5) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  thin (1.7.0) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.7.0) lib/thin/connection.rb:84:in `catch'
+  thin (1.7.0) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.7.0) lib/thin/connection.rb:53:in `process'
+  thin (1.7.0) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.2.3) lib/eventmachine.rb:194:in `run_machine'
+  eventmachine (1.2.3) lib/eventmachine.rb:194:in `run'
+  thin (1.7.0) lib/thin/backends/base.rb:73:in `start'
+  thin (1.7.0) lib/thin/server.rb:162:in `start'
+  rack (1.6.5) lib/rack/handler/thin.rb:19:in `run'
+  rack (1.6.5) lib/rack/server.rb:286:in `start'
+  railties (4.2.0) lib/rails/commands/server.rb:80:in `start'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:80:in `block in server'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:75:in `tap'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:75:in `server'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+  railties (4.2.0) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:8:in `require'
+  bin/rails:8:in `<main>'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.7ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/missing_template.html.erb within rescues/layout (55.0ms)
