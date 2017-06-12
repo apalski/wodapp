@@ -2,7 +2,7 @@
 <h1>These are your movement results</h1>
 
 <ul>
-	<% @movements.each do |movement| %>
-		<%= render 'show', movement: movement %>
+	<% @usermovements.each do |usermovement| %>
+		<%= render 'show', usermovement: usermovement, movement: @movement %>
 	<% end %>	
 </ul>

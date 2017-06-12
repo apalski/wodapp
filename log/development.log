@@ -18202,3 +18202,580 @@ Processing by UsermovementsController#show as HTML
   Rendered usermovements/_show.html.erb (1.0ms)
   Rendered usermovements/show.html.erb within layouts/application (3.8ms)
 Completed 200 OK in 9ms (Views: 8.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/usermovements/1/edit" for ::1 at 2017-06-12 21:57:10 +1000
+Processing by UsermovementsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUsermovement Load (0.1ms)[0m  [1mSELECT  "usermovements".* FROM "usermovements" WHERE "usermovements"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered usermovements/_form.html.erb (8.9ms)
+  Rendered usermovements/edit.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 17ms (Views: 16.4ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/usermovements/1" for ::1 at 2017-06-12 21:57:17 +1000
+Processing by UsermovementsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BJ5+ig9Ap/cA/04v8f+F1jiNe0HR5YgpC/wNLulX1xFzGKjBhSr84PEHhoDFjLp1kh2LRRlAXYpWVLQpwGk68g==", "usermovement"=>{"name"=>"Dead Lift", "date(1i)"=>"2017", "date(2i)"=>"6", "date(3i)"=>"10", "result"=>"165.0", "pr"=>"1"}, "commit"=>"Update Usermovement", "id"=>"1"}
+  [1m[36mUsermovement Load (0.2ms)[0m  [1mSELECT  "usermovements".* FROM "usermovements" WHERE "usermovements"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "usermovements" SET "result" = ?, "updated_at" = ? WHERE "usermovements"."id" = ?[0m  [["result", 165.0], ["updated_at", "2017-06-12 11:57:17.563225"], ["id", 1]]
+  [1m[35m (0.6ms)[0m  commit transaction
+Redirected to http://localhost:3000/usermovements/1
+Completed 302 Found in 7ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/usermovements/1" for ::1 at 2017-06-12 21:57:17 +1000
+Processing by UsermovementsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUsermovement Load (0.1ms)[0m  [1mSELECT  "usermovements".* FROM "usermovements" WHERE "usermovements"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mMovement Load (0.1ms)[0m  SELECT  "movements".* FROM "movements" WHERE "movements"."name" = ? LIMIT 1  [["name", "Dead Lift"]]
+  Rendered usermovements/_show.html.erb (0.3ms)
+  Rendered usermovements/show.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 9ms (Views: 7.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/usermovements/" for ::1 at 2017-06-12 21:57:31 +1000
+Processing by UsermovementsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  Rendered usermovements/index.html.erb within layouts/application (2.6ms)
+Completed 500 Internal Server Error in 19ms
+
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    2: <h1>These are your movement results</h1>
+    3: 
+    4: <ul>
+    5: 	<% @movements.each do |movement| %>
+    6: 		<%= render 'show', movement: movement %>
+    7: 	<% end %>	
+    8: </ul>
+  app/views/usermovements/index.html.erb:5:in `_app_views_usermovements_index_html_erb__1185167232950058805_70336491366540'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (46.6ms)
+
+
+Started GET "/usermovements/" for ::1 at 2017-06-12 21:57:43 +1000
+Processing by UsermovementsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mUsermovement Load (0.2ms)[0m  [1mSELECT "usermovements".* FROM "usermovements"[0m
+  Rendered usermovements/_show.html.erb (2.6ms)
+  Rendered usermovements/index.html.erb within layouts/application (5.9ms)
+Completed 500 Internal Server Error in 14ms
+
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: 
+    2: 		<li>Movement: <%= @movement.name %></li><br>
+    3: 		<li>Date Completed: <%= usermovement.date.strftime("%d %B %Y") %></li><br>
+    4: 		<% if @movement.movement_type == "time" %>
+    5: 			<li>Result Achieved: <%= usermovement.result %> minutes</li><br>
+  app/views/usermovements/_show.html.erb:2:in `_app_views_usermovements__show_html_erb__3070904847192320344_70336486190360'
+  app/views/usermovements/index.html.erb:6:in `block in _app_views_usermovements_index_html_erb__1185167232950058805_70336486270260'
+  app/views/usermovements/index.html.erb:5:in `_app_views_usermovements_index_html_erb__1185167232950058805_70336486270260'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.8ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (50.1ms)
+
+
+Started GET "/usermovements/" for ::1 at 2017-06-12 21:58:01 +1000
+Processing by UsermovementsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mUsermovement Load (0.3ms)[0m  [1mSELECT "usermovements".* FROM "usermovements"[0m
+  Rendered usermovements/index.html.erb within layouts/application (36.0ms)
+Completed 500 Internal Server Error in 43ms
+
+ActionView::Template::Error (undefined local variable or method `usermovement' for #<#<Class:0x007ff0f7e68418>:0x007ff0f87e38a8>
+Did you mean?  @usermovements):
+    3: 
+    4: <ul>
+    5: 	<% @usermovements.each do |movement| %>
+    6: 		<%= render 'show', usermovement: usermovement %>
+    7: 	<% end %>	
+    8: </ul>
+  app/views/usermovements/index.html.erb:6:in `block in _app_views_usermovements_index_html_erb__1185167232950058805_70336468946080'
+  app/views/usermovements/index.html.erb:5:in `_app_views_usermovements_index_html_erb__1185167232950058805_70336468946080'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.8ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (54.6ms)
+
+
+Started GET "/usermovements/" for ::1 at 2017-06-12 21:58:30 +1000
+Processing by UsermovementsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mUsermovement Load (0.2ms)[0m  [1mSELECT "usermovements".* FROM "usermovements"[0m
+  Rendered usermovements/index.html.erb within layouts/application (46.4ms)
+Completed 500 Internal Server Error in 54ms
+
+ActionView::Template::Error (undefined local variable or method `usermovement' for #<#<Class:0x007ff0f7e68418>:0x007ff0f451ba70>
+Did you mean?  @usermovements):
+    3: 
+    4: <ul>
+    5: 	<% @usermovements.each do |movement| %>
+    6: 		<%= render 'show', usermovement: usermovement %>
+    7: 	<% end %>	
+    8: </ul>
+  app/views/usermovements/index.html.erb:6:in `block in _app_views_usermovements_index_html_erb__1185167232950058805_70336433915360'
+  app/views/usermovements/index.html.erb:5:in `_app_views_usermovements_index_html_erb__1185167232950058805_70336433915360'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (54.9ms)
+
+
+Started GET "/usermovements/" for ::1 at 2017-06-12 21:59:05 +1000
+Processing by UsermovementsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mUsermovement Load (0.1ms)[0m  [1mSELECT "usermovements".* FROM "usermovements"[0m
+  Rendered usermovements/_show.html.erb (2.0ms)
+  Rendered usermovements/index.html.erb within layouts/application (4.4ms)
+Completed 500 Internal Server Error in 12ms
+
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: 
+    2: 		<li>Movement: <%= @movement.name %></li><br>
+    3: 		<li>Date Completed: <%= usermovement.date.strftime("%d %B %Y") %></li><br>
+    4: 		<% if @movement.movement_type == "time" %>
+    5: 			<li>Result Achieved: <%= usermovement.result %> minutes</li><br>
+  app/views/usermovements/_show.html.erb:2:in `_app_views_usermovements__show_html_erb__3070904847192320344_70336444037580'
+  app/views/usermovements/index.html.erb:6:in `block in _app_views_usermovements_index_html_erb__1185167232950058805_70336468298100'
+  app/views/usermovements/index.html.erb:5:in `_app_views_usermovements_index_html_erb__1185167232950058805_70336468298100'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (60.7ms)
+
+
+Started GET "/usermovements/" for ::1 at 2017-06-12 21:59:36 +1000
+Processing by UsermovementsController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Completed 500 Internal Server Error in 13ms
+
+NoMethodError (undefined method `name' for nil:NilClass):
+  app/controllers/usermovements_controller.rb:6:in `index'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (48.9ms)
+
+
+Started GET "/usermovements/" for ::1 at 2017-06-12 22:00:23 +1000
+Processing by UsermovementsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 500 Internal Server Error in 3ms
+
+NoMethodError (undefined method `name' for nil:NilClass):
+  app/controllers/usermovements_controller.rb:6:in `index'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (51.9ms)
+
+
+Started GET "/usermovements/" for ::1 at 2017-06-12 22:00:31 +1000
+Processing by UsermovementsController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mUsermovement Load (0.1ms)[0m  [1mSELECT "usermovements".* FROM "usermovements"[0m
+  Rendered usermovements/_show.html.erb (2.6ms)
+  Rendered usermovements/index.html.erb within layouts/application (8.7ms)
+Completed 500 Internal Server Error in 23ms
+
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: 
+    2: 		<li>Movement: <%= @movement.name %></li><br>
+    3: 		<li>Date Completed: <%= usermovement.date.strftime("%d %B %Y") %></li><br>
+    4: 		<% if @movement.movement_type == "time" %>
+    5: 			<li>Result Achieved: <%= usermovement.result %> minutes</li><br>
+  app/views/usermovements/_show.html.erb:2:in `_app_views_usermovements__show_html_erb__3070904847192320344_70336486190360'
+  app/views/usermovements/index.html.erb:6:in `block in _app_views_usermovements_index_html_erb__1185167232950058805_70336487905940'
+  app/views/usermovements/index.html.erb:5:in `_app_views_usermovements_index_html_erb__1185167232950058805_70336487905940'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.8ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (53.5ms)
+
+
+Started GET "/usermovements/" for ::1 at 2017-06-12 22:01:02 +1000
+Processing by UsermovementsController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mUsermovement Load (0.2ms)[0m  [1mSELECT "usermovements".* FROM "usermovements"[0m
+Completed 500 Internal Server Error in 19ms
+
+NoMethodError (undefined method `name' for #<UsermovementsController:0x007ff0fb45b840>):
+  app/controllers/usermovements_controller.rb:6:in `index'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.7ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (57.6ms)
+
+
+Started GET "/usermovements/" for ::1 at 2017-06-12 22:01:56 +1000
+Processing by UsermovementsController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mUsermovement Load (0.2ms)[0m  [1mSELECT "usermovements".* FROM "usermovements"[0m
+  Rendered usermovements/_show.html.erb (2.3ms)
+  Rendered usermovements/index.html.erb within layouts/application (15.7ms)
+Completed 500 Internal Server Error in 32ms
+
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: 
+    2: 		<li>Movement: <%= @movement.name %></li><br>
+    3: 		<li>Date Completed: <%= usermovement.date.strftime("%d %B %Y") %></li><br>
+    4: 		<% if @movement.movement_type == "time" %>
+    5: 			<li>Result Achieved: <%= usermovement.result %> minutes</li><br>
+  app/views/usermovements/_show.html.erb:2:in `_app_views_usermovements__show_html_erb__3070904847192320344_70336486190360'
+  app/views/usermovements/index.html.erb:6:in `block in _app_views_usermovements_index_html_erb__1185167232950058805_70336440354240'
+  app/views/usermovements/index.html.erb:5:in `_app_views_usermovements_index_html_erb__1185167232950058805_70336440354240'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (47.7ms)
+
+
+Started GET "/usermovements/" for ::1 at 2017-06-12 22:02:12 +1000
+Processing by UsermovementsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mUsermovement Load (0.1ms)[0m  [1mSELECT "usermovements".* FROM "usermovements"[0m
+  Rendered usermovements/_show.html.erb (2.0ms)
+  Rendered usermovements/index.html.erb within layouts/application (4.4ms)
+Completed 500 Internal Server Error in 11ms
+
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: 
+    2: 		<li>Movement: <%= @movement.name %></li><br>
+    3: 		<li>Date Completed: <%= usermovement.date.strftime("%d %B %Y") %></li><br>
+    4: 		<% if @movement.movement_type == "time" %>
+    5: 			<li>Result Achieved: <%= usermovement.result %> minutes</li><br>
+  app/views/usermovements/_show.html.erb:2:in `_app_views_usermovements__show_html_erb__3070904847192320344_70336444037580'
+  app/views/usermovements/index.html.erb:6:in `block in _app_views_usermovements_index_html_erb__1185167232950058805_70336462442460'
+  app/views/usermovements/index.html.erb:5:in `_app_views_usermovements_index_html_erb__1185167232950058805_70336462442460'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.6ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (55.6ms)
+
+
+Started GET "/usermovements/" for ::1 at 2017-06-12 22:03:01 +1000
+Processing by UsermovementsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mUsermovement Load (0.2ms)[0m  [1mSELECT "usermovements".* FROM "usermovements"[0m
+  Rendered usermovements/index.html.erb within layouts/application (36.2ms)
+Completed 500 Internal Server Error in 43ms
+
+ActionView::Template::Error (undefined local variable or method `usermovement' for #<#<Class:0x007ff0f4340a98>:0x007ff0fa99ee98>
+Did you mean?  @usermovements):
+    3: 
+    4: <ul>
+    5: 	<% @usermovements.each do |movement| %>
+    6: 		<%= render 'show', movement: usermovement %>
+    7: 	<% end %>	
+    8: </ul>
+  app/views/usermovements/index.html.erb:6:in `block in _app_views_usermovements_index_html_erb__1185167232950058805_70336486630500'
+  app/views/usermovements/index.html.erb:5:in `_app_views_usermovements_index_html_erb__1185167232950058805_70336486630500'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.8ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (54.8ms)
+
+
+Started GET "/usermovements/" for ::1 at 2017-06-12 22:03:15 +1000
+Processing by UsermovementsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mUsermovement Load (0.2ms)[0m  [1mSELECT "usermovements".* FROM "usermovements"[0m
+  Rendered usermovements/_show.html.erb (2.3ms)
+  Rendered usermovements/index.html.erb within layouts/application (5.2ms)
+Completed 500 Internal Server Error in 12ms
+
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: 
+    2: 		<li>Movement: <%= @movement.name %></li><br>
+    3: 		<li>Date Completed: <%= usermovement.date.strftime("%d %B %Y") %></li><br>
+    4: 		<% if @movement.movement_type == "time" %>
+    5: 			<li>Result Achieved: <%= usermovement.result %> minutes</li><br>
+  app/views/usermovements/_show.html.erb:2:in `_app_views_usermovements__show_html_erb__3070904847192320344_70336486190360'
+  app/views/usermovements/index.html.erb:6:in `block in _app_views_usermovements_index_html_erb__1185167232950058805_70336444409080'
+  app/views/usermovements/index.html.erb:5:in `_app_views_usermovements_index_html_erb__1185167232950058805_70336444409080'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (13.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.3ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (61.3ms)
+
+
+Started GET "/usermovements/" for ::1 at 2017-06-12 22:04:17 +1000
+Processing by UsermovementsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mUsermovement Load (0.1ms)[0m  [1mSELECT "usermovements".* FROM "usermovements"[0m
+  Rendered usermovements/_show.html.erb (33.3ms)
+  Rendered usermovements/index.html.erb within layouts/application (35.7ms)
+Completed 500 Internal Server Error in 40ms
+
+ActionView::Template::Error (undefined local variable or method `usermovement' for #<#<Class:0x007ff0f4340a98>:0x007ff0f58fd1b0>
+Did you mean?  @usermovements):
+    1: 
+    2: 		<li>Movement: <%= usermovement.name %></li><br>
+    3: 		<li>Date Completed: <%= usermovement.date.strftime("%d %B %Y") %></li><br>
+    4: 		<% if @movement.movement_type == "time" %>
+    5: 			<li>Result Achieved: <%= usermovement.result %> minutes</li><br>
+  app/views/usermovements/_show.html.erb:2:in `_app_views_usermovements__show_html_erb__3070904847192320344_70336486066520'
+  app/views/usermovements/index.html.erb:6:in `block in _app_views_usermovements_index_html_erb__1185167232950058805_70336444409080'
+  app/views/usermovements/index.html.erb:5:in `_app_views_usermovements_index_html_erb__1185167232950058805_70336444409080'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (53.9ms)
+
+
+Started GET "/usermovements/" for ::1 at 2017-06-12 22:04:38 +1000
+Processing by UsermovementsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mUsermovement Load (0.2ms)[0m  [1mSELECT "usermovements".* FROM "usermovements"[0m
+  Rendered usermovements/index.html.erb within layouts/application (42.2ms)
+Completed 500 Internal Server Error in 50ms
+
+ActionView::Template::Error (undefined local variable or method `usermovement' for #<#<Class:0x007ff0f4340a98>:0x007ff0fa931e10>
+Did you mean?  @usermovements):
+    3: 
+    4: <ul>
+    5: 	<% @usermovements.each do |movement| %>
+    6: 		<%= render 'show', movement: usermovement %>
+    7: 	<% end %>	
+    8: </ul>
+  app/views/usermovements/index.html.erb:6:in `block in _app_views_usermovements_index_html_erb__1185167232950058805_70336436018400'
+  app/views/usermovements/index.html.erb:5:in `_app_views_usermovements_index_html_erb__1185167232950058805_70336436018400'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (56.0ms)
+
+
+Started GET "/usermovements/" for ::1 at 2017-06-12 22:05:52 +1000
+Processing by UsermovementsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mUsermovement Load (0.2ms)[0m  [1mSELECT "usermovements".* FROM "usermovements"[0m
+  Rendered usermovements/_show.html.erb (3.8ms)
+  Rendered usermovements/index.html.erb within layouts/application (6.6ms)
+Completed 500 Internal Server Error in 14ms
+
+ActionView::Template::Error (undefined method `movement_type' for nil:NilClass):
+    1: 
+    2: 		<li>Movement: <%= usermovement.name %></li><br>
+    3: 		<li>Date Completed: <%= usermovement.date.strftime("%d %B %Y") %></li><br>
+    4: 		<% if @movement.movement_type == "time" %>
+    5: 			<li>Result Achieved: <%= usermovement.result %> minutes</li><br>
+    6: 		<% elsif @movement.movement_type == "weight" %>
+    7: 			<li>Result Achieved: <%= usermovement.result %> kgs</li><br>
+  app/views/usermovements/_show.html.erb:4:in `_app_views_usermovements__show_html_erb__3070904847192320344_70336490584000'
+  app/views/usermovements/index.html.erb:6:in `block in _app_views_usermovements_index_html_erb__1185167232950058805_70336490825100'
+  app/views/usermovements/index.html.erb:5:in `_app_views_usermovements_index_html_erb__1185167232950058805_70336490825100'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.7ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (55.0ms)
+
+
+Started GET "/usermovements/" for ::1 at 2017-06-12 22:06:08 +1000
+Processing by UsermovementsController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mUsermovement Load (0.2ms)[0m  [1mSELECT "usermovements".* FROM "usermovements"[0m
+Completed 500 Internal Server Error in 21ms
+
+NoMethodError (undefined method `name' for #<UsermovementsController:0x007ff0fb2de1c0>):
+  app/controllers/usermovements_controller.rb:6:in `index'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.3ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.5ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (58.3ms)
+
+
+Started GET "/usermovements/" for ::1 at 2017-06-12 22:06:33 +1000
+Processing by UsermovementsController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mMovement Load (0.2ms)[0m  [1mSELECT  "movements".* FROM "movements" WHERE "movements"."name" = ? LIMIT 1[0m  [["name", "Usermovement"]]
+  [1m[35mUsermovement Load (0.1ms)[0m  SELECT "usermovements".* FROM "usermovements"
+  Rendered usermovements/_show.html.erb (2.6ms)
+  Rendered usermovements/index.html.erb within layouts/application (7.7ms)
+Completed 500 Internal Server Error in 25ms
+
+ActionView::Template::Error (undefined method `movement_type' for nil:NilClass):
+    1: 
+    2: 		<li>Movement: <%= usermovement.name %></li><br>
+    3: 		<li>Date Completed: <%= usermovement.date.strftime("%d %B %Y") %></li><br>
+    4: 		<% if @movement.movement_type == "time" %>
+    5: 			<li>Result Achieved: <%= usermovement.result %> minutes</li><br>
+    6: 		<% elsif @movement.movement_type == "weight" %>
+    7: 			<li>Result Achieved: <%= usermovement.result %> kgs</li><br>
+  app/views/usermovements/_show.html.erb:4:in `_app_views_usermovements__show_html_erb__3070904847192320344_70336490584000'
+  app/views/usermovements/index.html.erb:6:in `block in _app_views_usermovements_index_html_erb__1185167232950058805_70336490825100'
+  app/views/usermovements/index.html.erb:5:in `_app_views_usermovements_index_html_erb__1185167232950058805_70336490825100'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.6ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (60.9ms)
+
+
+Started GET "/usermovements/" for ::1 at 2017-06-12 22:07:15 +1000
+Processing by UsermovementsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mMovement Load (0.1ms)[0m  SELECT  "movements".* FROM "movements" WHERE "movements"."name" = ? LIMIT 1  [["name", "Usermovement"]]
+  [1m[36mUsermovement Load (0.2ms)[0m  [1mSELECT "usermovements".* FROM "usermovements"[0m
+  Rendered usermovements/_show.html.erb (3.3ms)
+  Rendered usermovements/index.html.erb within layouts/application (6.8ms)
+Completed 500 Internal Server Error in 13ms
+
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: 
+    2: 		<li>Movement: <%= @movement.name %></li><br>
+    3: 		<li>Date Completed: <%= usermovement.date.strftime("%d %B %Y") %></li><br>
+    4: 		<% if @movement.movement_type == "time" %>
+    5: 			<li>Result Achieved: <%= usermovement.result %> minutes</li><br>
+  app/views/usermovements/_show.html.erb:2:in `_app_views_usermovements__show_html_erb__3070904847192320344_70336490372300'
+  app/views/usermovements/index.html.erb:6:in `block in _app_views_usermovements_index_html_erb__1185167232950058805_70336490825100'
+  app/views/usermovements/index.html.erb:5:in `_app_views_usermovements_index_html_erb__1185167232950058805_70336490825100'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.3ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (55.7ms)
+
+
+Started GET "/usermovements/" for ::1 at 2017-06-12 22:07:35 +1000
+Processing by UsermovementsController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT  "movements".* FROM "movements" WHERE "movements"."name" = ? LIMIT 1[0m  [["name", "Usermovement"]]
+  [1m[35mUsermovement Load (0.2ms)[0m  SELECT "usermovements".* FROM "usermovements"
+  Rendered usermovements/index.html.erb within layouts/application (28.9ms)
+Completed 500 Internal Server Error in 36ms
+
+ActionView::Template::Error (undefined local variable or method `movement' for #<#<Class:0x007ff0f8441b50>:0x007ff0f4519090>
+Did you mean?  @movement):
+    3: 
+    4: <ul>
+    5: 	<% @usermovements.each do |usermovement| %>
+    6: 		<%= render 'show', usermovement: usermovement, movement: movement %>
+    7: 	<% end %>	
+    8: </ul>
+  app/views/usermovements/index.html.erb:6:in `block in _app_views_usermovements_index_html_erb__1185167232950058805_70336443951420'
+  app/views/usermovements/index.html.erb:5:in `_app_views_usermovements_index_html_erb__1185167232950058805_70336443951420'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (55.2ms)
+
+
+Started GET "/usermovements/" for ::1 at 2017-06-12 22:07:42 +1000
+Processing by UsermovementsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mMovement Load (0.1ms)[0m  SELECT  "movements".* FROM "movements" WHERE "movements"."name" = ? LIMIT 1  [["name", "Usermovement"]]
+  [1m[36mUsermovement Load (0.2ms)[0m  [1mSELECT "usermovements".* FROM "usermovements"[0m
+  Rendered usermovements/_show.html.erb (2.4ms)
+  Rendered usermovements/index.html.erb within layouts/application (6.1ms)
+Completed 500 Internal Server Error in 12ms
+
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: 
+    2: 		<li>Movement: <%= @movement.name %></li><br>
+    3: 		<li>Date Completed: <%= usermovement.date.strftime("%d %B %Y") %></li><br>
+    4: 		<% if @movement.movement_type == "time" %>
+    5: 			<li>Result Achieved: <%= usermovement.result %> minutes</li><br>
+  app/views/usermovements/_show.html.erb:2:in `_app_views_usermovements__show_html_erb__3070904847192320344_70336490372300'
+  app/views/usermovements/index.html.erb:6:in `block in _app_views_usermovements_index_html_erb__1185167232950058805_70336436211360'
+  app/views/usermovements/index.html.erb:5:in `_app_views_usermovements_index_html_erb__1185167232950058805_70336436211360'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.8ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.6ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (56.0ms)
+
+
+Started GET "/usermovements/" for ::1 at 2017-06-12 22:08:16 +1000
+Processing by UsermovementsController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mMovement Load (0.2ms)[0m  [1mSELECT  "movements".* FROM "movements" WHERE "movements"."name" = ? LIMIT 1[0m  [["name", "Usermovement"]]
+  [1m[35mUsermovement Load (0.2ms)[0m  SELECT "usermovements".* FROM "usermovements"
+  Rendered usermovements/_show.html.erb (2.5ms)
+  Rendered usermovements/index.html.erb within layouts/application (8.8ms)
+Completed 500 Internal Server Error in 31ms
+
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: 
+    2: 		<li>Movement: <%= movement.name %></li><br>
+    3: 		<li>Date Completed: <%= usermovement.date.strftime("%d %B %Y") %></li><br>
+    4: 		<% if @movement.movement_type == "time" %>
+    5: 			<li>Result Achieved: <%= usermovement.result %> minutes</li><br>
+  app/views/usermovements/_show.html.erb:2:in `_app_views_usermovements__show_html_erb__3070904847192320344_70336444332920'
+  app/views/usermovements/index.html.erb:6:in `block in _app_views_usermovements_index_html_erb__1185167232950058805_70336436211360'
+  app/views/usermovements/index.html.erb:5:in `_app_views_usermovements_index_html_erb__1185167232950058805_70336436211360'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (47.7ms)
+
+
+Started GET "/usermovements/" for ::1 at 2017-06-12 22:09:00 +1000
+Processing by UsermovementsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mMovement Load (0.1ms)[0m  SELECT  "movements".* FROM "movements" WHERE "movements"."name" = ? LIMIT 1  [["name", "Usermovement"]]
+  [1m[36mUsermovement Load (0.2ms)[0m  [1mSELECT "usermovements".* FROM "usermovements"[0m
+  Rendered usermovements/index.html.erb within layouts/application (4.0ms)
+Completed 500 Internal Server Error in 11ms
+
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    3: 
+    4: <ul>
+    5: 	<% @usermovements.each do |usermovement| %>
+    6: 		<li>Movement: <%= @movement.name %></li><br>
+    7: 		<li>Date Completed: <%= usermovement.date.strftime("%d %B %Y") %></li><br>
+    8: 		<% if @movement.movement_type == "time" %>
+    9: 			<li>Result Achieved: <%= usermovement.result %> minutes</li><br>
+  app/views/usermovements/index.html.erb:6:in `block in _app_views_usermovements_index_html_erb__1185167232950058805_70336443291480'
+  app/views/usermovements/index.html.erb:5:in `_app_views_usermovements_index_html_erb__1185167232950058805_70336443291480'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (52.4ms)
