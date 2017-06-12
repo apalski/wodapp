@@ -17973,3 +17973,45 @@ Processing by UserwodsController#new as HTML
   Rendered wods/_show.html.erb (2.9ms)
   Rendered userwods/new.html.erb within layouts/application (38.6ms)
 Completed 200 OK in 45ms (Views: 42.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/wods/1" for ::1 at 2017-06-12 20:57:16 +1000
+Processing by WodsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mWod Load (0.2ms)[0m  SELECT  "wods".* FROM "wods" WHERE "wods"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered wods/_show.html.erb (20.4ms)
+  Rendered wods/show.html.erb within layouts/application (21.7ms)
+Completed 500 Internal Server Error in 31ms
+
+ActionView::Template::Error (undefined local variable or method `wod' for #<#<Class:0x007ff0fad409c0>:0x007ff0fad1fab8>
+Did you mean?  @wod):
+    1: 
+    2: <h1>Wod Name: <%= wod.title %><br>
+    3: <h2>Wod Type: For <%= wod.wod_type %></h2>
+    4: <h2>Wod Movements: </h2><% wod.movements.each do |move| %>
+    5: 	<h3><%= move.quantity %> <%= move.name %></h3>
+  app/views/wods/_show.html.erb:2:in `_app_views_wods__show_html_erb___3869502961206532375_70336464287060'
+  app/views/wods/show.html.erb:2:in `_app_views_wods_show_html_erb__2001825949172648650_70336436210400'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (11.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (55.2ms)
+
+
+Started GET "/wods/1" for ::1 at 2017-06-12 20:57:43 +1000
+Processing by WodsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mWod Load (0.1ms)[0m  [1mSELECT  "wods".* FROM "wods" WHERE "wods"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 1]]
+  Rendered wods/_show.html.erb (1.5ms)
+  Rendered wods/show.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 9ms (Views: 8.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-12 20:58:22 +1000
+Processing by WodsController#new as HTML
+  [1m[36mMovement Load (0.3ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  Rendered wods/new.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 19ms (Views: 16.6ms | ActiveRecord: 0.3ms)
