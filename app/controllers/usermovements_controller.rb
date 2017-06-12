@@ -1,39 +1,39 @@
 class UsermovementsController < ApplicationController
 
 	def index
-		@movements = Usermovement.all
+		@usermovements = Usermovement.all
 		@user = current_user
 	end
 
 	def new
-		@movement = Usermovement.new
-		@moves = Usermovement.all
+		@usermovement = Usermovement.new
+		@usermoves = Usermovement.all
 		@user = current_user
 	end
 
 	def create
 		@user = current_user
-		@movement = Usermovement.new(movement_params)
-		if @movement.save
-			redirect_to movement_path(@movement)
+		@usermovement = Usermovement.new(usermovement_params)
+		if @usermovement.save
+			redirect_to usermovement_path(@usermovement)
 		else
 			render :new
 		end		
 	end
 
 	def show
-		set_movement
+		set_usermovement
 	end
 
 	def edit
-		set_movement
+		set_usermovement
 		
 	end
 
 	def update
-		set_movement
-		if @movement.update(movement_params)
-			redirect_to movement_path(@movement)
+		set_usermovement
+		if @usermovement.update(usermovement_params)
+			redirect_to usermovement_path(@usermovement)
 		else
 			render :edit
 		end		
@@ -41,11 +41,11 @@ class UsermovementsController < ApplicationController
 
 	private
 
-	def set_movement
-		@movement = Usermovement.find(params[:id])
+	def set_usermovement
+		@usermovement = Usermovement.find(params[:id])
 	end
 
-	def movement_params
-		params.require(:movement).permit(:name, :date, :result, :pr)
+	def usermovement_params
+		params.require(:usermovement).permit(:name, :date, :result, :pr)
 	end
 end
