@@ -31,7 +31,7 @@ class UsermovementsController < ApplicationController
 
 	def edit
 		set_usermovement
-		
+		@movements = Movement.all
 	end
 
 	def update
