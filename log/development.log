@@ -16977,3 +16977,537 @@ Processing by WodsController#show as HTML
   [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 6]]
   Rendered wods/show.html.erb within layouts/application (4.3ms)
 Completed 200 OK in 13ms (Views: 11.7ms | ActiveRecord: 0.4ms)
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.9ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateUsers (20170529044413)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "password_digest" varchar, "owner" boolean DEFAULT 'f', "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170529044413"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+Migrating to CreateUsermovements (20170529044428)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "usermovements" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "date" date, "result" float, "pr" boolean DEFAULT 'f', "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170529044428"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+Migrating to CreateUserwods (20170529044438)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "userwods" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "date" date, "result" float, "pr" boolean DEFAULT 'f', "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170529044438"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+Migrating to CreateMoveWods (20170529044453)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "move_wods" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "movement_id" integer, "wod_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170529044453"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+Migrating to CreateMovements (20170608044059)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "movements" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "movement_type" varchar, "quantity" integer, "owner_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170608044059"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+Migrating to CreateWods (20170608045642)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "wods" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "wod_type" varchar, "owner_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170608045642"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."name" = 'Max Charles' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'max@gmail.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "owner", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Max Charles"], ["email", "max@gmail.com"], ["password_digest", "$2a$10$.DEjQFVaxJeAtrSo6PimDOOky5J8XbiJBu/v3W17cSlydxq9lK5vq"], ["owner", "t"], ["created_at", "2017-06-12 10:25:16.607706"], ["updated_at", "2017-06-12 10:25:16.607706"]]
+  [1m[35m (1.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."name" = 'Skai Jackson' LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'skai@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Skai Jackson"], ["email", "skai@gmail.com"], ["password_digest", "$2a$10$q/Ls2BOgVRj0LqR5p1YdDO.UI0i4jC/459yiJUSnKRInK0FLgJB5K"], ["created_at", "2017-06-12 10:25:16.682159"], ["updated_at", "2017-06-12 10:25:16.682159"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."name" = 'Kaleo Elam' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'kaleo@gmail.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Kaleo Elam"], ["email", "kaleo@gmail.com"], ["password_digest", "$2a$10$cTk53.8LnwiuQ9yGXnx9yOTDLV0IHGKmeeIt2.47UHhlt4nfxY9CK"], ["created_at", "2017-06-12 10:25:16.752240"], ["updated_at", "2017-06-12 10:25:16.752240"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."name" = 'Megan Charpentier' LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'megan@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Megan Charpentier"], ["email", "megan@gmail.com"], ["password_digest", "$2a$10$voi51nvr2HS3WYxTHmb7aObzzauiIVAPaiMD6SlTfFiZ1yY46FNlq"], ["created_at", "2017-06-12 10:25:16.832565"], ["updated_at", "2017-06-12 10:25:16.832565"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."name" = 'Hayden Byerly' LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'hayden@gmail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Hayden Byerly"], ["email", "hayden@gmail.com"], ["password_digest", "$2a$10$YVRDIL4oIeo3Ji1HgD5UF.AefH3FucL0qIe8GfK7RTSV1dZqMp4AW"], ["created_at", "2017-06-12 10:25:16.910344"], ["updated_at", "2017-06-12 10:25:16.910344"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."name" = 'Tenzing Norgay Trainor' LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'tenzing@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Tenzing Norgay Trainor"], ["email", "tenzing@gmail.com"], ["password_digest", "$2a$10$8Vy1CzDfQR0A0qXU8nj8J.PECZZ0u7p9SE5ABxb0ACF0CA/Pfsn5G"], ["created_at", "2017-06-12 10:25:16.982140"], ["updated_at", "2017-06-12 10:25:16.982140"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."name" = 'Davis Cleveland' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'davis@gmail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Davis Cleveland"], ["email", "davis@gmail.com"], ["password_digest", "$2a$10$6QpcwLFIRTDI11oIb9fNk.5aaR4L5jgvlGBjlLGFHqBkt8HMSOvDi"], ["created_at", "2017-06-12 10:25:17.056006"], ["updated_at", "2017-06-12 10:25:17.056006"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."name" = 'Cole Sand' LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'cole@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Cole Sand"], ["email", "cole@gmail.com"], ["password_digest", "$2a$10$x9NNyjUeXC4SOMJvzTFUEe2p8kVe4C.BNxl5Lly2pSOOYHI.JhlB."], ["created_at", "2017-06-12 10:25:17.143538"], ["updated_at", "2017-06-12 10:25:17.143538"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."name" = 'Quvenzhané Wallis' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'quv@gmail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Quvenzhané Wallis"], ["email", "quv@gmail.com"], ["password_digest", "$2a$10$cMBKSYUpbk6KDqf1qxgO8ORDAAzaMU..4RAjc74dsxggVg.76nLW2"], ["created_at", "2017-06-12 10:25:17.218624"], ["updated_at", "2017-06-12 10:25:17.218624"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Dead Lift' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "movements" ("name", "movement_type", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Dead Lift"], ["movement_type", "weight"], ["owner_id", 1], ["created_at", "2017-06-12 10:25:17.234362"], ["updated_at", "2017-06-12 10:25:17.234362"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.2ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Clean & Jerk' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "movements" ("name", "movement_type", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Clean & Jerk"], ["movement_type", "weight"], ["owner_id", 1], ["created_at", "2017-06-12 10:25:17.237868"], ["updated_at", "2017-06-12 10:25:17.237868"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.2ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Push Jerk' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "movements" ("name", "movement_type", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Push Jerk"], ["movement_type", "weight"], ["owner_id", 1], ["created_at", "2017-06-12 10:25:17.241490"], ["updated_at", "2017-06-12 10:25:17.241490"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Push Press' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "movements" ("name", "movement_type", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Push Press"], ["movement_type", "weight"], ["owner_id", 1], ["created_at", "2017-06-12 10:25:17.244969"], ["updated_at", "2017-06-12 10:25:17.244969"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Snatch' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "movements" ("name", "movement_type", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Snatch"], ["movement_type", "weight"], ["owner_id", 1], ["created_at", "2017-06-12 10:25:17.247710"], ["updated_at", "2017-06-12 10:25:17.247710"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = '400m Run' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "movements" ("name", "movement_type", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "400m Run"], ["movement_type", "time"], ["owner_id", 1], ["created_at", "2017-06-12 10:25:17.250723"], ["updated_at", "2017-06-12 10:25:17.250723"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Burpees' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "movements" ("name", "movement_type", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Burpees"], ["movement_type", "repetitions"], ["owner_id", 1], ["created_at", "2017-06-12 10:25:17.253343"], ["updated_at", "2017-06-12 10:25:17.253343"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Air Squats' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "movements" ("name", "movement_type", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Air Squats"], ["movement_type", "repetitions"], ["owner_id", 1], ["created_at", "2017-06-12 10:25:17.255693"], ["updated_at", "2017-06-12 10:25:17.255693"]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Box Jumps' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "movements" ("name", "movement_type", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Box Jumps"], ["movement_type", "repetitions"], ["owner_id", 1], ["created_at", "2017-06-12 10:25:17.257893"], ["updated_at", "2017-06-12 10:25:17.257893"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mWod Exists (0.1ms)[0m  SELECT  1 AS one FROM "wods" WHERE "wods"."title" = 'Helen' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "wods" ("title", "wod_type", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Helen"], ["wod_type", "time"], ["owner_id", 1], ["created_at", "2017-06-12 10:25:17.266496"], ["updated_at", "2017-06-12 10:25:17.266496"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mWod Exists (0.1ms)[0m  SELECT  1 AS one FROM "wods" WHERE "wods"."title" = 'Grace' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "wods" ("title", "wod_type", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Grace"], ["wod_type", "time"], ["owner_id", 1], ["created_at", "2017-06-12 10:25:17.269142"], ["updated_at", "2017-06-12 10:25:17.269142"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mWod Exists (0.1ms)[0m  SELECT  1 AS one FROM "wods" WHERE "wods"."title" = 'Dead Lift Day' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "wods" ("title", "wod_type", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Dead Lift Day"], ["wod_type", "weight"], ["owner_id", 1], ["created_at", "2017-06-12 10:25:17.271600"], ["updated_at", "2017-06-12 10:25:17.271600"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mWod Exists (0.1ms)[0m  SELECT  1 AS one FROM "wods" WHERE "wods"."title" = 'Murph' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "wods" ("title", "wod_type", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Murph"], ["wod_type", "time"], ["owner_id", 1], ["created_at", "2017-06-12 10:25:17.274009"], ["updated_at", "2017-06-12 10:25:17.274009"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mWod Exists (0.1ms)[0m  SELECT  1 AS one FROM "wods" WHERE "wods"."title" = 'Karen' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "wods" ("title", "wod_type", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Karen"], ["wod_type", "repetitions"], ["owner_id", 1], ["created_at", "2017-06-12 10:25:17.276117"], ["updated_at", "2017-06-12 10:25:17.276117"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+
+
+Started GET "/wods/new" for ::1 at 2017-06-12 20:26:04 +1000
+Processing by WodsController#new as HTML
+  [1m[36mMovement Load (0.2ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered wods/new.html.erb within layouts/application (17.8ms)
+Completed 200 OK in 45ms (Views: 26.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-12 20:26:23 +1000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WodsController#new as HTML
+  [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  Rendered wods/new.html.erb within layouts/application (409.3ms)
+Completed 200 OK in 501ms (Views: 424.9ms | ActiveRecord: 2.1ms)
+
+
+Started POST "/wods" for ::1 at 2017-06-12 20:26:58 +1000
+Processing by WodsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5j49CQhdW7n7yZrJ+urJLrWPhqlymS6YRaLO1WXORO2RuOtCgjcArgoxUmbOmfaNHx92rbo8+zsYCnfSTPCpDg==", "wod"=>{"title"=>"slap", "wod_type"=>"weight", "quantity"=>"8", "movement_ids"=>["1", "", "3", "", "2", "", "5", ""], "movements_attributes"=>{"0"=>{"quantity"=>"8", "name"=>"Chest to Bar", "movement_type"=>"repetitions"}, "1"=>{"quantity"=>"7", "name"=>"Wall Balls", "movement_type"=>"repetitions"}}}, "commit"=>"Create Wod"}
+Unpermitted parameter: quantity
+  [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements" WHERE "movements"."id" IN (1, 3, 2, 5)
+  [1m[36mMovement Load (0.2ms)[0m  [1mSELECT  "movements".* FROM "movements" WHERE "movements"."name" = ? AND "movements"."movement_type" = ? AND "movements"."quantity" = ? LIMIT 1[0m  [["name", "Chest to Bar"], ["movement_type", "repetitions"], ["quantity", 8]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mMovement Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Chest to Bar' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "movements" ("name", "movement_type", "quantity", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Chest to Bar"], ["movement_type", "repetitions"], ["quantity", 8], ["created_at", "2017-06-12 10:26:58.128094"], ["updated_at", "2017-06-12 10:26:58.128094"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+Completed 500 Internal Server Error in 48ms
+
+ActiveRecord::AssociationTypeMismatch (Movement(#70336443416980) expected, got ActionController::Parameters(#70336442239340)):
+  app/models/wod.rb:20:in `block in movements_attributes='
+  app/models/wod.rb:14:in `movements_attributes='
+  app/controllers/wods_controller.rb:14:in `create'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (60.6ms)
+
+
+Started POST "/wods" for ::1 at 2017-06-12 20:29:00 +1000
+Processing by WodsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5j49CQhdW7n7yZrJ+urJLrWPhqlymS6YRaLO1WXORO2RuOtCgjcArgoxUmbOmfaNHx92rbo8+zsYCnfSTPCpDg==", "wod"=>{"title"=>"slap", "wod_type"=>"weight", "quantity"=>"8", "movement_ids"=>["1", "", "3", "", "2", "", "5", ""], "movements_attributes"=>{"0"=>{"quantity"=>"8", "name"=>"Chest to Bar", "movement_type"=>"repetitions"}, "1"=>{"quantity"=>"7", "name"=>"Wall Balls", "movement_type"=>"repetitions"}}}, "commit"=>"Create Wod"}
+Completed 500 Internal Server Error in 24ms
+
+NoMethodError (undefined method `has_nested_attributes_for' for #<Class:0x007ff0f57ab8c0>):
+  app/models/wod.rb:9:in `<class:Wod>'
+  app/models/wod.rb:1:in `<top (required)>'
+  app/controllers/wods_controller.rb:14:in `create'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.5ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (50.7ms)
+
+
+Started POST "/wods" for ::1 at 2017-06-12 20:29:28 +1000
+Processing by WodsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5j49CQhdW7n7yZrJ+urJLrWPhqlymS6YRaLO1WXORO2RuOtCgjcArgoxUmbOmfaNHx92rbo8+zsYCnfSTPCpDg==", "wod"=>{"title"=>"slap", "wod_type"=>"weight", "quantity"=>"8", "movement_ids"=>["1", "", "3", "", "2", "", "5", ""], "movements_attributes"=>{"0"=>{"quantity"=>"8", "name"=>"Chest to Bar", "movement_type"=>"repetitions"}, "1"=>{"quantity"=>"7", "name"=>"Wall Balls", "movement_type"=>"repetitions"}}}, "commit"=>"Create Wod"}
+Completed 500 Internal Server Error in 25ms
+
+NoMethodError (undefined method `has_nested_attributes_for' for #<Class:0x007ff0fa8393a0>):
+  app/models/wod.rb:7:in `<class:Wod>'
+  app/models/wod.rb:1:in `<top (required)>'
+  app/controllers/wods_controller.rb:14:in `create'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (52.6ms)
+  [1m[36m (2.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (1.2ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateUsers (20170529044413)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "password_digest" varchar, "owner" boolean DEFAULT 'f', "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170529044413"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+Migrating to CreateUsermovements (20170529044428)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "usermovements" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "date" date, "result" float, "pr" boolean DEFAULT 'f', "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170529044428"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+Migrating to CreateUserwods (20170529044438)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "userwods" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "date" date, "result" float, "pr" boolean DEFAULT 'f', "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170529044438"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+Migrating to CreateMoveWods (20170529044453)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "move_wods" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "movement_id" integer, "wod_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170529044453"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+Migrating to CreateMovements (20170608044059)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "movements" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "movement_type" varchar, "quantity" integer, "owner_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170608044059"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+Migrating to CreateWods (20170608045642)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "wods" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "wod_type" varchar, "owner_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170608045642"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."name" = 'Max Charles' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'max@gmail.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "owner", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Max Charles"], ["email", "max@gmail.com"], ["password_digest", "$2a$10$2hvOPdO7G/vBLJiYRKTHu.zymvRIUJ3lYb.x47hld7bQ6Akbwmoim"], ["owner", "t"], ["created_at", "2017-06-12 10:31:22.284503"], ["updated_at", "2017-06-12 10:31:22.284503"]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."name" = 'Skai Jackson' LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'skai@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Skai Jackson"], ["email", "skai@gmail.com"], ["password_digest", "$2a$10$5rUKnFMMlCbinF8k2sxIr.cow7DDH6xZzjXKKhSO3QVrhEgCxdGCa"], ["created_at", "2017-06-12 10:31:22.355771"], ["updated_at", "2017-06-12 10:31:22.355771"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."name" = 'Kaleo Elam' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'kaleo@gmail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Kaleo Elam"], ["email", "kaleo@gmail.com"], ["password_digest", "$2a$10$Txl0R0O8REpcbQZRYDbbQ.ZZu4XoS4m96F/wIrXj1RttCU9uR5hdK"], ["created_at", "2017-06-12 10:31:22.438300"], ["updated_at", "2017-06-12 10:31:22.438300"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."name" = 'Megan Charpentier' LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'megan@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Megan Charpentier"], ["email", "megan@gmail.com"], ["password_digest", "$2a$10$xw7qAVSDzdfONzKqJuy50.e/7QiOv8/FxSYJNy3VyU0vJzKED7q3a"], ["created_at", "2017-06-12 10:31:22.509238"], ["updated_at", "2017-06-12 10:31:22.509238"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."name" = 'Hayden Byerly' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'hayden@gmail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Hayden Byerly"], ["email", "hayden@gmail.com"], ["password_digest", "$2a$10$fFNNNmgom/PtwM86p6SsseNtmx7FmsQ0qV5WK.ajWOwX.KqIADT4u"], ["created_at", "2017-06-12 10:31:22.599595"], ["updated_at", "2017-06-12 10:31:22.599595"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."name" = 'Tenzing Norgay Trainor' LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'tenzing@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Tenzing Norgay Trainor"], ["email", "tenzing@gmail.com"], ["password_digest", "$2a$10$qBnWhmxx9ygaIxXaRxbNX.fkm2euKphHci9RrKtzcpiJJ8LwsvPha"], ["created_at", "2017-06-12 10:31:22.675616"], ["updated_at", "2017-06-12 10:31:22.675616"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."name" = 'Davis Cleveland' LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'davis@gmail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Davis Cleveland"], ["email", "davis@gmail.com"], ["password_digest", "$2a$10$3wqzyItM1q/mzMAUVDqzc.tJOd91WwRDFjCy.OYsuGTGtc9yJOl4e"], ["created_at", "2017-06-12 10:31:22.745887"], ["updated_at", "2017-06-12 10:31:22.745887"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."name" = 'Cole Sand' LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'cole@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Cole Sand"], ["email", "cole@gmail.com"], ["password_digest", "$2a$10$pcox1an5WqOK7lDYeWIZQeERtTSttaJy2YeUFRu3RbZtcdQbbc0G."], ["created_at", "2017-06-12 10:31:22.828596"], ["updated_at", "2017-06-12 10:31:22.828596"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."name" = 'Quvenzhané Wallis' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'quv@gmail.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Quvenzhané Wallis"], ["email", "quv@gmail.com"], ["password_digest", "$2a$10$7BAIdOZG2c/BOpX0fvm7z.FDL7aMHDG7hG7dboi8iBawf4Pwqz55S"], ["created_at", "2017-06-12 10:31:22.900546"], ["updated_at", "2017-06-12 10:31:22.900546"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."name" = 'Max Charles' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'max@gmail.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."name" = 'Skai Jackson' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'skai@gmail.com' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."name" = 'Kaleo Elam' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'kaleo@gmail.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."name" = 'Megan Charpentier' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'megan@gmail.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."name" = 'Hayden Byerly' LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'hayden@gmail.com' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."name" = 'Tenzing Norgay Trainor' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'tenzing@gmail.com' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."name" = 'Davis Cleveland' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'davis@gmail.com' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."name" = 'Cole Sand' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'cole@gmail.com' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."name" = 'Quvenzhané Wallis' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'quv@gmail.com' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovement Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Dead Lift' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "movements" ("name", "movement_type", "quantity", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Dead Lift"], ["movement_type", "weight"], ["quantity", 10], ["owner_id", 1], ["created_at", "2017-06-12 10:31:49.432178"], ["updated_at", "2017-06-12 10:31:49.432178"]]
+  [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mMovement Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Clean & Jerk' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "movements" ("name", "movement_type", "quantity", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Clean & Jerk"], ["movement_type", "weight"], ["quantity", 8], ["owner_id", 1], ["created_at", "2017-06-12 10:31:49.437134"], ["updated_at", "2017-06-12 10:31:49.437134"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mMovement Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Push Jerk' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "movements" ("name", "movement_type", "quantity", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Push Jerk"], ["movement_type", "weight"], ["quantity", 10], ["owner_id", 1], ["created_at", "2017-06-12 10:31:49.440870"], ["updated_at", "2017-06-12 10:31:49.440870"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovement Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Push Press' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "movements" ("name", "movement_type", "quantity", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Push Press"], ["movement_type", "weight"], ["quantity", 11], ["owner_id", 1], ["created_at", "2017-06-12 10:31:49.444406"], ["updated_at", "2017-06-12 10:31:49.444406"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovement Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Snatch' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "movements" ("name", "movement_type", "quantity", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Snatch"], ["movement_type", "weight"], ["quantity", 9], ["owner_id", 1], ["created_at", "2017-06-12 10:31:49.448267"], ["updated_at", "2017-06-12 10:31:49.448267"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovement Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "movements" WHERE "movements"."name" = '400m Run' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "movements" ("name", "movement_type", "quantity", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "400m Run"], ["movement_type", "time"], ["quantity", 1], ["owner_id", 1], ["created_at", "2017-06-12 10:31:49.450854"], ["updated_at", "2017-06-12 10:31:49.450854"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovement Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Burpees' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "movements" ("name", "movement_type", "quantity", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Burpees"], ["movement_type", "repetitions"], ["quantity", 30], ["owner_id", 1], ["created_at", "2017-06-12 10:31:49.453148"], ["updated_at", "2017-06-12 10:31:49.453148"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mMovement Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Air Squats' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "movements" ("name", "movement_type", "quantity", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Air Squats"], ["movement_type", "repetitions"], ["quantity", 50], ["owner_id", 1], ["created_at", "2017-06-12 10:31:49.455652"], ["updated_at", "2017-06-12 10:31:49.455652"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovement Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Box Jumps' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "movements" ("name", "movement_type", "quantity", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Box Jumps"], ["movement_type", "repetitions"], ["quantity", 20], ["owner_id", 1], ["created_at", "2017-06-12 10:31:49.459173"], ["updated_at", "2017-06-12 10:31:49.459173"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."name" = 'Max Charles' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'max@gmail.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."name" = 'Skai Jackson' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'skai@gmail.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."name" = 'Kaleo Elam' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'kaleo@gmail.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."name" = 'Megan Charpentier' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'megan@gmail.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."name" = 'Hayden Byerly' LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'hayden@gmail.com' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."name" = 'Tenzing Norgay Trainor' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'tenzing@gmail.com' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."name" = 'Davis Cleveland' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'davis@gmail.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."name" = 'Cole Sand' LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'cole@gmail.com' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."name" = 'Quvenzhané Wallis' LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'quv@gmail.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mMovement Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Dead Lift' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Clean & Jerk' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovement Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Push Jerk' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Push Press' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovement Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Snatch' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = '400m Run' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovement Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Burpees' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Air Squats' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovement Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Box Jumps' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mWod Exists (0.1ms)[0m  SELECT  1 AS one FROM "wods" WHERE "wods"."title" = 'Helen' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "wods" ("title", "wod_type", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Helen"], ["wod_type", "time"], ["owner_id", 1], ["created_at", "2017-06-12 10:32:44.363485"], ["updated_at", "2017-06-12 10:32:44.363485"]]
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mWod Exists (0.1ms)[0m  SELECT  1 AS one FROM "wods" WHERE "wods"."title" = 'Grace' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "wods" ("title", "wod_type", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Grace"], ["wod_type", "time"], ["owner_id", 1], ["created_at", "2017-06-12 10:32:44.367898"], ["updated_at", "2017-06-12 10:32:44.367898"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mWod Exists (0.1ms)[0m  SELECT  1 AS one FROM "wods" WHERE "wods"."title" = 'Dead Lift Day' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "wods" ("title", "wod_type", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Dead Lift Day"], ["wod_type", "weight"], ["owner_id", 1], ["created_at", "2017-06-12 10:32:44.371268"], ["updated_at", "2017-06-12 10:32:44.371268"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mWod Exists (0.1ms)[0m  SELECT  1 AS one FROM "wods" WHERE "wods"."title" = 'Murph' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "wods" ("title", "wod_type", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Murph"], ["wod_type", "time"], ["owner_id", 1], ["created_at", "2017-06-12 10:32:44.374928"], ["updated_at", "2017-06-12 10:32:44.374928"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mWod Exists (0.1ms)[0m  SELECT  1 AS one FROM "wods" WHERE "wods"."title" = 'Karen' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "wods" ("title", "wod_type", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Karen"], ["wod_type", "repetitions"], ["owner_id", 1], ["created_at", "2017-06-12 10:32:44.379088"], ["updated_at", "2017-06-12 10:32:44.379088"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+
+
+Started GET "/wods/new" for ::1 at 2017-06-12 20:33:00 +1000
+Processing by WodsController#new as HTML
+  Rendered wods/new.html.erb within layouts/application (8.7ms)
+Completed 500 Internal Server Error in 35ms
+
+ActionView::Template::Error (undefined method `quantity' for #<Wod:0x007ff0f79b2590>):
+     7: 	<%= f.label :wod_type %>
+     8: 	<%= f.select :wod_type, ["weight", "time", "repetitions"], :prompt => "Select One" %><br><br>
+     9: 	<%= f.label :quantity %>
+    10: 	<%= f.text_field :quantity %><br>
+    11: 	<%= f.collection_check_boxes :movement_ids, Movement.all, :id, :name %><br>
+    12: 	<%= f.label :quantity %>
+    13: 	<%= f.text_field :quantity %><br>
+  app/views/wods/new.html.erb:10:in `block in _app_views_wods_new_html_erb___394682317110088297_70336465830600'
+  app/views/wods/new.html.erb:4:in `_app_views_wods_new_html_erb___394682317110088297_70336465830600'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (61.5ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-12 20:33:36 +1000
+Processing by WodsController#new as HTML
+  [1m[35mMovement Load (0.3ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered wods/new.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 14ms (Views: 12.4ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/wods" for ::1 at 2017-06-12 20:34:33 +1000
+Processing by WodsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IBqBBPw+DJiV7pCgPiZVS+UlxACvxQpF9x/Je9go801XnFdPdlRXj2QWWA8KVWroT7U0BGdg3+aqt3B88RYerg==", "wod"=>{"title"=>"silly", "wod_type"=>"time", "movement_ids"=>["1", "3", "5", ""], "movements_attributes"=>{"0"=>{"quantity"=>"6", "name"=>"Chest to Bar", "movement_type"=>"repetitions"}, "1"=>{"quantity"=>"7", "name"=>"Wall Balls", "movement_type"=>"repetitions"}}}, "commit"=>"Create Wod"}
+  [1m[36mMovement Load (0.2ms)[0m  [1mSELECT "movements".* FROM "movements" WHERE "movements"."id" IN (1, 3, 5)[0m
+  [1m[35mMovement Load (0.4ms)[0m  SELECT  "movements".* FROM "movements" WHERE "movements"."name" = ? AND "movements"."movement_type" = ? AND "movements"."quantity" = ? LIMIT 1  [["name", "Chest to Bar"], ["movement_type", "repetitions"], ["quantity", 6]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.2ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Chest to Bar' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "movements" ("name", "movement_type", "quantity", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Chest to Bar"], ["movement_type", "repetitions"], ["quantity", 6], ["created_at", "2017-06-12 10:34:33.636804"], ["updated_at", "2017-06-12 10:34:33.636804"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT  "movements".* FROM "movements" WHERE "movements"."name" = ? AND "movements"."movement_type" = ? AND "movements"."quantity" = ? LIMIT 1[0m  [["name", "Wall Balls"], ["movement_type", "repetitions"], ["quantity", 7]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mMovement Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Wall Balls' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "movements" ("name", "movement_type", "quantity", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Wall Balls"], ["movement_type", "repetitions"], ["quantity", 7], ["created_at", "2017-06-12 10:34:33.642459"], ["updated_at", "2017-06-12 10:34:33.642459"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovement Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "movements" WHERE ("movements"."name" = 'Dead Lift' AND "movements"."id" != 1) LIMIT 1[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE ("movements"."name" = 'Push Jerk' AND "movements"."id" != 3) LIMIT 1
+  [1m[36mMovement Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "movements" WHERE ("movements"."name" = 'Snatch' AND "movements"."id" != 5) LIMIT 1[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE ("movements"."name" = 'Chest to Bar' AND "movements"."id" != 10) LIMIT 1
+  [1m[36mMovement Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "movements" WHERE ("movements"."name" = 'Wall Balls' AND "movements"."id" != 11) LIMIT 1[0m
+  [1m[35mWod Exists (0.1ms)[0m  SELECT  1 AS one FROM "wods" WHERE "wods"."title" = 'silly' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "wods" ("title", "wod_type", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "silly"], ["wod_type", "time"], ["created_at", "2017-06-12 10:34:33.654161"], ["updated_at", "2017-06-12 10:34:33.654161"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "move_wods" ("movement_id", "wod_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["movement_id", 1], ["wod_id", 6], ["created_at", "2017-06-12 10:34:33.655614"], ["updated_at", "2017-06-12 10:34:33.655614"]]
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "move_wods" ("movement_id", "wod_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["movement_id", 3], ["wod_id", 6], ["created_at", "2017-06-12 10:34:33.656695"], ["updated_at", "2017-06-12 10:34:33.656695"]]
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "move_wods" ("movement_id", "wod_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["movement_id", 5], ["wod_id", 6], ["created_at", "2017-06-12 10:34:33.657727"], ["updated_at", "2017-06-12 10:34:33.657727"]]
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "move_wods" ("movement_id", "wod_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["movement_id", 10], ["wod_id", 6], ["created_at", "2017-06-12 10:34:33.658647"], ["updated_at", "2017-06-12 10:34:33.658647"]]
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "move_wods" ("movement_id", "wod_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["movement_id", 11], ["wod_id", 6], ["created_at", "2017-06-12 10:34:33.659649"], ["updated_at", "2017-06-12 10:34:33.659649"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/wods/6
+Completed 302 Found in 41ms (ActiveRecord: 5.1ms)
+
+
+Started GET "/wods/6" for ::1 at 2017-06-12 20:34:33 +1000
+Processing by WodsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mWod Load (0.2ms)[0m  SELECT  "wods".* FROM "wods" WHERE "wods"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mMovement Load (0.2ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 6]]
+  Rendered wods/show.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 8ms (Views: 6.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/wods/6" for ::1 at 2017-06-12 20:35:07 +1000
+Processing by WodsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mWod Load (0.1ms)[0m  SELECT  "wods".* FROM "wods" WHERE "wods"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mMovement Load (0.2ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 6]]
+  Rendered wods/show.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 7ms (Views: 6.7ms | ActiveRecord: 0.3ms)

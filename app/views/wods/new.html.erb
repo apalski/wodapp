@@ -6,21 +6,10 @@
 	<%= f.text_field :title %><br><br>
 	<%= f.label :wod_type %>
 	<%= f.select :wod_type, ["weight", "time", "repetitions"], :prompt => "Select One" %><br><br>
-	<%= f.label :quantity %>
-	<%= f.text_field :quantity %><br>
-	<%= f.collection_check_boxes :movement_ids, Movement.all, :id, :name %><br>
-	<%= f.label :quantity %>
-	<%= f.text_field :quantity %><br>
-	<%= f.collection_check_boxes :movement_ids, Movement.all, :id, :name %><br>
-	<%= f.label :quantity %>
-	<%= f.text_field :quantity %><br>
-	<%= f.collection_check_boxes :movement_ids, Movement.all, :id, :name %><br>
-	<%= f.label :quantity %>
-	<%= f.text_field :quantity %><br>
 	<%= f.collection_check_boxes :movement_ids, Movement.all, :id, :name %><br>
 	<%= f.fields_for :movements do |move| %>
-		<%= f.label :quantity %>
-		<%= f.text_field :quantity %><br>
+		<%= move.label :quantity %>
+		<%= move.text_field :quantity %><br>
 		<%= move.label :name %>
 		<%= move.text_field :name %><br>
 		<%= move.label :movement_type %>

@@ -14,17 +14,17 @@ DATA = {
     ["Quvenzhané Wallis", "quv@gmail.com", "passionpop", false]
   ],
   :movement_keys =>
-   ["name", "movement_type", "owner_id"],
+   ["name", "movement_type", "quantity", "owner_id"],
   :movements => [
-    ["Dead Lift", "weight", 1],
-    ["Clean & Jerk", "weight", 1],
-    ["Push Jerk", "weight", 1],
-    ["Push Press", "weight", 1],
-    ["Snatch", "weight", 1],
-    ["400m Run", "time", 1],
-    ["Burpees", "repetitions", 1],
-    ["Air Squats", "repetitions", 1],
-    ["Box Jumps", "repetitions", 1]
+    ["Dead Lift", "weight", 10, 1],
+    ["Clean & Jerk", "weight", 8, 1],
+    ["Push Jerk", "weight", 10, 1],
+    ["Push Press", "weight", 11, 1],
+    ["Snatch", "weight", 9, 1],
+    ["400m Run", "time", 1, 1],
+    ["Burpees", "repetitions", 30, 1],
+    ["Air Squats", "repetitions", 50, 1],
+    ["Box Jumps", "repetitions", 20, 1]
   ],
 
   :wod_keys =>
