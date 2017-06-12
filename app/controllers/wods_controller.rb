@@ -6,7 +6,8 @@ class WodsController < ApplicationController
 
 	def new
 		@wod = Wod.new
-		@movements = Movement.all
+		@wod.movements.build
+		@wod.movements.build
 	end
 
 	def create

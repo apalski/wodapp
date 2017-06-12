@@ -1,16 +1,10 @@
 Rails.application.routes.draw do
 
-  resources :wods, only: [:index, :new, :create]
+ resources :wods, only: [:index, :new, :create, :show]
 
-  # resources :movements
-
- resources :users, :usermovements, :userwods, :sessions
+ resources :users, :usermovements, :userwods, :sessions, :movements
 
  get '/logout' => 'sessions#destroy'
 
  root 'application#welcome'
-
- resources :wods, only: [:show] do
- 	resources :movements, only: [:index, :show]
- end	
 end

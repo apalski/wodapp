@@ -10,9 +10,10 @@ class Wod < ActiveRecord::Base
 	validates :title, uniqueness: true
 	validates :wod_type, inclusion: {in: %w(time weight repetitions), message: "%{value} is not a valid type"}
 
-	def movements_attributes=(movements_attributes)
-		movements_attributes.each do |movement_attribute|
-			self.movements.build(movements_attributes)
+	def movements_attributes=(movements)
+		movements.each do |i, movement|
+			movement = Movement.all.find_or_create_by(movement)
+			self.movements << movement
 		end	
 	end
 end

@@ -6,7 +6,14 @@
 	<%= f.text_field :title %><br><br>
 	<%= f.label :wod_type %>
 	<%= f.select :wod_type, ["weight", "time", "repetitions"], :prompt => "Select One" %><br><br>
-	<%= render "movement", f: f %><br>
+	<%= render 'movement', f: f %>
+	<%= render 'movement', f: f %>
+	<%= f.fields_for :movements do |move| %>
+		<%= move.label :name %>
+		<%= move.text_field :name %><br>
+		<%= move.label :movement_type %>
+		<%= move.text_field :movement_type %><br>
+	<% end %>	
 	<%= f.submit %>
 <% end %>
 	
