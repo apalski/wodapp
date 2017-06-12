@@ -15443,3 +15443,1279 @@ Processing by WodsController#show as HTML
   [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 15]]
   Rendered wods/show.html.erb within layouts/application (2.0ms)
 Completed 200 OK in 7ms (Views: 6.0ms | ActiveRecord: 0.4ms)
+  [1m[36m (1.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (1.2ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateUsers (20170529044413)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "password_digest" varchar, "owner" boolean DEFAULT 'f', "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170529044413"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+Migrating to CreateUsermovements (20170529044428)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "usermovements" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "date" date, "result" float, "pr" boolean DEFAULT 'f', "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170529044428"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+Migrating to CreateUserwods (20170529044438)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "userwods" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "date" date, "result" float, "pr" boolean DEFAULT 'f', "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170529044438"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+Migrating to CreateMoveWods (20170529044453)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  CREATE TABLE "move_wods" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "movement_id" integer, "wod_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170529044453"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+Migrating to CreateMovements (20170608044059)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "movements" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "movement_type" varchar, "quantity" integer, "owner_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170608044059"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+Migrating to CreateWods (20170608045642)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "wods" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "wod_type" varchar, "owner_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170608045642"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."name" = 'Max Charles' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'max@gmail.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "owner", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Max Charles"], ["email", "max@gmail.com"], ["password_digest", "$2a$10$ukqG5H9EmKvZ0S9BeyzQnOBSl7tVf5T48A2jdUcnarvmUBFNPP7UC"], ["owner", "t"], ["created_at", "2017-06-12 07:16:29.540433"], ["updated_at", "2017-06-12 07:16:29.540433"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."name" = 'Skai Jackson' LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'skai@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Skai Jackson"], ["email", "skai@gmail.com"], ["password_digest", "$2a$10$.AWMso95o9zbxgU8PHg3le7c6VVed007exjdbWQp5dGYR.mTfI.Ai"], ["created_at", "2017-06-12 07:16:29.617101"], ["updated_at", "2017-06-12 07:16:29.617101"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."name" = 'Kaleo Elam' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'kaleo@gmail.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Kaleo Elam"], ["email", "kaleo@gmail.com"], ["password_digest", "$2a$10$ZokVzd0hFsx/7s6r1DPSluIARPCC6E2ncsps8lkwORx5VSRRTUbe."], ["created_at", "2017-06-12 07:16:29.703016"], ["updated_at", "2017-06-12 07:16:29.703016"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."name" = 'Megan Charpentier' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'megan@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Megan Charpentier"], ["email", "megan@gmail.com"], ["password_digest", "$2a$10$SEVHgTck0DW7EiIzuVgDfOWLyE6f.k7OEKbwQmWnjfyR6nA5OyFjW"], ["created_at", "2017-06-12 07:16:29.792482"], ["updated_at", "2017-06-12 07:16:29.792482"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."name" = 'Hayden Byerly' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'hayden@gmail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Hayden Byerly"], ["email", "hayden@gmail.com"], ["password_digest", "$2a$10$g7rcsDhhdYzHJ5b7wS5bMOkU4ZDkldmVRypdLT5xie.Txxq1FfuQq"], ["created_at", "2017-06-12 07:16:29.873636"], ["updated_at", "2017-06-12 07:16:29.873636"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."name" = 'Tenzing Norgay Trainor' LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'tenzing@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Tenzing Norgay Trainor"], ["email", "tenzing@gmail.com"], ["password_digest", "$2a$10$KdtlK/BOGBZwJd3l3sYipO3eqWGZ2bv8ReAJAditNvmkiNtzLz0Cm"], ["created_at", "2017-06-12 07:16:29.954605"], ["updated_at", "2017-06-12 07:16:29.954605"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."name" = 'Davis Cleveland' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'davis@gmail.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Davis Cleveland"], ["email", "davis@gmail.com"], ["password_digest", "$2a$10$oPpV29wi/gbK.4BfcnukH.3dv7FeqNZsOxq5ONUtb/X9YJHrm8Ksq"], ["created_at", "2017-06-12 07:16:30.038764"], ["updated_at", "2017-06-12 07:16:30.038764"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."name" = 'Cole Sand' LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'cole@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Cole Sand"], ["email", "cole@gmail.com"], ["password_digest", "$2a$10$KIjOydQfDJV3REU3DDTcXOTANoufRsWuEG5dqp9vJSWlhg/DhXWy6"], ["created_at", "2017-06-12 07:16:30.116286"], ["updated_at", "2017-06-12 07:16:30.116286"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."name" = 'Quvenzhané Wallis' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'quv@gmail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Quvenzhané Wallis"], ["email", "quv@gmail.com"], ["password_digest", "$2a$10$fqiTTk9vvm.LqZtP9GrwpuK/qC2vH9GxW007Fn6G.I7JZBGDvKHca"], ["created_at", "2017-06-12 07:16:30.194977"], ["updated_at", "2017-06-12 07:16:30.194977"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.2ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Dead Lift' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "movements" ("name", "movement_type", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Dead Lift"], ["movement_type", "weight"], ["owner_id", 1], ["created_at", "2017-06-12 07:16:30.216453"], ["updated_at", "2017-06-12 07:16:30.216453"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Clean & Jerk' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "movements" ("name", "movement_type", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Clean & Jerk"], ["movement_type", "weight"], ["owner_id", 1], ["created_at", "2017-06-12 07:16:30.219878"], ["updated_at", "2017-06-12 07:16:30.219878"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.2ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Push Jerk' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "movements" ("name", "movement_type", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Push Jerk"], ["movement_type", "weight"], ["owner_id", 1], ["created_at", "2017-06-12 07:16:30.222569"], ["updated_at", "2017-06-12 07:16:30.222569"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Push Press' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "movements" ("name", "movement_type", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Push Press"], ["movement_type", "weight"], ["owner_id", 1], ["created_at", "2017-06-12 07:16:30.225984"], ["updated_at", "2017-06-12 07:16:30.225984"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Snatch' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "movements" ("name", "movement_type", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Snatch"], ["movement_type", "weight"], ["owner_id", 1], ["created_at", "2017-06-12 07:16:30.228756"], ["updated_at", "2017-06-12 07:16:30.228756"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.2ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = '400m Run' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "movements" ("name", "movement_type", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "400m Run"], ["movement_type", "time"], ["owner_id", 1], ["created_at", "2017-06-12 07:16:30.232162"], ["updated_at", "2017-06-12 07:16:30.232162"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Burpees' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "movements" ("name", "movement_type", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Burpees"], ["movement_type", "repetitions"], ["owner_id", 1], ["created_at", "2017-06-12 07:16:30.235402"], ["updated_at", "2017-06-12 07:16:30.235402"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Air Squats' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "movements" ("name", "movement_type", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Air Squats"], ["movement_type", "repetitions"], ["owner_id", 1], ["created_at", "2017-06-12 07:16:30.238057"], ["updated_at", "2017-06-12 07:16:30.238057"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Box Jumps' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "movements" ("name", "movement_type", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Box Jumps"], ["movement_type", "repetitions"], ["owner_id", 1], ["created_at", "2017-06-12 07:16:30.241098"], ["updated_at", "2017-06-12 07:16:30.241098"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mWod Exists (0.1ms)[0m  SELECT  1 AS one FROM "wods" WHERE "wods"."title" = 'Helen' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "wods" ("title", "wod_type", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Helen"], ["wod_type", "time"], ["owner_id", 1], ["created_at", "2017-06-12 07:16:30.249943"], ["updated_at", "2017-06-12 07:16:30.249943"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mWod Exists (0.1ms)[0m  SELECT  1 AS one FROM "wods" WHERE "wods"."title" = 'Grace' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "wods" ("title", "wod_type", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Grace"], ["wod_type", "time"], ["owner_id", 1], ["created_at", "2017-06-12 07:16:30.253459"], ["updated_at", "2017-06-12 07:16:30.253459"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mWod Exists (0.1ms)[0m  SELECT  1 AS one FROM "wods" WHERE "wods"."title" = 'Dead Lift Day' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "wods" ("title", "wod_type", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Dead Lift Day"], ["wod_type", "weight"], ["owner_id", 1], ["created_at", "2017-06-12 07:16:30.256337"], ["updated_at", "2017-06-12 07:16:30.256337"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mWod Exists (0.1ms)[0m  SELECT  1 AS one FROM "wods" WHERE "wods"."title" = 'Murph' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "wods" ("title", "wod_type", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Murph"], ["wod_type", "time"], ["owner_id", 1], ["created_at", "2017-06-12 07:16:30.258963"], ["updated_at", "2017-06-12 07:16:30.258963"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mWod Exists (0.1ms)[0m  SELECT  1 AS one FROM "wods" WHERE "wods"."title" = 'Karen' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "wods" ("title", "wod_type", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Karen"], ["wod_type", "repetitions"], ["owner_id", 1], ["created_at", "2017-06-12 07:16:30.262229"], ["updated_at", "2017-06-12 07:16:30.262229"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+
+
+Started GET "/wods/new" for ::1 at 2017-06-12 17:17:19 +1000
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WodsController#new as HTML
+  Rendered wods/new.html.erb within layouts/application (442.3ms)
+Completed 500 Internal Server Error in 534ms
+
+ActionView::Template::Error (undefined method `merge' for :quantity:Symbol):
+     6: 	<%= f.text_field :title %><br><br>
+     7: 	<%= f.label :wod_type %>
+     8: 	<%= f.select :wod_type, ["weight", "time", "repetitions"], :prompt => "Select One" %><br><br>
+     9: 	<%= f.collection_check_boxes :movement_ids, Movement.all, :id, :name, :quantity %><br>
+    10: 	<%= f.fields_for :movements do |move| %>
+    11: 		<%= move.label :name %>
+    12: 		<%= move.text_field :name %><br>
+  app/views/wods/new.html.erb:9:in `block in _app_views_wods_new_html_erb__4022842903655526616_70220433835020'
+  app/views/wods/new.html.erb:4:in `_app_views_wods_new_html_erb__4022842903655526616_70220433835020'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.7ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (14.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (79.0ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-12 17:17:37 +1000
+Processing by WodsController#new as HTML
+  Rendered wods/new.html.erb within layouts/application (0.8ms)
+Completed 500 Internal Server Error in 8ms
+
+SyntaxError (/Users/Annette/Dev/Rails/wodapp/app/views/wods/new.html.erb:9: syntax error, unexpected ':', expecting ')'
+...ids, Movement.all, :id, :name :quantity );@output_buffer.saf...
+...                               ^):
+  app/views/wods/new.html.erb:9: syntax error, unexpected ':', expecting ')'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (54.7ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-12 17:25:30 +1000
+Processing by WodsController#new as HTML
+  [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  Rendered wods/new.html.erb within layouts/application (22.4ms)
+Completed 200 OK in 30ms (Views: 28.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-12 17:28:24 +1000
+Processing by WodsController#new as HTML
+  Rendered wods/new.html.erb within layouts/application (5.1ms)
+Completed 500 Internal Server Error in 14ms
+
+SyntaxError (/Users/Annette/Dev/Rails/wodapp/app/views/wods/new.html.erb:9: syntax error, unexpected ':', expecting ')'
+...ds, Movement.all, :id, (:name :quantity) );@output_buffer.sa...
+...                               ^):
+  app/views/wods/new.html.erb:9: syntax error, unexpected ':', expecting ')'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.3ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (53.1ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-12 17:28:35 +1000
+Processing by WodsController#new as HTML
+  Rendered wods/new.html.erb within layouts/application (0.7ms)
+Completed 500 Internal Server Error in 8ms
+
+SyntaxError (/Users/Annette/Dev/Rails/wodapp/app/views/wods/new.html.erb:9: syntax error, unexpected ',', expecting ')'
+...ids, Movement.all, :id, (:name, :quantity) );@output_buffer....
+...                               ^):
+  app/views/wods/new.html.erb:9: syntax error, unexpected ',', expecting ')'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.7ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (58.5ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-12 19:43:49 +1000
+Processing by WodsController#new as HTML
+  Rendered wods/new.html.erb within layouts/application (0.7ms)
+Completed 500 Internal Server Error in 7ms
+
+SyntaxError (/Users/Annette/Dev/Rails/wodapp/app/views/wods/new.html.erb:9: syntax error, unexpected ')', expecting keyword_end
+...me, :quantity => [1,2,3,4,5]) );@output_buffer.safe_append='...
+...                               ^):
+  app/views/wods/new.html.erb:9: syntax error, unexpected ')', expecting keyword_end
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (65.5ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-12 19:44:01 +1000
+Processing by WodsController#new as HTML
+  Rendered wods/new.html.erb within layouts/application (1.3ms)
+Completed 500 Internal Server Error in 7ms
+
+SyntaxError (/Users/Annette/Dev/Rails/wodapp/app/views/wods/new.html.erb:9: syntax error, unexpected ':', expecting ')'
+...ids, Movement.all, :id, :name :quantity => [1,2,3,4,5]) );@o...
+...                               ^
+/Users/Annette/Dev/Rails/wodapp/app/views/wods/new.html.erb:9: syntax error, unexpected ')', expecting keyword_end
+...ame :quantity => [1,2,3,4,5]) );@output_buffer.safe_append='...
+...                               ^):
+  app/views/wods/new.html.erb:9: syntax error, unexpected ':', expecting ')'
+  app/views/wods/new.html.erb:9: syntax error, unexpected ')', expecting keyword_end
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (57.8ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-12 19:44:17 +1000
+Processing by WodsController#new as HTML
+  [1m[35mMovement Load (0.4ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered wods/new.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 14ms (Views: 13.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-12 19:44:28 +1000
+Processing by WodsController#new as HTML
+  Rendered wods/new.html.erb within layouts/application (0.8ms)
+Completed 500 Internal Server Error in 7ms
+
+SyntaxError (/Users/Annette/Dev/Rails/wodapp/app/views/wods/new.html.erb:9: syntax error, unexpected ':', expecting ')'
+...ids, Movement.all, :id, :name :quantity => [1,2,3,4,5] );@ou...
+...                               ^):
+  app/views/wods/new.html.erb:9: syntax error, unexpected ':', expecting ')'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (58.3ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-12 19:44:40 +1000
+Processing by WodsController#new as HTML
+  [1m[36mMovement Load (0.3ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  Rendered wods/new.html.erb within layouts/application (5.5ms)
+Completed 500 Internal Server Error in 11ms
+
+ActionView::Template::Error ({:quantity=>[1, 2, 3, 4, 5]} is not a symbol nor a string):
+     6: 	<%= f.text_field :title %><br><br>
+     7: 	<%= f.label :wod_type %>
+     8: 	<%= f.select :wod_type, ["weight", "time", "repetitions"], :prompt => "Select One" %><br><br>
+     9: 	<%= f.collection_check_boxes :movement_ids, Movement.all, :id, :quantity => [1,2,3,4,5] %><br>
+    10: 	<%= f.fields_for :movements do |move| %>
+    11: 		<%= move.label :name %>
+    12: 		<%= move.text_field :name %><br>
+  app/views/wods/new.html.erb:9:in `block in _app_views_wods_new_html_erb__4022842903655526616_70220397523040'
+  app/views/wods/new.html.erb:4:in `_app_views_wods_new_html_erb__4022842903655526616_70220397523040'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (62.6ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-12 19:44:55 +1000
+Processing by WodsController#new as HTML
+  [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered wods/new.html.erb within layouts/application (4.8ms)
+Completed 500 Internal Server Error in 11ms
+
+ActionView::Template::Error ({:quantity=>[1, 2, 3, 4, 5]} is not a symbol nor a string):
+     6: 	<%= f.text_field :title %><br><br>
+     7: 	<%= f.label :wod_type %>
+     8: 	<%= f.select :wod_type, ["weight", "time", "repetitions"], :prompt => "Select One" %><br><br>
+     9: 	<%= f.collection_check_boxes :movement_ids, Movement.all, :id, quantity: [1,2,3,4,5] %><br>
+    10: 	<%= f.fields_for :movements do |move| %>
+    11: 		<%= move.label :name %>
+    12: 		<%= move.text_field :name %><br>
+  app/views/wods/new.html.erb:9:in `block in _app_views_wods_new_html_erb__4022842903655526616_70220410715200'
+  app/views/wods/new.html.erb:4:in `_app_views_wods_new_html_erb__4022842903655526616_70220410715200'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (48.4ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-12 19:45:21 +1000
+Processing by WodsController#new as HTML
+  Rendered wods/new.html.erb within layouts/application (5.3ms)
+Completed 500 Internal Server Error in 12ms
+
+ActionView::Template::Error (undefined method `merge' for [1, 2, 3, 4, 5]:Array):
+     6: 	<%= f.text_field :title %><br><br>
+     7: 	<%= f.label :wod_type %>
+     8: 	<%= f.select :wod_type, ["weight", "time", "repetitions"], :prompt => "Select One" %><br><br>
+     9: 	<%= f.collection_check_boxes :movement_ids, Movement.all, :id, :quantity, [1,2,3,4,5] %><br>
+    10: 	<%= f.fields_for :movements do |move| %>
+    11: 		<%= move.label :name %>
+    12: 		<%= move.text_field :name %><br>
+  app/views/wods/new.html.erb:9:in `block in _app_views_wods_new_html_erb__4022842903655526616_70220435453920'
+  app/views/wods/new.html.erb:4:in `_app_views_wods_new_html_erb__4022842903655526616_70220435453920'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (54.2ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-12 19:45:55 +1000
+Processing by WodsController#new as HTML
+  Rendered wods/new.html.erb within layouts/application (3.8ms)
+Completed 500 Internal Server Error in 10ms
+
+ActionView::Template::Error (wrong number of arguments (given 5, expected 1..2)):
+     6: 	<%= f.text_field :title %><br><br>
+     7: 	<%= f.label :wod_type %>
+     8: 	<%= f.select :wod_type, ["weight", "time", "repetitions"], :prompt => "Select One" %><br><br>
+     9: 	<%= f.collection_check_boxes :movement_ids, Movement.all, :id, :quantity [1,2,3,4,5] %><br>
+    10: 	<%= f.fields_for :movements do |move| %>
+    11: 		<%= move.label :name %>
+    12: 		<%= move.text_field :name %><br>
+  app/views/wods/new.html.erb:9:in `[]'
+  app/views/wods/new.html.erb:9:in `block in _app_views_wods_new_html_erb__4022842903655526616_70220406053000'
+  app/views/wods/new.html.erb:4:in `_app_views_wods_new_html_erb__4022842903655526616_70220406053000'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (53.6ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-12 19:46:02 +1000
+Processing by WodsController#new as HTML
+  Rendered wods/new.html.erb within layouts/application (2.8ms)
+Completed 500 Internal Server Error in 9ms
+
+ActionView::Template::Error (wrong number of arguments (given 5, expected 1..2)):
+     6: 	<%= f.text_field :title %><br><br>
+     7: 	<%= f.label :wod_type %>
+     8: 	<%= f.select :wod_type, ["weight", "time", "repetitions"], :prompt => "Select One" %><br><br>
+     9: 	<%= f.collection_check_boxes :movement_ids, Movement.all, :id, :name, :quantity [1,2,3,4,5] %><br>
+    10: 	<%= f.fields_for :movements do |move| %>
+    11: 		<%= move.label :name %>
+    12: 		<%= move.text_field :name %><br>
+  app/views/wods/new.html.erb:9:in `[]'
+  app/views/wods/new.html.erb:9:in `block in _app_views_wods_new_html_erb__4022842903655526616_70220436316040'
+  app/views/wods/new.html.erb:4:in `_app_views_wods_new_html_erb__4022842903655526616_70220436316040'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.3ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (52.0ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-12 19:46:29 +1000
+Processing by WodsController#new as HTML
+  Rendered wods/new.html.erb within layouts/application (5.7ms)
+Completed 500 Internal Server Error in 12ms
+
+ActionView::Template::Error (undefined method `merge' for :quantity:Symbol):
+     6: 	<%= f.text_field :title %><br><br>
+     7: 	<%= f.label :wod_type %>
+     8: 	<%= f.select :wod_type, ["weight", "time", "repetitions"], :prompt => "Select One" %><br><br>
+     9: 	<%= f.collection_check_boxes :movement_ids, Movement.all, :id, :name, :quantity %><br>
+    10: 	<%= f.fields_for :movements do |move| %>
+    11: 		<%= move.label :name %>
+    12: 		<%= move.text_field :name %><br>
+  app/views/wods/new.html.erb:9:in `block in _app_views_wods_new_html_erb__4022842903655526616_70220427791800'
+  app/views/wods/new.html.erb:4:in `_app_views_wods_new_html_erb__4022842903655526616_70220427791800'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.6ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (53.5ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-12 19:47:50 +1000
+Processing by WodsController#new as HTML
+  Rendered wods/new.html.erb within layouts/application (4.4ms)
+Completed 500 Internal Server Error in 35ms
+
+ActionView::Template::Error (undefined method `merge' for :quantity:Symbol):
+     6: 	<%= f.text_field :title %><br><br>
+     7: 	<%= f.label :wod_type %>
+     8: 	<%= f.select :wod_type, ["weight", "time", "repetitions"], :prompt => "Select One" %><br><br>
+     9: 	<%= f.collection_check_boxes :movement_ids, Movement.all, :id, :name, :quantity %><br>
+    10: 	<%= f.fields_for :movements do |move| %>
+    11: 		<%= move.label :name %>
+    12: 		<%= move.text_field :name %><br>
+  app/views/wods/new.html.erb:9:in `block in _app_views_wods_new_html_erb__4022842903655526616_70220427791800'
+  app/views/wods/new.html.erb:4:in `_app_views_wods_new_html_erb__4022842903655526616_70220427791800'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.6ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (53.1ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-12 19:50:46 +1000
+Processing by WodsController#new as HTML
+Completed 500 Internal Server Error in 10ms
+
+SyntaxError (/Users/Annette/Dev/Rails/wodapp/app/models/movement.rb:11: syntax error, unexpected =>, expecting keyword_end
+	quantity => [1,2,3,4,5,6,7,8,9,10]
+	           ^):
+  app/models/movement.rb:11: syntax error, unexpected =>, expecting keyword_end
+  app/controllers/wods_controller.rb:9:in `new'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.5ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (57.7ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-12 19:52:17 +1000
+Processing by WodsController#new as HTML
+  [1m[36mMovement Load (0.2ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered wods/new.html.erb within layouts/application (6.3ms)
+Completed 500 Internal Server Error in 32ms
+
+ActionView::Template::Error (undefined method `[]' for nil:NilClass):
+     6: 	<%= f.text_field :title %><br><br>
+     7: 	<%= f.label :wod_type %>
+     8: 	<%= f.select :wod_type, ["weight", "time", "repetitions"], :prompt => "Select One" %><br><br>
+     9: 	<%= f.collection_check_boxes :movement_ids, Movement.all, :id, :name_with_quantity %><br>
+    10: 	<%= f.fields_for :movements do |move| %>
+    11: 		<%= move.label :name %>
+    12: 		<%= move.text_field :name %><br>
+  app/models/movement.rb:15:in `block in name_with_quantity'
+  app/models/movement.rb:14:in `name_with_quantity'
+  app/views/wods/new.html.erb:9:in `block in _app_views_wods_new_html_erb__4022842903655526616_70220428908440'
+  app/views/wods/new.html.erb:4:in `_app_views_wods_new_html_erb__4022842903655526616_70220428908440'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.5ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (58.3ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-12 19:52:39 +1000
+Processing by WodsController#new as HTML
+  [1m[36mMovement Load (0.2ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered wods/new.html.erb within layouts/application (21.3ms)
+Completed 200 OK in 47ms (Views: 28.1ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-12 19:54:04 +1000
+Processing by WodsController#new as HTML
+  [1m[36mMovement Load (0.2ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered wods/new.html.erb within layouts/application (25.3ms)
+Completed 200 OK in 54ms (Views: 33.1ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-12 19:54:36 +1000
+Processing by WodsController#new as HTML
+  [1m[36mMovement Load (0.2ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered wods/new.html.erb within layouts/application (21.4ms)
+Completed 200 OK in 48ms (Views: 28.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-12 19:55:13 +1000
+Processing by WodsController#new as HTML
+  [1m[36mMovement Load (0.2ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered wods/new.html.erb within layouts/application (18.4ms)
+Completed 200 OK in 26ms (Views: 23.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-12 19:55:19 +1000
+Processing by WodsController#new as HTML
+  [1m[36mMovement Load (0.2ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered wods/new.html.erb within layouts/application (25.6ms)
+Completed 200 OK in 31ms (Views: 29.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-12 19:56:22 +1000
+Processing by WodsController#new as HTML
+  Rendered wods/new.html.erb within layouts/application (10.6ms)
+Completed 500 Internal Server Error in 40ms
+
+ActionView::Template::Error (undefined method `map' for #<Class:0x007fbaef6421f0>
+Did you mean?  tap):
+     6: 	<%= f.text_field :title %><br><br>
+     7: 	<%= f.label :wod_type %>
+     8: 	<%= f.select :wod_type, ["weight", "time", "repetitions"], :prompt => "Select One" %><br><br>
+     9: 	<%= f.collection_check_boxes :movement_ids, Movement, :id, :name_with_quantity %><br>
+    10: 	<%= f.fields_for :movements do |move| %>
+    11: 		<%= move.label :name %>
+    12: 		<%= move.text_field :name %><br>
+  app/views/wods/new.html.erb:9:in `block in _app_views_wods_new_html_erb__4022842903655526616_70220450826000'
+  app/views/wods/new.html.erb:4:in `_app_views_wods_new_html_erb__4022842903655526616_70220450826000'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.7ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (63.6ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-12 19:56:46 +1000
+Processing by WodsController#new as HTML
+  Rendered wods/new.html.erb within layouts/application (4.9ms)
+Completed 500 Internal Server Error in 13ms
+
+ActionView::Template::Error (undefined method `map' for :name_with_quantity:Symbol
+Did you mean?  tap):
+     6: 	<%= f.text_field :title %><br><br>
+     7: 	<%= f.label :wod_type %>
+     8: 	<%= f.select :wod_type, ["weight", "time", "repetitions"], :prompt => "Select One" %><br><br>
+     9: 	<%= f.collection_check_boxes :movement_ids, :name_with_quantity, :id, :name_with_quantity %><br>
+    10: 	<%= f.fields_for :movements do |move| %>
+    11: 		<%= move.label :name %>
+    12: 		<%= move.text_field :name %><br>
+  app/views/wods/new.html.erb:9:in `block in _app_views_wods_new_html_erb__4022842903655526616_70220402490120'
+  app/views/wods/new.html.erb:4:in `_app_views_wods_new_html_erb__4022842903655526616_70220402490120'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.5ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (66.3ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-12 19:56:55 +1000
+Processing by WodsController#new as HTML
+  Rendered wods/new.html.erb within layouts/application (31.6ms)
+Completed 500 Internal Server Error in 39ms
+
+ActionView::Template::Error (undefined local variable or method `name_with_quantity' for #<#<Class:0x007fbaed4cddf8>:0x007fbaf226ee18>):
+     6: 	<%= f.text_field :title %><br><br>
+     7: 	<%= f.label :wod_type %>
+     8: 	<%= f.select :wod_type, ["weight", "time", "repetitions"], :prompt => "Select One" %><br><br>
+     9: 	<%= f.collection_check_boxes :movement_ids, name_with_quantity, :id, :name_with_quantity %><br>
+    10: 	<%= f.fields_for :movements do |move| %>
+    11: 		<%= move.label :name %>
+    12: 		<%= move.text_field :name %><br>
+  app/views/wods/new.html.erb:9:in `block in _app_views_wods_new_html_erb__4022842903655526616_70220451636020'
+  app/views/wods/new.html.erb:4:in `_app_views_wods_new_html_erb__4022842903655526616_70220451636020'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (7.3ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (62.3ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-12 19:57:24 +1000
+Processing by WodsController#new as HTML
+  [1m[36mMovement Load (0.3ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  Rendered wods/new.html.erb within layouts/application (7.9ms)
+Completed 500 Internal Server Error in 35ms
+
+ActionView::Template::Error (undefined local variable or method `i' for #<Movement:0x007fbaf05310f8>
+Did you mean?  id):
+     6: 	<%= f.text_field :title %><br><br>
+     7: 	<%= f.label :wod_type %>
+     8: 	<%= f.select :wod_type, ["weight", "time", "repetitions"], :prompt => "Select One" %><br><br>
+     9: 	<%= f.collection_check_boxes :movement_ids, Movement.all, :id, :name_with_quantity %><br>
+    10: 	<%= f.fields_for :movements do |move| %>
+    11: 		<%= move.label :name %>
+    12: 		<%= move.text_field :name %><br>
+  app/models/movement.rb:14:in `name_with_quantity'
+  app/views/wods/new.html.erb:9:in `block in _app_views_wods_new_html_erb__4022842903655526616_70220406520700'
+  app/views/wods/new.html.erb:4:in `_app_views_wods_new_html_erb__4022842903655526616_70220406520700'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (50.3ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-12 19:58:27 +1000
+Processing by WodsController#new as HTML
+Completed 500 Internal Server Error in 17ms
+
+SyntaxError (/Users/Annette/Dev/Rails/wodapp/app/models/movement.rb:14: syntax error, unexpected '<', expecting &. or :: or '[' or '.'
+		for i < Movement.all.size, i+=1
+		       ^
+/Users/Annette/Dev/Rails/wodapp/app/models/movement.rb:14: syntax error, unexpected tOP_ASGN, expecting '='
+		for i < Movement.all.size, i+=1
+		                              ^
+/Users/Annette/Dev/Rails/wodapp/app/models/movement.rb:18: syntax error, unexpected keyword_end, expecting end-of-input):
+  app/models/movement.rb:14: syntax error, unexpected '<', expecting &. or :: or '[' or '.'
+  app/models/movement.rb:14: syntax error, unexpected tOP_ASGN, expecting '='
+  app/models/movement.rb:18: syntax error, unexpected keyword_end, expecting end-of-input
+  app/controllers/wods_controller.rb:9:in `new'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.8ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (50.1ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-12 19:58:45 +1000
+Processing by WodsController#new as HTML
+Completed 500 Internal Server Error in 11ms
+
+SyntaxError (/Users/Annette/Dev/Rails/wodapp/app/models/movement.rb:14: syntax error, unexpected '\n', expecting &. or :: or '[' or '.'
+/Users/Annette/Dev/Rails/wodapp/app/models/movement.rb:18: syntax error, unexpected keyword_end, expecting end-of-input):
+  app/models/movement.rb:14: syntax error, unexpected '\n', expecting &. or :: or '[' or '.'
+  app/models/movement.rb:18: syntax error, unexpected keyword_end, expecting end-of-input
+  app/controllers/wods_controller.rb:9:in `new'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.7ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (51.9ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-12 19:59:07 +1000
+Processing by WodsController#new as HTML
+Completed 500 Internal Server Error in 12ms
+
+SyntaxError (/Users/Annette/Dev/Rails/wodapp/app/models/movement.rb:14: syntax error, unexpected ')'
+/Users/Annette/Dev/Rails/wodapp/app/models/movement.rb:16: syntax error, unexpected keyword_end, expecting ')'
+		end  	
+		   ^):
+  app/models/movement.rb:14: syntax error, unexpected ')'
+  app/models/movement.rb:16: syntax error, unexpected keyword_end, expecting ')'
+  app/controllers/wods_controller.rb:9:in `new'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.3ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (56.5ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-12 19:59:34 +1000
+Processing by WodsController#new as HTML
+Completed 500 Internal Server Error in 13ms
+
+SyntaxError (/Users/Annette/Dev/Rails/wodapp/app/models/movement.rb:14: syntax error, unexpected ')'
+/Users/Annette/Dev/Rails/wodapp/app/models/movement.rb:16: syntax error, unexpected keyword_end, expecting ')'
+		end  	
+		   ^):
+  app/models/movement.rb:14: syntax error, unexpected ')'
+  app/models/movement.rb:16: syntax error, unexpected keyword_end, expecting ')'
+  app/controllers/wods_controller.rb:9:in `new'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (52.9ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-12 20:00:43 +1000
+Processing by WodsController#new as HTML
+  [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "movements"[0m
+  Rendered wods/new.html.erb within layouts/application (14.5ms)
+Completed 200 OK in 40ms (Views: 21.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-12 20:01:52 +1000
+Processing by WodsController#new as HTML
+  [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered wods/new.html.erb within layouts/application (35.9ms)
+Completed 200 OK in 67ms (Views: 44.3ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-12 20:01:53 +1000
+Processing by WodsController#new as HTML
+  [1m[36mMovement Load (0.2ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "movements"
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  Rendered wods/new.html.erb within layouts/application (33.5ms)
+Completed 200 OK in 39ms (Views: 36.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-12 20:02:35 +1000
+Processing by WodsController#new as HTML
+  [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  Rendered wods/new.html.erb within layouts/application (23.0ms)
+Completed 200 OK in 50ms (Views: 30.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-12 20:03:12 +1000
+Processing by WodsController#new as HTML
+  [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  Rendered wods/new.html.erb within layouts/application (28.8ms)
+Completed 200 OK in 36ms (Views: 34.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-12 20:03:49 +1000
+Processing by WodsController#new as HTML
+  [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  Rendered wods/new.html.erb within layouts/application (5.6ms)
+Completed 500 Internal Server Error in 32ms
+
+ActionView::Template::Error (exception class/object expected):
+     6: 	<%= f.text_field :title %><br><br>
+     7: 	<%= f.label :wod_type %>
+     8: 	<%= f.select :wod_type, ["weight", "time", "repetitions"], :prompt => "Select One" %><br><br>
+     9: 	<%= f.collection_check_boxes :movement_ids, Movement.all, :id, :name_with_quantity %><br>
+    10: 	<%= f.fields_for :movements do |move| %>
+    11: 		<%= move.label :name %>
+    12: 		<%= move.text_field :name %><br>
+  app/models/movement.rb:16:in `raise'
+  app/models/movement.rb:16:in `block in name_with_quantity'
+  app/models/movement.rb:15:in `name_with_quantity'
+  app/views/wods/new.html.erb:9:in `block in _app_views_wods_new_html_erb__4022842903655526616_70220396687260'
+  app/views/wods/new.html.erb:4:in `_app_views_wods_new_html_erb__4022842903655526616_70220396687260'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.7ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (53.0ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-12 20:04:03 +1000
+Processing by WodsController#new as HTML
+  [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  Rendered wods/new.html.erb within layouts/application (4.5ms)
+Completed 500 Internal Server Error in 32ms
+
+ActionView::Template::Error (exception class/object expected):
+     6: 	<%= f.text_field :title %><br><br>
+     7: 	<%= f.label :wod_type %>
+     8: 	<%= f.select :wod_type, ["weight", "time", "repetitions"], :prompt => "Select One" %><br><br>
+     9: 	<%= f.collection_check_boxes :movement_ids, Movement.all, :id, :name_with_quantity %><br>
+    10: 	<%= f.fields_for :movements do |move| %>
+    11: 		<%= move.label :name %>
+    12: 		<%= move.text_field :name %><br>
+  app/models/movement.rb:16:in `raise'
+  app/models/movement.rb:16:in `block in name_with_quantity'
+  app/models/movement.rb:15:in `name_with_quantity'
+  app/views/wods/new.html.erb:9:in `block in _app_views_wods_new_html_erb__4022842903655526616_70220396687260'
+  app/views/wods/new.html.erb:4:in `_app_views_wods_new_html_erb__4022842903655526616_70220396687260'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (12.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (62.9ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-12 20:04:28 +1000
+Processing by WodsController#new as HTML
+  [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered wods/new.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 34ms (Views: 16.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-12 20:05:51 +1000
+Processing by WodsController#new as HTML
+  [1m[36mMovement Load (0.3ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  Rendered wods/new.html.erb within layouts/application (23.0ms)
+Completed 200 OK in 31ms (Views: 28.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-12 20:06:39 +1000
+Processing by WodsController#new as HTML
+  [1m[35mMovement Load (0.3ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered wods/new.html.erb within layouts/application (20.7ms)
+Completed 200 OK in 28ms (Views: 25.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-12 20:06:57 +1000
+Processing by WodsController#new as HTML
+  [1m[36mMovement Load (0.3ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered wods/new.html.erb within layouts/application (22.2ms)
+Completed 200 OK in 29ms (Views: 27.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-12 20:07:17 +1000
+Processing by WodsController#new as HTML
+  [1m[36mMovement Load (0.2ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered wods/new.html.erb within layouts/application (19.6ms)
+Completed 200 OK in 27ms (Views: 24.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-12 20:08:23 +1000
+Processing by WodsController#new as HTML
+  [1m[36mMovement Load (0.2ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered wods/new.html.erb within layouts/application (17.6ms)
+Completed 200 OK in 23ms (Views: 21.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-12 20:09:42 +1000
+Processing by WodsController#new as HTML
+  [1m[36mMovement Load (0.2ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered wods/new.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 28ms (Views: 26.0ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/wods" for ::1 at 2017-06-12 20:10:27 +1000
+Processing by WodsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"A7mvS/n2OgwxkMFVQpUP5sDXoStdlyeFlK1A8bPr33x0P3kAc5xhG8BoCfp25jBFakdRL5Uy8ibJBfn2mtUynw==", "wod"=>{"title"=>"Haven", "wod_type"=>"weight", "quantity"=>"8", "movement_ids"=>["1", "", "3", "", "4", "", "5", ""], "movements_attributes"=>{"0"=>{"quantity"=>"5", "name"=>"Chest to Bar", "movement_type"=>"repetitions"}, "1"=>{"quantity"=>"10", "name"=>"Push Ups", "movement_type"=>"repetitions"}}}, "commit"=>"Create Wod"}
+Unpermitted parameter: quantity
+Unpermitted parameter: quantity
+Unpermitted parameter: quantity
+  [1m[36mMovement Load (0.2ms)[0m  [1mSELECT "movements".* FROM "movements" WHERE "movements"."id" IN (1, 3, 4, 5)[0m
+  [1m[35mMovement Load (0.3ms)[0m  SELECT  "movements".* FROM "movements" WHERE "movements"."name" = ? AND "movements"."movement_type" = ? LIMIT 1  [["name", "Chest to Bar"], ["movement_type", "repetitions"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.2ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Chest to Bar' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "movements" ("name", "movement_type", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Chest to Bar"], ["movement_type", "repetitions"], ["created_at", "2017-06-12 10:10:28.046664"], ["updated_at", "2017-06-12 10:10:28.046664"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT  "movements".* FROM "movements" WHERE "movements"."name" = ? AND "movements"."movement_type" = ? LIMIT 1[0m  [["name", "Push Ups"], ["movement_type", "repetitions"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mMovement Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Push Ups' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "movements" ("name", "movement_type", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Push Ups"], ["movement_type", "repetitions"], ["created_at", "2017-06-12 10:10:28.052187"], ["updated_at", "2017-06-12 10:10:28.052187"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMovement Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "movements" WHERE ("movements"."name" = 'Dead Lift' AND "movements"."id" != 1) LIMIT 1[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE ("movements"."name" = 'Push Jerk' AND "movements"."id" != 3) LIMIT 1
+  [1m[36mMovement Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "movements" WHERE ("movements"."name" = 'Push Press' AND "movements"."id" != 4) LIMIT 1[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE ("movements"."name" = 'Snatch' AND "movements"."id" != 5) LIMIT 1
+  [1m[36mMovement Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "movements" WHERE ("movements"."name" = 'Chest to Bar' AND "movements"."id" != 10) LIMIT 1[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE ("movements"."name" = 'Push Ups' AND "movements"."id" != 11) LIMIT 1
+  [1m[36mWod Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "wods" WHERE "wods"."title" = 'Haven' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "wods" ("title", "wod_type", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "Haven"], ["wod_type", "weight"], ["created_at", "2017-06-12 10:10:28.062847"], ["updated_at", "2017-06-12 10:10:28.062847"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "move_wods" ("movement_id", "wod_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["movement_id", 1], ["wod_id", 6], ["created_at", "2017-06-12 10:10:28.064317"], ["updated_at", "2017-06-12 10:10:28.064317"]]
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "move_wods" ("movement_id", "wod_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["movement_id", 3], ["wod_id", 6], ["created_at", "2017-06-12 10:10:28.065529"], ["updated_at", "2017-06-12 10:10:28.065529"]]
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "move_wods" ("movement_id", "wod_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["movement_id", 4], ["wod_id", 6], ["created_at", "2017-06-12 10:10:28.066582"], ["updated_at", "2017-06-12 10:10:28.066582"]]
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "move_wods" ("movement_id", "wod_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["movement_id", 5], ["wod_id", 6], ["created_at", "2017-06-12 10:10:28.067593"], ["updated_at", "2017-06-12 10:10:28.067593"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "move_wods" ("movement_id", "wod_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["movement_id", 10], ["wod_id", 6], ["created_at", "2017-06-12 10:10:28.068590"], ["updated_at", "2017-06-12 10:10:28.068590"]]
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "move_wods" ("movement_id", "wod_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["movement_id", 11], ["wod_id", 6], ["created_at", "2017-06-12 10:10:28.069839"], ["updated_at", "2017-06-12 10:10:28.069839"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/wods/6
+Completed 302 Found in 74ms (ActiveRecord: 4.9ms)
+
+
+Started GET "/wods/6" for ::1 at 2017-06-12 20:10:28 +1000
+Processing by WodsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mWod Load (0.2ms)[0m  SELECT  "wods".* FROM "wods" WHERE "wods"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mMovement Load (0.3ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 6]]
+  Rendered wods/show.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 11ms (Views: 9.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/wods/6" for ::1 at 2017-06-12 20:11:06 +1000
+Processing by WodsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mWod Load (0.1ms)[0m  SELECT  "wods".* FROM "wods" WHERE "wods"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 6]]
+  Rendered wods/show.html.erb within layouts/application (27.8ms)
+Completed 500 Internal Server Error in 34ms
+
+ActionView::Template::Error (undefined local variable or method `quantity' for #<#<Class:0x007fbaf0429048>:0x007fbaef703850>):
+    2: <h1>Wod Name: <%= @wod.title %><br>
+    3: <h2>Wod Type: </h2><h3>For <%= @wod.wod_type %></h3>
+    4: <h2>Wod Movements: </h2><% @wod.movements.each do |move| %>
+    5: 	<h3><%= quantity %> <%= move.name %>s</h3>
+    6: <% end %>		
+  app/views/wods/show.html.erb:5:in `block in _app_views_wods_show_html_erb__2817837276878971800_70220428874400'
+  app/views/wods/show.html.erb:4:in `_app_views_wods_show_html_erb__2817837276878971800_70220428874400'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (11.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (59.9ms)
+
+
+Started GET "/wods/6" for ::1 at 2017-06-12 20:11:20 +1000
+Processing by WodsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mWod Load (0.1ms)[0m  SELECT  "wods".* FROM "wods" WHERE "wods"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 6]]
+  Rendered wods/show.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 8ms (Views: 6.9ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/wods" for ::1 at 2017-06-12 20:11:31 +1000
+Processing by WodsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"A7mvS/n2OgwxkMFVQpUP5sDXoStdlyeFlK1A8bPr33x0P3kAc5xhG8BoCfp25jBFakdRL5Uy8ibJBfn2mtUynw==", "wod"=>{"title"=>"Happy", "wod_type"=>"weight", "quantity"=>"8", "movement_ids"=>["1", "", "3", "", "4", "", "5", ""], "movements_attributes"=>{"0"=>{"quantity"=>"5", "name"=>"Chest to Bar", "movement_type"=>"repetitions"}, "1"=>{"quantity"=>"10", "name"=>"Push Ups", "movement_type"=>"repetitions"}}}, "commit"=>"Create Wod"}
+Unpermitted parameter: quantity
+Unpermitted parameter: quantity
+Unpermitted parameter: quantity
+  [1m[35mMovement Load (0.3ms)[0m  SELECT "movements".* FROM "movements" WHERE "movements"."id" IN (1, 3, 4, 5)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT  "movements".* FROM "movements" WHERE "movements"."name" = ? AND "movements"."movement_type" = ? LIMIT 1[0m  [["name", "Chest to Bar"], ["movement_type", "repetitions"]]
+  [1m[35mMovement Load (0.1ms)[0m  SELECT  "movements".* FROM "movements" WHERE "movements"."name" = ? AND "movements"."movement_type" = ? LIMIT 1  [["name", "Push Ups"], ["movement_type", "repetitions"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.2ms)[0m  SELECT  1 AS one FROM "movements" WHERE ("movements"."name" = 'Dead Lift' AND "movements"."id" != 1) LIMIT 1
+  [1m[36mMovement Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "movements" WHERE ("movements"."name" = 'Push Jerk' AND "movements"."id" != 3) LIMIT 1[0m
+  [1m[35mMovement Exists (0.2ms)[0m  SELECT  1 AS one FROM "movements" WHERE ("movements"."name" = 'Push Press' AND "movements"."id" != 4) LIMIT 1
+  [1m[36mMovement Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "movements" WHERE ("movements"."name" = 'Snatch' AND "movements"."id" != 5) LIMIT 1[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE ("movements"."name" = 'Chest to Bar' AND "movements"."id" != 10) LIMIT 1
+  [1m[36mMovement Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "movements" WHERE ("movements"."name" = 'Push Ups' AND "movements"."id" != 11) LIMIT 1[0m
+  [1m[35mWod Exists (0.1ms)[0m  SELECT  1 AS one FROM "wods" WHERE "wods"."title" = 'Happy' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "wods" ("title", "wod_type", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Happy"], ["wod_type", "weight"], ["created_at", "2017-06-12 10:11:31.565132"], ["updated_at", "2017-06-12 10:11:31.565132"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "move_wods" ("movement_id", "wod_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["movement_id", 1], ["wod_id", 7], ["created_at", "2017-06-12 10:11:31.567006"], ["updated_at", "2017-06-12 10:11:31.567006"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "move_wods" ("movement_id", "wod_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["movement_id", 3], ["wod_id", 7], ["created_at", "2017-06-12 10:11:31.568777"], ["updated_at", "2017-06-12 10:11:31.568777"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "move_wods" ("movement_id", "wod_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["movement_id", 4], ["wod_id", 7], ["created_at", "2017-06-12 10:11:31.570553"], ["updated_at", "2017-06-12 10:11:31.570553"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "move_wods" ("movement_id", "wod_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["movement_id", 5], ["wod_id", 7], ["created_at", "2017-06-12 10:11:31.572735"], ["updated_at", "2017-06-12 10:11:31.572735"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "move_wods" ("movement_id", "wod_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["movement_id", 10], ["wod_id", 7], ["created_at", "2017-06-12 10:11:31.575104"], ["updated_at", "2017-06-12 10:11:31.575104"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "move_wods" ("movement_id", "wod_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["movement_id", 11], ["wod_id", 7], ["created_at", "2017-06-12 10:11:31.576752"], ["updated_at", "2017-06-12 10:11:31.576752"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+Redirected to http://localhost:3000/wods/7
+Completed 302 Found in 36ms (ActiveRecord: 3.2ms)
+
+
+Started GET "/wods/7" for ::1 at 2017-06-12 20:11:31 +1000
+Processing by WodsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mWod Load (0.1ms)[0m  [1mSELECT  "wods".* FROM "wods" WHERE "wods"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 7]]
+  Rendered wods/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-12 20:12:04 +1000
+Processing by WodsController#new as HTML
+  [1m[36mMovement Load (0.2ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered wods/new.html.erb within layouts/application (22.3ms)
+Completed 200 OK in 47ms (Views: 30.3ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/wods" for ::1 at 2017-06-12 20:12:47 +1000
+Processing by WodsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/vabkDosPRPxdN+X0/Nq79BCWp9xc9B6r27TjUwBALaJcE3bsEZmBACMFzjngFVMetKqm7nWBdnyxmqKZT/tVQ==", "wod"=>{"title"=>"Hazard", "wod_type"=>"weight", "quantity"=>"10", "movement_ids"=>["3", "", "4", "", "5", "", "1", ""], "movements_attributes"=>{"0"=>{"quantity"=>"8", "name"=>"Wall Balls", "movement_type"=>"repetitions"}, "1"=>{"quantity"=>"21", "name"=>"Slam Balls", "movement_type"=>"repetitions"}}}, "commit"=>"Create Wod"}
+Unpermitted parameter: quantity
+  [1m[36mMovement Load (0.2ms)[0m  [1mSELECT "movements".* FROM "movements" WHERE "movements"."id" IN (3, 4, 5, 1)[0m
+  [1m[35mMovement Load (0.2ms)[0m  SELECT  "movements".* FROM "movements" WHERE "movements"."name" = ? AND "movements"."movement_type" = ? AND "movements"."quantity" = ? LIMIT 1  [["name", "Wall Balls"], ["movement_type", "repetitions"], ["quantity", 8]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Wall Balls' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "movements" ("name", "movement_type", "quantity", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Wall Balls"], ["movement_type", "repetitions"], ["quantity", 8], ["created_at", "2017-06-12 10:12:47.556079"], ["updated_at", "2017-06-12 10:12:47.556079"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT  "movements".* FROM "movements" WHERE "movements"."name" = ? AND "movements"."movement_type" = ? AND "movements"."quantity" = ? LIMIT 1[0m  [["name", "Slam Balls"], ["movement_type", "repetitions"], ["quantity", 21]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mMovement Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Slam Balls' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "movements" ("name", "movement_type", "quantity", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Slam Balls"], ["movement_type", "repetitions"], ["quantity", 21], ["created_at", "2017-06-12 10:12:47.561507"], ["updated_at", "2017-06-12 10:12:47.561507"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mMovement Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "movements" WHERE ("movements"."name" = 'Push Jerk' AND "movements"."id" != 3) LIMIT 1[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE ("movements"."name" = 'Push Press' AND "movements"."id" != 4) LIMIT 1
+  [1m[36mMovement Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "movements" WHERE ("movements"."name" = 'Snatch' AND "movements"."id" != 5) LIMIT 1[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE ("movements"."name" = 'Dead Lift' AND "movements"."id" != 1) LIMIT 1
+  [1m[36mMovement Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "movements" WHERE ("movements"."name" = 'Wall Balls' AND "movements"."id" != 12) LIMIT 1[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE ("movements"."name" = 'Slam Balls' AND "movements"."id" != 13) LIMIT 1
+  [1m[36mWod Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "wods" WHERE "wods"."title" = 'Hazard' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "wods" ("title", "wod_type", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "Hazard"], ["wod_type", "weight"], ["created_at", "2017-06-12 10:12:47.570876"], ["updated_at", "2017-06-12 10:12:47.570876"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "move_wods" ("movement_id", "wod_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["movement_id", 3], ["wod_id", 8], ["created_at", "2017-06-12 10:12:47.572495"], ["updated_at", "2017-06-12 10:12:47.572495"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "move_wods" ("movement_id", "wod_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["movement_id", 4], ["wod_id", 8], ["created_at", "2017-06-12 10:12:47.574063"], ["updated_at", "2017-06-12 10:12:47.574063"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "move_wods" ("movement_id", "wod_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["movement_id", 5], ["wod_id", 8], ["created_at", "2017-06-12 10:12:47.575561"], ["updated_at", "2017-06-12 10:12:47.575561"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "move_wods" ("movement_id", "wod_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["movement_id", 1], ["wod_id", 8], ["created_at", "2017-06-12 10:12:47.576941"], ["updated_at", "2017-06-12 10:12:47.576941"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "move_wods" ("movement_id", "wod_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["movement_id", 12], ["wod_id", 8], ["created_at", "2017-06-12 10:12:47.578676"], ["updated_at", "2017-06-12 10:12:47.578676"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "move_wods" ("movement_id", "wod_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["movement_id", 13], ["wod_id", 8], ["created_at", "2017-06-12 10:12:47.580018"], ["updated_at", "2017-06-12 10:12:47.580018"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/wods/8
+Completed 302 Found in 44ms (ActiveRecord: 5.0ms)
+
+
+Started GET "/wods/8" for ::1 at 2017-06-12 20:12:47 +1000
+Processing by WodsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[35mWod Load (0.2ms)[0m  SELECT  "wods".* FROM "wods" WHERE "wods"."id" = ? LIMIT 1  [["id", 8]]
+  [1m[36mMovement Load (0.2ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 8]]
+  Rendered wods/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 9ms (Views: 8.2ms | ActiveRecord: 0.4ms)

@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20170608045642) do
   create_table "movements", force: :cascade do |t|
     t.string   "name"
     t.string   "movement_type"
+    t.integer  "quantity"
     t.integer  "owner_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false

@@ -43,7 +43,7 @@ class WodsController < ApplicationController
 	end
 
 	def wod_params
-		params.require(:wod).permit(:title, :wod_type, movement_ids: [], movements_attributes: [:name, :movement_type])
+		params.require(:wod).permit(:title, :wod_type, movement_ids: [], movements_attributes: [:name, :movement_type, :quantity])
 	end
 
 	
