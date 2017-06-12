@@ -3,6 +3,7 @@
 
 <ul>
 	<% @usermovements.each do |usermovement| %>
+		<% movement = @movements.find_by(name: usermovement.name) %>
 		<%= render 'show', usermovement: usermovement, movement: @movement %>
 	<% end %>	
 </ul>

@@ -3,7 +3,7 @@ class UsermovementsController < ApplicationController
 	def index
 		@usermovements = Usermovement.all
 		@user = current_user
-		@movement = Movement.find_by(name: @usermovements.name)
+		@movements = Movement.all
 	end
 
 	def new

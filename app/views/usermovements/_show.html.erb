@@ -1,13 +1,13 @@
 
-		<li>Movement: <%= @movement.name %></li><br>
+		<li>Movement: <%= usermovement.name %></li><br>
 		<li>Date Completed: <%= usermovement.date.strftime("%d %B %Y") %></li><br>
-		<% if @movement.movement_type == "time" %>
+		<% if usermovement.movement_type == "time" %>
 			<li>Result Achieved: <%= usermovement.result %> minutes</li><br>
-		<% elsif @movement.movement_type == "weight" %>
+		<% elsif usermovement.movement_type == "weight" %>
 			<li>Result Achieved: <%= usermovement.result %> kgs</li><br>
-		<% elsif @movement.movement_type == "repetitions" %>
+		<% elsif usermovement.movement_type == "repetitions" %>
 			<li>Result Achieved: <%= usermovement.result %> reps</li><br>
 		<% end %>			
-		<li>Movement done for: <%= @movement.movement_type %></li><br>
+		<li>Movement done for: <%= usermovement.movement_type %></li><br>
 		<li>PR? (true/false): <%= usermovement.pr %></li>
 		<h3>_______________________</h3><br>
