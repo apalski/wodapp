@@ -1,11 +1,11 @@
 
 
-	<%= form_for @movement do |f| %>
+	<%= form_for @usermovement do |f| %>
 		<%= f.label :name %>
 		<% names = Movement.all.map {|move| [move.name]} %>
 		<%= f.select :name, names, :prompt => "Select One" %><br>
 		<%= f.label :date %>
-		<%= date_select :movement, :date %><br>
+		<%= date_select :usermovement, :date %><br>
 		<%= f.label :result %>
 		<%= f.text_field :result %><br>
 		<%= f.label :pr %>

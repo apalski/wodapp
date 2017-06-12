@@ -23,6 +23,7 @@ class UsermovementsController < ApplicationController
 
 	def show
 		set_usermovement
+		@movement = Movement.find_by(name: @usermovement.name)
 	end
 
 	def edit
