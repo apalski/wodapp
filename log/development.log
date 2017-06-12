@@ -17511,3 +17511,465 @@ Processing by WodsController#show as HTML
   [1m[36mMovement Load (0.2ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 6]]
   Rendered wods/show.html.erb within layouts/application (2.3ms)
 Completed 200 OK in 7ms (Views: 6.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/wods/6" for ::1 at 2017-06-12 20:38:54 +1000
+Processing by WodsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mWod Load (0.1ms)[0m  SELECT  "wods".* FROM "wods" WHERE "wods"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 6]]
+  Rendered wods/_show.html.erb (2.0ms)
+  Rendered wods/show.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 16ms (Views: 15.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/userwods/new" for ::1 at 2017-06-12 20:39:48 +1000
+Processing by UserwodsController#new as HTML
+  Rendered userwods/new.html.erb within layouts/application (4.5ms)
+Completed 500 Internal Server Error in 19ms
+
+ActionView::Template::Error (undefined method `map' for nil:NilClass
+Did you mean?  tap):
+    2: 
+    3: <%= form_for @wod do |f| %>
+    4: 	<%= f.label :name %>
+    5: 	<% names = @wods.map {|moves| [moves.name]} %>
+    6: 	<%= f.select :name, names, :prompt => "Select One", :selected => params[:name] %><br>
+    7: 	<%= @wod.name %>
+    8: 	<%= @wod.date %>
+  app/views/userwods/new.html.erb:5:in `block in _app_views_userwods_new_html_erb___4378406360412747238_70336487156520'
+  app/views/userwods/new.html.erb:3:in `_app_views_userwods_new_html_erb___4378406360412747238_70336487156520'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.6ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (54.7ms)
+
+
+Started GET "/userwods/new" for ::1 at 2017-06-12 20:40:40 +1000
+Processing by UserwodsController#new as HTML
+  [1m[35mWod Load (0.2ms)[0m  SELECT "wods".* FROM "wods"
+  Rendered userwods/new.html.erb within layouts/application (11.9ms)
+Completed 500 Internal Server Error in 32ms
+
+ActionView::Template::Error (undefined method `name' for #<Wod:0x007ff0f4a5a9c8>):
+    2: 
+    3: <%= form_for @wod do |f| %>
+    4: 	<%= f.label :name %>
+    5: 	<% names = @wods.map {|moves| [moves.name]} %>
+    6: 	<%= f.select :name, names, :prompt => "Select One", :selected => params[:name] %><br>
+    7: 	<%= @wod.name %>
+    8: 	<%= @wod.date %>
+  app/views/userwods/new.html.erb:5:in `block (2 levels) in _app_views_userwods_new_html_erb___4378406360412747238_70336466639240'
+  app/views/userwods/new.html.erb:5:in `block in _app_views_userwods_new_html_erb___4378406360412747238_70336466639240'
+  app/views/userwods/new.html.erb:3:in `_app_views_userwods_new_html_erb___4378406360412747238_70336466639240'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.6ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (58.2ms)
+
+
+Started GET "/userwods/new" for ::1 at 2017-06-12 20:41:29 +1000
+Processing by UserwodsController#new as HTML
+  [1m[36mWod Load (0.2ms)[0m  [1mSELECT "wods".* FROM "wods"[0m
+  Rendered userwods/new.html.erb within layouts/application (10.8ms)
+Completed 500 Internal Server Error in 8138ms
+
+ActionView::Template::Error (undefined method `name' for #<Wod:0x007ff0f57bac80>):
+    2: 
+    3: <%= form_for @wod do |f| %>
+    4: 	<%= f.label :name %>
+    5: 	<% names = @wods.map {|moves| [moves.name]} %>
+    6: 	<%= f.select :name, names, :prompt => "Select One", :selected => params[:name] %><br>
+    7: 	<%= @wod.name %>
+    8: 	<%= @wod.date %>
+  app/views/userwods/new.html.erb:5:in `block (2 levels) in _app_views_userwods_new_html_erb___4378406360412747238_70336464969620'
+  app/views/userwods/new.html.erb:5:in `block in _app_views_userwods_new_html_erb___4378406360412747238_70336464969620'
+  app/views/userwods/new.html.erb:3:in `_app_views_userwods_new_html_erb___4378406360412747238_70336464969620'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (57.7ms)
+
+
+Started GET "/userwods/new" for ::1 at 2017-06-12 20:42:40 +1000
+Processing by UserwodsController#new as HTML
+  Rendered userwods/new.html.erb within layouts/application (6.9ms)
+Completed 500 Internal Server Error in 13ms
+
+ActionView::Template::Error (undefined method `map' for #<Userwod:0x007ff0faceb2e0>
+Did you mean?  tap):
+    2: 
+    3: <%= form_for @wod do |f| %>
+    4: 	<%= f.label :name %>
+    5: 	<% names = @wod.map {|moves| [moves.name]} %>
+    6: 	<%= f.select :name, names, :prompt => "Select One", :selected => params[:name] %><br>
+    7: 	<%= @wod.name %>
+    8: 	<%= @wod.date %>
+  app/views/userwods/new.html.erb:5:in `block in _app_views_userwods_new_html_erb___4378406360412747238_70336488359540'
+  app/views/userwods/new.html.erb:3:in `_app_views_userwods_new_html_erb___4378406360412747238_70336488359540'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.3ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (55.4ms)
+
+
+Started GET "/userwods/new" for ::1 at 2017-06-12 20:45:27 +1000
+
+SyntaxError (/Users/Annette/Dev/Rails/wodapp/app/controllers/userwods_controller.rb:10: `@' without identifiers is not allowed as an instance variable name
+/Users/Annette/Dev/Rails/wodapp/app/controllers/userwods_controller.rb:10: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/controllers/userwods_controller.rb:10: `@' without identifiers is not allowed as an instance variable name
+  app/controllers/userwods_controller.rb:10: syntax error, unexpected end-of-input, expecting keyword_end
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (48.4ms)
+
+
+Started GET "/userwods/new" for ::1 at 2017-06-12 20:46:08 +1000
+Processing by UserwodsController#new as HTML
+  Rendered userwods/new.html.erb within layouts/application (5.1ms)
+Completed 500 Internal Server Error in 23ms
+
+ActionView::Template::Error (undefined method `map' for #<Userwod:0x007ff0fb3f7098>
+Did you mean?  tap):
+    2: 
+    3: <%= form_for @userwod do |f| %>
+    4: 	<%= f.label :name %>
+    5: 	<% names = @userwod.map {|moves| [moves.name]} %>
+    6: 	<%= f.select :name, names, :prompt => "Select One", :selected => params[:name] %><br>
+    7: 	<%= @wod.name %>
+    8: 	<%= @wod.date %>
+  app/views/userwods/new.html.erb:5:in `block in _app_views_userwods_new_html_erb___4378406360412747238_70336488299300'
+  app/views/userwods/new.html.erb:3:in `_app_views_userwods_new_html_erb___4378406360412747238_70336488299300'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.8ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (53.9ms)
+
+
+Started GET "/userwods/new" for ::1 at 2017-06-12 20:46:20 +1000
+Processing by UserwodsController#new as HTML
+  [1m[35mUserwod Load (0.2ms)[0m  SELECT "userwods".* FROM "userwods"
+  Rendered userwods/new.html.erb within layouts/application (4.2ms)
+Completed 500 Internal Server Error in 9ms
+
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    4: 	<%= f.label :name %>
+    5: 	<% names = @userwods.map {|moves| [moves.name]} %>
+    6: 	<%= f.select :name, names, :prompt => "Select One", :selected => params[:name] %><br>
+    7: 	<%= @wod.name %>
+    8: 	<%= @wod.date %>
+    9: 	<%= f.label :date %>
+   10: 	<%= date_select :wod, :date %><br>
+  app/views/userwods/new.html.erb:7:in `block in _app_views_userwods_new_html_erb___4378406360412747238_70336467131940'
+  app/views/userwods/new.html.erb:3:in `_app_views_userwods_new_html_erb___4378406360412747238_70336467131940'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.8ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (51.0ms)
+
+
+Started GET "/userwods/new" for ::1 at 2017-06-12 20:46:33 +1000
+Processing by UserwodsController#new as HTML
+  Rendered userwods/new.html.erb within layouts/application (5.2ms)
+Completed 500 Internal Server Error in 10ms
+
+ActionView::Template::Error (uninitialized constant ActionView::CompiledTemplates::Userwods):
+    2: 
+    3: <%= form_for @userwod do |f| %>
+    4: 	<%= f.label :name %>
+    5: 	<% names = Userwods.all.map {|moves| [moves.name]} %>
+    6: 	<%= f.select :name, names, :prompt => "Select One", :selected => params[:name] %><br>
+    7: 	<%= @wod.name %>
+    8: 	<%= @wod.date %>
+  app/views/userwods/new.html.erb:5:in `block in _app_views_userwods_new_html_erb___4378406360412747238_70336486871380'
+  app/views/userwods/new.html.erb:3:in `_app_views_userwods_new_html_erb___4378406360412747238_70336486871380'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.8ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (57.8ms)
+
+
+Started GET "/userwods/new" for ::1 at 2017-06-12 20:47:49 +1000
+Processing by UserwodsController#new as HTML
+  [1m[36mWod Load (0.2ms)[0m  [1mSELECT "wods".* FROM "wods"[0m
+  Rendered userwods/new.html.erb within layouts/application (6.5ms)
+Completed 500 Internal Server Error in 22ms
+
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    4: 	<%= f.label :name %>
+    5: 	<% names = @wods.map {|moves| [moves.title]} %>
+    6: 	<%= f.select :name, names, :prompt => "Select One", :selected => params[:name] %><br>
+    7: 	<%= @wod.name %>
+    8: 	<%= @wod.date %>
+    9: 	<%= f.label :date %>
+   10: 	<%= date_select :wod, :date %><br>
+  app/views/userwods/new.html.erb:7:in `block in _app_views_userwods_new_html_erb___4378406360412747238_70336468899600'
+  app/views/userwods/new.html.erb:3:in `_app_views_userwods_new_html_erb___4378406360412747238_70336468899600'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (58.3ms)
+
+
+Started GET "/userwods/new" for ::1 at 2017-06-12 20:48:06 +1000
+Processing by UserwodsController#new as HTML
+  [1m[35mWod Load (0.2ms)[0m  SELECT "wods".* FROM "wods"
+  Rendered userwods/new.html.erb within layouts/application (41.4ms)
+Completed 500 Internal Server Error in 48ms
+
+ActionView::Template::Error (undefined local variable or method `move' for #<#<Class:0x007ff0fa898530>:0x007ff0f79f1e70>):
+    17: 
+    18: <h1>WOD descriptions:</h1>
+    19: 
+    20: <%= render 'wods/show', @wods, move: move %>
+  app/views/userwods/new.html.erb:20:in `_app_views_userwods_new_html_erb___4378406360412747238_70336461623940'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.5ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (53.9ms)
+
+
+Started GET "/userwods/new" for ::1 at 2017-06-12 20:48:28 +1000
+Processing by UserwodsController#new as HTML
+  [1m[36mWod Load (0.2ms)[0m  [1mSELECT "wods".* FROM "wods"[0m
+  Rendered userwods/new.html.erb within layouts/application (12.7ms)
+Completed 500 Internal Server Error in 22ms
+
+ActionView::Template::Error (undefined method `keys' for #<Wod::ActiveRecord_Relation:0x007ff0f4a981d8>):
+    17: 
+    18: <h1>WOD descriptions:</h1>
+    19: 
+    20: <%= render 'wods/show', @wods %>
+  app/views/userwods/new.html.erb:20:in `_app_views_userwods_new_html_erb___4378406360412747238_70336436801380'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (48.2ms)
+
+
+Started GET "/userwods/new" for ::1 at 2017-06-12 20:48:46 +1000
+Processing by UserwodsController#new as HTML
+  [1m[35mWod Load (0.2ms)[0m  SELECT "wods".* FROM "wods"
+  Rendered wods/_show.html.erb (2.8ms)
+  Rendered userwods/new.html.erb within layouts/application (10.0ms)
+Completed 500 Internal Server Error in 14ms
+
+ActionView::Template::Error (undefined method `title' for nil:NilClass):
+    1: 
+    2: <h1>Wod Name: <%= @wod.title %><br>
+    3: <h2>Wod Type: For <%= @wod.wod_type %></h2>
+    4: <h2>Wod Movements: </h2><% @wod.movements.each do |move| %>
+    5: 	<h3><%= move.quantity %> <%= move.name %></h3>
+  app/views/wods/_show.html.erb:2:in `_app_views_wods__show_html_erb___3869502961206532375_70336487521880'
+  app/views/userwods/new.html.erb:20:in `_app_views_userwods_new_html_erb___4378406360412747238_70336490695380'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (55.1ms)
+
+
+Started GET "/userwods/new" for ::1 at 2017-06-12 20:50:11 +1000
+Processing by UserwodsController#new as HTML
+  Rendered userwods/new.html.erb within layouts/application (0.8ms)
+Completed 500 Internal Server Error in 6ms
+
+SyntaxError (/Users/Annette/Dev/Rails/wodapp/app/views/userwods/new.html.erb:20: syntax error, unexpected tIDENTIFIER, expecting ')'
+...( render 'wods/show', @wods wod );@output_buffer.safe_append...
+...                               ^):
+  app/views/userwods/new.html.erb:20: syntax error, unexpected tIDENTIFIER, expecting ')'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.8ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.3ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (54.6ms)
+
+
+Started GET "/userwods/new" for ::1 at 2017-06-12 20:50:31 +1000
+Processing by UserwodsController#new as HTML
+  [1m[36mWod Load (0.4ms)[0m  [1mSELECT "wods".* FROM "wods"[0m
+  Rendered userwods/new.html.erb within layouts/application (30.2ms)
+Completed 500 Internal Server Error in 37ms
+
+ActionView::Template::Error (undefined local variable or method `wod' for #<#<Class:0x007ff0fa898530>:0x007ff0fb0ac910>
+Did you mean?  wod_url
+               @wods):
+    17: 
+    18: <h1>WOD descriptions:</h1>
+    19: 
+    20: <%= render 'wods/show', :@wods => wod %>
+  app/views/userwods/new.html.erb:20:in `_app_views_userwods_new_html_erb___4378406360412747238_70336485808420'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.7ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (53.5ms)
+
+
+Started GET "/userwods/new" for ::1 at 2017-06-12 20:51:46 +1000
+Processing by UserwodsController#new as HTML
+  [1m[35mWod Load (0.2ms)[0m  SELECT "wods".* FROM "wods"
+  Rendered wods/_show.html.erb (27.3ms)
+  Rendered userwods/new.html.erb within layouts/application (33.5ms)
+Completed 500 Internal Server Error in 38ms
+
+ActionView::Template::Error (undefined local variable or method `wod' for #<#<Class:0x007ff0fa898530>:0x007ff0f81d9b88>
+Did you mean?  wod_url
+               @wods):
+    1: 
+    2: <h1>Wod Name: <%= wod.title %><br>
+    3: <h2>Wod Type: For <%= wod.wod_type %></h2>
+    4: <h2>Wod Movements: </h2><% wod.movements.each do |move| %>
+    5: 	<h3><%= move.quantity %> <%= move.name %></h3>
+  app/views/wods/_show.html.erb:2:in `_app_views_wods__show_html_erb___3869502961206532375_70336465540460'
+  app/views/userwods/new.html.erb:20:in `_app_views_userwods_new_html_erb___4378406360412747238_70336465767920'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.6ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (54.6ms)
+
+
+Started GET "/userwods/new" for ::1 at 2017-06-12 20:52:09 +1000
+Processing by UserwodsController#new as HTML
+  [1m[36mWod Load (0.2ms)[0m  [1mSELECT "wods".* FROM "wods"[0m
+  Rendered wods/_show.html.erb (29.9ms)
+  Rendered userwods/new.html.erb within layouts/application (37.2ms)
+Completed 500 Internal Server Error in 43ms
+
+ActionView::Template::Error (undefined local variable or method `wod' for #<#<Class:0x007ff0fa898530>:0x007ff0f48fa4c0>
+Did you mean?  wod_url
+               @wods):
+    1: 
+    2: <h1>Wod Name: <%= wod.title %><br>
+    3: <h2>Wod Type: For <%= wod.wod_type %></h2>
+    4: <h2>Wod Movements: </h2><% wod.movements.each do |move| %>
+    5: 	<h3><%= move.quantity %> <%= move.name %></h3>
+  app/views/wods/_show.html.erb:2:in `_app_views_wods__show_html_erb___3869502961206532375_70336465540460'
+  app/views/userwods/new.html.erb:20:in `_app_views_userwods_new_html_erb___4378406360412747238_70336435963620'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (55.4ms)
+
+
+Started GET "/userwods/new" for ::1 at 2017-06-12 20:52:24 +1000
+Processing by UserwodsController#new as HTML
+  [1m[35mWod Load (0.2ms)[0m  SELECT "wods".* FROM "wods"
+  Rendered wods/_show.html.erb (3.0ms)
+  Rendered userwods/new.html.erb within layouts/application (9.1ms)
+Completed 500 Internal Server Error in 14ms
+
+ActionView::Template::Error (undefined method `title' for nil:NilClass):
+    1: 
+    2: <h1>Wod Name: <%= @wod.title %><br>
+    3: <h2>Wod Type: For <%= @wod.wod_type %></h2>
+    4: <h2>Wod Movements: </h2><% @wod.movements.each do |move| %>
+    5: 	<h3><%= move.quantity %> <%= move.name %></h3>
+  app/views/wods/_show.html.erb:2:in `_app_views_wods__show_html_erb___3869502961206532375_70336490340040'
+  app/views/userwods/new.html.erb:20:in `_app_views_userwods_new_html_erb___4378406360412747238_70336435963620'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (47.9ms)
+
+
+Started GET "/userwods/new" for ::1 at 2017-06-12 20:53:37 +1000
+Processing by UserwodsController#new as HTML
+  [1m[36mWod Load (0.2ms)[0m  [1mSELECT "wods".* FROM "wods"[0m
+  Rendered wods/_show.html.erb (28.5ms)
+  Rendered userwods/new.html.erb within layouts/application (36.4ms)
+Completed 500 Internal Server Error in 42ms
+
+ActionView::Template::Error (undefined local variable or method `wod' for #<#<Class:0x007ff0fa898530>:0x007ff0f8038928>
+Did you mean?  wod_url
+               @wods):
+    1: 
+    2: <h1>Wod Name: <%= wod.title %><br>
+    3: <h2>Wod Type: For <%= wod.wod_type %></h2>
+    4: <h2>Wod Movements: </h2><% wod.movements.each do |move| %>
+    5: 	<h3><%= move.quantity %> <%= move.name %></h3>
+  app/views/wods/_show.html.erb:2:in `_app_views_wods__show_html_erb___3869502961206532375_70336442976720'
+  app/views/userwods/new.html.erb:20:in `_app_views_userwods_new_html_erb___4378406360412747238_70336464915280'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.6ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (62.2ms)
+
+
+Started GET "/userwods/new" for ::1 at 2017-06-12 20:55:26 +1000
+Processing by UserwodsController#new as HTML
+  [1m[35mWod Load (0.3ms)[0m  SELECT "wods".* FROM "wods"
+  Rendered wods/_show.html.erb (30.8ms)
+  Rendered userwods/new.html.erb within layouts/application (39.0ms)
+Completed 500 Internal Server Error in 45ms
+
+ActionView::Template::Error (undefined local variable or method `wod' for #<#<Class:0x007ff0fa898530>:0x007ff0f7f49378>
+Did you mean?  wod_url
+               @wods):
+    1: 
+    2: <h1>Wod Name: <%= wod.title %><br>
+    3: <h2>Wod Type: For <%= wod.wod_type %></h2>
+    4: <h2>Wod Movements: </h2><% wod.movements.each do |move| %>
+    5: 	<h3><%= move.quantity %> <%= move.name %></h3>
+  app/views/wods/_show.html.erb:2:in `_app_views_wods__show_html_erb___3869502961206532375_70336464287060'
+  app/views/userwods/new.html.erb:21:in `block in _app_views_userwods_new_html_erb___4378406360412747238_70336486513460'
+  app/views/userwods/new.html.erb:20:in `_app_views_userwods_new_html_erb___4378406360412747238_70336486513460'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.8ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.6ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (59.7ms)
+
+
+Started GET "/userwods/new" for ::1 at 2017-06-12 20:55:48 +1000
+Processing by UserwodsController#new as HTML
+  [1m[36mWod Load (0.2ms)[0m  [1mSELECT "wods".* FROM "wods"[0m
+  [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 1]]
+  Rendered wods/_show.html.erb (15.4ms)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 2]]
+  Rendered wods/_show.html.erb (0.8ms)
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 3]]
+  Rendered wods/_show.html.erb (1.0ms)
+  [1m[36mMovement Load (0.2ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 4]]
+  Rendered wods/_show.html.erb (1.8ms)
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 5]]
+  Rendered wods/_show.html.erb (0.9ms)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 6]]
+  Rendered wods/_show.html.erb (2.9ms)
+  Rendered userwods/new.html.erb within layouts/application (38.6ms)
+Completed 200 OK in 45ms (Views: 42.8ms | ActiveRecord: 1.4ms)

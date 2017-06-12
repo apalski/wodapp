@@ -1,47 +1,48 @@
 class UserwodsController < ApplicationController
 	
 	def index
-		@wods = Userwod.all
+		@userwods = Userwod.all
 	end
 
 	def new
-		@wod = Userwod.new
+		@userwod = Userwod.new
+		@wods = Wod.all
 	end
 
 	def create
-		@wod = Userwod.new(wod_params)
-		if @wod.save
-			redirect_to wod_path(@wod)
+		@userwod = Userwod.new(userwod_params)
+		if @userwod.save
+			redirect_to userwod_path(@userwod)
 		else
 			render :new
 		end		
 	end
 
 	def show
-		set_wod
+		set_userwod
 	end
 
 	def edit
-		set_wod
-		if @wod.update(wod_params)
-			redirect_to wod_path(@wod)
+		set_userwod
+		if @userwod.update(userwod_params)
+			redirect_to userwod_path(@userwod)
 		else
 			render :edit
 		end		
 	end
 
 	def update
-		set_wod
+		set_userwod
 	end
 
 	private
 
-	def set_wod
-		@wod = Userwod.find(params[:id])
+	def set_userwod
+		@userwod = Userwod.find(params[:id])
 	end
 
-	def wod_params
-		params.require(:wod).permit(:name, :date, :result, :wod_type, :pr)
+	def userwod_params
+		params.require(:userwod).permit(:name, :date, :result, :wod_type, :pr)
 	end
 
 	

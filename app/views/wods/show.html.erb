@@ -1,6 +1,2 @@
 
-<h1>Wod Name: <%= @wod.title %><br>
-<h2>Wod Type: For <%= @wod.wod_type %></h2>
-<h2>Wod Movements: </h2><% @wod.movements.each do |move| %>
-	<h3><%= move.quantity %> <%= move.name %></h3>
-<% end %>		
+<%= render 'show' %>
