@@ -1,4 +1,7 @@
 
 <h1><%= @wod.title %>
 <h2><%= @wod.wod_type %>
+<h2><% @wod.movements.each do |move| %>
+	<%= move.name %>
+<% end %></h2>	
 <h2><%= @wod.quantity %>

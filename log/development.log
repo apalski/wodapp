@@ -11383,3 +11383,1023 @@ Unpermitted parameters: quantity, movements
   Rendered wods/_movement.html.erb (3.4ms)
   Rendered wods/new.html.erb within layouts/application (8.8ms)
 Completed 200 OK in 17ms (Views: 12.9ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/wods" for ::1 at 2017-06-09 12:53:19 +1000
+Processing by WodsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ELV01HvrYO9BUKOS+ALaavhuq9omLmQpWLalDNn4096GEwYqik5baAFon9oAkZ7v2I4bMxugfDs1/xftgFl7XQ==", "wod"=>{"title"=>"sloppy", "wod_type"=>"weight", "quantity"=>"5", "movements"=>"Dead Lift"}, "commit"=>"Create Wod"}
+Completed 500 Internal Server Error in 0ms
+
+TypeError (exception class/object expected):
+  app/controllers/wods_controller.rb:13:in `raise'
+  app/controllers/wods_controller.rb:13:in `create'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (50.8ms)
+
+
+Started POST "/wods" for ::1 at 2017-06-09 12:53:48 +1000
+Processing by WodsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ELV01HvrYO9BUKOS+ALaavhuq9omLmQpWLalDNn4096GEwYqik5baAFon9oAkZ7v2I4bMxugfDs1/xftgFl7XQ==", "wod"=>{"title"=>"sloppy", "wod_type"=>"weight", "quantity"=>"5", "movements"=>"Dead Lift"}, "commit"=>"Create Wod"}
+Unpermitted parameters: quantity, movements
+Completed 500 Internal Server Error in 7ms
+
+RuntimeError (#<Wod id: nil, title: "sloppy", wod_type: "weight", owner_id: nil, created_at: nil, updated_at: nil>):
+  app/controllers/wods_controller.rb:14:in `create'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.7ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (53.8ms)
+
+
+Started POST "/wods" for ::1 at 2017-06-09 12:54:16 +1000
+Processing by WodsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ELV01HvrYO9BUKOS+ALaavhuq9omLmQpWLalDNn4096GEwYqik5baAFon9oAkZ7v2I4bMxugfDs1/xftgFl7XQ==", "wod"=>{"title"=>"sloppy", "wod_type"=>"weight", "quantity"=>"5", "movements"=>"Dead Lift"}, "commit"=>"Create Wod"}
+Unpermitted parameters: quantity, movements
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mWod Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "wods" WHERE "wods"."title" = 'sloppy' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+Completed 500 Internal Server Error in 12ms
+
+RuntimeError (#<Wod id: nil, title: "sloppy", wod_type: "weight", owner_id: nil, created_at: nil, updated_at: nil>):
+  app/controllers/wods_controller.rb:17:in `create'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (51.5ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-09 12:54:56 +1000
+Processing by WodsController#new as HTML
+  Rendered wods/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 16ms (Views: 11.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/wods" for ::1 at 2017-06-09 12:55:04 +1000
+Processing by WodsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JWYJUCziyInGf60f0Ao6xqUgR7GuKdGxd6TpIu53AVqzwHuu3UfzDoZHkVcomX5DhcD3WJOnyaMa7VvDt9ap2Q==", "wod"=>{"title"=>"sloppy", "wod_type"=>"weight"}, "commit"=>"Create Wod"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mWod Exists (0.2ms)[0m  SELECT  1 AS one FROM "wods" WHERE "wods"."title" = 'sloppy' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+Completed 500 Internal Server Error in 4ms
+
+RuntimeError (#<Wod id: nil, title: "sloppy", wod_type: "weight", owner_id: nil, created_at: nil, updated_at: nil>):
+  app/controllers/wods_controller.rb:17:in `create'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (53.2ms)
+
+
+Started POST "/wods" for ::1 at 2017-06-09 12:55:29 +1000
+Processing by WodsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JWYJUCziyInGf60f0Ao6xqUgR7GuKdGxd6TpIu53AVqzwHuu3UfzDoZHkVcomX5DhcD3WJOnyaMa7VvDt9ap2Q==", "wod"=>{"title"=>"sloppy", "wod_type"=>"weight"}, "commit"=>"Create Wod"}
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mWod Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "wods" WHERE "wods"."title" = 'sloppy' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  Rendered wods/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 21ms (Views: 8.2ms | ActiveRecord: 0.9ms)
+  [1m[36mWod Load (2.2ms)[0m  [1mSELECT "wods".* FROM "wods"[0m
+
+
+Started POST "/wods" for ::1 at 2017-06-09 13:14:32 +1000
+Processing by WodsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JWYJUCziyInGf60f0Ao6xqUgR7GuKdGxd6TpIu53AVqzwHuu3UfzDoZHkVcomX5DhcD3WJOnyaMa7VvDt9ap2Q==", "wod"=>{"title"=>"sloppy", "wod_type"=>"weight"}, "commit"=>"Create Wod"}
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mWod Exists (0.1ms)[0m  SELECT  1 AS one FROM "wods" WHERE "wods"."title" = 'sloppy' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  Rendered wods/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 10ms (Views: 6.4ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/wods" for ::1 at 2017-06-09 13:14:44 +1000
+Processing by WodsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yr+wI1A7pJVb2lLAfPERXJ+K+VWYYlpfu5cQIMfCoTRcGcLdoZ6fEhviboiEYlXZv2pJvKXsQk3W3qLBnmMJtw==", "wod"=>{"title"=>"happy", "wod_type"=>"weight"}, "commit"=>"Create Wod"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mWod Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "wods" WHERE "wods"."title" = 'happy' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "wods" ("title", "wod_type", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "happy"], ["wod_type", "weight"], ["created_at", "2017-06-09 03:14:44.888040"], ["updated_at", "2017-06-09 03:14:44.888040"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/wods/7
+Completed 302 Found in 6ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/wods/7" for ::1 at 2017-06-09 13:14:44 +1000
+Processing by WodsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mWod Load (0.2ms)[0m  SELECT  "wods".* FROM "wods" WHERE "wods"."id" = ? LIMIT 1  [["id", 7]]
+  Rendered wods/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 8ms (Views: 6.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-09 13:14:53 +1000
+Processing by WodsController#new as HTML
+  Rendered wods/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 11ms (Views: 6.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-09 13:15:09 +1000
+Processing by WodsController#new as HTML
+  [1m[36mMovement Load (0.2ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  Rendered wods/_movement.html.erb (20.5ms)
+  Rendered wods/new.html.erb within layouts/application (24.4ms)
+Completed 500 Internal Server Error in 31ms
+
+ActionView::Template::Error (undefined method `Movement' for #<Wod:0x007fb52f74efa0>
+Did you mean?  movements
+               movements=):
+    3: <%= f.text_field :quantity %>
+    4: <%= f.label :movement %>
+    5: <% names = Movement.all.map {|move| [move.name]} %>
+    6: <%= f.select @wod.movements.name, names, :prompt => "Select One" %><br>
+  app/views/wods/_movement.html.erb:6:in `_app_views_wods__movement_html_erb__3989273058145289629_70208080474560'
+  app/views/wods/new.html.erb:9:in `block in _app_views_wods_new_html_erb__847135688225508045_70208080968780'
+  app/views/wods/new.html.erb:4:in `_app_views_wods_new_html_erb__847135688225508045_70208080968780'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (66.2ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-09 13:15:56 +1000
+Processing by WodsController#new as HTML
+  Rendered wods/_movement.html.erb (7.3ms)
+  Rendered wods/new.html.erb within layouts/application (11.2ms)
+Completed 500 Internal Server Error in 16ms
+
+ActionView::Template::Error (undefined method `map' for #<Class:0x007fb532077e40>
+Did you mean?  tap):
+    2: <%= f.label :quantity %>
+    3: <%= f.text_field :quantity %>
+    4: <%= f.label :movement %>
+    5: <% names = Movement.map {|move| [move.name]} %>
+    6: <%= f.select :name, names, :prompt => "Select One" %><br>
+  app/views/wods/_movement.html.erb:5:in `_app_views_wods__movement_html_erb__3989273058145289629_70208104199140'
+  app/views/wods/new.html.erb:9:in `block in _app_views_wods_new_html_erb__847135688225508045_70208080968780'
+  app/views/wods/new.html.erb:4:in `_app_views_wods_new_html_erb__847135688225508045_70208080968780'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.3ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.7ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (58.2ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-09 13:16:19 +1000
+Processing by WodsController#new as HTML
+  [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered wods/_movement.html.erb (7.8ms)
+  Rendered wods/new.html.erb within layouts/application (11.4ms)
+Completed 500 Internal Server Error in 17ms
+
+ActionView::Template::Error (undefined method `name' for #<Wod:0x007fb53236dd48>):
+    3: <%= f.text_field :quantity %>
+    4: <%= f.label :movement %>
+    5: <% names = Movement.all.map {|move| [move.name]} %>
+    6: <%= f.select :name, names, :prompt => "Select One" %><br>
+  app/views/wods/_movement.html.erb:6:in `_app_views_wods__movement_html_erb__3989273058145289629_70208069591620'
+  app/views/wods/new.html.erb:9:in `block in _app_views_wods_new_html_erb__847135688225508045_70208080968780'
+  app/views/wods/new.html.erb:4:in `_app_views_wods_new_html_erb__847135688225508045_70208080968780'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.6ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (63.4ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-09 13:16:41 +1000
+Processing by WodsController#new as HTML
+  [1m[36mMovement Load (0.2ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  Rendered wods/_movement.html.erb (10.0ms)
+  Rendered wods/new.html.erb within layouts/application (14.2ms)
+Completed 500 Internal Server Error in 20ms
+
+ActionView::Template::Error (undefined method `Movement' for #<Wod:0x007fb5304de418>
+Did you mean?  movements
+               movements=):
+    3: <%= f.text_field :quantity %>
+    4: <%= f.label :movement %>
+    5: <% names = Movement.all.map {|move| [move.name]} %>
+    6: <%= f.select Movement.name, names, :prompt => "Select One" %><br>
+  app/views/wods/_movement.html.erb:6:in `_app_views_wods__movement_html_erb__3989273058145289629_70208105922480'
+  app/views/wods/new.html.erb:9:in `block in _app_views_wods_new_html_erb__847135688225508045_70208080968780'
+  app/views/wods/new.html.erb:4:in `_app_views_wods_new_html_erb__847135688225508045_70208080968780'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (16.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (71.9ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-09 13:16:52 +1000
+Processing by WodsController#new as HTML
+  [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  Rendered wods/_movement.html.erb (35.1ms)
+  Rendered wods/new.html.erb within layouts/application (38.1ms)
+Completed 500 Internal Server Error in 42ms
+
+ActionView::Template::Error (undefined local variable or method `move' for #<#<Class:0x007fb532260978>:0x007fb5321d1188>):
+    3: <%= f.text_field :quantity %>
+    4: <%= f.label :movement %>
+    5: <% names = Movement.all.map {|move| [move.name]} %>
+    6: <%= f.select move.name, names, :prompt => "Select One" %><br>
+  app/views/wods/_movement.html.erb:6:in `_app_views_wods__movement_html_erb__3989273058145289629_70208069561440'
+  app/views/wods/new.html.erb:9:in `block in _app_views_wods_new_html_erb__847135688225508045_70208080968780'
+  app/views/wods/new.html.erb:4:in `_app_views_wods_new_html_erb__847135688225508045_70208080968780'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.8ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.3ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (57.6ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-09 13:17:09 +1000
+Processing by WodsController#new as HTML
+  [1m[35mMovement Load (0.3ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered wods/_movement.html.erb (8.7ms)
+  Rendered wods/new.html.erb within layouts/application (12.1ms)
+Completed 500 Internal Server Error in 21ms
+
+ActionView::Template::Error (undefined method `name' for #<Wod:0x007fb52f32dc50>):
+    3: <%= f.text_field :quantity %>
+    4: <%= f.label :movement %>
+    5: <% names = Movement.all.map {|move| [move.name]} %>
+    6: <%= f.select "name", names, :prompt => "Select One" %><br>
+  app/views/wods/_movement.html.erb:6:in `_app_views_wods__movement_html_erb__3989273058145289629_70208078544760'
+  app/views/wods/new.html.erb:9:in `block in _app_views_wods_new_html_erb__847135688225508045_70208080968780'
+  app/views/wods/new.html.erb:4:in `_app_views_wods_new_html_erb__847135688225508045_70208080968780'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.3ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (63.6ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-09 13:18:36 +1000
+Processing by WodsController#new as HTML
+  Rendered wods/_movement.html.erb (0.5ms)
+  Rendered wods/new.html.erb within layouts/application (4.0ms)
+Completed 500 Internal Server Error in 9ms
+
+SyntaxError (/Users/Annette/Dev/Rails/wodapp/app/views/wods/_movement.html.erb:6: syntax error, unexpected ','
+...buffer.append=( f.select name:, names, :prompt => "Select On...
+...                               ^
+/Users/Annette/Dev/Rails/wodapp/app/views/wods/_movement.html.erb:6: syntax error, unexpected =>, expecting &. or :: or '[' or '.'
+...select name:, names, :prompt => "Select One" );@output_buffe...
+...                               ^):
+  app/views/wods/_movement.html.erb:6: syntax error, unexpected ','
+  app/views/wods/_movement.html.erb:6: syntax error, unexpected =>, expecting &. or :: or '[' or '.'
+  app/views/wods/new.html.erb:9:in `block in _app_views_wods_new_html_erb__847135688225508045_70208080968780'
+  app/views/wods/new.html.erb:4:in `_app_views_wods_new_html_erb__847135688225508045_70208080968780'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.6ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.7ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (58.2ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-09 13:19:32 +1000
+Processing by WodsController#new as HTML
+  [1m[36mMovement Load (0.2ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  Rendered wods/_movement.html.erb (18.7ms)
+  Rendered wods/new.html.erb within layouts/application (23.0ms)
+Completed 500 Internal Server Error in 29ms
+
+ActionView::Template::Error (undefined method `name' for #<ActionView::Helpers::FormBuilder:0x007fb533070298>):
+    3: <%= f.text_field :quantity %>
+    4: <%= f.label :movement %>
+    5: <% fields_for :movements, @movements.map do |move| %>
+    6: 	<%= f.select move.name, names, :prompt => "Select One" %><br>
+    7: <% end %>	
+  app/views/wods/_movement.html.erb:6:in `block in _app_views_wods__movement_html_erb__3989273058145289629_70208111002240'
+  app/views/wods/_movement.html.erb:5:in `_app_views_wods__movement_html_erb__3989273058145289629_70208111002240'
+  app/views/wods/new.html.erb:9:in `block in _app_views_wods_new_html_erb__847135688225508045_70208080968780'
+  app/views/wods/new.html.erb:4:in `_app_views_wods_new_html_erb__847135688225508045_70208080968780'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (57.0ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-09 13:19:50 +1000
+Processing by WodsController#new as HTML
+  [1m[35mMovement Load (0.3ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered wods/_movement.html.erb (35.2ms)
+  Rendered wods/new.html.erb within layouts/application (38.8ms)
+Completed 500 Internal Server Error in 46ms
+
+ActionView::Template::Error (undefined local variable or method `names' for #<#<Class:0x007fb532260978>:0x007fb52c8e28b0>):
+    3: <%= f.text_field :quantity %>
+    4: <%= f.label :movement %>
+    5: <% fields_for :movements, @movements.map do |move| %>
+    6: 	<%= f.select move, names, :prompt => "Select One" %><br>
+    7: <% end %>	
+  app/views/wods/_movement.html.erb:6:in `block in _app_views_wods__movement_html_erb__3989273058145289629_70208056545600'
+  app/views/wods/_movement.html.erb:5:in `_app_views_wods__movement_html_erb__3989273058145289629_70208056545600'
+  app/views/wods/new.html.erb:9:in `block in _app_views_wods_new_html_erb__847135688225508045_70208080968780'
+  app/views/wods/new.html.erb:4:in `_app_views_wods_new_html_erb__847135688225508045_70208080968780'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.3ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.8ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (58.8ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-09 13:20:08 +1000
+Processing by WodsController#new as HTML
+  [1m[36mMovement Load (0.2ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  Rendered wods/_movement.html.erb (7.6ms)
+  Rendered wods/new.html.erb within layouts/application (10.8ms)
+Completed 500 Internal Server Error in 15ms
+
+ActionView::Template::Error (undefined method `name' for #<Wod:0x007fb5326d7498>):
+    3: <%= f.text_field :quantity %>
+    4: <%= f.label :movement %>
+    5: <% fields_for :movements, @movements.map do |move| %>
+    6: 	<%= f.select :name, :prompt => "Select One" %><br>
+    7: <% end %>	
+  app/views/wods/_movement.html.erb:6:in `block in _app_views_wods__movement_html_erb__3989273058145289629_70208069461600'
+  app/views/wods/_movement.html.erb:5:in `_app_views_wods__movement_html_erb__3989273058145289629_70208069461600'
+  app/views/wods/new.html.erb:9:in `block in _app_views_wods_new_html_erb__847135688225508045_70208080968780'
+  app/views/wods/new.html.erb:4:in `_app_views_wods_new_html_erb__847135688225508045_70208080968780'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.5ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (58.0ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-09 13:21:01 +1000
+Processing by WodsController#new as HTML
+  [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered wods/_movement.html.erb (5.2ms)
+  Rendered wods/new.html.erb within layouts/application (8.7ms)
+Completed 500 Internal Server Error in 15ms
+
+ActionView::Template::Error (undefined method `first' for :name:Symbol):
+    3: <%= f.text_field :quantity %>
+    4: <%= f.label :movement %>
+    5: <% fields_for :movements, @movements.map do |move| %>
+    6: 	<%= f.select :movements, :name, :prompt => "Select One" %><br>
+    7: <% end %>	
+  app/views/wods/_movement.html.erb:6:in `block in _app_views_wods__movement_html_erb__3989273058145289629_70208115313280'
+  app/views/wods/_movement.html.erb:5:in `_app_views_wods__movement_html_erb__3989273058145289629_70208115313280'
+  app/views/wods/new.html.erb:9:in `block in _app_views_wods_new_html_erb__847135688225508045_70208080968780'
+  app/views/wods/new.html.erb:4:in `_app_views_wods_new_html_erb__847135688225508045_70208080968780'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.5ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (61.3ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-09 13:21:21 +1000
+Processing by WodsController#new as HTML
+  [1m[36mMovement Load (0.2ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  Rendered wods/_movement.html.erb (23.4ms)
+  Rendered wods/new.html.erb within layouts/application (28.5ms)
+Completed 500 Internal Server Error in 33ms
+
+ActionView::Template::Error (undefined method `name' for #<ActionView::Helpers::FormBuilder:0x007fb52d21ad38>):
+    3: <%= f.text_field :quantity %>
+    4: <%= f.label :movement %>
+    5: <% fields_for :movements, @movements.map do |move| %>
+    6: 	<%= f.select :movements, move.name, :prompt => "Select One" %><br>
+    7: <% end %>	
+  app/views/wods/_movement.html.erb:6:in `block in _app_views_wods__movement_html_erb__3989273058145289629_70208054600700'
+  app/views/wods/_movement.html.erb:5:in `_app_views_wods__movement_html_erb__3989273058145289629_70208054600700'
+  app/views/wods/new.html.erb:9:in `block in _app_views_wods_new_html_erb__847135688225508045_70208080968780'
+  app/views/wods/new.html.erb:4:in `_app_views_wods_new_html_erb__847135688225508045_70208080968780'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.3ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (56.8ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-09 13:22:33 +1000
+Processing by WodsController#new as HTML
+  Rendered wods/_movement.html.erb (0.8ms)
+  Rendered wods/new.html.erb within layouts/application (4.0ms)
+Completed 500 Internal Server Error in 8ms
+
+SyntaxError (/Users/Annette/Dev/Rails/wodapp/app/views/wods/_movement.html.erb:6: syntax error, unexpected ','
+...buffer.append=( f.select name:, names, :prompt => "Select On...
+...                               ^
+/Users/Annette/Dev/Rails/wodapp/app/views/wods/_movement.html.erb:6: syntax error, unexpected =>, expecting &. or :: or '[' or '.'
+...select name:, names, :prompt => "Select One" );@output_buffe...
+...                               ^):
+  app/views/wods/_movement.html.erb:6: syntax error, unexpected ','
+  app/views/wods/_movement.html.erb:6: syntax error, unexpected =>, expecting &. or :: or '[' or '.'
+  app/views/wods/new.html.erb:9:in `block in _app_views_wods_new_html_erb__847135688225508045_70208080968780'
+  app/views/wods/new.html.erb:4:in `_app_views_wods_new_html_erb__847135688225508045_70208080968780'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.3ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.5ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (59.7ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-09 13:22:52 +1000
+Processing by WodsController#new as HTML
+  [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered wods/_movement.html.erb (10.8ms)
+  Rendered wods/new.html.erb within layouts/application (14.7ms)
+Completed 500 Internal Server Error in 19ms
+
+ActionView::Template::Error (undefined method `Dead Lift' for #<Wod:0x007fb530656f20>):
+    3: <%= f.text_field :quantity %>
+    4: <%= f.label :movement %>
+    5: <% names = Movement.all.map do |move| %>
+    6: 	<%= f.select move.name, names, :prompt => "Select One" %>
+    7: <% end %><br>
+  app/views/wods/_movement.html.erb:6:in `block in _app_views_wods__movement_html_erb__3989273058145289629_70208103908500'
+  app/views/wods/_movement.html.erb:5:in `_app_views_wods__movement_html_erb__3989273058145289629_70208103908500'
+  app/views/wods/new.html.erb:9:in `block in _app_views_wods_new_html_erb__847135688225508045_70208080968780'
+  app/views/wods/new.html.erb:4:in `_app_views_wods_new_html_erb__847135688225508045_70208080968780'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (57.9ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-09 13:23:21 +1000
+Processing by WodsController#new as HTML
+  [1m[36mMovement Load (0.2ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  Rendered wods/_movement.html.erb (10.6ms)
+  Rendered wods/new.html.erb within layouts/application (14.7ms)
+Completed 500 Internal Server Error in 22ms
+
+ActionView::Template::Error (undefined method `Dead Lift' for #<Wod:0x007fb53272d910>):
+    3: <%= f.text_field :quantity %>
+    4: <%= f.label :movement %>
+    5: <% names = Movement.all.map do |move| %>
+    6: 	<%= f.select move.name, names, :prompt => "Select One" %>
+    7: <% end %><br>
+  app/views/wods/_movement.html.erb:6:in `block in _app_views_wods__movement_html_erb__3989273058145289629_70208069903920'
+  app/views/wods/_movement.html.erb:5:in `_app_views_wods__movement_html_erb__3989273058145289629_70208069903920'
+  app/views/wods/new.html.erb:9:in `block in _app_views_wods_new_html_erb__847135688225508045_70208080968780'
+  app/views/wods/new.html.erb:4:in `_app_views_wods_new_html_erb__847135688225508045_70208080968780'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (60.2ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-09 13:24:00 +1000
+Processing by WodsController#new as HTML
+  Rendered wods/_movement.html.erb (0.9ms)
+  Rendered wods/new.html.erb within layouts/application (4.6ms)
+Completed 500 Internal Server Error in 9ms
+
+SyntaxError (/Users/Annette/Dev/Rails/wodapp/app/views/wods/_movement.html.erb:5: syntax error, unexpected tSTRING_DEND, expecting keyword_end
+'.freeze; names = Movement.all.map do |move| [move.name]} 
+                                                         ^
+/Users/Annette/Dev/Rails/wodapp/app/views/wods/_movement.html.erb:7: syntax error, unexpected keyword_ensure, expecting keyword_end
+/Users/Annette/Dev/Rails/wodapp/app/views/wods/_movement.html.erb:9: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/views/wods/_movement.html.erb:5: syntax error, unexpected tSTRING_DEND, expecting keyword_end
+  app/views/wods/_movement.html.erb:7: syntax error, unexpected keyword_ensure, expecting keyword_end
+  app/views/wods/_movement.html.erb:9: syntax error, unexpected end-of-input, expecting keyword_end
+  app/views/wods/new.html.erb:9:in `block in _app_views_wods_new_html_erb__847135688225508045_70208080968780'
+  app/views/wods/new.html.erb:4:in `_app_views_wods_new_html_erb__847135688225508045_70208080968780'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.3ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (64.4ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-09 13:24:13 +1000
+Processing by WodsController#new as HTML
+  [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered wods/_movement.html.erb (7.5ms)
+  Rendered wods/new.html.erb within layouts/application (11.0ms)
+Completed 500 Internal Server Error in 15ms
+
+ActionView::Template::Error (undefined method `name' for #<Wod:0x007fb5305daec0>):
+    3: <%= f.text_field :quantity %>
+    4: <%= f.label :movement %>
+    5: <% names = Movement.all.map {|move| [move.name]} %>
+    6: <%= f.select :name, names, :prompt => "Select One" %><br>
+  app/views/wods/_movement.html.erb:6:in `_app_views_wods__movement_html_erb__3989273058145289629_70208104447220'
+  app/views/wods/new.html.erb:9:in `block in _app_views_wods_new_html_erb__847135688225508045_70208080968780'
+  app/views/wods/new.html.erb:4:in `_app_views_wods_new_html_erb__847135688225508045_70208080968780'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.7ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (62.8ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-09 13:24:38 +1000
+Processing by WodsController#new as HTML
+  Rendered wods/_movement.html.erb (0.7ms)
+  Rendered wods/new.html.erb within layouts/application (3.8ms)
+Completed 500 Internal Server Error in 10ms
+
+SyntaxError (/Users/Annette/Dev/Rails/wodapp/app/views/wods/_movement.html.erb:6: syntax error, unexpected ',', expecting =>
+...ame: wod.movements.name, names, :prompt => "Select One" );@o...
+...                               ^):
+  app/views/wods/_movement.html.erb:6: syntax error, unexpected ',', expecting =>
+  app/views/wods/new.html.erb:9:in `block in _app_views_wods_new_html_erb__847135688225508045_70208080968780'
+  app/views/wods/new.html.erb:4:in `_app_views_wods_new_html_erb__847135688225508045_70208080968780'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (57.0ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-09 13:25:35 +1000
+Processing by WodsController#new as HTML
+  Rendered wods/_movement.html.erb (0.7ms)
+  Rendered wods/new.html.erb within layouts/application (4.9ms)
+Completed 500 Internal Server Error in 10ms
+
+SyntaxError (/Users/Annette/Dev/Rails/wodapp/app/views/wods/_movement.html.erb:6: syntax error, unexpected ','
+...buffer.append=( f.select name:, names, :prompt => "Select On...
+...                               ^
+/Users/Annette/Dev/Rails/wodapp/app/views/wods/_movement.html.erb:6: syntax error, unexpected =>, expecting &. or :: or '[' or '.'
+...select name:, names, :prompt => "Select One" );@output_buffe...
+...                               ^):
+  app/views/wods/_movement.html.erb:6: syntax error, unexpected ','
+  app/views/wods/_movement.html.erb:6: syntax error, unexpected =>, expecting &. or :: or '[' or '.'
+  app/views/wods/new.html.erb:9:in `block in _app_views_wods_new_html_erb__847135688225508045_70208080968780'
+  app/views/wods/new.html.erb:4:in `_app_views_wods_new_html_erb__847135688225508045_70208080968780'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.5ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (56.2ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-09 13:26:36 +1000
+Processing by WodsController#new as HTML
+  [1m[36mMovement Load (0.2ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  Rendered wods/_movement.html.erb (7.1ms)
+  Rendered wods/new.html.erb within layouts/application (10.2ms)
+Completed 500 Internal Server Error in 15ms
+
+ActionView::Template::Error (undefined method `name' for #<Wod:0x007fb52f585e58>):
+    3: <%= f.text_field :quantity %>
+    4: <%= f.label :movement %>
+    5: <% names = Movement.all.map {|move| [move.name]} %>
+    6: <%= f.select :name, names, :prompt => "Select One" %><br>
+  app/views/wods/_movement.html.erb:6:in `_app_views_wods__movement_html_erb__3989273058145289629_70208086563560'
+  app/views/wods/new.html.erb:9:in `block in _app_views_wods_new_html_erb__847135688225508045_70208080968780'
+  app/views/wods/new.html.erb:4:in `_app_views_wods_new_html_erb__847135688225508045_70208080968780'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.3ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.8ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (57.4ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-09 13:27:04 +1000
+Processing by WodsController#new as HTML
+  [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered wods/_movement.html.erb (13.7ms)
+  Rendered wods/new.html.erb within layouts/application (17.4ms)
+Completed 500 Internal Server Error in 23ms
+
+ActionView::Template::Error (undefined method `movement_id' for #<Wod:0x007fb53074f968>
+Did you mean?  movement_ids
+               movement_ids=
+               movements
+               movements=):
+    3: <%= f.text_field :quantity %>
+    4: <%= f.label :movement %>
+    5: <% names = Movement.all.map {|move| [move.name]} %>
+    6: <%= f.select :movement_id, names, :prompt => "Select One" %><br>
+  app/views/wods/_movement.html.erb:6:in `_app_views_wods__movement_html_erb__3989273058145289629_70208104194460'
+  app/views/wods/new.html.erb:9:in `block in _app_views_wods_new_html_erb__847135688225508045_70208080968780'
+  app/views/wods/new.html.erb:4:in `_app_views_wods_new_html_erb__847135688225508045_70208080968780'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.5ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (62.2ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-09 13:27:14 +1000
+Processing by WodsController#new as HTML
+  [1m[36mMovement Load (0.2ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  Rendered wods/_movement.html.erb (3.0ms)
+  Rendered wods/new.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 11ms (Views: 11.0ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/wods" for ::1 at 2017-06-09 13:27:31 +1000
+Processing by WodsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"opTjt6N4YLdwwl5Dt2/mABYGiCvdjckJd5pddG6bMZ00MpFJUt1bMDD6YgtP/KKFNuY4wuAD0Rsa0++VNzqZHg==", "wod"=>{"title"=>"pretty", "wod_type"=>"weight", "quantity"=>"6", "movement_ids"=>"Dead Lift"}, "commit"=>"Create Wod"}
+Unpermitted parameters: quantity, movement_ids
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mWod Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "wods" WHERE "wods"."title" = 'pretty' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "wods" ("title", "wod_type", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "pretty"], ["wod_type", "weight"], ["created_at", "2017-06-09 03:27:31.740058"], ["updated_at", "2017-06-09 03:27:31.740058"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/wods/8
+Completed 302 Found in 5ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/wods/8" for ::1 at 2017-06-09 13:27:31 +1000
+Processing by WodsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[35mWod Load (0.1ms)[0m  SELECT  "wods".* FROM "wods" WHERE "wods"."id" = ? LIMIT 1  [["id", 8]]
+  Rendered wods/show.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.1ms)
+  [1m[36mWod Load (2.2ms)[0m  [1mSELECT "wods".* FROM "wods"[0m
+  [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements"
+
+
+Started GET "/wods/8" for ::1 at 2017-06-09 13:29:20 +1000
+Processing by WodsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mWod Load (0.1ms)[0m  [1mSELECT  "wods".* FROM "wods" WHERE "wods"."id" = ? LIMIT 1[0m  [["id", 8]]
+  Rendered wods/show.html.erb within layouts/application (9.2ms)
+Completed 500 Internal Server Error in 16ms
+
+ActionView::Template::Error (undefined method `movement' for #<Wod:0x007fb52e215940>
+Did you mean?  movements
+               movements=):
+    1: 
+    2: <h1><%= @wod.title %>
+    3: <h2><%= @wod.wod_type %>
+    4: <h2><%= @wod.movement %>
+    5: <h2><%= @wod.quantity %>
+  app/views/wods/show.html.erb:4:in `_app_views_wods_show_html_erb__1121644797885095735_70208111107860'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (58.0ms)
+
+
+Started POST "/wods" for ::1 at 2017-06-09 13:29:52 +1000
+Processing by WodsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"opTjt6N4YLdwwl5Dt2/mABYGiCvdjckJd5pddG6bMZ00MpFJUt1bMDD6YgtP/KKFNuY4wuAD0Rsa0++VNzqZHg==", "wod"=>{"title"=>"pretty", "wod_type"=>"weight", "quantity"=>"6", "movement_ids"=>"Dead Lift"}, "commit"=>"Create Wod"}
+Unpermitted parameters: quantity, movement_ids
+Completed 500 Internal Server Error in 9ms
+
+TypeError (exception class/object expected):
+  app/controllers/wods_controller.rb:14:in `raise'
+  app/controllers/wods_controller.rb:14:in `create'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (58.9ms)
+
+
+Started POST "/wods" for ::1 at 2017-06-09 13:30:37 +1000
+Processing by WodsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"opTjt6N4YLdwwl5Dt2/mABYGiCvdjckJd5pddG6bMZ00MpFJUt1bMDD6YgtP/KKFNuY4wuAD0Rsa0++VNzqZHg==", "wod"=>{"title"=>"pretty", "wod_type"=>"weight", "quantity"=>"6", "movement_ids"=>"Dead Lift"}, "commit"=>"Create Wod"}
+Unpermitted parameters: quantity, movement_ids
+Completed 500 Internal Server Error in 1ms
+
+TypeError (exception class/object expected):
+  app/controllers/wods_controller.rb:14:in `raise'
+  app/controllers/wods_controller.rb:14:in `create'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.5ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (53.7ms)
+
+
+Started GET "/wods/8" for ::1 at 2017-06-09 13:30:55 +1000
+Processing by WodsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[35mWod Load (0.1ms)[0m  SELECT  "wods".* FROM "wods" WHERE "wods"."id" = ? LIMIT 1  [["id", 8]]
+  [1m[36m (0.2ms)[0m  [1mSELECT "movements".id FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 8]]
+  Rendered wods/show.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 30ms (Views: 19.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-09 13:32:03 +1000
+Processing by WodsController#new as HTML
+  [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered wods/_movement.html.erb (12.2ms)
+  Rendered wods/new.html.erb within layouts/application (17.5ms)
+Completed 200 OK in 36ms (Views: 25.3ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/wods" for ::1 at 2017-06-09 13:32:22 +1000
+Processing by WodsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ewC8E8ZRjd7pJ5JFdEUPMNxpb65VrdBAMPGEn0wVNDjtps7tN/S2Wakfrg2M1ku1/InfR2gjyFJduDZ+FbScuw==", "wod"=>{"title"=>"trip", "wod_type"=>"time", "quantity"=>"6", "movement_ids"=>"Push Jerk"}, "commit"=>"Create Wod"}
+Unpermitted parameters: quantity, movement_ids
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mWod Exists (0.2ms)[0m  SELECT  1 AS one FROM "wods" WHERE "wods"."title" = 'trip' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "wods" ("title", "wod_type", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "trip"], ["wod_type", "time"], ["created_at", "2017-06-09 03:32:22.198314"], ["updated_at", "2017-06-09 03:32:22.198314"]]
+  [1m[35m (1.6ms)[0m  commit transaction
+Redirected to http://localhost:3000/wods/9
+Completed 302 Found in 8ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/wods/9" for ::1 at 2017-06-09 13:32:22 +1000
+Processing by WodsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mWod Load (0.2ms)[0m  [1mSELECT  "wods".* FROM "wods" WHERE "wods"."id" = ? LIMIT 1[0m  [["id", 9]]
+  [1m[35m (0.2ms)[0m  SELECT "movements".id FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 9]]
+  Rendered wods/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 8ms (Views: 7.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/wods" for ::1 at 2017-06-09 13:36:56 +1000
+Processing by WodsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ewC8E8ZRjd7pJ5JFdEUPMNxpb65VrdBAMPGEn0wVNDjtps7tN/S2Wakfrg2M1ku1/InfR2gjyFJduDZ+FbScuw==", "wod"=>{"title"=>"tripped", "wod_type"=>"time", "quantity"=>"6", "movement_ids"=>"Clean & Jerk"}, "commit"=>"Create Wod"}
+Unpermitted parameters: quantity, movement_ids
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mWod Exists (0.2ms)[0m  SELECT  1 AS one FROM "wods" WHERE "wods"."title" = 'tripped' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "wods" ("title", "wod_type", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "tripped"], ["wod_type", "time"], ["created_at", "2017-06-09 03:36:56.184616"], ["updated_at", "2017-06-09 03:36:56.184616"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/wods/10
+Completed 302 Found in 18ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/wods/10" for ::1 at 2017-06-09 13:36:56 +1000
+Processing by WodsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mWod Load (0.2ms)[0m  [1mSELECT  "wods".* FROM "wods" WHERE "wods"."id" = ? LIMIT 1[0m  [["id", 10]]
+  [1m[35m (0.1ms)[0m  SELECT "movements".id FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 10]]
+  Rendered wods/show.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 20ms (Views: 17.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/wods/10" for ::1 at 2017-06-09 13:38:44 +1000
+Processing by WodsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mWod Load (0.1ms)[0m  [1mSELECT  "wods".* FROM "wods" WHERE "wods"."id" = ? LIMIT 1[0m  [["id", 10]]
+  Rendered wods/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 8ms (Views: 7.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for ::1 at 2017-06-09 13:44:57 +1000
+Processing by ApplicationController#welcome as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Redirected to http://localhost:3000/sessions/new
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 302 Found in 9ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/sessions/new" for ::1 at 2017-06-09 13:44:57 +1000
+Processing by SessionsController#new as HTML
+  Rendered sessions/_form.html.erb (0.1ms)
+  Rendered sessions/new.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 25ms (Views: 24.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/wods/new" for ::1 at 2017-06-09 13:45:05 +1000
+Processing by WodsController#new as HTML
+  [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered wods/_movement.html.erb (11.7ms)
+  Rendered wods/new.html.erb within layouts/application (15.2ms)
+Completed 200 OK in 34ms (Views: 22.1ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/wods" for ::1 at 2017-06-09 13:45:17 +1000
+Processing by WodsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"NTGwfQhjFl0Mt1MPQFZ5CquZv+XJXhmyGKmq4EwU4oujl8KD+cYt2kyPb0e4xT2Pi3kPDPTQAaB14BgBFbVKCA==", "wod"=>{"title"=>"slap", "wod_type"=>"time", "quantity"=>"15", "movement_ids"=>"Push Press"}, "commit"=>"Create Wod"}
+Unpermitted parameters: quantity, movement_ids
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mWod Exists (6.3ms)[0m  SELECT  1 AS one FROM "wods" WHERE "wods"."title" = 'slap' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "wods" ("title", "wod_type", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "slap"], ["wod_type", "time"], ["created_at", "2017-06-09 03:45:17.450765"], ["updated_at", "2017-06-09 03:45:17.450765"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+Redirected to http://localhost:3000/wods/11
+Completed 302 Found in 14ms (ActiveRecord: 7.4ms)
+
+
+Started GET "/wods/11" for ::1 at 2017-06-09 13:45:17 +1000
+Processing by WodsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mWod Load (0.2ms)[0m  [1mSELECT  "wods".* FROM "wods" WHERE "wods"."id" = ? LIMIT 1[0m  [["id", 11]]
+  [1m[35m (0.4ms)[0m  SELECT "movements".id FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 11]]
+  Rendered wods/show.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 10ms (Views: 8.1ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/wods" for ::1 at 2017-06-09 13:49:25 +1000
+Processing by WodsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"NTGwfQhjFl0Mt1MPQFZ5CquZv+XJXhmyGKmq4EwU4oujl8KD+cYt2kyPb0e4xT2Pi3kPDPTQAaB14BgBFbVKCA==", "wod"=>{"title"=>"slap", "wod_type"=>"time", "quantity"=>"15", "movement_ids"=>"Push Press"}, "commit"=>"Create Wod"}
+Unpermitted parameters: quantity, movement_ids
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mWod Exists (0.2ms)[0m  SELECT  1 AS one FROM "wods" WHERE "wods"."title" = 'slap' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered wods/_movement.html.erb (19.6ms)
+  Rendered wods/new.html.erb within layouts/application (22.6ms)
+Completed 500 Internal Server Error in 42ms
+
+ActionView::Template::Error (undefined method `movement_names' for #<Wod:0x007fb52e0e7460>
+Did you mean?  movements
+               movement_ids):
+    3: <%= f.text_field :quantity %>
+    4: <%= f.label :movement %>
+    5: <% names = Movement.all.map {|move| [move.name]} %>
+    6: <%= f.select :movement_names, names, :prompt => "Select One" %><br>
+  app/views/wods/_movement.html.erb:6:in `_app_views_wods__movement_html_erb__3989273058145289629_70208088336220'
+  app/views/wods/new.html.erb:9:in `block in _app_views_wods_new_html_erb__847135688225508045_70208080968780'
+  app/views/wods/new.html.erb:4:in `_app_views_wods_new_html_erb__847135688225508045_70208080968780'
+  app/controllers/wods_controller.rb:17:in `create'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (56.8ms)
+
+
+Started POST "/wods" for ::1 at 2017-06-09 13:49:40 +1000
+Processing by WodsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"NTGwfQhjFl0Mt1MPQFZ5CquZv+XJXhmyGKmq4EwU4oujl8KD+cYt2kyPb0e4xT2Pi3kPDPTQAaB14BgBFbVKCA==", "wod"=>{"title"=>"slap", "wod_type"=>"time", "quantity"=>"15", "movement_ids"=>"Push Press"}, "commit"=>"Create Wod"}
+Unpermitted parameters: quantity, movement_ids
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mWod Exists (0.2ms)[0m  SELECT  1 AS one FROM "wods" WHERE "wods"."title" = 'slap' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered wods/_movement.html.erb (18.9ms)
+  Rendered wods/new.html.erb within layouts/application (21.4ms)
+Completed 500 Internal Server Error in 40ms
+
+ActionView::Template::Error (undefined method `movement_names' for #<Wod:0x007fb52f68ecc8>
+Did you mean?  movements
+               movement_ids):
+    3: <%= f.text_field :quantity %>
+    4: <%= f.label :movement %>
+    5: <% names = Movement.all.map {|move| [move.name]} %>
+    6: <%= f.select :movement_names, names, :prompt => "Select One" %><br>
+  app/views/wods/_movement.html.erb:6:in `_app_views_wods__movement_html_erb__3989273058145289629_70208088336220'
+  app/views/wods/new.html.erb:9:in `block in _app_views_wods_new_html_erb__847135688225508045_70208080968780'
+  app/views/wods/new.html.erb:4:in `_app_views_wods_new_html_erb__847135688225508045_70208080968780'
+  app/controllers/wods_controller.rb:17:in `create'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.6ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (58.6ms)
+
+
+Started POST "/wods" for ::1 at 2017-06-09 13:49:55 +1000
+Processing by WodsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"NTGwfQhjFl0Mt1MPQFZ5CquZv+XJXhmyGKmq4EwU4oujl8KD+cYt2kyPb0e4xT2Pi3kPDPTQAaB14BgBFbVKCA==", "wod"=>{"title"=>"slap", "wod_type"=>"time", "quantity"=>"15", "movement_ids"=>"Push Press"}, "commit"=>"Create Wod"}
+Unpermitted parameters: quantity, movement_ids
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mWod Exists (0.2ms)[0m  SELECT  1 AS one FROM "wods" WHERE "wods"."title" = 'slap' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35mMovement Load (0.3ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered wods/_movement.html.erb (9.0ms)
+  Rendered wods/new.html.erb within layouts/application (13.7ms)
+Completed 200 OK in 21ms (Views: 17.6ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/wods" for ::1 at 2017-06-09 13:50:00 +1000
+Processing by WodsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Jkpqm71i0NMfjdKZbKMY8q3sb9xbEXTusNHJCL5q0Buw7BhlTMfrVF+17tGUMFx3jQzfNWafbPzdmHvp58t4mA==", "wod"=>{"title"=>"slappy", "wod_type"=>"time", "quantity"=>"", "movement_ids"=>""}, "commit"=>"Create Wod"}
+Unpermitted parameters: quantity, movement_ids
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mWod Exists (0.2ms)[0m  SELECT  1 AS one FROM "wods" WHERE "wods"."title" = 'slappy' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "wods" ("title", "wod_type", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "slappy"], ["wod_type", "time"], ["created_at", "2017-06-09 03:50:00.177715"], ["updated_at", "2017-06-09 03:50:00.177715"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+Redirected to http://localhost:3000/wods/12
+Completed 302 Found in 6ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/wods/12" for ::1 at 2017-06-09 13:50:00 +1000
+Processing by WodsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mWod Load (0.3ms)[0m  [1mSELECT  "wods".* FROM "wods" WHERE "wods"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35m (0.2ms)[0m  SELECT "movements".id FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 12]]
+  Rendered wods/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 9ms (Views: 7.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/wods/12" for ::1 at 2017-06-09 13:50:20 +1000
+Processing by WodsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mWod Load (0.1ms)[0m  [1mSELECT  "wods".* FROM "wods" WHERE "wods"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35m (0.1ms)[0m  SELECT "movements".id FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 12]]
+  Rendered wods/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 7ms (Views: 6.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/wods/12" for ::1 at 2017-06-09 13:50:28 +1000
+Processing by WodsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mWod Load (0.2ms)[0m  [1mSELECT  "wods".* FROM "wods" WHERE "wods"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35m (0.1ms)[0m  SELECT "movements".id FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 12]]
+  Rendered wods/show.html.erb within layouts/application (5.0ms)
+Completed 500 Internal Server Error in 13ms
+
+ActionView::Template::Error (undefined method `name' for []:Array):
+    1: 
+    2: <h1><%= @wod.title %>
+    3: <h2><%= @wod.wod_type %>
+    4: <h2><%= @wod.movement_ids.name %>
+    5: <h2><%= @wod.quantity %>
+  app/views/wods/show.html.erb:4:in `_app_views_wods_show_html_erb__1121644797885095735_70208069740380'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (58.4ms)
+
+
+Started GET "/wods/12" for ::1 at 2017-06-09 13:50:36 +1000
+Processing by WodsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mWod Load (0.1ms)[0m  [1mSELECT  "wods".* FROM "wods" WHERE "wods"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35m (0.1ms)[0m  SELECT "movements".id FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 12]]
+  Rendered wods/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 6ms (Views: 5.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/wods/12" for ::1 at 2017-06-09 13:51:23 +1000
+Processing by WodsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mWod Load (0.1ms)[0m  [1mSELECT  "wods".* FROM "wods" WHERE "wods"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35m (0.1ms)[0m  SELECT "movements".id FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 12]]
+  Rendered wods/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 8ms (Views: 7.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/wods/12" for ::1 at 2017-06-09 13:51:36 +1000
+Processing by WodsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mWod Load (0.2ms)[0m  [1mSELECT  "wods".* FROM "wods" WHERE "wods"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35m (0.1ms)[0m  SELECT "movements".id FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 12]]
+  Rendered wods/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 10ms (Views: 8.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/wods/12" for ::1 at 2017-06-09 13:51:52 +1000
+Processing by WodsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mWod Load (0.2ms)[0m  [1mSELECT  "wods".* FROM "wods" WHERE "wods"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 12]]
+  Rendered wods/show.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/wods/12" for ::1 at 2017-06-09 13:52:23 +1000
+Processing by WodsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mWod Load (0.1ms)[0m  [1mSELECT  "wods".* FROM "wods" WHERE "wods"."id" = ? LIMIT 1[0m  [["id", 12]]
+  Rendered wods/show.html.erb within layouts/application (0.8ms)
+Completed 500 Internal Server Error in 6ms
+
+SyntaxError (/Users/Annette/Dev/Rails/wodapp/app/views/wods/show.html.erb:7: syntax error, unexpected keyword_ensure, expecting keyword_end
+/Users/Annette/Dev/Rails/wodapp/app/views/wods/show.html.erb:9: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/views/wods/show.html.erb:7: syntax error, unexpected keyword_ensure, expecting keyword_end
+  app/views/wods/show.html.erb:9: syntax error, unexpected end-of-input, expecting keyword_end
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (63.7ms)
+
+
+Started GET "/wods/12" for ::1 at 2017-06-09 13:52:37 +1000
+Processing by WodsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[35mWod Load (0.2ms)[0m  SELECT  "wods".* FROM "wods" WHERE "wods"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mMovement Load (0.2ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 12]]
+  Rendered wods/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 8ms (Views: 6.4ms | ActiveRecord: 0.4ms)
