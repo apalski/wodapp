@@ -19112,3 +19112,1770 @@ ActionView::Template::Error (undefined method `movement_type' for #<Usermovement
   Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.2ms)
   Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
   Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (55.6ms)
+  [1m[36m (1.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.8ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateUsers (20170529044413)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "password_digest" varchar, "owner" boolean DEFAULT 'f', "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170529044413"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+Migrating to CreateUsermovements (20170529044428)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  CREATE TABLE "usermovements" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "date" date, "result" float, "pr" boolean DEFAULT 'f', "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170529044428"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+Migrating to CreateUserwods (20170529044438)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "userwods" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "date" date, "result" float, "pr" boolean DEFAULT 'f', "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170529044438"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+Migrating to CreateMoveWods (20170529044453)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "move_wods" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "movement_id" integer, "wod_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170529044453"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+Migrating to CreateMovements (20170608044059)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "movements" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "movement_type" varchar, "quantity" integer, "owner_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170608044059"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+Migrating to CreateWods (20170608045642)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "wods" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "wod_type" varchar, "owner_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170608045642"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."name" = 'Max Charles' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'max@gmail.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "owner", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Max Charles"], ["email", "max@gmail.com"], ["password_digest", "$2a$10$Av/qUM0CxIa4CUmohBtcIe6QtCIcVUBCBO.utnqOvrIgjwFOUq0FK"], ["owner", "t"], ["created_at", "2017-06-12 12:21:52.953165"], ["updated_at", "2017-06-12 12:21:52.953165"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."name" = 'Skai Jackson' LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'skai@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Skai Jackson"], ["email", "skai@gmail.com"], ["password_digest", "$2a$10$jpAe2CXYa3eaecl9Mbk0p.OoNP.McRU2U6uxUL31stS84SQtYf/vm"], ["created_at", "2017-06-12 12:21:53.028620"], ["updated_at", "2017-06-12 12:21:53.028620"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."name" = 'Kaleo Elam' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'kaleo@gmail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Kaleo Elam"], ["email", "kaleo@gmail.com"], ["password_digest", "$2a$10$wGM8Cv5t3g0WFwGhEexkVupk.h83ZMYM5PPoNCgCmkfeW.BHRXV4K"], ["created_at", "2017-06-12 12:21:53.114118"], ["updated_at", "2017-06-12 12:21:53.114118"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."name" = 'Megan Charpentier' LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'megan@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Megan Charpentier"], ["email", "megan@gmail.com"], ["password_digest", "$2a$10$w2iMCuOGSLezdPekU2WXlOlvIsWZ.5ZObgawlai9vtz2nXhUVviAy"], ["created_at", "2017-06-12 12:21:53.194958"], ["updated_at", "2017-06-12 12:21:53.194958"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."name" = 'Hayden Byerly' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'hayden@gmail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Hayden Byerly"], ["email", "hayden@gmail.com"], ["password_digest", "$2a$10$MXJ/cnvruFtqmE4tURXXIuSpamGDZq5SqfXd5A1MzSdmB.Wwsy8m2"], ["created_at", "2017-06-12 12:21:53.281509"], ["updated_at", "2017-06-12 12:21:53.281509"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."name" = 'Tenzing Norgay Trainor' LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'tenzing@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Tenzing Norgay Trainor"], ["email", "tenzing@gmail.com"], ["password_digest", "$2a$10$ujc19yvyG8fvYnk9XSN9XeAfVhZhtRID0w.I.a4F8q8Owt4CeBBzu"], ["created_at", "2017-06-12 12:21:53.358374"], ["updated_at", "2017-06-12 12:21:53.358374"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."name" = 'Davis Cleveland' LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'davis@gmail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Davis Cleveland"], ["email", "davis@gmail.com"], ["password_digest", "$2a$10$Z98wlhj5H.m0jjznGC1/l.yQakZ8OAOBCVPY1NfzweuyGkbHgFfQa"], ["created_at", "2017-06-12 12:21:53.440937"], ["updated_at", "2017-06-12 12:21:53.440937"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."name" = 'Cole Sand' LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'cole@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Cole Sand"], ["email", "cole@gmail.com"], ["password_digest", "$2a$10$0SEGpT/abHivoq4TvbcJGu5.Hh8gvLIygro7BMmyQoeM/2LM7oBim"], ["created_at", "2017-06-12 12:21:53.514477"], ["updated_at", "2017-06-12 12:21:53.514477"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."name" = 'Quvenzhané Wallis' LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'quv@gmail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Quvenzhané Wallis"], ["email", "quv@gmail.com"], ["password_digest", "$2a$10$qR3z2LUNs8SLB8GtniZEjen2y8gM2swXqoh8lL9lfhuBO8SVY/zAK"], ["created_at", "2017-06-12 12:21:53.594355"], ["updated_at", "2017-06-12 12:21:53.594355"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Dead Lift' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "movements" ("name", "movement_type", "quantity", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Dead Lift"], ["movement_type", "weight"], ["quantity", 10], ["owner_id", 1], ["created_at", "2017-06-12 12:21:53.606382"], ["updated_at", "2017-06-12 12:21:53.606382"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Clean & Jerk' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "movements" ("name", "movement_type", "quantity", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Clean & Jerk"], ["movement_type", "weight"], ["quantity", 8], ["owner_id", 1], ["created_at", "2017-06-12 12:21:53.609170"], ["updated_at", "2017-06-12 12:21:53.609170"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Push Jerk' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "movements" ("name", "movement_type", "quantity", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Push Jerk"], ["movement_type", "weight"], ["quantity", 10], ["owner_id", 1], ["created_at", "2017-06-12 12:21:53.611412"], ["updated_at", "2017-06-12 12:21:53.611412"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Push Press' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "movements" ("name", "movement_type", "quantity", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Push Press"], ["movement_type", "weight"], ["quantity", 11], ["owner_id", 1], ["created_at", "2017-06-12 12:21:53.613654"], ["updated_at", "2017-06-12 12:21:53.613654"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Snatch' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "movements" ("name", "movement_type", "quantity", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Snatch"], ["movement_type", "weight"], ["quantity", 9], ["owner_id", 1], ["created_at", "2017-06-12 12:21:53.616467"], ["updated_at", "2017-06-12 12:21:53.616467"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = '400m Run' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "movements" ("name", "movement_type", "quantity", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "400m Run"], ["movement_type", "time"], ["quantity", 1], ["owner_id", 1], ["created_at", "2017-06-12 12:21:53.619234"], ["updated_at", "2017-06-12 12:21:53.619234"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Burpees' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "movements" ("name", "movement_type", "quantity", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Burpees"], ["movement_type", "repetitions"], ["quantity", 30], ["owner_id", 1], ["created_at", "2017-06-12 12:21:53.621527"], ["updated_at", "2017-06-12 12:21:53.621527"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Air Squats' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "movements" ("name", "movement_type", "quantity", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Air Squats"], ["movement_type", "repetitions"], ["quantity", 50], ["owner_id", 1], ["created_at", "2017-06-12 12:21:53.623710"], ["updated_at", "2017-06-12 12:21:53.623710"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Box Jumps' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "movements" ("name", "movement_type", "quantity", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Box Jumps"], ["movement_type", "repetitions"], ["quantity", 20], ["owner_id", 1], ["created_at", "2017-06-12 12:21:53.625979"], ["updated_at", "2017-06-12 12:21:53.625979"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mWod Exists (0.1ms)[0m  SELECT  1 AS one FROM "wods" WHERE "wods"."title" = 'Helen' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "wods" ("title", "wod_type", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Helen"], ["wod_type", "time"], ["owner_id", 1], ["created_at", "2017-06-12 12:21:53.637066"], ["updated_at", "2017-06-12 12:21:53.637066"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mWod Exists (0.1ms)[0m  SELECT  1 AS one FROM "wods" WHERE "wods"."title" = 'Grace' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "wods" ("title", "wod_type", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Grace"], ["wod_type", "time"], ["owner_id", 1], ["created_at", "2017-06-12 12:21:53.641064"], ["updated_at", "2017-06-12 12:21:53.641064"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mWod Exists (0.2ms)[0m  SELECT  1 AS one FROM "wods" WHERE "wods"."title" = 'Dead Lift Day' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "wods" ("title", "wod_type", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Dead Lift Day"], ["wod_type", "weight"], ["owner_id", 1], ["created_at", "2017-06-12 12:21:53.644632"], ["updated_at", "2017-06-12 12:21:53.644632"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mWod Exists (0.1ms)[0m  SELECT  1 AS one FROM "wods" WHERE "wods"."title" = 'Murph' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "wods" ("title", "wod_type", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Murph"], ["wod_type", "time"], ["owner_id", 1], ["created_at", "2017-06-12 12:21:53.647652"], ["updated_at", "2017-06-12 12:21:53.647652"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mWod Exists (0.1ms)[0m  SELECT  1 AS one FROM "wods" WHERE "wods"."title" = 'Karen' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "wods" ("title", "wod_type", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Karen"], ["wod_type", "repetitions"], ["owner_id", 1], ["created_at", "2017-06-12 12:21:53.650250"], ["updated_at", "2017-06-12 12:21:53.650250"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (1.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (1.4ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateUsers (20170529044413)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "password_digest" varchar, "owner" boolean DEFAULT 'f', "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170529044413"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+Migrating to CreateUsermovements (20170529044428)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "usermovements" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "date" date, "usermovements_type" varchar, "result" float, "pr" boolean DEFAULT 'f', "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170529044428"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+Migrating to CreateUserwods (20170529044438)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  CREATE TABLE "userwods" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "date" date, "result" float, "pr" boolean DEFAULT 'f', "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170529044438"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+Migrating to CreateMoveWods (20170529044453)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "move_wods" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "movement_id" integer, "wod_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170529044453"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+Migrating to CreateMovements (20170608044059)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "movements" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "movement_type" varchar, "quantity" integer, "owner_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170608044059"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+Migrating to CreateWods (20170608045642)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "wods" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "wod_type" varchar, "owner_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170608045642"]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."name" = 'Max Charles' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'max@gmail.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "owner", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Max Charles"], ["email", "max@gmail.com"], ["password_digest", "$2a$10$zO1kVeeV6vJIRZ60RgxBO.dcHE42./2Bx5pcni2dA3MNK.5oTSqfy"], ["owner", "t"], ["created_at", "2017-06-12 12:22:55.223989"], ["updated_at", "2017-06-12 12:22:55.223989"]]
+  [1m[35m (1.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."name" = 'Skai Jackson' LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'skai@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Skai Jackson"], ["email", "skai@gmail.com"], ["password_digest", "$2a$10$Y.tlitVaPEsuuQdAM6JvPu0Mq1uInBr0R/cuco4wbQ1mPFj.x8Fvi"], ["created_at", "2017-06-12 12:22:55.298003"], ["updated_at", "2017-06-12 12:22:55.298003"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."name" = 'Kaleo Elam' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'kaleo@gmail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Kaleo Elam"], ["email", "kaleo@gmail.com"], ["password_digest", "$2a$10$R9VRJWkcDKSJ57h0gqFH7OJs0SNK3a4oDUiFjnseKHB8KugWLCGg."], ["created_at", "2017-06-12 12:22:55.370489"], ["updated_at", "2017-06-12 12:22:55.370489"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."name" = 'Megan Charpentier' LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'megan@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Megan Charpentier"], ["email", "megan@gmail.com"], ["password_digest", "$2a$10$wEQ4v6VfbcxjsWu9.t2UIOg6qW5WUWAbAnOcyYvp2JzOsorH7P9f."], ["created_at", "2017-06-12 12:22:55.452671"], ["updated_at", "2017-06-12 12:22:55.452671"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."name" = 'Hayden Byerly' LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'hayden@gmail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Hayden Byerly"], ["email", "hayden@gmail.com"], ["password_digest", "$2a$10$dsp6mVxnO3EVQT/q5yWJqucMJdiGXikFup7qs/ckEDKOEyVVyqJ.G"], ["created_at", "2017-06-12 12:22:55.530024"], ["updated_at", "2017-06-12 12:22:55.530024"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."name" = 'Tenzing Norgay Trainor' LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'tenzing@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Tenzing Norgay Trainor"], ["email", "tenzing@gmail.com"], ["password_digest", "$2a$10$c3WBMdzrbaB7mCxb9P8/eeZAs50jv5PKp2u1/D8fGKcPQKUdU1U1C"], ["created_at", "2017-06-12 12:22:55.615713"], ["updated_at", "2017-06-12 12:22:55.615713"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."name" = 'Davis Cleveland' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'davis@gmail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Davis Cleveland"], ["email", "davis@gmail.com"], ["password_digest", "$2a$10$LFu/so7iC6/9SCQmAwieQO3jXgGlTBPy984hEMS0l7PXksiMAKQ3m"], ["created_at", "2017-06-12 12:22:55.691657"], ["updated_at", "2017-06-12 12:22:55.691657"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."name" = 'Cole Sand' LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'cole@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Cole Sand"], ["email", "cole@gmail.com"], ["password_digest", "$2a$10$hC2icmrtTIFVBiDOwCW.PeqNPxiB3CYATkYmXEri8RgqHWTmqVtKS"], ["created_at", "2017-06-12 12:22:55.773161"], ["updated_at", "2017-06-12 12:22:55.773161"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."name" = 'Quvenzhané Wallis' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'quv@gmail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Quvenzhané Wallis"], ["email", "quv@gmail.com"], ["password_digest", "$2a$10$CIBYiHskRdahcNJyO0FdmeQ9ffVwozrVh0NIyIrIcQwDamahWVF2."], ["created_at", "2017-06-12 12:22:55.845638"], ["updated_at", "2017-06-12 12:22:55.845638"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Dead Lift' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "movements" ("name", "movement_type", "quantity", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Dead Lift"], ["movement_type", "weight"], ["quantity", 10], ["owner_id", 1], ["created_at", "2017-06-12 12:22:55.858260"], ["updated_at", "2017-06-12 12:22:55.858260"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Clean & Jerk' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "movements" ("name", "movement_type", "quantity", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Clean & Jerk"], ["movement_type", "weight"], ["quantity", 8], ["owner_id", 1], ["created_at", "2017-06-12 12:22:55.861222"], ["updated_at", "2017-06-12 12:22:55.861222"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Push Jerk' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "movements" ("name", "movement_type", "quantity", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Push Jerk"], ["movement_type", "weight"], ["quantity", 10], ["owner_id", 1], ["created_at", "2017-06-12 12:22:55.864027"], ["updated_at", "2017-06-12 12:22:55.864027"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.2ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Push Press' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "movements" ("name", "movement_type", "quantity", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Push Press"], ["movement_type", "weight"], ["quantity", 11], ["owner_id", 1], ["created_at", "2017-06-12 12:22:55.867314"], ["updated_at", "2017-06-12 12:22:55.867314"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Snatch' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "movements" ("name", "movement_type", "quantity", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Snatch"], ["movement_type", "weight"], ["quantity", 9], ["owner_id", 1], ["created_at", "2017-06-12 12:22:55.871022"], ["updated_at", "2017-06-12 12:22:55.871022"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = '400m Run' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "movements" ("name", "movement_type", "quantity", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "400m Run"], ["movement_type", "time"], ["quantity", 1], ["owner_id", 1], ["created_at", "2017-06-12 12:22:55.874107"], ["updated_at", "2017-06-12 12:22:55.874107"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Burpees' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "movements" ("name", "movement_type", "quantity", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Burpees"], ["movement_type", "repetitions"], ["quantity", 30], ["owner_id", 1], ["created_at", "2017-06-12 12:22:55.876974"], ["updated_at", "2017-06-12 12:22:55.876974"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Air Squats' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "movements" ("name", "movement_type", "quantity", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Air Squats"], ["movement_type", "repetitions"], ["quantity", 50], ["owner_id", 1], ["created_at", "2017-06-12 12:22:55.879601"], ["updated_at", "2017-06-12 12:22:55.879601"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Box Jumps' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "movements" ("name", "movement_type", "quantity", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Box Jumps"], ["movement_type", "repetitions"], ["quantity", 20], ["owner_id", 1], ["created_at", "2017-06-12 12:22:55.882089"], ["updated_at", "2017-06-12 12:22:55.882089"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mWod Exists (0.1ms)[0m  SELECT  1 AS one FROM "wods" WHERE "wods"."title" = 'Helen' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "wods" ("title", "wod_type", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Helen"], ["wod_type", "time"], ["owner_id", 1], ["created_at", "2017-06-12 12:22:55.890467"], ["updated_at", "2017-06-12 12:22:55.890467"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mWod Exists (0.1ms)[0m  SELECT  1 AS one FROM "wods" WHERE "wods"."title" = 'Grace' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "wods" ("title", "wod_type", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Grace"], ["wod_type", "time"], ["owner_id", 1], ["created_at", "2017-06-12 12:22:55.893414"], ["updated_at", "2017-06-12 12:22:55.893414"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mWod Exists (0.1ms)[0m  SELECT  1 AS one FROM "wods" WHERE "wods"."title" = 'Dead Lift Day' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "wods" ("title", "wod_type", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Dead Lift Day"], ["wod_type", "weight"], ["owner_id", 1], ["created_at", "2017-06-12 12:22:55.895728"], ["updated_at", "2017-06-12 12:22:55.895728"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mWod Exists (0.1ms)[0m  SELECT  1 AS one FROM "wods" WHERE "wods"."title" = 'Murph' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "wods" ("title", "wod_type", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Murph"], ["wod_type", "time"], ["owner_id", 1], ["created_at", "2017-06-12 12:22:55.898024"], ["updated_at", "2017-06-12 12:22:55.898024"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mWod Exists (0.1ms)[0m  SELECT  1 AS one FROM "wods" WHERE "wods"."title" = 'Karen' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "wods" ("title", "wod_type", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Karen"], ["wod_type", "repetitions"], ["owner_id", 1], ["created_at", "2017-06-12 12:22:55.900327"], ["updated_at", "2017-06-12 12:22:55.900327"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (1.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.3ms)[0m  select sqlite_version(*)
+  [1m[36m (0.9ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateUsers (20170529044413)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "password_digest" varchar, "owner" boolean DEFAULT 'f', "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170529044413"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+Migrating to CreateUsermovements (20170529044428)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "usermovements" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "date" date, "movement_type" varchar, "result" float, "pr" boolean DEFAULT 'f', "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170529044428"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+Migrating to CreateUserwods (20170529044438)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "userwods" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "date" date, "result" float, "pr" boolean DEFAULT 'f', "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170529044438"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+Migrating to CreateMoveWods (20170529044453)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "move_wods" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "movement_id" integer, "wod_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170529044453"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+Migrating to CreateMovements (20170608044059)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "movements" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "movement_type" varchar, "quantity" integer, "owner_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170608044059"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+Migrating to CreateWods (20170608045642)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "wods" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "wod_type" varchar, "owner_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170608045642"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."name" = 'Max Charles' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'max@gmail.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "owner", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Max Charles"], ["email", "max@gmail.com"], ["password_digest", "$2a$10$jWIzryyR6k4Yw0mnP8PF5.hXsKee78eIecC./5Kw8NqafRmp680Ee"], ["owner", "t"], ["created_at", "2017-06-12 12:23:33.158356"], ["updated_at", "2017-06-12 12:23:33.158356"]]
+  [1m[35m (1.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."name" = 'Skai Jackson' LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'skai@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Skai Jackson"], ["email", "skai@gmail.com"], ["password_digest", "$2a$10$DxKvL87slipofOCjz2yMB.9P9xuQLQtQEj0YOZdlzSJp2bpc81tiK"], ["created_at", "2017-06-12 12:23:33.243290"], ["updated_at", "2017-06-12 12:23:33.243290"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."name" = 'Kaleo Elam' LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'kaleo@gmail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Kaleo Elam"], ["email", "kaleo@gmail.com"], ["password_digest", "$2a$10$GFwo7H7conC.6MTCkx.s4eiLovbKGzQ6js2V1fjKHlyOazDz0Apem"], ["created_at", "2017-06-12 12:23:33.319834"], ["updated_at", "2017-06-12 12:23:33.319834"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."name" = 'Megan Charpentier' LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'megan@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Megan Charpentier"], ["email", "megan@gmail.com"], ["password_digest", "$2a$10$Qa6QvyRoO6LC1op4sSbv0OUrbR0JNbXuaSWIkI55j0PKuFBXeVKem"], ["created_at", "2017-06-12 12:23:33.391745"], ["updated_at", "2017-06-12 12:23:33.391745"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."name" = 'Hayden Byerly' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'hayden@gmail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Hayden Byerly"], ["email", "hayden@gmail.com"], ["password_digest", "$2a$10$aawxhGlqFER/.OKdP2gdD.f2ykz2MgXUX2ePAJtq.linOths8Egqe"], ["created_at", "2017-06-12 12:23:33.472484"], ["updated_at", "2017-06-12 12:23:33.472484"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."name" = 'Tenzing Norgay Trainor' LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'tenzing@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Tenzing Norgay Trainor"], ["email", "tenzing@gmail.com"], ["password_digest", "$2a$10$hV6BUrYyPw9X0I1zTC4PpukLYedjac/u/vCK3yC4r2SiNaiNH0eLG"], ["created_at", "2017-06-12 12:23:33.553084"], ["updated_at", "2017-06-12 12:23:33.553084"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."name" = 'Davis Cleveland' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'davis@gmail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Davis Cleveland"], ["email", "davis@gmail.com"], ["password_digest", "$2a$10$Unj6/XIoQgBiXPgesJSXF.T/wAMR0VrbIeu0rYFEfbb0EKaTxEz3a"], ["created_at", "2017-06-12 12:23:33.635530"], ["updated_at", "2017-06-12 12:23:33.635530"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."name" = 'Cole Sand' LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'cole@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Cole Sand"], ["email", "cole@gmail.com"], ["password_digest", "$2a$10$lpIJsIGf.jnyOJr9MitR/O4NWoRKaGrkWvMbg.UrtlrJcCALmGNrq"], ["created_at", "2017-06-12 12:23:33.713667"], ["updated_at", "2017-06-12 12:23:33.713667"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."name" = 'Quvenzhané Wallis' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'quv@gmail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Quvenzhané Wallis"], ["email", "quv@gmail.com"], ["password_digest", "$2a$10$2UlWGei46pdu8cPU.3dsqOJG6PZKnw6dqEXlwcpI.3HWxlZT2S5ty"], ["created_at", "2017-06-12 12:23:33.788919"], ["updated_at", "2017-06-12 12:23:33.788919"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Dead Lift' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "movements" ("name", "movement_type", "quantity", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Dead Lift"], ["movement_type", "weight"], ["quantity", 10], ["owner_id", 1], ["created_at", "2017-06-12 12:23:33.801831"], ["updated_at", "2017-06-12 12:23:33.801831"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.2ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Clean & Jerk' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "movements" ("name", "movement_type", "quantity", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Clean & Jerk"], ["movement_type", "weight"], ["quantity", 8], ["owner_id", 1], ["created_at", "2017-06-12 12:23:33.805670"], ["updated_at", "2017-06-12 12:23:33.805670"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Push Jerk' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "movements" ("name", "movement_type", "quantity", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Push Jerk"], ["movement_type", "weight"], ["quantity", 10], ["owner_id", 1], ["created_at", "2017-06-12 12:23:33.809528"], ["updated_at", "2017-06-12 12:23:33.809528"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Push Press' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "movements" ("name", "movement_type", "quantity", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Push Press"], ["movement_type", "weight"], ["quantity", 11], ["owner_id", 1], ["created_at", "2017-06-12 12:23:33.813228"], ["updated_at", "2017-06-12 12:23:33.813228"]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Snatch' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "movements" ("name", "movement_type", "quantity", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Snatch"], ["movement_type", "weight"], ["quantity", 9], ["owner_id", 1], ["created_at", "2017-06-12 12:23:33.816080"], ["updated_at", "2017-06-12 12:23:33.816080"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = '400m Run' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "movements" ("name", "movement_type", "quantity", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "400m Run"], ["movement_type", "time"], ["quantity", 1], ["owner_id", 1], ["created_at", "2017-06-12 12:23:33.818762"], ["updated_at", "2017-06-12 12:23:33.818762"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Burpees' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "movements" ("name", "movement_type", "quantity", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Burpees"], ["movement_type", "repetitions"], ["quantity", 30], ["owner_id", 1], ["created_at", "2017-06-12 12:23:33.821177"], ["updated_at", "2017-06-12 12:23:33.821177"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Air Squats' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "movements" ("name", "movement_type", "quantity", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Air Squats"], ["movement_type", "repetitions"], ["quantity", 50], ["owner_id", 1], ["created_at", "2017-06-12 12:23:33.823581"], ["updated_at", "2017-06-12 12:23:33.823581"]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Box Jumps' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "movements" ("name", "movement_type", "quantity", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Box Jumps"], ["movement_type", "repetitions"], ["quantity", 20], ["owner_id", 1], ["created_at", "2017-06-12 12:23:33.825727"], ["updated_at", "2017-06-12 12:23:33.825727"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mWod Exists (0.1ms)[0m  SELECT  1 AS one FROM "wods" WHERE "wods"."title" = 'Helen' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "wods" ("title", "wod_type", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Helen"], ["wod_type", "time"], ["owner_id", 1], ["created_at", "2017-06-12 12:23:33.834937"], ["updated_at", "2017-06-12 12:23:33.834937"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mWod Exists (0.1ms)[0m  SELECT  1 AS one FROM "wods" WHERE "wods"."title" = 'Grace' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "wods" ("title", "wod_type", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Grace"], ["wod_type", "time"], ["owner_id", 1], ["created_at", "2017-06-12 12:23:33.837684"], ["updated_at", "2017-06-12 12:23:33.837684"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mWod Exists (0.1ms)[0m  SELECT  1 AS one FROM "wods" WHERE "wods"."title" = 'Dead Lift Day' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "wods" ("title", "wod_type", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Dead Lift Day"], ["wod_type", "weight"], ["owner_id", 1], ["created_at", "2017-06-12 12:23:33.840192"], ["updated_at", "2017-06-12 12:23:33.840192"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mWod Exists (0.1ms)[0m  SELECT  1 AS one FROM "wods" WHERE "wods"."title" = 'Murph' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "wods" ("title", "wod_type", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Murph"], ["wod_type", "time"], ["owner_id", 1], ["created_at", "2017-06-12 12:23:33.842514"], ["updated_at", "2017-06-12 12:23:33.842514"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mWod Exists (0.1ms)[0m  SELECT  1 AS one FROM "wods" WHERE "wods"."title" = 'Karen' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "wods" ("title", "wod_type", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Karen"], ["wod_type", "repetitions"], ["owner_id", 1], ["created_at", "2017-06-12 12:23:33.844838"], ["updated_at", "2017-06-12 12:23:33.844838"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+
+
+Started GET "/usermovements/" for ::1 at 2017-06-12 22:24:01 +1000
+Processing by UsermovementsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mUsermovement Load (0.2ms)[0m  SELECT "usermovements".* FROM "usermovements"
+  Rendered usermovements/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 20ms (Views: 8.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/usermovements/" for ::1 at 2017-06-12 22:24:20 +1000
+Processing by UsermovementsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mUsermovement Load (0.2ms)[0m  SELECT "usermovements".* FROM "usermovements"
+  Rendered usermovements/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 8ms (Views: 6.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/usermovements/new" for ::1 at 2017-06-12 22:24:28 +1000
+Processing by UsermovementsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered usermovements/_form.html.erb (8.6ms)
+  Rendered usermovements/new.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 27ms (Views: 14.4ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/usermovements" for ::1 at 2017-06-12 22:24:37 +1000
+Processing by UsermovementsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dx5CwLeJ8oR62+HHAfgdxQ5GVoY/eOFSuzE/Vq2PjdwAmJSLPeOpk4sjKWg1iyJmpNamgvfdNPHmmYZRhLFgPw==", "usermovement"=>{"name"=>"Dead Lift", "date(1i)"=>"2017", "date(2i)"=>"6", "date(3i)"=>"12", "result"=>"160", "pr"=>"1"}, "commit"=>"Create Usermovement"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "usermovements" ("name", "result", "pr", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Dead Lift"], ["result", 160.0], ["pr", "t"], ["date", "2017-06-12"], ["created_at", "2017-06-12 12:24:37.746254"], ["updated_at", "2017-06-12 12:24:37.746254"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+Redirected to http://localhost:3000/usermovements/1
+Completed 302 Found in 5ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/usermovements/1" for ::1 at 2017-06-12 22:24:37 +1000
+Processing by UsermovementsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUsermovement Load (0.2ms)[0m  [1mSELECT  "usermovements".* FROM "usermovements" WHERE "usermovements"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mMovement Load (0.1ms)[0m  SELECT  "movements".* FROM "movements" WHERE "movements"."name" = ? LIMIT 1  [["name", "Dead Lift"]]
+  Rendered usermovements/_show.html.erb (0.7ms)
+  Rendered usermovements/show.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 11ms (Views: 9.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/usermovements" for ::1 at 2017-06-12 22:24:41 +1000
+Processing by UsermovementsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mUsermovement Load (0.3ms)[0m  SELECT "usermovements".* FROM "usermovements"
+  Rendered usermovements/_show.html.erb (0.9ms)
+  Rendered usermovements/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 12ms (Views: 10.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/usermovements/new" for ::1 at 2017-06-12 22:26:57 +1000
+Processing by UsermovementsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  Rendered usermovements/_form.html.erb (0.8ms)
+  Rendered usermovements/new.html.erb within layouts/application (2.8ms)
+Completed 500 Internal Server Error in 23ms
+
+SyntaxError (/Users/Annette/Dev/Rails/wodapp/app/views/usermovements/_form.html.erb:7: syntax error, unexpected tIDENTIFIER, expecting ')'
+...( f.select :movement_type names, :prompt => "Select One" );@...
+...                               ^
+/Users/Annette/Dev/Rails/wodapp/app/views/usermovements/_form.html.erb:7: syntax error, unexpected =>, expecting &. or :: or '[' or '.'
+...movement_type names, :prompt => "Select One" );@output_buffe...
+...                               ^):
+  app/views/usermovements/_form.html.erb:7: syntax error, unexpected tIDENTIFIER, expecting ')'
+  app/views/usermovements/_form.html.erb:7: syntax error, unexpected =>, expecting &. or :: or '[' or '.'
+  app/views/usermovements/new.html.erb:1:in `_app_views_usermovements_new_html_erb___3743811035343695113_70336436619460'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (13.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (64.6ms)
+
+
+Started GET "/usermovements/new" for ::1 at 2017-06-12 22:27:59 +1000
+Processing by UsermovementsController#new as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  Rendered usermovements/_form.html.erb (0.9ms)
+  Rendered usermovements/new.html.erb within layouts/application (3.5ms)
+Completed 500 Internal Server Error in 11ms
+
+SyntaxError (/Users/Annette/Dev/Rails/wodapp/app/views/usermovements/_form.html.erb:9: syntax error, unexpected '<', expecting keyword_end
+		<%= f.select :movement_type mo...
+		 ^):
+  app/views/usermovements/_form.html.erb:9: syntax error, unexpected '<', expecting keyword_end
+  app/views/usermovements/new.html.erb:1:in `_app_views_usermovements_new_html_erb___3743811035343695113_70336436619460'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (10.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (54.2ms)
+
+
+Started GET "/usermovements/new" for ::1 at 2017-06-12 22:28:37 +1000
+Processing by UsermovementsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  Rendered usermovements/_form.html.erb (0.8ms)
+  Rendered usermovements/new.html.erb within layouts/application (2.6ms)
+Completed 500 Internal Server Error in 8ms
+
+SyntaxError (/Users/Annette/Dev/Rails/wodapp/app/views/usermovements/_form.html.erb:9: syntax error, unexpected tIDENTIFIER, expecting ')'
+...( f.select :movement_type moves, :prompt => "Select One" );@...
+...                               ^
+/Users/Annette/Dev/Rails/wodapp/app/views/usermovements/_form.html.erb:9: syntax error, unexpected =>, expecting &. or :: or '[' or '.'
+...movement_type moves, :prompt => "Select One" );@output_buffe...
+...                               ^):
+  app/views/usermovements/_form.html.erb:9: syntax error, unexpected tIDENTIFIER, expecting ')'
+  app/views/usermovements/_form.html.erb:9: syntax error, unexpected =>, expecting &. or :: or '[' or '.'
+  app/views/usermovements/new.html.erb:1:in `_app_views_usermovements_new_html_erb___3743811035343695113_70336436619460'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.3ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.5ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (55.6ms)
+
+
+Started GET "/usermovements/new" for ::1 at 2017-06-12 22:28:57 +1000
+Processing by UsermovementsController#new as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mMovement Load (0.4ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered usermovements/_form.html.erb (18.2ms)
+  Rendered usermovements/new.html.erb within layouts/application (22.4ms)
+Completed 200 OK in 33ms (Views: 30.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/usermovements/new" for ::1 at 2017-06-12 22:29:59 +1000
+Processing by UsermovementsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mUsermovement Load (0.3ms)[0m  [1mSELECT "usermovements".* FROM "usermovements"[0m
+  Rendered usermovements/_form.html.erb (19.8ms)
+  Rendered usermovements/new.html.erb within layouts/application (22.8ms)
+Completed 500 Internal Server Error in 29ms
+
+ActionView::Template::Error (undefined method `name' for #<ActionView::Helpers::FormBuilder:0x007ff0f85d1920>):
+     5: 		<% names = Movement.all.map {|move| [move.name]} %>
+     6: 		<%= f.label :movement_type %>
+     7: 		<%= f.select :name, names, :prompt => "Select One" %><br>
+     8: 		<% moves = Movement.all.find_by(name: f.name) %>
+     9: 		<%= f.select :movement_type, moves, :prompt => "Select One" %><br>
+    10: 		<%= f.label :date %>
+    11: 		<%= date_select :usermovement, :date %><br>
+  app/views/usermovements/_form.html.erb:8:in `block in _app_views_usermovements__form_html_erb__3874978381250900904_70336467966240'
+  app/views/usermovements/_form.html.erb:3:in `_app_views_usermovements__form_html_erb__3874978381250900904_70336467966240'
+  app/views/usermovements/new.html.erb:1:in `_app_views_usermovements_new_html_erb___3743811035343695113_70336436619460'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (55.0ms)
+
+
+Started GET "/usermovements/new" for ::1 at 2017-06-12 22:30:14 +1000
+Processing by UsermovementsController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mMovement Load (0.3ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mMovement Load (0.1ms)[0m  SELECT  "movements".* FROM "movements" WHERE "movements"."name" IS NULL LIMIT 1
+  Rendered usermovements/_form.html.erb (6.6ms)
+  Rendered usermovements/new.html.erb within layouts/application (8.4ms)
+Completed 500 Internal Server Error in 15ms
+
+ActionView::Template::Error (undefined method `empty?' for nil:NilClass):
+     6: 		<%= f.label :movement_type %>
+     7: 		<%= f.select :name, names, :prompt => "Select One" %><br>
+     8: 		<% moves = Movement.all.find_by(name: @usermovement.name) %>
+     9: 		<%= f.select :movement_type, moves, :prompt => "Select One" %><br>
+    10: 		<%= f.label :date %>
+    11: 		<%= date_select :usermovement, :date %><br>
+    12: 		<%= f.label :result %>
+  app/views/usermovements/_form.html.erb:9:in `block in _app_views_usermovements__form_html_erb__3874978381250900904_70336491824540'
+  app/views/usermovements/_form.html.erb:3:in `_app_views_usermovements__form_html_erb__3874978381250900904_70336491824540'
+  app/views/usermovements/new.html.erb:1:in `_app_views_usermovements_new_html_erb___3743811035343695113_70336436619460'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.6ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (64.0ms)
+
+
+Started GET "/usermovements/new" for ::1 at 2017-06-12 22:30:38 +1000
+Processing by UsermovementsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT  "movements".* FROM "movements" WHERE "movements"."name" IS NULL LIMIT 1[0m
+  Rendered usermovements/_form.html.erb (7.3ms)
+  Rendered usermovements/new.html.erb within layouts/application (9.3ms)
+Completed 500 Internal Server Error in 14ms
+
+ActionView::Template::Error (undefined method `movement_type' for nil:NilClass):
+     6: 		<%= f.label :movement_type %>
+     7: 		<%= f.select :name, names, :prompt => "Select One" %><br>
+     8: 		<% moves = Movement.all.find_by(name: @usermovement.name) %>
+     9: 		<%= f.select :movement_type, moves.movement_type, :prompt => "Select One" %><br>
+    10: 		<%= f.label :date %>
+    11: 		<%= date_select :usermovement, :date %><br>
+    12: 		<%= f.label :result %>
+  app/views/usermovements/_form.html.erb:9:in `block in _app_views_usermovements__form_html_erb__3874978381250900904_70336444623800'
+  app/views/usermovements/_form.html.erb:3:in `_app_views_usermovements__form_html_erb__3874978381250900904_70336444623800'
+  app/views/usermovements/new.html.erb:1:in `_app_views_usermovements_new_html_erb___3743811035343695113_70336436619460'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (12.8ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (59.6ms)
+
+
+Started GET "/usermovements/new" for ::1 at 2017-06-12 22:33:38 +1000
+Processing by UsermovementsController#new as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  Rendered usermovements/_form.html.erb (0.7ms)
+  Rendered usermovements/new.html.erb within layouts/application (2.5ms)
+Completed 500 Internal Server Error in 18ms
+
+SyntaxError (/Users/Annette/Dev/Rails/wodapp/app/views/usermovements/_form.html.erb:9: syntax error, unexpected '<', expecting ')'
+		<%= f.label :date );@output_buffer.safe_append='
+		 ^
+/Users/Annette/Dev/Rails/wodapp/app/views/usermovements/_form.html.erb:16: syntax error, unexpected keyword_end, expecting ')'
+'.freeze;	 end 	
+         	    ^
+/Users/Annette/Dev/Rails/wodapp/app/views/usermovements/_form.html.erb:19: syntax error, unexpected keyword_ensure, expecting ')'
+/Users/Annette/Dev/Rails/wodapp/app/views/usermovements/_form.html.erb:21: syntax error, unexpected keyword_end, expecting ')'):
+  app/views/usermovements/_form.html.erb:9: syntax error, unexpected '<', expecting ')'
+  app/views/usermovements/_form.html.erb:16: syntax error, unexpected keyword_end, expecting ')'
+  app/views/usermovements/_form.html.erb:19: syntax error, unexpected keyword_ensure, expecting ')'
+  app/views/usermovements/_form.html.erb:21: syntax error, unexpected keyword_end, expecting ')'
+  app/views/usermovements/new.html.erb:1:in `_app_views_usermovements_new_html_erb___3743811035343695113_70336436619460'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (11.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (54.5ms)
+
+
+Started GET "/usermovements/new" for ::1 at 2017-06-12 22:33:49 +1000
+Processing by UsermovementsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered usermovements/_form.html.erb (12.0ms)
+  Rendered usermovements/new.html.erb within layouts/application (14.4ms)
+Completed 500 Internal Server Error in 21ms
+
+ActionView::Template::Error (wrong number of arguments (given 0, expected 1..2)):
+     5: 		<% names = Movement.all.map {|move| [move.name]} %>
+     6: 		<%= f.label :movement_type %>
+     7: 		<%= f.select :name, names, :prompt => "Select One" %><br>
+     8: 		<%= f.hidden_field %>
+     9: 		<%= f.label :date %>
+    10: 		<%= date_select :usermovement, :date %><br>
+    11: 		<%= f.label :result %>
+  app/views/usermovements/_form.html.erb:8:in `block in _app_views_usermovements__form_html_erb__3874978381250900904_70336490611680'
+  app/views/usermovements/_form.html.erb:3:in `_app_views_usermovements__form_html_erb__3874978381250900904_70336490611680'
+  app/views/usermovements/new.html.erb:1:in `_app_views_usermovements_new_html_erb___3743811035343695113_70336436619460'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.3ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (56.2ms)
+
+
+Started GET "/usermovements/new" for ::1 at 2017-06-12 22:33:56 +1000
+Processing by UsermovementsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mMovement Load (0.3ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered usermovements/_form.html.erb (6.3ms)
+  Rendered usermovements/new.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 14ms (Views: 12.5ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/usermovements" for ::1 at 2017-06-12 22:34:08 +1000
+Processing by UsermovementsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bT6GL+THc7/UtmHyWSUvMKK6N9ZE6Ys55kKNiEGmLx4auFBkbq0oqCVOqV1tVhCTCCrH0oxMXpq76jSPaJjC/Q==", "usermovement"=>{"name"=>"Clean & Jerk", "date(1i)"=>"2017", "date(2i)"=>"6", "date(3i)"=>"12", "result"=>"65", "pr"=>"1"}, "commit"=>"Create Usermovement"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "usermovements" ("name", "result", "pr", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Clean & Jerk"], ["result", 65.0], ["pr", "t"], ["date", "2017-06-12"], ["created_at", "2017-06-12 12:34:08.737897"], ["updated_at", "2017-06-12 12:34:08.737897"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+Redirected to http://localhost:3000/usermovements/2
+Completed 302 Found in 7ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/usermovements/2" for ::1 at 2017-06-12 22:34:08 +1000
+Processing by UsermovementsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUsermovement Load (0.2ms)[0m  [1mSELECT  "usermovements".* FROM "usermovements" WHERE "usermovements"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mMovement Load (0.1ms)[0m  SELECT  "movements".* FROM "movements" WHERE "movements"."name" = ? LIMIT 1  [["name", "Clean & Jerk"]]
+  Rendered usermovements/_show.html.erb (0.2ms)
+  Rendered usermovements/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 8ms (Views: 6.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/usermovements/2" for ::1 at 2017-06-12 22:35:17 +1000
+Processing by UsermovementsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUsermovement Load (0.1ms)[0m  [1mSELECT  "usermovements".* FROM "usermovements" WHERE "usermovements"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mMovement Load (0.3ms)[0m  SELECT  "movements".* FROM "movements" WHERE "movements"."name" = ? LIMIT 1  [["name", "Clean & Jerk"]]
+  Rendered usermovements/_show.html.erb (0.1ms)
+  Rendered usermovements/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 24ms (Views: 8.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/usermovements/2" for ::1 at 2017-06-12 22:36:58 +1000
+Processing by UsermovementsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUsermovement Load (0.1ms)[0m  [1mSELECT  "usermovements".* FROM "usermovements" WHERE "usermovements"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mMovement Load (0.1ms)[0m  SELECT  "movements".* FROM "movements" WHERE "movements"."name" = ? LIMIT 1  [["name", "Clean & Jerk"]]
+  Rendered usermovements/_show.html.erb (0.1ms)
+  Rendered usermovements/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 21ms (Views: 8.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/usermovements/new" for ::1 at 2017-06-12 22:37:06 +1000
+Processing by UsermovementsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered usermovements/_form.html.erb (5.0ms)
+  Rendered usermovements/new.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 19ms (Views: 11.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/usermovements/new" for ::1 at 2017-06-12 22:39:19 +1000
+Processing by UsermovementsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  Rendered usermovements/_form.html.erb (0.8ms)
+  Rendered usermovements/new.html.erb within layouts/application (3.7ms)
+Completed 500 Internal Server Error in 10ms
+
+SyntaxError (/Users/Annette/Dev/Rails/wodapp/app/views/usermovements/_form.html.erb:8: syntax error, unexpected tIDENTIFIER, expecting ')'
+...ield name="movement_type" value="<% @movements.find_by(name:...
+...                               ^
+/Users/Annette/Dev/Rails/wodapp/app/views/usermovements/_form.html.erb:8: syntax error, unexpected '>'
+/Users/Annette/Dev/Rails/wodapp/app/views/usermovements/_form.html.erb:18: unterminated string meets end of file
+/Users/Annette/Dev/Rails/wodapp/app/views/usermovements/_form.html.erb:18: syntax error, unexpected end-of-input, expecting ')'):
+  app/views/usermovements/_form.html.erb:8: syntax error, unexpected tIDENTIFIER, expecting ')'
+  app/views/usermovements/_form.html.erb:8: syntax error, unexpected '>'
+  app/views/usermovements/_form.html.erb:18: unterminated string meets end of file
+  app/views/usermovements/_form.html.erb:18: syntax error, unexpected end-of-input, expecting ')'
+  app/views/usermovements/new.html.erb:1:in `_app_views_usermovements_new_html_erb___3743811035343695113_70336444868480'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.5ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (59.0ms)
+
+
+Started GET "/usermovements/new" for ::1 at 2017-06-12 22:40:58 +1000
+Processing by UsermovementsController#new as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  Rendered usermovements/_form.html.erb (0.9ms)
+  Rendered usermovements/new.html.erb within layouts/application (3.3ms)
+Completed 500 Internal Server Error in 8ms
+
+SyntaxError (/Users/Annette/Dev/Rails/wodapp/app/views/usermovements/_form.html.erb:7: syntax error, unexpected tIDENTIFIER, expecting ')'
+...dden_field :movement_type value => @movements.find_by(name: ...
+...                               ^):
+  app/views/usermovements/_form.html.erb:7: syntax error, unexpected tIDENTIFIER, expecting ')'
+  app/views/usermovements/new.html.erb:1:in `_app_views_usermovements_new_html_erb___3743811035343695113_70336444868480'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.7ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (62.3ms)
+
+
+Started GET "/usermovements/new" for ::1 at 2017-06-12 22:42:36 +1000
+Processing by UsermovementsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  Rendered usermovements/_form.html.erb (0.7ms)
+  Rendered usermovements/new.html.erb within layouts/application (5.4ms)
+Completed 500 Internal Server Error in 11ms
+
+SyntaxError (/Users/Annette/Dev/Rails/wodapp/app/views/usermovements/_form.html.erb:8: syntax error, unexpected '<', expecting keyword_end
+		<%= f.hidden_field :movement_type value => "move.movement_type" 
+		 ^):
+  app/views/usermovements/_form.html.erb:8: syntax error, unexpected '<', expecting keyword_end
+  app/views/usermovements/new.html.erb:1:in `_app_views_usermovements_new_html_erb___3743811035343695113_70336444868480'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (10.3ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (55.5ms)
+
+
+Started GET "/usermovements/new" for ::1 at 2017-06-12 22:42:58 +1000
+Processing by UsermovementsController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  Rendered usermovements/_form.html.erb (1.0ms)
+  Rendered usermovements/new.html.erb within layouts/application (3.3ms)
+Completed 500 Internal Server Error in 9ms
+
+SyntaxError (/Users/Annette/Dev/Rails/wodapp/app/views/usermovements/_form.html.erb:8: syntax error, unexpected '<', expecting keyword_end
+		<%= f.hidden_field :movement_t...
+		 ^
+/Users/Annette/Dev/Rails/wodapp/app/views/usermovements/_form.html.erb:8: syntax error, unexpected '>'
+/Users/Annette/Dev/Rails/wodapp/app/views/usermovements/_form.html.erb:18: unterminated string meets end of file
+/Users/Annette/Dev/Rails/wodapp/app/views/usermovements/_form.html.erb:18: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/views/usermovements/_form.html.erb:8: syntax error, unexpected '<', expecting keyword_end
+  app/views/usermovements/_form.html.erb:8: syntax error, unexpected '>'
+  app/views/usermovements/_form.html.erb:18: unterminated string meets end of file
+  app/views/usermovements/_form.html.erb:18: syntax error, unexpected end-of-input, expecting keyword_end
+  app/views/usermovements/new.html.erb:1:in `_app_views_usermovements_new_html_erb___3743811035343695113_70336444868480'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.5ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.3ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (56.3ms)
+
+
+Started GET "/usermovements/new" for ::1 at 2017-06-12 22:43:17 +1000
+Processing by UsermovementsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  Rendered usermovements/_form.html.erb (0.9ms)
+  Rendered usermovements/new.html.erb within layouts/application (3.0ms)
+Completed 500 Internal Server Error in 8ms
+
+SyntaxError (/Users/Annette/Dev/Rails/wodapp/app/views/usermovements/_form.html.erb:8: syntax error, unexpected tIDENTIFIER, expecting ')'
+...dden_field :movement_type value => "<%= move.movement_type )...
+...                               ^
+/Users/Annette/Dev/Rails/wodapp/app/views/usermovements/_form.html.erb:8: syntax error, unexpected '>'
+/Users/Annette/Dev/Rails/wodapp/app/views/usermovements/_form.html.erb:18: unterminated string meets end of file
+/Users/Annette/Dev/Rails/wodapp/app/views/usermovements/_form.html.erb:18: syntax error, unexpected end-of-input, expecting ')'):
+  app/views/usermovements/_form.html.erb:8: syntax error, unexpected tIDENTIFIER, expecting ')'
+  app/views/usermovements/_form.html.erb:8: syntax error, unexpected '>'
+  app/views/usermovements/_form.html.erb:18: unterminated string meets end of file
+  app/views/usermovements/_form.html.erb:18: syntax error, unexpected end-of-input, expecting ')'
+  app/views/usermovements/new.html.erb:1:in `_app_views_usermovements_new_html_erb___3743811035343695113_70336444868480'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (57.4ms)
+
+
+Started GET "/usermovements/new" for ::1 at 2017-06-12 22:43:28 +1000
+Processing by UsermovementsController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  Rendered usermovements/_form.html.erb (0.9ms)
+  Rendered usermovements/new.html.erb within layouts/application (2.9ms)
+Completed 500 Internal Server Error in 8ms
+
+SyntaxError (/Users/Annette/Dev/Rails/wodapp/app/views/usermovements/_form.html.erb:8: syntax error, unexpected tIDENTIFIER, expecting ')'
+...dden_field :movement_type value => "move.movement_type" );@o...
+...                               ^):
+  app/views/usermovements/_form.html.erb:8: syntax error, unexpected tIDENTIFIER, expecting ')'
+  app/views/usermovements/new.html.erb:1:in `_app_views_usermovements_new_html_erb___3743811035343695113_70336444868480'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.3ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (54.7ms)
+
+
+Started GET "/usermovements/new" for ::1 at 2017-06-12 22:43:58 +1000
+Processing by UsermovementsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  Rendered usermovements/_form.html.erb (0.7ms)
+  Rendered usermovements/new.html.erb within layouts/application (3.0ms)
+Completed 500 Internal Server Error in 9ms
+
+SyntaxError (/Users/Annette/Dev/Rails/wodapp/app/views/usermovements/_form.html.erb:8: syntax error, unexpected tIDENTIFIER, expecting ')'
+...dden_field :movement_type value => "move[movement_type]" );@...
+...                               ^):
+  app/views/usermovements/_form.html.erb:8: syntax error, unexpected tIDENTIFIER, expecting ')'
+  app/views/usermovements/new.html.erb:1:in `_app_views_usermovements_new_html_erb___3743811035343695113_70336444868480'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.6ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.5ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (50.3ms)
+
+
+Started GET "/usermovements/new" for ::1 at 2017-06-12 22:44:26 +1000
+Processing by UsermovementsController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  Rendered usermovements/_form.html.erb (0.9ms)
+  Rendered usermovements/new.html.erb within layouts/application (4.4ms)
+Completed 500 Internal Server Error in 10ms
+
+SyntaxError (/Users/Annette/Dev/Rails/wodapp/app/views/usermovements/_form.html.erb:8: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+		 f.hidden_field :movement_type value => "move.movement_type" 
+		                                    ^):
+  app/views/usermovements/_form.html.erb:8: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/views/usermovements/new.html.erb:1:in `_app_views_usermovements_new_html_erb___3743811035343695113_70336444868480'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.5ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (59.6ms)
+
+
+Started GET "/usermovements/new" for ::1 at 2017-06-12 22:45:17 +1000
+Processing by UsermovementsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  Rendered usermovements/_form.html.erb (1.1ms)
+  Rendered usermovements/new.html.erb within layouts/application (3.5ms)
+Completed 500 Internal Server Error in 10ms
+
+SyntaxError (/Users/Annette/Dev/Rails/wodapp/app/views/usermovements/_form.html.erb:8: syntax error, unexpected ':', expecting keyword_end
+		 f.hidden_field :movement_type :value => "move.movement_type" 
+		                                ^):
+  app/views/usermovements/_form.html.erb:8: syntax error, unexpected ':', expecting keyword_end
+  app/views/usermovements/new.html.erb:1:in `_app_views_usermovements_new_html_erb___3743811035343695113_70336444868480'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (58.7ms)
+
+
+Started GET "/usermovements/new" for ::1 at 2017-06-12 22:45:29 +1000
+Processing by UsermovementsController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  Rendered usermovements/_form.html.erb (0.7ms)
+  Rendered usermovements/new.html.erb within layouts/application (2.8ms)
+Completed 500 Internal Server Error in 8ms
+
+SyntaxError (/Users/Annette/Dev/Rails/wodapp/app/views/usermovements/_form.html.erb:8: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+		 f.hidden_field :movement_type value: "move.movement_type" 
+		                                    ^):
+  app/views/usermovements/_form.html.erb:8: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  app/views/usermovements/new.html.erb:1:in `_app_views_usermovements_new_html_erb___3743811035343695113_70336444868480'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (64.7ms)
+
+
+Started GET "/usermovements/new" for ::1 at 2017-06-12 22:45:56 +1000
+Processing by UsermovementsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mMovement Load (0.3ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT  "movements".* FROM "movements" WHERE "movements"."name" IS NULL LIMIT 1[0m
+  Rendered usermovements/_form.html.erb (10.0ms)
+  Rendered usermovements/new.html.erb within layouts/application (11.8ms)
+Completed 200 OK in 19ms (Views: 16.3ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/usermovements" for ::1 at 2017-06-12 22:46:09 +1000
+Processing by UsermovementsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MNE4ZVEoxhHnKks08lD/VNdJ49QVwUlSYFJ/OjJdv9FHV+4u20KdBhbSg5vGI8D3fdkT0N1knPE9+sY9G2NSMg==", "usermovement"=>{"name"=>"Dead Lift", "date(1i)"=>"2017", "date(2i)"=>"6", "date(3i)"=>"12", "result"=>"170", "pr"=>"1"}, "commit"=>"Create Usermovement"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "usermovements" ("name", "result", "pr", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Dead Lift"], ["result", 170.0], ["pr", "t"], ["date", "2017-06-12"], ["created_at", "2017-06-12 12:46:09.881193"], ["updated_at", "2017-06-12 12:46:09.881193"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/usermovements/3
+Completed 302 Found in 8ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/usermovements/3" for ::1 at 2017-06-12 22:46:09 +1000
+Processing by UsermovementsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUsermovement Load (0.1ms)[0m  SELECT  "usermovements".* FROM "usermovements" WHERE "usermovements"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT  "movements".* FROM "movements" WHERE "movements"."name" = ? LIMIT 1[0m  [["name", "Dead Lift"]]
+  Rendered usermovements/_show.html.erb (0.1ms)
+  Rendered usermovements/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 8ms (Views: 7.1ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/usermovements" for ::1 at 2017-06-12 22:47:59 +1000
+Processing by UsermovementsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MNE4ZVEoxhHnKks08lD/VNdJ49QVwUlSYFJ/OjJdv9FHV+4u20KdBhbSg5vGI8D3fdkT0N1knPE9+sY9G2NSMg==", "usermovement"=>{"name"=>"Clean & Jerk", "date(1i)"=>"2017", "date(2i)"=>"6", "date(3i)"=>"12", "result"=>"70", "pr"=>"0"}, "commit"=>"Create Usermovement"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "usermovements" ("name", "result", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Clean & Jerk"], ["result", 70.0], ["date", "2017-06-12"], ["created_at", "2017-06-12 12:47:59.190259"], ["updated_at", "2017-06-12 12:47:59.190259"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/usermovements/4
+Completed 302 Found in 7ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/usermovements/4" for ::1 at 2017-06-12 22:47:59 +1000
+Processing by UsermovementsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mUsermovement Load (0.1ms)[0m  SELECT  "usermovements".* FROM "usermovements" WHERE "usermovements"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT  "movements".* FROM "movements" WHERE "movements"."name" = ? LIMIT 1[0m  [["name", "Clean & Jerk"]]
+  Rendered usermovements/_show.html.erb (0.2ms)
+  Rendered usermovements/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/usermovements/new" for ::1 at 2017-06-12 22:48:24 +1000
+Processing by UsermovementsController#new as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  Rendered usermovements/_form.html.erb (0.8ms)
+  Rendered usermovements/new.html.erb within layouts/application (3.9ms)
+Completed 500 Internal Server Error in 10ms
+
+SyntaxError (/Users/Annette/Dev/Rails/wodapp/app/views/usermovements/_form.html.erb:8: syntax error, unexpected '>'
+/Users/Annette/Dev/Rails/wodapp/app/views/usermovements/_form.html.erb:18: unterminated string meets end of file
+/Users/Annette/Dev/Rails/wodapp/app/views/usermovements/_form.html.erb:18: syntax error, unexpected end-of-input, expecting ')'):
+  app/views/usermovements/_form.html.erb:8: syntax error, unexpected '>'
+  app/views/usermovements/_form.html.erb:18: unterminated string meets end of file
+  app/views/usermovements/_form.html.erb:18: syntax error, unexpected end-of-input, expecting ')'
+  app/views/usermovements/new.html.erb:1:in `_app_views_usermovements_new_html_erb___3743811035343695113_70336444868480'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.5ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (58.4ms)
+
+
+Started GET "/usermovements/new" for ::1 at 2017-06-12 22:48:46 +1000
+Processing by UsermovementsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT  "movements".* FROM "movements" WHERE "movements"."name" IS NULL LIMIT 1[0m
+  Rendered usermovements/_form.html.erb (5.6ms)
+  Rendered usermovements/new.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 14ms (Views: 11.9ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/usermovements" for ::1 at 2017-06-12 22:48:55 +1000
+Processing by UsermovementsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vx5BzCJmxBw7RFVYNU9M1ns73sLdyrPWWdmjT4Xsk5HImJeHqAyfC8q8nfcBPHN10asuxhVvZnUEcRpIrNJ+cg==", "usermovement"=>{"name"=>"Push Jerk", "movement_type"=>"move.movement_type", "date(1i)"=>"2017", "date(2i)"=>"6", "date(3i)"=>"12", "result"=>"35", "pr"=>"1"}, "commit"=>"Create Usermovement"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Unpermitted parameter: movement_type
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "usermovements" ("name", "result", "pr", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Push Jerk"], ["result", 35.0], ["pr", "t"], ["date", "2017-06-12"], ["created_at", "2017-06-12 12:48:55.296733"], ["updated_at", "2017-06-12 12:48:55.296733"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/usermovements/5
+Completed 302 Found in 5ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/usermovements/5" for ::1 at 2017-06-12 22:48:55 +1000
+Processing by UsermovementsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mUsermovement Load (0.1ms)[0m  SELECT  "usermovements".* FROM "usermovements" WHERE "usermovements"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT  "movements".* FROM "movements" WHERE "movements"."name" = ? LIMIT 1[0m  [["name", "Push Jerk"]]
+  Rendered usermovements/_show.html.erb (0.2ms)
+  Rendered usermovements/show.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 8ms (Views: 7.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/usermovements/new" for ::1 at 2017-06-12 22:49:18 +1000
+Processing by UsermovementsController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mMovement Load (0.3ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mMovement Load (0.2ms)[0m  SELECT  "movements".* FROM "movements" WHERE "movements"."name" IS NULL LIMIT 1
+  Rendered usermovements/_form.html.erb (12.8ms)
+  Rendered usermovements/new.html.erb within layouts/application (15.7ms)
+Completed 200 OK in 21ms (Views: 19.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/usermovements/new" for ::1 at 2017-06-12 22:49:36 +1000
+Processing by UsermovementsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  Rendered usermovements/_form.html.erb (0.9ms)
+  Rendered usermovements/new.html.erb within layouts/application (3.5ms)
+Completed 500 Internal Server Error in 10ms
+
+SyntaxError (/Users/Annette/Dev/Rails/wodapp/app/views/usermovements/_form.html.erb:8: syntax error, unexpected '>'
+/Users/Annette/Dev/Rails/wodapp/app/views/usermovements/_form.html.erb:18: unterminated string meets end of file
+/Users/Annette/Dev/Rails/wodapp/app/views/usermovements/_form.html.erb:18: syntax error, unexpected end-of-input, expecting ')'):
+  app/views/usermovements/_form.html.erb:8: syntax error, unexpected '>'
+  app/views/usermovements/_form.html.erb:18: unterminated string meets end of file
+  app/views/usermovements/_form.html.erb:18: syntax error, unexpected end-of-input, expecting ')'
+  app/views/usermovements/new.html.erb:1:in `_app_views_usermovements_new_html_erb___3743811035343695113_70336444868480'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (60.5ms)
+
+
+Started GET "/usermovements/new" for ::1 at 2017-06-12 22:57:41 +1000
+Processing by UsermovementsController#new as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mMovement Load (0.2ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  [1m[35mMovement Load (0.1ms)[0m  SELECT  "movements".* FROM "movements" WHERE "movements"."name" IS NULL LIMIT 1
+  Rendered usermovements/_form.html.erb (6.8ms)
+  Rendered usermovements/new.html.erb within layouts/application (8.7ms)
+Completed 500 Internal Server Error in 15ms
+
+ActionView::Template::Error (undefined method `movement_type' for nil:NilClass):
+     6: 		<%= f.select :name, names, :prompt => "Select One" %><br>
+     7: 		<% move = @movements.find_by(name: @usermovement.name) %>
+     8: 		<%= f.label :movement_type %>
+     9: 		<%= f.movement_type_field move.movement_type %>
+    10: 		<%= f.label :date %>
+    11: 		<%= date_select :usermovement, :date %><br>
+    12: 		<%= f.label :result %>
+  app/views/usermovements/_form.html.erb:9:in `block in _app_views_usermovements__form_html_erb__3874978381250900904_70336461281060'
+  app/views/usermovements/_form.html.erb:3:in `_app_views_usermovements__form_html_erb__3874978381250900904_70336461281060'
+  app/views/usermovements/new.html.erb:1:in `_app_views_usermovements_new_html_erb___3743811035343695113_70336444868480'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.5ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.5ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (53.7ms)
+
+
+Started GET "/usermovements/new" for ::1 at 2017-06-12 22:58:27 +1000
+Processing by UsermovementsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements"
+  [1m[36mMovement Load (0.2ms)[0m  [1mSELECT  "movements".* FROM "movements" WHERE "movements"."name" IS NULL LIMIT 1[0m
+  Rendered usermovements/_form.html.erb (7.4ms)
+  Rendered usermovements/new.html.erb within layouts/application (9.8ms)
+Completed 500 Internal Server Error in 16ms
+
+ActionView::Template::Error (undefined method `movement_type' for nil:NilClass):
+     6: 		<%= f.select :name, names, :prompt => "Select One" %><br>
+     7: 		<%= f.label :movement_type %>
+     8: 		<% move = @movements.find_by(name: @usermovement.name) %>
+     9: 		<%= f.movement_type_field move.movement_type %>
+    10: 		<%= f.label :date %>
+    11: 		<%= date_select :usermovement, :date %><br>
+    12: 		<%= f.label :result %>
+  app/views/usermovements/_form.html.erb:9:in `block in _app_views_usermovements__form_html_erb__3874978381250900904_70336467607160'
+  app/views/usermovements/_form.html.erb:3:in `_app_views_usermovements__form_html_erb__3874978381250900904_70336467607160'
+  app/views/usermovements/new.html.erb:1:in `_app_views_usermovements_new_html_erb___3743811035343695113_70336444868480'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.3ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (57.9ms)
+
+
+Started GET "/usermovements/new" for ::1 at 2017-06-12 23:05:33 +1000
+Processing by UsermovementsController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mMovement Load (0.2ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  Rendered usermovements/_form.html.erb (11.2ms)
+  Rendered usermovements/new.html.erb within layouts/application (13.0ms)
+Completed 500 Internal Server Error in 38ms
+
+ActionView::Template::Error (undefined method `model_name' for #<Enumerator:0x007ff0f832b928>):
+     5: 		<% names = @movements.map {|move| [move.name]} %>
+     6: 		<%= f.select :name, names, :prompt => "Select One" %><br>
+     7: 		<%= f.label :movement_type %>
+     8: 		<%= f.fields_for @movements.each do |move| %>
+     9: 		<%= move.movement_type if move.name == @usermovement.name %>
+    10: 			<%= move.text_field :movement_type, placeholder: "move.movement_type" %>
+    11: 		<% end %>
+  app/views/usermovements/_form.html.erb:8:in `block in _app_views_usermovements__form_html_erb__3874978381250900904_70336463116440'
+  app/views/usermovements/_form.html.erb:3:in `_app_views_usermovements__form_html_erb__3874978381250900904_70336463116440'
+  app/views/usermovements/new.html.erb:1:in `_app_views_usermovements_new_html_erb___3743811035343695113_70336444868480'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (53.0ms)
+
+
+Started GET "/usermovements/new" for ::1 at 2017-06-12 23:06:30 +1000
+Processing by UsermovementsController#new as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mMovement Load (0.2ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  Rendered usermovements/_form.html.erb (8.7ms)
+  Rendered usermovements/new.html.erb within layouts/application (11.2ms)
+Completed 500 Internal Server Error in 17ms
+
+ActionView::Template::Error (undefined method `model_name' for #<Enumerator:0x007ff0f86ecb20>):
+     5: 		<% names = @movements.map {|move| [move.name]} %>
+     6: 		<%= f.select :name, names, :prompt => "Select One" %><br>
+     7: 		<%= f.label :movement_type %>
+     8: 		<%= f.fields_for @movements.each do |move| %>
+     9: 		<%= move.movement_type if move.name == @usermovement.name %>
+    10: 			<%= move.movement_type.text_field :movement_type, placeholder: "move.movement_type" %>
+    11: 		<% end %>
+  app/views/usermovements/_form.html.erb:8:in `block in _app_views_usermovements__form_html_erb__3874978381250900904_70336464325320'
+  app/views/usermovements/_form.html.erb:3:in `_app_views_usermovements__form_html_erb__3874978381250900904_70336464325320'
+  app/views/usermovements/new.html.erb:1:in `_app_views_usermovements_new_html_erb___3743811035343695113_70336444868480'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (55.2ms)
+
+
+Started GET "/usermovements/new" for ::1 at 2017-06-12 23:06:43 +1000
+Processing by UsermovementsController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mMovement Load (0.2ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  Rendered usermovements/_form.html.erb (9.6ms)
+  Rendered usermovements/new.html.erb within layouts/application (12.3ms)
+Completed 500 Internal Server Error in 18ms
+
+ActionView::Template::Error (undefined method `model_name' for #<Enumerator:0x007ff0fab0fa98>):
+     5: 		<% names = @movements.map {|move| [move.name]} %>
+     6: 		<%= f.select :name, names, :prompt => "Select One" %><br>
+     7: 		<%= f.label :movement_type %>
+     8: 		<%= f.fields_for @movements.map do |move| %>
+     9: 		<%= move.movement_type if move.name == @usermovement.name %>
+    10: 			<%= move.movement_type.text_field :movement_type, placeholder: "move.movement_type" %>
+    11: 		<% end %>
+  app/views/usermovements/_form.html.erb:8:in `block in _app_views_usermovements__form_html_erb__3874978381250900904_70336487547700'
+  app/views/usermovements/_form.html.erb:3:in `_app_views_usermovements__form_html_erb__3874978381250900904_70336487547700'
+  app/views/usermovements/new.html.erb:1:in `_app_views_usermovements_new_html_erb___3743811035343695113_70336444868480'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.6ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (57.9ms)
+
+
+Started GET "/usermovements/new" for ::1 at 2017-06-12 23:08:14 +1000
+Processing by UsermovementsController#new as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  Rendered usermovements/_form.html.erb (1.2ms)
+  Rendered usermovements/new.html.erb within layouts/application (4.7ms)
+Completed 500 Internal Server Error in 11ms
+
+SyntaxError (/Users/Annette/Dev/Rails/wodapp/app/views/usermovements/_form.html.erb:9: syntax error, unexpected tIDENTIFIER, expecting ')'
+...ield :movement_type placeholder: "move" );@output_buffer.saf...
+...                               ^):
+  app/views/usermovements/_form.html.erb:9: syntax error, unexpected tIDENTIFIER, expecting ')'
+  app/views/usermovements/new.html.erb:1:in `_app_views_usermovements_new_html_erb___3743811035343695113_70336444868480'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.6ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (59.9ms)
+
+
+Started GET "/usermovements/new" for ::1 at 2017-06-12 23:08:49 +1000
+Processing by UsermovementsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  Rendered usermovements/_form.html.erb (0.9ms)
+  Rendered usermovements/new.html.erb within layouts/application (2.8ms)
+Completed 500 Internal Server Error in 8ms
+
+SyntaxError (/Users/Annette/Dev/Rails/wodapp/app/views/usermovements/_form.html.erb:9: syntax error, unexpected tIDENTIFIER, expecting ')'
+...ield :movement_type placeholder: "move" );@output_buffer.saf...
+...                               ^):
+  app/views/usermovements/_form.html.erb:9: syntax error, unexpected tIDENTIFIER, expecting ')'
+  app/views/usermovements/new.html.erb:1:in `_app_views_usermovements_new_html_erb___3743811035343695113_70336444868480'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (55.2ms)
+
+
+Started GET "/usermovements/new" for ::1 at 2017-06-12 23:10:07 +1000
+Processing by UsermovementsController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mMovement Load (0.2ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  Rendered usermovements/_form.html.erb (6.3ms)
+  Rendered usermovements/new.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 17ms (Views: 15.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/usermovements/new" for ::1 at 2017-06-12 23:10:27 +1000
+Processing by UsermovementsController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  Rendered usermovements/_form.html.erb (1.8ms)
+  Rendered usermovements/new.html.erb within layouts/application (5.0ms)
+Completed 500 Internal Server Error in 11ms
+
+SyntaxError (/Users/Annette/Dev/Rails/wodapp/app/views/usermovements/_form.html.erb:9: syntax error, unexpected '>'
+/Users/Annette/Dev/Rails/wodapp/app/views/usermovements/_form.html.erb:19: unterminated string meets end of file
+/Users/Annette/Dev/Rails/wodapp/app/views/usermovements/_form.html.erb:19: syntax error, unexpected end-of-input, expecting ')'):
+  app/views/usermovements/_form.html.erb:9: syntax error, unexpected '>'
+  app/views/usermovements/_form.html.erb:19: unterminated string meets end of file
+  app/views/usermovements/_form.html.erb:19: syntax error, unexpected end-of-input, expecting ')'
+  app/views/usermovements/new.html.erb:1:in `_app_views_usermovements_new_html_erb___3743811035343695113_70336444868480'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.3ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (52.3ms)
+
+
+Started GET "/usermovements/new" for ::1 at 2017-06-12 23:11:00 +1000
+Processing by UsermovementsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered usermovements/_form.html.erb (7.1ms)
+  Rendered usermovements/new.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 14ms (Views: 12.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/usermovements/new" for ::1 at 2017-06-12 23:11:13 +1000
+Processing by UsermovementsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered usermovements/_form.html.erb (6.7ms)
+  Rendered usermovements/new.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 14ms (Views: 12.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/usermovements/new" for ::1 at 2017-06-12 23:11:27 +1000
+Processing by UsermovementsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mMovement Load (0.3ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered usermovements/_form.html.erb (5.5ms)
+  Rendered usermovements/new.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 15ms (Views: 13.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/usermovements/new" for ::1 at 2017-06-12 23:11:38 +1000
+Processing by UsermovementsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered usermovements/_form.html.erb (7.3ms)
+  Rendered usermovements/new.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 17ms (Views: 14.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/usermovements/new" for ::1 at 2017-06-12 23:11:51 +1000
+Processing by UsermovementsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered usermovements/_form.html.erb (9.4ms)
+  Rendered usermovements/new.html.erb within layouts/application (11.5ms)
+Completed 500 Internal Server Error in 18ms
+
+ActionView::Template::Error (undefined method `movement_type' for #<Array:0x007ff0f7c8b1b8>):
+     6: 		<%= f.select :name, names, :prompt => "Select One" %><br>
+     7: 		<%= f.label :movement_type %>
+     8: 		<% move = @movements.each {|move| move.movement_type if move.name == @usermovement.name} %>
+     9: 		<%= f.text_field :movement_type, placeholder: "#{move.movement_type}" %>
+    10: 		<%= f.label :date %>
+    11: 		<%= date_select :usermovement, :date %><br>
+    12: 		<%= f.label :result %>
+  app/views/usermovements/_form.html.erb:9:in `block in _app_views_usermovements__form_html_erb__3874978381250900904_70336466353240'
+  app/views/usermovements/_form.html.erb:3:in `_app_views_usermovements__form_html_erb__3874978381250900904_70336466353240'
+  app/views/usermovements/new.html.erb:1:in `_app_views_usermovements_new_html_erb___3743811035343695113_70336444868480'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.8ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (61.4ms)
+
+
+Started GET "/usermovements/new" for ::1 at 2017-06-12 23:12:08 +1000
+Processing by UsermovementsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mMovement Load (0.3ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered usermovements/_form.html.erb (11.4ms)
+  Rendered usermovements/new.html.erb within layouts/application (14.1ms)
+Completed 500 Internal Server Error in 20ms
+
+ActionView::Template::Error (undefined method `movement_type' for #<Array:0x007ff0fb0bd2b0>):
+     6: 		<%= f.select :name, names, :prompt => "Select One" %><br>
+     7: 		<%= f.label :movement_type %>
+     8: 		<% move = @movements.each {|move| move.name == @usermovement.name} %>
+     9: 		<%= f.text_field :movement_type, placeholder: "#{move.movement_type}" %>
+    10: 		<%= f.label :date %>
+    11: 		<%= date_select :usermovement, :date %><br>
+    12: 		<%= f.label :result %>
+  app/views/usermovements/_form.html.erb:9:in `block in _app_views_usermovements__form_html_erb__3874978381250900904_70336491172240'
+  app/views/usermovements/_form.html.erb:3:in `_app_views_usermovements__form_html_erb__3874978381250900904_70336491172240'
+  app/views/usermovements/new.html.erb:1:in `_app_views_usermovements_new_html_erb___3743811035343695113_70336444868480'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (56.9ms)
+
+
+Started GET "/usermovements/new" for ::1 at 2017-06-12 23:12:27 +1000
+Processing by UsermovementsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered usermovements/_form.html.erb (8.4ms)
+  Rendered usermovements/new.html.erb within layouts/application (10.6ms)
+Completed 500 Internal Server Error in 17ms
+
+ActionView::Template::Error (undefined method `movement_type' for #<Array:0x007ff0f7d71078>):
+     6: 		<%= f.select :name, names, :prompt => "Select One" %><br>
+     7: 		<%= f.label :movement_type %>
+     8: 		<% move = @movements.each {|move| move.movement_type if move.name == @usermovement.name} %>
+     9: 		<%= f.text_field :movement_type, placeholder: "#{move.movement_type}" %>
+    10: 		<%= f.label :date %>
+    11: 		<%= date_select :usermovement, :date %><br>
+    12: 		<%= f.label :result %>
+  app/views/usermovements/_form.html.erb:9:in `block in _app_views_usermovements__form_html_erb__3874978381250900904_70336486100940'
+  app/views/usermovements/_form.html.erb:3:in `_app_views_usermovements__form_html_erb__3874978381250900904_70336486100940'
+  app/views/usermovements/new.html.erb:1:in `_app_views_usermovements_new_html_erb___3743811035343695113_70336444868480'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (51.3ms)
+
+
+Started GET "/usermovements/new" for ::1 at 2017-06-12 23:12:36 +1000
+Processing by UsermovementsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered usermovements/_form.html.erb (6.9ms)
+  Rendered usermovements/new.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 14ms (Views: 12.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/usermovements/new" for ::1 at 2017-06-12 23:12:47 +1000
+Processing by UsermovementsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered usermovements/_form.html.erb (6.1ms)
+  Rendered usermovements/new.html.erb within layouts/application (8.1ms)
+Completed 500 Internal Server Error in 16ms
+
+ActionView::Template::Error (undefined method `movement_type' for nil:NilClass):
+     6: 		<%= f.select :name, names, :prompt => "Select One" %><br>
+     7: 		<%= f.label :movement_type %>
+     8: 		<% move = @movements.detect {|move| move.movement_type if move.name == @usermovement.name} %>
+     9: 		<%= f.text_field :movement_type, placeholder: "#{move.movement_type}" %>
+    10: 		<%= f.label :date %>
+    11: 		<%= date_select :usermovement, :date %><br>
+    12: 		<%= f.label :result %>
+  app/views/usermovements/_form.html.erb:9:in `block in _app_views_usermovements__form_html_erb__3874978381250900904_70336468048000'
+  app/views/usermovements/_form.html.erb:3:in `_app_views_usermovements__form_html_erb__3874978381250900904_70336468048000'
+  app/views/usermovements/new.html.erb:1:in `_app_views_usermovements_new_html_erb___3743811035343695113_70336444868480'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (50.5ms)
+
+
+Started GET "/usermovements/new" for ::1 at 2017-06-12 23:13:05 +1000
+Processing by UsermovementsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered usermovements/_form.html.erb (5.2ms)
+  Rendered usermovements/new.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 14ms (Views: 12.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/usermovements/new" for ::1 at 2017-06-12 23:13:12 +1000
+Processing by UsermovementsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered usermovements/_form.html.erb (4.7ms)
+  Rendered usermovements/new.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 12ms (Views: 10.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/usermovements/new" for ::1 at 2017-06-12 23:13:19 +1000
+Processing by UsermovementsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mMovement Load (0.3ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered usermovements/_form.html.erb (6.3ms)
+  Rendered usermovements/new.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 14ms (Views: 12.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/usermovements/new" for ::1 at 2017-06-12 23:13:28 +1000
+Processing by UsermovementsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered usermovements/_form.html.erb (7.2ms)
+  Rendered usermovements/new.html.erb within layouts/application (10.9ms)
+Completed 500 Internal Server Error in 17ms
+
+ActionView::Template::Error (undefined method `movement_type' for nil:NilClass):
+     6: 		<%= f.select :name, names, :prompt => "Select One" %><br>
+     7: 		<%= f.label :movement_type %>
+     8: 		<% move = @movements.find {|move| move.movement_type if move.name == @usermovement.name} %>
+     9: 		<%= f.text_field :movement_type, placeholder: "#{move.movement_type}" %>
+    10: 		<%= f.label :date %>
+    11: 		<%= date_select :usermovement, :date %><br>
+    12: 		<%= f.label :result %>
+  app/views/usermovements/_form.html.erb:9:in `block in _app_views_usermovements__form_html_erb__3874978381250900904_70336486033120'
+  app/views/usermovements/_form.html.erb:3:in `_app_views_usermovements__form_html_erb__3874978381250900904_70336486033120'
+  app/views/usermovements/new.html.erb:1:in `_app_views_usermovements_new_html_erb___3743811035343695113_70336444868480'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (56.5ms)
+
+
+Started GET "/usermovements/new" for ::1 at 2017-06-12 23:13:36 +1000
+Processing by UsermovementsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered usermovements/_form.html.erb (10.2ms)
+  Rendered usermovements/new.html.erb within layouts/application (12.5ms)
+Completed 500 Internal Server Error in 22ms
+
+ActionView::Template::Error (undefined method `movement_type' for #<Array:0x007ff0fb13daf0>):
+     6: 		<%= f.select :name, names, :prompt => "Select One" %><br>
+     7: 		<%= f.label :movement_type %>
+     8: 		<% move = @movements.each {|move| move.movement_type if move.name == @usermovement.name} %>
+     9: 		<%= f.text_field :movement_type, placeholder: "#{move.movement_type}" %>
+    10: 		<%= f.label :date %>
+    11: 		<%= date_select :usermovement, :date %><br>
+    12: 		<%= f.label :result %>
+  app/views/usermovements/_form.html.erb:9:in `block in _app_views_usermovements__form_html_erb__3874978381250900904_70336488472240'
+  app/views/usermovements/_form.html.erb:3:in `_app_views_usermovements__form_html_erb__3874978381250900904_70336488472240'
+  app/views/usermovements/new.html.erb:1:in `_app_views_usermovements_new_html_erb___3743811035343695113_70336444868480'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.5ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (56.4ms)
+
+
+Started GET "/usermovements/new" for ::1 at 2017-06-12 23:13:52 +1000
+Processing by UsermovementsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered usermovements/_form.html.erb (6.1ms)
+  Rendered usermovements/new.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 15ms (Views: 13.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/usermovements/new" for ::1 at 2017-06-12 23:14:03 +1000
+Processing by UsermovementsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered usermovements/_form.html.erb (6.1ms)
+  Rendered usermovements/new.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 14ms (Views: 12.5ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/usermovements" for ::1 at 2017-06-12 23:14:45 +1000
+Processing by UsermovementsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yKR26FufsvACdbhF1vMb1kgLW+JYT9jNek2ZFW+5UVq/IqCj0fXp5/ONcOrigCR14pur5pDqDW4n5SASRoe8uQ==", "usermovement"=>{"name"=>"Clean & Jerk", "movement_type"=>"", "date(1i)"=>"2017", "date(2i)"=>"6", "date(3i)"=>"12", "result"=>"45", "pr"=>"1"}, "commit"=>"Create Usermovement"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Unpermitted parameter: movement_type
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "usermovements" ("name", "result", "pr", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Clean & Jerk"], ["result", 45.0], ["pr", "t"], ["date", "2017-06-12"], ["created_at", "2017-06-12 13:14:45.247978"], ["updated_at", "2017-06-12 13:14:45.247978"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+Redirected to http://localhost:3000/usermovements/6
+Completed 302 Found in 7ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/usermovements/6" for ::1 at 2017-06-12 23:14:45 +1000
+Processing by UsermovementsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUsermovement Load (0.2ms)[0m  [1mSELECT  "usermovements".* FROM "usermovements" WHERE "usermovements"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mMovement Load (0.1ms)[0m  SELECT  "movements".* FROM "movements" WHERE "movements"."name" = ? LIMIT 1  [["name", "Clean & Jerk"]]
+  Rendered usermovements/_show.html.erb (0.2ms)
+  Rendered usermovements/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 8ms (Views: 6.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/usermovements/new" for ::1 at 2017-06-12 23:15:10 +1000
+Processing by UsermovementsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements"
+  Rendered usermovements/_form.html.erb (5.2ms)
+  Rendered usermovements/new.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 16ms (Views: 14.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/usermovements" for ::1 at 2017-06-12 23:16:47 +1000
+Processing by UsermovementsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dBU5do91PoUagUA3gdMAgwBmP9CBmvliUXdAjbtBur0Dk+89BR9lkut5iJi1oD8gqvbP1Ek/LMEM3/mKkn9XXg==", "usermovement"=>{"name"=>"Dead Lift", "date(1i)"=>"2017", "date(2i)"=>"6", "date(3i)"=>"11", "result"=>"180", "pr"=>"1"}, "commit"=>"Create Usermovement"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "usermovements" ("name", "result", "pr", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Dead Lift"], ["result", 180.0], ["pr", "t"], ["date", "2017-06-11"], ["created_at", "2017-06-12 13:16:47.597535"], ["updated_at", "2017-06-12 13:16:47.597535"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT  "movements".* FROM "movements" WHERE "movements"."name" = ? LIMIT 1[0m  [["name", "Dead Lift"]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "usermovements" SET "movement_type" = ?, "updated_at" = ? WHERE "usermovements"."id" = ?[0m  [["movement_type", "weight"], ["updated_at", "2017-06-12 13:16:47.608479"], ["id", 7]]
+  [1m[35m (0.7ms)[0m  commit transaction
+Redirected to http://localhost:3000/usermovements/7
+Completed 302 Found in 28ms (ActiveRecord: 3.5ms)
+
+
+Started GET "/usermovements/7" for ::1 at 2017-06-12 23:16:47 +1000
+Processing by UsermovementsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUsermovement Load (0.2ms)[0m  [1mSELECT  "usermovements".* FROM "usermovements" WHERE "usermovements"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mMovement Load (0.1ms)[0m  SELECT  "movements".* FROM "movements" WHERE "movements"."name" = ? LIMIT 1  [["name", "Dead Lift"]]
+  Rendered usermovements/_show.html.erb (0.2ms)
+  Rendered usermovements/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 11ms (Views: 9.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/usermovements" for ::1 at 2017-06-12 23:17:01 +1000
+Processing by UsermovementsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mUsermovement Load (0.2ms)[0m  SELECT "usermovements".* FROM "usermovements"
+  Rendered usermovements/_show.html.erb (0.2ms)
+  Rendered usermovements/_show.html.erb (0.1ms)
+  Rendered usermovements/_show.html.erb (0.3ms)
+  Rendered usermovements/_show.html.erb (0.1ms)
+  Rendered usermovements/_show.html.erb (0.1ms)
+  Rendered usermovements/_show.html.erb (0.1ms)
+  Rendered usermovements/_show.html.erb (0.1ms)
+  Rendered usermovements/index.html.erb within layouts/application (14.0ms)
+Completed 200 OK in 20ms (Views: 18.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/usermovements/7" for ::1 at 2017-06-12 23:17:50 +1000
+Processing by UsermovementsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUsermovement Load (0.3ms)[0m  [1mSELECT  "usermovements".* FROM "usermovements" WHERE "usermovements"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mMovement Load (0.2ms)[0m  SELECT  "movements".* FROM "movements" WHERE "movements"."name" = ? LIMIT 1  [["name", "Dead Lift"]]
+  Rendered usermovements/_show.html.erb (0.3ms)
+  Rendered usermovements/show.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 29ms (Views: 11.8ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/usermovements" for ::1 at 2017-06-12 23:17:56 +1000
+Processing by UsermovementsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mUsermovement Load (0.2ms)[0m  SELECT "usermovements".* FROM "usermovements"
+  Rendered usermovements/_show.html.erb (0.2ms)
+  Rendered usermovements/_show.html.erb (0.1ms)
+  Rendered usermovements/_show.html.erb (0.4ms)
+  Rendered usermovements/_show.html.erb (0.1ms)
+  Rendered usermovements/_show.html.erb (0.1ms)
+  Rendered usermovements/_show.html.erb (0.1ms)
+  Rendered usermovements/_show.html.erb (0.2ms)
+  Rendered usermovements/index.html.erb within layouts/application (13.9ms)
+Completed 200 OK in 25ms (Views: 19.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/usermovements/new" for ::1 at 2017-06-12 23:18:19 +1000
+Processing by UsermovementsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  Rendered usermovements/_form.html.erb (3.4ms)
+  Rendered usermovements/new.html.erb within layouts/application (4.7ms)
+Completed 500 Internal Server Error in 24ms
+
+ActionView::Template::Error (undefined method `map' for nil:NilClass
+Did you mean?  tap):
+    2: 
+    3: 	<%= form_for @usermovement do |f| %>
+    4: 		<%= f.label :name %>
+    5: 		<% names = @movements.map {|move| [move.name]} %>
+    6: 		<%= f.select :name, names, :prompt => "Select One" %><br>
+    7: 		<%= f.label :date %>
+    8: 		<%= date_select :usermovement, :date %><br>
+  app/views/usermovements/_form.html.erb:5:in `block in _app_views_usermovements__form_html_erb__3874978381250900904_70336466455140'
+  app/views/usermovements/_form.html.erb:3:in `_app_views_usermovements__form_html_erb__3874978381250900904_70336466455140'
+  app/views/usermovements/new.html.erb:1:in `_app_views_usermovements_new_html_erb___3743811035343695113_70336444868480'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.7ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (53.8ms)
+
+
+Started GET "/usermovements/new" for ::1 at 2017-06-12 23:18:25 +1000
+Processing by UsermovementsController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mMovement Load (0.2ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  Rendered usermovements/_form.html.erb (7.7ms)
+  Rendered usermovements/new.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 31ms (Views: 15.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/usermovements" for ::1 at 2017-06-12 23:18:34 +1000
+Processing by UsermovementsController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mUsermovement Load (0.3ms)[0m  [1mSELECT "usermovements".* FROM "usermovements"[0m
+  Rendered usermovements/_show.html.erb (0.1ms)
+  Rendered usermovements/_show.html.erb (0.1ms)
+  Rendered usermovements/_show.html.erb (0.1ms)
+  Rendered usermovements/_show.html.erb (0.1ms)
+  Rendered usermovements/_show.html.erb (0.1ms)
+  Rendered usermovements/_show.html.erb (0.1ms)
+  Rendered usermovements/_show.html.erb (0.3ms)
+  Rendered usermovements/index.html.erb within layouts/application (17.3ms)
+Completed 200 OK in 33ms (Views: 23.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/usermovements/1" for ::1 at 2017-06-12 23:18:41 +1000
+Processing by UsermovementsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUsermovement Load (0.3ms)[0m  SELECT  "usermovements".* FROM "usermovements" WHERE "usermovements"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mMovement Load (0.2ms)[0m  [1mSELECT  "movements".* FROM "movements" WHERE "movements"."name" = ? LIMIT 1[0m  [["name", "Dead Lift"]]
+  Rendered usermovements/_show.html.erb (0.1ms)
+  Rendered usermovements/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 16ms (Views: 6.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/usermovements/12" for ::1 at 2017-06-12 23:18:47 +1000
+Processing by UsermovementsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[35mUsermovement Load (0.1ms)[0m  SELECT  "usermovements".* FROM "usermovements" WHERE "usermovements"."id" = ? LIMIT 1  [["id", 12]]
+Completed 404 Not Found in 1ms
+
+ActiveRecord::RecordNotFound (Couldn't find Usermovement with 'id'=12):
+  app/controllers/usermovements_controller.rb:50:in `set_usermovement'
+  app/controllers/usermovements_controller.rb:29:in `show'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (52.2ms)
+
+
+Started GET "/usermovements/6" for ::1 at 2017-06-12 23:18:52 +1000
+Processing by UsermovementsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUsermovement Load (0.1ms)[0m  [1mSELECT  "usermovements".* FROM "usermovements" WHERE "usermovements"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mMovement Load (0.1ms)[0m  SELECT  "movements".* FROM "movements" WHERE "movements"."name" = ? LIMIT 1  [["name", "Clean & Jerk"]]
+  Rendered usermovements/_show.html.erb (0.2ms)
+  Rendered usermovements/show.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 10ms (Views: 8.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/usermovements/7" for ::1 at 2017-06-12 23:19:02 +1000
+Processing by UsermovementsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUsermovement Load (0.1ms)[0m  [1mSELECT  "usermovements".* FROM "usermovements" WHERE "usermovements"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mMovement Load (0.1ms)[0m  SELECT  "movements".* FROM "movements" WHERE "movements"."name" = ? LIMIT 1  [["name", "Dead Lift"]]
+  Rendered usermovements/_show.html.erb (0.1ms)
+  Rendered usermovements/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 8ms (Views: 6.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/usermovements" for ::1 at 2017-06-12 23:19:39 +1000
+Processing by UsermovementsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mUsermovement Load (0.1ms)[0m  SELECT "usermovements".* FROM "usermovements"
+  Rendered usermovements/_show.html.erb (0.1ms)
+  Rendered usermovements/_show.html.erb (0.1ms)
+  Rendered usermovements/_show.html.erb (0.1ms)
+  Rendered usermovements/_show.html.erb (0.1ms)
+  Rendered usermovements/_show.html.erb (0.1ms)
+  Rendered usermovements/_show.html.erb (0.1ms)
+  Rendered usermovements/_show.html.erb (0.2ms)
+  Rendered usermovements/index.html.erb within layouts/application (13.7ms)
+Completed 200 OK in 19ms (Views: 17.6ms | ActiveRecord: 0.3ms)

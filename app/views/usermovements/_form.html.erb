@@ -2,7 +2,7 @@
 
 	<%= form_for @usermovement do |f| %>
 		<%= f.label :name %>
-		<% names = Movement.all.map {|move| [move.name]} %>
+		<% names = @movements.map {|move| [move.name]} %>
 		<%= f.select :name, names, :prompt => "Select One" %><br>
 		<%= f.label :date %>
 		<%= date_select :usermovement, :date %><br>
@@ -12,4 +12,4 @@
 		<%= f.check_box :pr %><br>
 		<%= f.submit %>	
 	<% end %>	
-	
+		

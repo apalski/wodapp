@@ -3,12 +3,11 @@ class UsermovementsController < ApplicationController
 	def index
 		@usermovements = Usermovement.all
 		@user = current_user
-		@movements = Movement.all
 	end
 
 	def new
 		@usermovement = Usermovement.new
-		@usermoves = Usermovement.all
+		@movements = Movement.all
 		@user = current_user
 	end
 
@@ -16,6 +15,9 @@ class UsermovementsController < ApplicationController
 		@user = current_user
 		@usermovement = Usermovement.new(usermovement_params)
 		if @usermovement.save
+			move = Movement.all.find_by(name: @usermovement.name)
+			@usermovement.movement_type = move.movement_type
+			@usermovement.save
 			redirect_to usermovement_path(@usermovement)
 		else
 			render :new
