@@ -4,8 +4,6 @@
 	<%= f.label :name %>
 	<% names = @wods.map {|moves| [moves.title]} %>
 	<%= f.select :name, names, :prompt => "Select One", :selected => params[:name] %><br>
-	<%= @userwod.name %>
-	<%= @userwod.date %>
 	<%= f.label :date %>
 	<%= date_select :wod, :date %><br>
 	<%= f.label :result %>

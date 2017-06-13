@@ -12,6 +12,9 @@ class UserwodsController < ApplicationController
 	def create
 		@userwod = Userwod.new(userwod_params)
 		if @userwod.save
+			wod = Wod.all.find_by(title: @userwod.name)
+			@userwod.wod_type = wod.wod_type
+			@userwod.save
 			redirect_to userwod_path(@userwod)
 		else
 			render :new

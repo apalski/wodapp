@@ -22055,3 +22055,585 @@ Processing by WodsController#edit as HTML
   Rendered wods/_form.html.erb (11.0ms)
   Rendered wods/edit.html.erb within layouts/application (14.5ms)
 Completed 200 OK in 21ms (Views: 20.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/userwods/new" for ::1 at 2017-06-13 10:20:54 +1000
+Processing by UserwodsController#new as HTML
+  [1m[35mWod Load (0.2ms)[0m  SELECT "wods".* FROM "wods"
+  [1m[36mMovement Load (0.2ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 1]]
+  Rendered wods/_show.html.erb (1.6ms)
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 2]]
+  Rendered wods/_show.html.erb (0.6ms)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 3]]
+  Rendered wods/_show.html.erb (0.9ms)
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 4]]
+  Rendered wods/_show.html.erb (0.7ms)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 5]]
+  Rendered wods/_show.html.erb (1.2ms)
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 6]]
+  Rendered wods/_show.html.erb (1.0ms)
+  Rendered userwods/new.html.erb within layouts/application (21.0ms)
+Completed 200 OK in 34ms (Views: 26.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/userwods/1" for ::1 at 2017-06-13 10:23:48 +1000
+Processing by UserwodsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUserwod Load (0.4ms)[0m  [1mSELECT  "userwods".* FROM "userwods" WHERE "userwods"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered userwods/show.html.erb within layouts/application (7.7ms)
+Completed 500 Internal Server Error in 16ms
+
+ActionView::Template::Error (undefined method `wod_type' for #<Userwod:0x007ff0fb3f4258>):
+    3: 
+    4: <ul>
+    5: <li>Name: <%= @userwod.name %></li>
+    6: <li>WOD Type: <%= @userwod.wod_type %></li>
+    7: </ul>
+  app/views/userwods/show.html.erb:6:in `_app_views_userwods_show_html_erb__2727242518669057693_70336436638540'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (13.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (63.2ms)
+  [1m[36m (1.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.8ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateUsers (20170529044413)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "password_digest" varchar, "owner" boolean DEFAULT 'f', "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170529044413"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+Migrating to CreateUsermovements (20170529044428)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "usermovements" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "date" date, "movement_type" varchar, "result" float, "pr" boolean DEFAULT 'f', "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170529044428"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+Migrating to CreateUserwods (20170529044438)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "userwods" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "wod_type" varchar, "date" date, "result" float, "pr" boolean DEFAULT 'f', "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170529044438"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+Migrating to CreateMoveWods (20170529044453)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "move_wods" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "movement_id" integer, "wod_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170529044453"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+Migrating to CreateMovements (20170608044059)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "movements" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "movement_type" varchar, "quantity" integer, "owner_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170608044059"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+Migrating to CreateWods (20170608045642)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "wods" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "wod_type" varchar, "owner_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170608045642"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."name" = 'Max Charles' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'max@gmail.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "owner", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Max Charles"], ["email", "max@gmail.com"], ["password_digest", "$2a$10$S6VOWhPpFIAl/PoNyHbpO.6o5Uf47OGH3AwSvUgIUI.imaRsaQKXa"], ["owner", "t"], ["created_at", "2017-06-13 00:25:28.149423"], ["updated_at", "2017-06-13 00:25:28.149423"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."name" = 'Skai Jackson' LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'skai@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Skai Jackson"], ["email", "skai@gmail.com"], ["password_digest", "$2a$10$5LsJ1/Ix6kzHSKAZXYkSTu5.ngI4siLePaKjbM.Hm5LPUf4A9429W"], ["created_at", "2017-06-13 00:25:28.224036"], ["updated_at", "2017-06-13 00:25:28.224036"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."name" = 'Kaleo Elam' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'kaleo@gmail.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Kaleo Elam"], ["email", "kaleo@gmail.com"], ["password_digest", "$2a$10$L9HfIBat4dOUcTiao82aDeOmcv2NzjWl5cnXgauqOy/XJeUXYIzEG"], ["created_at", "2017-06-13 00:25:28.295607"], ["updated_at", "2017-06-13 00:25:28.295607"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."name" = 'Megan Charpentier' LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'megan@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Megan Charpentier"], ["email", "megan@gmail.com"], ["password_digest", "$2a$10$M3e1MhP2io72i7IbBf6Fu.0v6dh5WZj1cVcQ5XWYMGH8U6Nivqlc6"], ["created_at", "2017-06-13 00:25:28.377650"], ["updated_at", "2017-06-13 00:25:28.377650"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."name" = 'Hayden Byerly' LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'hayden@gmail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Hayden Byerly"], ["email", "hayden@gmail.com"], ["password_digest", "$2a$10$hqk.B5H/zTW8CFhglQKBeOAPp1OCs8MUMUnhrZlbliAt2WjDxUCEG"], ["created_at", "2017-06-13 00:25:28.449971"], ["updated_at", "2017-06-13 00:25:28.449971"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."name" = 'Tenzing Norgay Trainor' LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'tenzing@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Tenzing Norgay Trainor"], ["email", "tenzing@gmail.com"], ["password_digest", "$2a$10$KcI3.Hl1abhUXBEEfEpJGuOA/dDLaZRiv0gfHKyCHt0D8wZWzPknS"], ["created_at", "2017-06-13 00:25:28.533059"], ["updated_at", "2017-06-13 00:25:28.533059"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."name" = 'Davis Cleveland' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'davis@gmail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Davis Cleveland"], ["email", "davis@gmail.com"], ["password_digest", "$2a$10$iqD3BiDyqepP88K88zKw0OgONybHa7pB22B8H0qEd4m0DCroqBqIm"], ["created_at", "2017-06-13 00:25:28.606265"], ["updated_at", "2017-06-13 00:25:28.606265"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."name" = 'Cole Sand' LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'cole@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Cole Sand"], ["email", "cole@gmail.com"], ["password_digest", "$2a$10$DJwghiJWTl2DxConzL0AnuJ7bCTIlwSI0YKw05TThM.BRiZ8G0ZFe"], ["created_at", "2017-06-13 00:25:28.684945"], ["updated_at", "2017-06-13 00:25:28.684945"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."name" = 'Quvenzhané Wallis' LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'quv@gmail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Quvenzhané Wallis"], ["email", "quv@gmail.com"], ["password_digest", "$2a$10$iN1aRJtg4X8sm7PRjt.rW.x6vBbAbCJUDmH4N5tb5ICwUYNHMFyL."], ["created_at", "2017-06-13 00:25:28.765739"], ["updated_at", "2017-06-13 00:25:28.765739"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Dead Lift' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "movements" ("name", "movement_type", "quantity", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Dead Lift"], ["movement_type", "weight"], ["quantity", 10], ["owner_id", 1], ["created_at", "2017-06-13 00:25:28.787745"], ["updated_at", "2017-06-13 00:25:28.787745"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Clean & Jerk' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "movements" ("name", "movement_type", "quantity", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Clean & Jerk"], ["movement_type", "weight"], ["quantity", 8], ["owner_id", 1], ["created_at", "2017-06-13 00:25:28.790671"], ["updated_at", "2017-06-13 00:25:28.790671"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Push Jerk' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "movements" ("name", "movement_type", "quantity", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Push Jerk"], ["movement_type", "weight"], ["quantity", 10], ["owner_id", 1], ["created_at", "2017-06-13 00:25:28.792994"], ["updated_at", "2017-06-13 00:25:28.792994"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Push Press' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "movements" ("name", "movement_type", "quantity", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Push Press"], ["movement_type", "weight"], ["quantity", 11], ["owner_id", 1], ["created_at", "2017-06-13 00:25:28.795310"], ["updated_at", "2017-06-13 00:25:28.795310"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Snatch' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "movements" ("name", "movement_type", "quantity", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Snatch"], ["movement_type", "weight"], ["quantity", 9], ["owner_id", 1], ["created_at", "2017-06-13 00:25:28.797498"], ["updated_at", "2017-06-13 00:25:28.797498"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.2ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = '400m Run' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "movements" ("name", "movement_type", "quantity", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "400m Run"], ["movement_type", "time"], ["quantity", 1], ["owner_id", 1], ["created_at", "2017-06-13 00:25:28.800043"], ["updated_at", "2017-06-13 00:25:28.800043"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Burpees' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "movements" ("name", "movement_type", "quantity", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Burpees"], ["movement_type", "repetitions"], ["quantity", 30], ["owner_id", 1], ["created_at", "2017-06-13 00:25:28.802834"], ["updated_at", "2017-06-13 00:25:28.802834"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Air Squats' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "movements" ("name", "movement_type", "quantity", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Air Squats"], ["movement_type", "repetitions"], ["quantity", 50], ["owner_id", 1], ["created_at", "2017-06-13 00:25:28.805481"], ["updated_at", "2017-06-13 00:25:28.805481"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovement Exists (0.1ms)[0m  SELECT  1 AS one FROM "movements" WHERE "movements"."name" = 'Box Jumps' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "movements" ("name", "movement_type", "quantity", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Box Jumps"], ["movement_type", "repetitions"], ["quantity", 20], ["owner_id", 1], ["created_at", "2017-06-13 00:25:28.808557"], ["updated_at", "2017-06-13 00:25:28.808557"]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mWod Exists (0.1ms)[0m  SELECT  1 AS one FROM "wods" WHERE "wods"."title" = 'Helen' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "wods" ("title", "wod_type", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Helen"], ["wod_type", "time"], ["owner_id", 1], ["created_at", "2017-06-13 00:25:28.816938"], ["updated_at", "2017-06-13 00:25:28.816938"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mWod Exists (0.2ms)[0m  SELECT  1 AS one FROM "wods" WHERE "wods"."title" = 'Grace' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "wods" ("title", "wod_type", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Grace"], ["wod_type", "time"], ["owner_id", 1], ["created_at", "2017-06-13 00:25:28.820422"], ["updated_at", "2017-06-13 00:25:28.820422"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mWod Exists (0.2ms)[0m  SELECT  1 AS one FROM "wods" WHERE "wods"."title" = 'Dead Lift Day' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "wods" ("title", "wod_type", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Dead Lift Day"], ["wod_type", "weight"], ["owner_id", 1], ["created_at", "2017-06-13 00:25:28.824510"], ["updated_at", "2017-06-13 00:25:28.824510"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mWod Exists (0.2ms)[0m  SELECT  1 AS one FROM "wods" WHERE "wods"."title" = 'Murph' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "wods" ("title", "wod_type", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Murph"], ["wod_type", "time"], ["owner_id", 1], ["created_at", "2017-06-13 00:25:28.828023"], ["updated_at", "2017-06-13 00:25:28.828023"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mWod Exists (0.1ms)[0m  SELECT  1 AS one FROM "wods" WHERE "wods"."title" = 'Karen' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "wods" ("title", "wod_type", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Karen"], ["wod_type", "repetitions"], ["owner_id", 1], ["created_at", "2017-06-13 00:25:28.831636"], ["updated_at", "2017-06-13 00:25:28.831636"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+
+
+Started GET "/userwods/new" for ::1 at 2017-06-13 10:25:37 +1000
+Processing by UserwodsController#new as HTML
+  [1m[35mWod Load (0.2ms)[0m  SELECT "wods".* FROM "wods"
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 1]]
+  Rendered wods/_show.html.erb (9.8ms)
+  [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 2]]
+  Rendered wods/_show.html.erb (1.2ms)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 3]]
+  Rendered wods/_show.html.erb (0.7ms)
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 4]]
+  Rendered wods/_show.html.erb (0.6ms)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 5]]
+  Rendered wods/_show.html.erb (0.8ms)
+  Rendered userwods/new.html.erb within layouts/application (28.7ms)
+Completed 200 OK in 48ms (Views: 35.5ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/userwods" for ::1 at 2017-06-13 10:25:47 +1000
+Processing by UserwodsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uyiDRNb9ZmLhpzO6+K6XLnk3JvOCo8Q5hvLeP6Z+KmHMrlUPXJc9dRBf+xXM3aiN06fW90oGEZrbWmc4j0DHgg==", "userwod"=>{"name"=>"Grace", "result"=>"5", "pr"=>"1"}, "wod"=>{"date(1i)"=>"2017", "date(2i)"=>"6", "date(3i)"=>"13"}, "commit"=>"Create Userwod"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "userwods" ("name", "result", "pr", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Grace"], ["result", 5.0], ["pr", "t"], ["created_at", "2017-06-13 00:25:47.328879"], ["updated_at", "2017-06-13 00:25:47.328879"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+Redirected to http://localhost:3000/userwods/1
+Completed 302 Found in 4ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/userwods/1" for ::1 at 2017-06-13 10:25:47 +1000
+Processing by UserwodsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUserwod Load (0.2ms)[0m  [1mSELECT  "userwods".* FROM "userwods" WHERE "userwods"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered userwods/show.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 6ms (Views: 5.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/userwods/new" for ::1 at 2017-06-13 10:26:38 +1000
+Processing by UserwodsController#new as HTML
+  [1m[35mWod Load (0.4ms)[0m  SELECT "wods".* FROM "wods"
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 1]]
+  Rendered wods/_show.html.erb (1.1ms)
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 2]]
+  Rendered wods/_show.html.erb (0.9ms)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 3]]
+  Rendered wods/_show.html.erb (0.9ms)
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 4]]
+  Rendered wods/_show.html.erb (0.9ms)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 5]]
+  Rendered wods/_show.html.erb (0.8ms)
+  Rendered userwods/new.html.erb within layouts/application (17.3ms)
+Completed 200 OK in 22ms (Views: 20.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/userwods/new" for ::1 at 2017-06-13 10:26:56 +1000
+Processing by UserwodsController#new as HTML
+  [1m[35mWod Load (0.2ms)[0m  SELECT "wods".* FROM "wods"
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 1]]
+  Rendered wods/_show.html.erb (1.1ms)
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 2]]
+  Rendered wods/_show.html.erb (1.1ms)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 3]]
+  Rendered wods/_show.html.erb (1.0ms)
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 4]]
+  Rendered wods/_show.html.erb (1.1ms)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 5]]
+  Rendered wods/_show.html.erb (1.1ms)
+  Rendered userwods/new.html.erb within layouts/application (19.2ms)
+Completed 200 OK in 26ms (Views: 24.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/userwods/new" for ::1 at 2017-06-13 11:21:36 +1000
+Processing by UserwodsController#new as HTML
+  [1m[35mWod Load (0.2ms)[0m  SELECT "wods".* FROM "wods"
+  [1m[36mMovement Load (0.2ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 1]]
+  Rendered wods/_show.html.erb (11.1ms)
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 2]]
+  Rendered wods/_show.html.erb (1.3ms)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 3]]
+  Rendered wods/_show.html.erb (1.0ms)
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 4]]
+  Rendered wods/_show.html.erb (0.9ms)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 5]]
+  Rendered wods/_show.html.erb (0.8ms)
+  Rendered userwods/new.html.erb within layouts/application (31.9ms)
+Completed 200 OK in 53ms (Views: 40.1ms | ActiveRecord: 2.1ms)
+
+
+Started POST "/userwods" for ::1 at 2017-06-13 11:21:44 +1000
+Processing by UserwodsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rqkEieiTeY+yDoOu1B46xqGjioHAcYKtGhYpSWI4ZEfZL9LCYvkimEP2SwHgbQVlCzN6hQjUVw5HvpBOSwaJpA==", "userwod"=>{"name"=>"Helen", "result"=>"12", "pr"=>"1"}, "wod"=>{"date(1i)"=>"2017", "date(2i)"=>"6", "date(3i)"=>"13"}, "commit"=>"Create Userwod"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.1ms)[0m  [1mINSERT INTO "userwods" ("name", "result", "pr", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Helen"], ["result", 12.0], ["pr", "t"], ["created_at", "2017-06-13 01:21:44.580901"], ["updated_at", "2017-06-13 01:21:44.580901"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36mWod Load (0.2ms)[0m  [1mSELECT  "wods".* FROM "wods" WHERE "wods"."title" = ? LIMIT 1[0m  [["title", "Helen"]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "userwods" SET "wod_type" = ?, "updated_at" = ? WHERE "userwods"."id" = ?[0m  [["wod_type", "time"], ["updated_at", "2017-06-13 01:21:44.586841"], ["id", 2]]
+  [1m[35m (0.6ms)[0m  commit transaction
+Redirected to http://localhost:3000/userwods/2
+Completed 302 Found in 10ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/userwods/2" for ::1 at 2017-06-13 11:21:44 +1000
+Processing by UserwodsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUserwod Load (0.2ms)[0m  [1mSELECT  "userwods".* FROM "userwods" WHERE "userwods"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered userwods/show.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 12ms (Views: 10.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/userwods" for ::1 at 2017-06-13 11:21:52 +1000
+Processing by UserwodsController#index as HTML
+Completed 500 Internal Server Error in 5ms
+
+ActionView::MissingTemplate (Missing template userwods/index, application/index with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/Annette/Dev/Rails/wodapp/app/views"
+):
+  actionview (4.2.0) lib/action_view/path_set.rb:46:in `find'
+  actionview (4.2.0) lib/action_view/lookup_context.rb:121:in `find'
+  actionview (4.2.0) lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  actionview (4.2.0) lib/action_view/renderer/template_renderer.rb:40:in `determine_template'
+  actionview (4.2.0) lib/action_view/renderer/template_renderer.rb:8:in `render'
+  actionview (4.2.0) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.2.0) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.2.0) lib/action_view/rendering.rb:100:in `_render_template'
+  actionpack (4.2.0) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.2.0) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.2.0) lib/action_controller/metal/renderers.rb:37:in `render_to_body'
+  actionpack (4.2.0) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.2.0) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /Users/Annette/.rvm/rubies/ruby-2.3.1/lib/ruby/2.3.0/benchmark.rb:308:in `realtime'
+  activesupport (4.2.0) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.2.0) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.2.0) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.2.0) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_process_action_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal.rb:236:in `block in action'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:42:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  rack (1.6.5) lib/rack/etag.rb:24:in `call'
+  rack (1.6.5) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.5) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.5) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.5) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  thin (1.7.0) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.7.0) lib/thin/connection.rb:84:in `catch'
+  thin (1.7.0) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.7.0) lib/thin/connection.rb:53:in `process'
+  thin (1.7.0) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.2.3) lib/eventmachine.rb:194:in `run_machine'
+  eventmachine (1.2.3) lib/eventmachine.rb:194:in `run'
+  thin (1.7.0) lib/thin/backends/base.rb:73:in `start'
+  thin (1.7.0) lib/thin/server.rb:162:in `start'
+  rack (1.6.5) lib/rack/handler/thin.rb:19:in `run'
+  rack (1.6.5) lib/rack/server.rb:286:in `start'
+  railties (4.2.0) lib/rails/commands/server.rb:80:in `start'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:80:in `block in server'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:75:in `tap'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:75:in `server'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+  railties (4.2.0) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:8:in `require'
+  bin/rails:8:in `<main>'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.3ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.7ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/missing_template.html.erb within rescues/layout (58.8ms)
+
+
+Started GET "/userwods/1" for ::1 at 2017-06-13 11:22:44 +1000
+Processing by UserwodsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUserwod Load (0.1ms)[0m  SELECT  "userwods".* FROM "userwods" WHERE "userwods"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered userwods/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 7ms (Views: 6.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/userwods/new" for ::1 at 2017-06-13 11:22:51 +1000
+Processing by UserwodsController#new as HTML
+  [1m[36mWod Load (0.2ms)[0m  [1mSELECT "wods".* FROM "wods"[0m
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 1]]
+  Rendered wods/_show.html.erb (1.4ms)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 2]]
+  Rendered wods/_show.html.erb (0.7ms)
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 3]]
+  Rendered wods/_show.html.erb (0.6ms)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 4]]
+  Rendered wods/_show.html.erb (0.6ms)
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 5]]
+  Rendered wods/_show.html.erb (0.8ms)
+  Rendered userwods/new.html.erb within layouts/application (16.6ms)
+Completed 200 OK in 22ms (Views: 20.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/userwods/new" for ::1 at 2017-06-13 11:23:24 +1000
+Processing by UserwodsController#new as HTML
+  [1m[36mWod Load (0.2ms)[0m  [1mSELECT "wods".* FROM "wods"[0m
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 1]]
+  Rendered wods/_show.html.erb (2.1ms)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 2]]
+  Rendered wods/_show.html.erb (1.3ms)
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 3]]
+  Rendered wods/_show.html.erb (0.8ms)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 4]]
+  Rendered wods/_show.html.erb (0.9ms)
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 5]]
+  Rendered wods/_show.html.erb (0.8ms)
+  Rendered userwods/new.html.erb within layouts/application (19.2ms)
+Completed 200 OK in 26ms (Views: 24.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/userwods/1" for ::1 at 2017-06-13 11:23:27 +1000
+Processing by UserwodsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUserwod Load (0.1ms)[0m  [1mSELECT  "userwods".* FROM "userwods" WHERE "userwods"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered userwods/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 7ms (Views: 6.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/userwods" for ::1 at 2017-06-13 11:26:42 +1000
+Processing by UserwodsController#index as HTML
+  [1m[35mUserwod Load (0.2ms)[0m  SELECT "userwods".* FROM "userwods"
+  Rendered userwods/_show.html.erb (3.8ms)
+  Rendered userwods/index.html.erb within layouts/application (7.6ms)
+Completed 500 Internal Server Error in 13ms
+
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: 
+    2: 
+    3: <li>Name: <%= @userwod.name %></li>
+    4: <li>WOD Type: <%= @userwod.wod_type %></li>
+    5: <li>Result: <%= @userwod.result %></li>
+    6: <li>PR (true/false): <%= @userwod.pr %></li>
+  app/views/userwods/_show.html.erb:3:in `_app_views_userwods__show_html_erb__171675224610962321_70336492341500'
+  app/views/userwods/index.html.erb:6:in `block in _app_views_userwods_index_html_erb__3898455461815241896_70336468672920'
+  app/views/userwods/index.html.erb:5:in `_app_views_userwods_index_html_erb__3898455461815241896_70336468672920'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.8ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (56.1ms)
+
+
+Started GET "/userwods" for ::1 at 2017-06-13 11:27:00 +1000
+Processing by UserwodsController#index as HTML
+  [1m[36mUserwod Load (0.3ms)[0m  [1mSELECT "userwods".* FROM "userwods"[0m
+  Rendered userwods/_show.html.erb (4.0ms)
+  Rendered userwods/index.html.erb within layouts/application (8.8ms)
+Completed 500 Internal Server Error in 14ms
+
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: 
+    2: 
+    3: <li>Name: <%= @userwod.name %></li>
+    4: <li>WOD Type: <%= @userwod.wod_type %></li>
+    5: <li>Result: <%= @userwod.result %></li>
+    6: <li>PR (true/false): <%= @userwod.pr %></li>
+  app/views/userwods/_show.html.erb:3:in `_app_views_userwods__show_html_erb__171675224610962321_70336492341500'
+  app/views/userwods/index.html.erb:6:in `block in _app_views_userwods_index_html_erb__3898455461815241896_70336490247040'
+  app/views/userwods/index.html.erb:5:in `_app_views_userwods_index_html_erb__3898455461815241896_70336490247040'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (56.6ms)
+
+
+Started GET "/userwods" for ::1 at 2017-06-13 11:27:34 +1000
+Processing by UserwodsController#index as HTML
+  [1m[35mUserwod Load (0.2ms)[0m  SELECT "userwods".* FROM "userwods"
+  Rendered userwods/_show.html.erb (3.1ms)
+  Rendered userwods/index.html.erb within layouts/application (7.8ms)
+Completed 500 Internal Server Error in 12ms
+
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: 
+    2: 
+    3: <li>Name: <%= userwod.name %></li>
+    4: <li>WOD Type: <%= userwod.wod_type %></li>
+    5: <li>Result: <%= userwod.result %></li>
+    6: <li>PR (true/false): <%= userwod.pr %></li>
+  app/views/userwods/_show.html.erb:3:in `_app_views_userwods__show_html_erb__171675224610962321_70336442074220'
+  app/views/userwods/index.html.erb:6:in `block in _app_views_userwods_index_html_erb__3898455461815241896_70336440762660'
+  app/views/userwods/index.html.erb:5:in `_app_views_userwods_index_html_erb__3898455461815241896_70336440762660'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.7ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.8ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (60.3ms)
+
+
+Started GET "/userwods/1" for ::1 at 2017-06-13 11:27:57 +1000
+Processing by UserwodsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUserwod Load (0.1ms)[0m  [1mSELECT  "userwods".* FROM "userwods" WHERE "userwods"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered userwods/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/userwods/1" for ::1 at 2017-06-13 11:28:14 +1000
+Processing by UserwodsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUserwod Load (0.1ms)[0m  SELECT  "userwods".* FROM "userwods" WHERE "userwods"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered userwods/show.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 5ms (Views: 4.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/userwods" for ::1 at 2017-06-13 11:28:17 +1000
+Processing by UserwodsController#index as HTML
+  [1m[36mUserwod Load (0.2ms)[0m  [1mSELECT "userwods".* FROM "userwods"[0m
+  Rendered userwods/_show.html.erb (0.2ms)
+  Rendered userwods/_show.html.erb (0.1ms)
+  Rendered userwods/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 11ms (Views: 10.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/userwods/1" for ::1 at 2017-06-13 11:29:03 +1000
+Processing by UserwodsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUserwod Load (0.1ms)[0m  SELECT  "userwods".* FROM "userwods" WHERE "userwods"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered userwods/_show.html.erb (0.1ms)
+  Rendered userwods/show.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 9ms (Views: 8.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/userwods/new" for ::1 at 2017-06-13 11:29:11 +1000
+Processing by UserwodsController#new as HTML
+  [1m[36mWod Load (0.2ms)[0m  [1mSELECT "wods".* FROM "wods"[0m
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 1]]
+  Rendered wods/_show.html.erb (1.0ms)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 2]]
+  Rendered wods/_show.html.erb (0.7ms)
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 3]]
+  Rendered wods/_show.html.erb (0.8ms)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 4]]
+  Rendered wods/_show.html.erb (0.9ms)
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 5]]
+  Rendered wods/_show.html.erb (0.8ms)
+  Rendered userwods/new.html.erb within layouts/application (17.1ms)
+Completed 200 OK in 23ms (Views: 21.9ms | ActiveRecord: 0.6ms)
