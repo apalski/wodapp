@@ -2,3 +2,5 @@
 <h1>Your movement: </h1>
 
 <%= render 'show', usermovement: @usermovement %>
+
+<%= link_to "Delete", usermovement_path(@usermovement), method: :delete %> 	

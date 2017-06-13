@@ -1,6 +1,6 @@
 
 
-	<%= form_for @usermovement do |f| %>
+	
 		<%= f.label :name %>
 		<% names = @movements.map {|move| [move.name]} %>
 		<%= f.select :name, names, :prompt => "Select One" %><br>
@@ -10,6 +10,4 @@
 		<%= f.text_field :result %><br>
 		<%= f.label :pr %>
 		<%= f.check_box :pr %><br>
-		<%= f.submit %>	
-	<% end %>	
 		
