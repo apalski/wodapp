@@ -39,6 +39,14 @@ class MovementsController < ApplicationController
 		end		
 	end
 
+	def destroy
+		raise params
+		set_movement.destroy
+		respond_to do |format|
+			format.html {redirect_to movements_path, notice: "Movement was successfully deleted"}
+		end	
+	end
+
 	private
 
 	def set_movement
