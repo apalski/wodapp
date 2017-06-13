@@ -46,7 +46,7 @@ class UsermovementsController < ApplicationController
 	def destroy
 		set_usermovement.destroy
 		respond_to do |format|
-			format.html {redirect_to movements_path, notice: "Movement was successfully deleted"}
+			format.html {redirect_to usermovements_path, notice: "Movement was successfully deleted"}
 		end	
 	end
 

@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
 
+	def index
+		@users = User.all
+	end
+	
 	def new
 		@user = User.new
 	end
@@ -14,10 +18,21 @@ class UsersController < ApplicationController
 	end
 
 	def show
-		@user = User.find(params[:id])
+		set_user
+	end
+
+	def destroy
+		set_user.destroy
+		respond_to do |format|
+			format.html {redirect_to users_path, notice: "User was successfully deleted"}
+		end	
 	end
 
 	private
+
+	def set_user
+		@user = User.find(params[:id])
+	end
 
 	def user_params
 		params.require(:user).permit(:name, :email, :password, :admin)		
