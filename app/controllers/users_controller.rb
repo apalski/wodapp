@@ -3,18 +3,23 @@ class UsersController < ApplicationController
 	def index
 		@users = User.all
 	end
-	
+
 	def new
 		@user = User.new
 	end
 
 	def create
 		@user = User.new(user_params)
-		if @user.save
-			render new_session
+		if @user.password == @user.password_confirmation
+			if @user.save
+				session[:user_id] = @user.id
+				render new_session
+			else
+			 	render :new
+			end	
 		else
-		 	render :new
-		end		
+			redirect_to new_users
+		end			
 	end
 
 	def show
@@ -35,6 +40,6 @@ class UsersController < ApplicationController
 	end
 
 	def user_params
-		params.require(:user).permit(:name, :email, :password, :admin)		
+		params.require(:user).permit(:name, :email, :password, :password_confirmation, :owner)		
 	end	
 end
