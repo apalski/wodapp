@@ -40,11 +40,9 @@ class MovementsController < ApplicationController
 	end
 
 	def destroy
-		raise params
 		set_movement.destroy
-		respond_to do |format|
-			format.html {redirect_to movements_path, notice: "Movement was successfully deleted"}
-		end	
+		if set_movement.destroy
+			
 	end
 
 	private

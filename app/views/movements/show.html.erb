@@ -3,4 +3,6 @@
 
 <ul>
 	<%= render 'show', movement: @movement %>
-</ul>	
+</ul>
+
+<%= link_to "Delete", movement_path(@movement), method: :delete %> 	
