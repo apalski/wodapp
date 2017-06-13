@@ -6,3 +6,5 @@
 	<%= render 'form', f: f %><br>
 	<%= f.submit %>
 <% end %>
+
+<%= link_to "Delete", wod_path(@wod), method: :delete %>

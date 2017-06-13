@@ -1,3 +1,5 @@
 
 <h1>Your WOD:</h1>
 <%= render 'show', wod: @wod %>
+
+<%= link_to "Delete", wod_path(@wod), method: :delete %>
