@@ -7,4 +7,5 @@ class Movement < ActiveRecord::Base
 	validates :name, presence: true
 	validates :name, uniqueness: true
 	validates :movement_type, inclusion: {in: %w(time weight repetitions), message: "%{value} is not a valid type"}
+	validates :quantity, numericality: true
 end

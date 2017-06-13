@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
 	has_many :usermovements
 
 	has_secure_password
+	
 	validates :name, :email, presence: true
 	validates :name,:email, uniqueness: true
 	validates :password, length: {minimum: 6}
