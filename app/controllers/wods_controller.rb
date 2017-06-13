@@ -39,7 +39,7 @@ class WodsController < ApplicationController
 	def destroy
 		set_wod.destroy
 		respond_to do |format|
-			format.html {redirect_to movements_path, notice: "Movement was successfully deleted"}
+			format.html {redirect_to wods_path, notice: "WOD was successfully deleted"}
 		end	
 	end
 
