@@ -22637,3 +22637,223 @@ Processing by UserwodsController#new as HTML
   Rendered wods/_show.html.erb (0.8ms)
   Rendered userwods/new.html.erb within layouts/application (17.1ms)
 Completed 200 OK in 23ms (Views: 21.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/userwods/new" for ::1 at 2017-06-13 11:32:58 +1000
+Processing by UserwodsController#new as HTML
+  [1m[36mWod Load (0.2ms)[0m  [1mSELECT "wods".* FROM "wods"[0m
+  Rendered userwods/_form.html.erb (2.8ms)
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 1]]
+  Rendered wods/_show.html.erb (0.9ms)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 2]]
+  Rendered wods/_show.html.erb (0.9ms)
+  [1m[35mMovement Load (0.2ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 3]]
+  Rendered wods/_show.html.erb (1.1ms)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 4]]
+  Rendered wods/_show.html.erb (0.9ms)
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 5]]
+  Rendered wods/_show.html.erb (0.8ms)
+  Rendered userwods/new.html.erb within layouts/application (21.7ms)
+Completed 200 OK in 27ms (Views: 26.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/usermovements/1/edit" for ::1 at 2017-06-13 11:34:26 +1000
+Processing by UsermovementsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUsermovement Load (0.1ms)[0m  [1mSELECT  "usermovements".* FROM "usermovements" WHERE "usermovements"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 404 Not Found in 12ms
+
+ActiveRecord::RecordNotFound (Couldn't find Usermovement with 'id'=1):
+  app/controllers/usermovements_controller.rb:49:in `set_usermovement'
+  app/controllers/usermovements_controller.rb:33:in `edit'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (53.1ms)
+
+
+Started GET "/usermovements/new" for ::1 at 2017-06-13 11:34:40 +1000
+Processing by UsermovementsController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mMovement Load (0.2ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  Rendered usermovements/_form.html.erb (7.3ms)
+  Rendered usermovements/new.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 31ms (Views: 19.6ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/usermovements" for ::1 at 2017-06-13 11:34:47 +1000
+Processing by UsermovementsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GMkKnsdpniLqf+eg49WdAYHDdQxZ/z6f3rAkzSj0mTxvT9zVTQPFNRuHLw/XpqKiK1OFCJFa6zyDGJ3KAcp03w==", "usermovement"=>{"name"=>"Dead Lift", "date(1i)"=>"2017", "date(2i)"=>"6", "date(3i)"=>"13", "result"=>"160", "pr"=>"1"}, "commit"=>"Create Usermovement"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "usermovements" ("name", "result", "pr", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Dead Lift"], ["result", 160.0], ["pr", "t"], ["date", "2017-06-13"], ["created_at", "2017-06-13 01:34:47.603739"], ["updated_at", "2017-06-13 01:34:47.603739"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mMovement Load (0.1ms)[0m  SELECT  "movements".* FROM "movements" WHERE "movements"."name" = ? LIMIT 1  [["name", "Dead Lift"]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "usermovements" SET "movement_type" = ?, "updated_at" = ? WHERE "usermovements"."id" = ?  [["movement_type", "weight"], ["updated_at", "2017-06-13 01:34:47.606818"], ["id", 1]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/usermovements/1
+Completed 302 Found in 7ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/usermovements/1" for ::1 at 2017-06-13 11:34:47 +1000
+Processing by UsermovementsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUsermovement Load (0.2ms)[0m  SELECT  "usermovements".* FROM "usermovements" WHERE "usermovements"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT  "movements".* FROM "movements" WHERE "movements"."name" = ? LIMIT 1[0m  [["name", "Dead Lift"]]
+  Rendered usermovements/_show.html.erb (0.2ms)
+  Rendered usermovements/show.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 17ms (Views: 15.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/usermovements/1/edit" for ::1 at 2017-06-13 11:34:51 +1000
+Processing by UsermovementsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUsermovement Load (0.1ms)[0m  SELECT  "usermovements".* FROM "usermovements" WHERE "usermovements"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mMovement Load (0.2ms)[0m  [1mSELECT "movements".* FROM "movements"[0m
+  Rendered usermovements/_form.html.erb (4.0ms)
+  Rendered usermovements/edit.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 12ms (Views: 11.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/userwods/1/edit" for ::1 at 2017-06-13 11:35:48 +1000
+Processing by UserwodsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUserwod Load (0.1ms)[0m  SELECT  "userwods".* FROM "userwods" WHERE "userwods"."id" = ? LIMIT 1  [["id", 1]]
+Completed 400 Bad Request in 1ms
+
+ActionController::ParameterMissing (param is missing or the value is empty: userwod):
+  app/controllers/userwods_controller.rb:48:in `userwod_params'
+  app/controllers/userwods_controller.rb:30:in `edit'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.4ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (49.7ms)
+
+
+Started GET "/userwods/1/edit" for ::1 at 2017-06-13 11:37:33 +1000
+Processing by UserwodsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUserwod Load (0.1ms)[0m  [1mSELECT  "userwods".* FROM "userwods" WHERE "userwods"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 400 Bad Request in 1ms
+
+ActionController::ParameterMissing (param is missing or the value is empty: userwod):
+  app/controllers/userwods_controller.rb:48:in `userwod_params'
+  app/controllers/userwods_controller.rb:30:in `edit'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.6ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (49.1ms)
+
+
+Started GET "/userwods/1/edit" for ::1 at 2017-06-13 11:37:36 +1000
+Processing by UserwodsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUserwod Load (0.1ms)[0m  SELECT  "userwods".* FROM "userwods" WHERE "userwods"."id" = ? LIMIT 1  [["id", 1]]
+Completed 400 Bad Request in 1ms
+
+ActionController::ParameterMissing (param is missing or the value is empty: userwod):
+  app/controllers/userwods_controller.rb:48:in `userwod_params'
+  app/controllers/userwods_controller.rb:30:in `edit'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (53.6ms)
+
+
+Started GET "/userwods/1/edit" for ::1 at 2017-06-13 11:37:59 +1000
+Processing by UserwodsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUserwod Load (0.2ms)[0m  [1mSELECT  "userwods".* FROM "userwods" WHERE "userwods"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 400 Bad Request in 1ms
+
+ActionController::ParameterMissing (param is missing or the value is empty: userwod):
+  app/controllers/userwods_controller.rb:48:in `userwod_params'
+  app/controllers/userwods_controller.rb:30:in `edit'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (57.0ms)
+
+
+Started GET "/userwods/1/edit" for ::1 at 2017-06-13 11:38:29 +1000
+Processing by UserwodsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUserwod Load (0.1ms)[0m  SELECT  "userwods".* FROM "userwods" WHERE "userwods"."id" = ? LIMIT 1  [["id", 1]]
+Completed 400 Bad Request in 1ms
+
+ActionController::ParameterMissing (param is missing or the value is empty: userwod):
+  app/controllers/userwods_controller.rb:48:in `userwod_params'
+  app/controllers/userwods_controller.rb:30:in `edit'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.2ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (52.9ms)
+
+
+Started GET "/userwods/1/edit" for ::1 at 2017-06-13 11:38:55 +1000
+Processing by UserwodsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUserwod Load (0.1ms)[0m  [1mSELECT  "userwods".* FROM "userwods" WHERE "userwods"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered userwods/_form.html.erb (3.0ms)
+  Rendered userwods/edit.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 24ms (Views: 17.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/userwods/1/edit" for ::1 at 2017-06-13 11:39:30 +1000
+Processing by UserwodsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUserwod Load (0.1ms)[0m  SELECT  "userwods".* FROM "userwods" WHERE "userwods"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered userwods/_form.html.erb (1.7ms)
+  Rendered userwods/edit.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 10ms (Views: 9.7ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/userwods/1" for ::1 at 2017-06-13 11:39:42 +1000
+Processing by UserwodsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GLTFIqSt8qVrwXhSy3PVC1QweifSGDNUdE+ziR8zujdvMhNpLsepspo5sP3/AOqo/qCKIxq95vcp5wqONg1X1A==", "userwod"=>{"date(1i)"=>"2017", "date(2i)"=>"6", "date(3i)"=>"13", "result"=>"5.5", "pr"=>"1"}, "commit"=>"Update Userwod", "id"=>"1"}
+  [1m[36mUserwod Load (0.2ms)[0m  [1mSELECT  "userwods".* FROM "userwods" WHERE "userwods"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "userwods" SET "result" = ?, "date" = ?, "updated_at" = ? WHERE "userwods"."id" = ?[0m  [["result", 5.5], ["date", "2017-06-13"], ["updated_at", "2017-06-13 01:39:42.060095"], ["id", 1]]
+  [1m[35m (0.6ms)[0m  commit transaction
+Redirected to http://localhost:3000/userwods/1
+Completed 302 Found in 5ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/userwods/1" for ::1 at 2017-06-13 11:39:42 +1000
+Processing by UserwodsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUserwod Load (0.2ms)[0m  [1mSELECT  "userwods".* FROM "userwods" WHERE "userwods"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered userwods/_show.html.erb (0.2ms)
+  Rendered userwods/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 10ms (Views: 9.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/userwods/new" for ::1 at 2017-06-13 11:39:51 +1000
+Processing by UserwodsController#new as HTML
+  [1m[35mWod Load (0.2ms)[0m  SELECT "wods".* FROM "wods"
+  Rendered userwods/_form.html.erb (2.5ms)
+  [1m[36mMovement Load (0.2ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 1]]
+  Rendered wods/_show.html.erb (11.3ms)
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 2]]
+  Rendered wods/_show.html.erb (1.4ms)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 3]]
+  Rendered wods/_show.html.erb (2.1ms)
+  [1m[35mMovement Load (0.1ms)[0m  SELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?  [["wod_id", 4]]
+  Rendered wods/_show.html.erb (0.9ms)
+  [1m[36mMovement Load (0.1ms)[0m  [1mSELECT "movements".* FROM "movements" INNER JOIN "move_wods" ON "movements"."id" = "move_wods"."movement_id" WHERE "move_wods"."wod_id" = ?[0m  [["wod_id", 5]]
+  Rendered wods/_show.html.erb (0.8ms)
+  Rendered userwods/new.html.erb within layouts/application (35.9ms)
+Completed 200 OK in 47ms (Views: 40.9ms | ActiveRecord: 1.5ms)

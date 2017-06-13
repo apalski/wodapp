@@ -1,0 +1,11 @@
+
+<h1>Edit your WOD</h1>
+
+<%= form_for @userwod do |f| %>
+	<%= @userwod.name %><br>
+	<%= render 'form', f: f %>
+	<%= f.submit %>
+<% end %>	
+
+
+	

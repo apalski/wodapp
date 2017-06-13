@@ -27,15 +27,15 @@ class UserwodsController < ApplicationController
 
 	def edit
 		set_userwod
+	end
+
+	def update
+		set_userwod
 		if @userwod.update(userwod_params)
 			redirect_to userwod_path(@userwod)
 		else
 			render :edit
 		end		
-	end
-
-	def update
-		set_userwod
 	end
 
 	private

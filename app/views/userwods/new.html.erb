@@ -1,15 +1,9 @@
 <h1>Enter WOD results:</h1>
 
 <%= form_for @userwod do |f| %>
-	<%= f.label :name %>
 	<% names = @wods.map {|moves| [moves.title]} %>
 	<%= f.select :name, names, :prompt => "Select One", :selected => params[:name] %><br>
-	<%= f.label :date %>
-	<%= date_select :wod, :date %><br>
-	<%= f.label :result %>
-	<%= f.text_field :result %><br>
-	<%= f.label :pr %>
-	<%= f.check_box :pr %><br>
+	<%= render 'form', f: f %>
 	<%= f.submit %>	
 <% end %>	
 

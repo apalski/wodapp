@@ -2,6 +2,7 @@
 <h1>Edit your WOD:</h1>
 
 <%= form_for @wod do |f| %>
+	<%= @wod.name %>
 	<%= render 'form', f: f %><br>
 	<%= f.submit %>
 <% end %>
