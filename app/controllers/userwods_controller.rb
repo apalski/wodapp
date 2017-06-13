@@ -38,6 +38,13 @@ class UserwodsController < ApplicationController
 		end		
 	end
 
+	def destroy
+		set_userwod.destroy
+		respond_to do |format|
+			format.html {redirect_to movements_path, notice: "Movement was successfully deleted"}
+		end	
+	end
+
 	private
 
 	def set_userwod
