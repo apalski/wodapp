@@ -6,7 +6,6 @@ class ApplicationController < ActionController::Base
 	protect_from_forgery with: :exception
 
 	before_action :require_signin
-	before_action :restrict_access
 
 	include ApplicationHelper
 
@@ -21,13 +20,6 @@ class ApplicationController < ActionController::Base
 		unless current_user
 			flash[:notice] = "You must be a registered user and be signed in to use WODapp"
 			redirect_to new_user_path
-		end	
-	end
-
-	def restrict_access
-		if current_user != @user || current_user.owner == false
-			flash[:notice] = "You can only access your own information"
-			redirect_to user_path(current_user)
 		end	
 	end
 end

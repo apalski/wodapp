@@ -2,8 +2,7 @@
 class SessionsController < ApplicationController
 
 	skip_before_action :require_signin, only: [:new, :create]
-	skip_before_action :restrict_access
-
+	
 	def create
 		session[:username] = params[:user][:name]
 		@user = User.find_by(name: params[:user][:name])

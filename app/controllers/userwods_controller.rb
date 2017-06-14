@@ -1,6 +1,7 @@
 class UserwodsController < ApplicationController
 	
 	def index
+			raise params
 		@userwods = Userwod.all
 	end
 

@@ -1,5 +1,7 @@
 class UsermovementsController < ApplicationController
 
+	before_action :restrict_access, only: [:index, :edit, :update, :destroy]
+
 	def index
 		@usermovements = Usermovement.all
 		@user = current_user
@@ -16,6 +18,7 @@ class UsermovementsController < ApplicationController
 		@usermovement = Usermovement.new(usermovement_params)
 		if @usermovement.save
 			move = Movement.all.find_by(name: @usermovement.name)
+			@usermovement.user_id = @user.id
 			@usermovement.movement_type = move.movement_type
 			@usermovement.save
 			redirect_to usermovement_path(@usermovement)
@@ -58,5 +61,13 @@ class UsermovementsController < ApplicationController
 
 	def usermovement_params
 		params.require(:usermovement).permit(:name, :date, :result, :pr)
+	end
+
+	def restrict_access
+
+		if !@usermovement || @usermovement.user_id != current_user.id 
+			flash[:notice] = "You do not have any movements or this is not your information to access"
+			redirect_to user_path(current_user)
+		end	
 	end
 end

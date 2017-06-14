@@ -1,10 +1,10 @@
 
 <h1><%= @user.name %> Profile</h1>
 
-<li><%= link_to "Edit your profile", edit_user_path(@user) %></li>
+<li><%= link_to "Edit your profile", edit_user_path(current_user) %></li>
 <li><%= link_to "Enter a new movement result", new_usermovement_path %></li>
 <li><%= link_to "Enter a new WOD result", new_userwod_path %></li>
-<li><%= link_to "Go to Your Movements", movements_path(@user) %></li>
-<li><%= link_to "Go to Your WODs", wods_path(@user) %></li>
+<li><%= link_to "Go to Your Movements", usermovements_path(current_user) %></li>
+<li><%= link_to "Go to Your WODs", userwods_path(current_user) %></li>
 
 
