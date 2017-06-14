@@ -1,6 +1,8 @@
 
 class SessionsController < ApplicationController
 
+	skip_before_action :require_signin, only: [:new, :create]
+
 	def create
 		session[:username] = params[:user][:name]
 		@user = User.find_by(name: params[:user][:name])
