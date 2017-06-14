@@ -9,17 +9,13 @@ class UsersController < ApplicationController
 	end
 
 	def create
-		@user = User.new(user_params)
-		if @user.password == @user.password_confirmation
-			if @user.save
-				session[:user_id] = @user.id
-				render new_session
-			else
-			 	render :new
-			end	
+	@user = User.new(user_params)
+		if @user.save
+			session[:user_id] = @user.id
+			redirect_to sessions_new_path
 		else
-			redirect_to new_users
-		end			
+		 	render :new
+		end		
 	end
 
 	def show
@@ -40,6 +36,6 @@ class UsersController < ApplicationController
 	end
 
 	def user_params
-		params.require(:user).permit(:name, :email, :password, :password_confirmation, :owner)		
+		params.require(:user).permit(:name, :email, :password, :owner)		
 	end	
 end
