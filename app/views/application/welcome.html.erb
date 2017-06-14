@@ -7,6 +7,9 @@
 	<li><%= link_to "You can see all your movement results", usermovements_path(@user) %></li>
 	<li><%= link_to "You can see all your WOD results", userwods_path(@user) %></li>
 	<li><%= link_to "You can view your profile page", user_path(@user) %></li>
+	<% if current_user.owner == true %>
+		<li><%= link_to "View current users of WODapp", users_path %></li>
+	<% end %>	
 </ul>	
 
 
