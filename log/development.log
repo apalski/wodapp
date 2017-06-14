@@ -58848,3 +58848,5 @@ TypeError (exception class/object expected):
   Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
   Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
   Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (55.9ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
