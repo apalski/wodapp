@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
 	end
 
 	def restrict_access
-		if current_user != @user && current_user.owner == false
+		if current_user != @user || current_user.owner == false
 			flash[:notice] = "You can only access your own information"
 			redirect_to user_path(current_user)
 		end	

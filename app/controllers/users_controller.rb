@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
 	skip_before_action :require_signin, only: [:new, :create]
+	skip_before_action :restrict_access, only: [:new, :create]
 
 	def index
 		if current_user.owner == true
