@@ -3,8 +3,13 @@ class UsermovementsController < ApplicationController
 	before_action :restrict_access, only: [:index, :edit, :update, :destroy]
 
 	def index
-		@usermovements = Usermovement.all
-		@user = current_user
+		@usermovements = []
+		Usermovement.all.each do |move|
+			if move.user_id == current_user.id
+				@usermovements << move
+			end	
+		end	
+		@user = current_user 
 	end
 
 	def new
@@ -57,6 +62,10 @@ class UsermovementsController < ApplicationController
 
 	def set_usermovement
 		@usermovement = Usermovement.find(params[:id])
+	end
+
+	def set_user
+		@user = current_user
 	end
 
 	def usermovement_params
