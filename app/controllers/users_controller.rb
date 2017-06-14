@@ -1,7 +1,12 @@
 class UsersController < ApplicationController
 
 	def index
-		@users = User.all
+		if current_user.owner == true
+			@users = User.all
+		else
+			flash[:notice] = "You don't have permission for this page, see your box owner"
+			redirect_to user_path(current_user)
+		end		
 	end
 
 	def new
@@ -20,6 +25,19 @@ class UsersController < ApplicationController
 
 	def show
 		set_user
+	end
+
+	def edit
+		set_user
+	end
+
+	def update
+		set_user
+		if @user.update(user_params)
+			redirect_to users_path(@user)
+		else
+			render :edit
+		end		
 	end
 
 	def destroy
