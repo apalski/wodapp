@@ -6,9 +6,13 @@ class SessionsController < ApplicationController
 	def create
 		session[:username] = params[:user][:name]
 		@user = User.find_by(name: params[:user][:name])
-		return head(:forbidden) unless @user.authenticate(params[:user][:password])
-		session[:user_id] = @user.id
-		redirect_to controller: 'application', action: 'welcome'
+		if !@user.authenticate(params[:user][:password])
+			flash[:notice] = "You couldn't be signed in, please check your name and password and try again"
+			render sessions_new_path
+		else
+			session[:user_id] = @user.id
+			redirect_to controller: 'application', action: 'welcome'
+		end	
 	end
 
 	def destroy
