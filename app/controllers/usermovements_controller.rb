@@ -73,7 +73,6 @@ class UsermovementsController < ApplicationController
 	end
 
 	def restrict_access
-
 		if !@usermovement || @usermovement.user_id != current_user.id 
 			flash[:notice] = "You do not have any movements or this is not your information to access"
 			redirect_to user_path(current_user)

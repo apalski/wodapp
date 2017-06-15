@@ -1,4 +1,6 @@
 class UserwodsController < ApplicationController
+
+	before_action :restrict_access, only: [:index, :edit, :update, :destroy]
 	
 	def index
 		@userwod = []
@@ -62,7 +64,12 @@ class UserwodsController < ApplicationController
 		params.require(:userwod).permit(:name, :date, :result, :wod_type, :pr)
 	end
 
-	
+	def restrict_access
+		if !@userwod || @userwod.user_id != current_user.id 
+			flash[:notice] = "You do not have any movements or this is not your information to access"
+			redirect_to user_path(current_user)
+		end	
+	end
 end
 
 
