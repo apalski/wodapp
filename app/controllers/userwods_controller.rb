@@ -1,8 +1,13 @@
 class UserwodsController < ApplicationController
 	
 	def index
-			raise params
-		@userwods = Userwod.all
+		@userwod = []
+		Userwod.all.each do |wod|
+			if wod.user_id == current_user.id
+				@userwods << wod
+			end	
+		end	
+		@user = current_user 
 	end
 
 	def new
@@ -14,6 +19,7 @@ class UserwodsController < ApplicationController
 		@userwod = Userwod.new(userwod_params)
 		if @userwod.save
 			wod = Wod.all.find_by(title: @userwod.name)
+			@userwod.user_id = @user.id
 			@userwod.wod_type = wod.wod_type
 			@userwod.save
 			redirect_to userwod_path(@userwod)

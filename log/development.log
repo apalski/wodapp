@@ -58850,3 +58850,116 @@ TypeError (exception class/object expected):
   Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (55.9ms)
   [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
   [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+
+
+Started GET "/auth/github" for ::1 at 2017-06-15 10:33:40 +1000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/auth/github" for ::1 at 2017-06-15 10:34:02 +1000
+
+
+Started GET "/auth/github" for ::1 at 2017-06-15 10:36:01 +1000
+
+
+Started GET "/auth/github" for ::1 at 2017-06-15 10:37:53 +1000
+
+
+Started GET "/auth/github" for ::1 at 2017-06-15 10:38:43 +1000
+
+
+Started GET "/auth/github" for ::1 at 2017-06-15 10:41:22 +1000
+
+
+Started GET "/auth/github" for ::1 at 2017-06-15 10:42:45 +1000
+
+
+Started GET "/auth/github" for ::1 at 2017-06-15 10:43:24 +1000
+
+
+Started GET "/auth/github" for ::1 at 2017-06-15 10:43:39 +1000
+
+
+Started GET "/auth/github" for ::1 at 2017-06-15 10:45:54 +1000
+
+
+Started GET "/auth/github" for ::1 at 2017-06-15 10:48:19 +1000
+
+
+Started GET "/auth/github" for ::1 at 2017-06-15 11:12:27 +1000
+
+
+Started GET "/auth/github" for ::1 at 2017-06-15 11:14:27 +1000
+
+
+Started GET "/auth/github" for ::1 at 2017-06-15 11:15:19 +1000
+
+
+Started GET "/auth/github" for ::1 at 2017-06-15 11:17:10 +1000
+
+
+Started GET "/auth/github" for ::1 at 2017-06-15 11:23:18 +1000
+
+
+Started GET "/auth/github" for ::1 at 2017-06-15 11:28:55 +1000
+
+
+Started GET "/auth/github" for ::1 at 2017-06-15 11:34:43 +1000
+
+
+Started GET "/auth/github" for ::1 at 2017-06-15 11:35:28 +1000
+
+
+Started GET "/auth.github" for ::1 at 2017-06-15 11:39:52 +1000
+
+ActionController::RoutingError (No route matches [GET] "/auth.github"):
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  thin (1.7.0) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.7.0) lib/thin/connection.rb:84:in `catch'
+  thin (1.7.0) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.7.0) lib/thin/connection.rb:53:in `process'
+  thin (1.7.0) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.2.3) lib/eventmachine.rb:194:in `run_machine'
+  eventmachine (1.2.3) lib/eventmachine.rb:194:in `run'
+  thin (1.7.0) lib/thin/backends/base.rb:73:in `start'
+  thin (1.7.0) lib/thin/server.rb:162:in `start'
+  rack (1.6.5) lib/rack/handler/thin.rb:19:in `run'
+  rack (1.6.5) lib/rack/server.rb:286:in `start'
+  railties (4.2.0) lib/rails/commands/server.rb:80:in `start'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:80:in `block in server'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:75:in `tap'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:75:in `server'
+  railties (4.2.0) lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+  railties (4.2.0) lib/rails/commands.rb:17:in `<top (required)>'
+  bin/rails:8:in `require'
+  bin/rails:8:in `<main>'
+
+
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (4.7ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (26.0ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.9ms)
+  Rendered /Users/Annette/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (134.6ms)
+
+
+Started GET "/auth/github" for ::1 at 2017-06-15 11:40:05 +1000
+
+
+Started GET "/auth/github" for ::1 at 2017-06-15 11:42:24 +1000
