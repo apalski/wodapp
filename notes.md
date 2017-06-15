@@ -4,7 +4,7 @@ Project must haves:
 	* one class level ActiveRecord scope method
 	* a nested form that writes to an associated model through a custom attribute writer, e.g. recipe[ingredients_attributes][0][name] which would write to the recipe model through a method ingredient_attributes=  NOTE: you cannot use accepts_nested_attributes_for macro.
 	* standard user authentication, including signup, login, logout and passwords.
-	* must have login from wome other service, such as facebook, twitter, etc. - ominauth
+	* must have login from some other service, such as facebook, twitter, etc. - ominauth
 	* must make use of nested resources, e.g. /profiles/1/pictures/new 
 	* forms must correctly display validation errors. Fields should be enclosed within a fields_for_errors class and error messages describing the validation failures must be present within the view.
 	* application must be DRY
