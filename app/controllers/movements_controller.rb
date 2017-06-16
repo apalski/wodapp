@@ -1,5 +1,7 @@
 class MovementsController < ApplicationController
 
+	before_action :restrict_access, only: [:new, :create, :edit, :update, :destroy]
+
 	def index
 		@movements = Movement.all
 		@user = current_user
@@ -54,5 +56,11 @@ class MovementsController < ApplicationController
 
 	def movement_params
 		params.require(:movement).permit(:name, :movement_type)
+	end
+
+	def restrict_access	
+		if current_user.owner == false
+			redirect_to user_path(current_user), notice: "You can't view this page, contact your box owner"
+		end	
 	end
 end
