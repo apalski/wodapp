@@ -40,7 +40,7 @@ class UsermovementsController < ApplicationController
 	def update
 		set_usermovement
 		if @usermovement.update(usermovement_params)
-			redirect_to usermovement_path(@usermovement)
+			redirect_to user_usermovement_path(current_user, @usermovement)
 		else
 			render :edit
 		end		
@@ -49,7 +49,7 @@ class UsermovementsController < ApplicationController
 	def destroy
 		set_usermovement.destroy
 		respond_to do |format|
-			format.html {redirect_to usermovements_path, notice: "Movement was successfully deleted"}
+			format.html {redirect_to user_usermovements_path(current_user), notice: "Movement was successfully deleted"}
 		end	
 	end
 
