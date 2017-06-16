@@ -11,7 +11,6 @@ class UsermovementsController < ApplicationController
 	def new
 		@usermovement = Usermovement.new
 		@movements = Movement.all
-		@user = current_user
 	end
 
 	def create
@@ -29,7 +28,6 @@ class UsermovementsController < ApplicationController
 
 	def show
 		set_usermovement
-		@movement = Movement.find_by(name: @usermovement.name)
 	end
 
 	def edit

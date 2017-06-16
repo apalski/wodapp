@@ -1,15 +1,11 @@
 class UserwodsController < ApplicationController
 
-	before_action :restrict_access, only: [:index, :edit, :update, :destroy]
-	
 	def index
-		@userwod = []
-		Userwod.all.each do |wod|
-			if wod.user_id == current_user.id
-				@userwods << wod
-			end	
-		end	
-		@user = current_user 
+		if params[:user_id]
+			@userwods = User.find(params[:user_id]).userwods
+		else
+			redirect_to user_path(current_user)
+		end		
 	end
 
 	def new
@@ -21,10 +17,10 @@ class UserwodsController < ApplicationController
 		@userwod = Userwod.new(userwod_params)
 		if @userwod.save
 			wod = Wod.all.find_by(title: @userwod.name)
-			@userwod.user_id = @user.id
+			@userwod.user_id = current_user.id
 			@userwod.wod_type = wod.wod_type
 			@userwod.save
-			redirect_to userwod_path(@userwod)
+			redirect_to user_userwod_path(current_user, @userwod)
 		else
 			render :new
 		end		
@@ -41,7 +37,7 @@ class UserwodsController < ApplicationController
 	def update
 		set_userwod
 		if @userwod.update(userwod_params)
-			redirect_to userwod_path(@userwod)
+			redirect_to user_userwod_path(current_user, @userwod)
 		else
 			render :edit
 		end		
@@ -50,7 +46,7 @@ class UserwodsController < ApplicationController
 	def destroy
 		set_userwod.destroy
 		respond_to do |format|
-			format.html {redirect_to userwods_path, notice: "WOD was successfully deleted"}
+			format.html {redirect_to user_userwods_path(current_user), notice: "WOD was successfully deleted"}
 		end	
 	end
 
@@ -62,13 +58,6 @@ class UserwodsController < ApplicationController
 
 	def userwod_params
 		params.require(:userwod).permit(:name, :date, :result, :wod_type, :pr)
-	end
-
-	def restrict_access
-		if !@userwod || @userwod.user_id != current_user.id 
-			flash[:notice] = "You do not have any movements or this is not your information to access"
-			redirect_to user_path(current_user)
-		end	
 	end
 end
 
