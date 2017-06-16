@@ -62,10 +62,11 @@ ActiveRecord::Schema.define(version: 20170608045642) do
 
   create_table "wods", force: :cascade do |t|
     t.string   "title"
+    t.string   "description"
     t.string   "wod_type"
     t.integer  "owner_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
 end

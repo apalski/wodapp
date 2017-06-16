@@ -28,13 +28,13 @@ DATA = {
   ],
 
   :wod_keys =>
-    ["title", "wod_type", "owner_id"],
+    ["title", "wod_type", "description", "owner_id"],
   :wods => [
-    ["Helen", "time", 1],
-    ["Grace", "time", 1],
-    ["Dead Lift Day", "weight", 1],
-    ["Murph", "time", 1],
-    ["Karen", "repetitions", 1]
+    ["Helen", "time", "15 minute cap", "1"],
+    ["Grace", "time", "10 minute cap", 1],
+    ["Dead Lift Day", "weight", "1RM", 1],
+    ["Murph", "time", "50 minute cap", 1],
+    ["Karen", "repetitions", "20 minute cap", 1]
   ] 
 }
 

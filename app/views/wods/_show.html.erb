@@ -1,8 +1,9 @@
 
 <ul>
-	<li>Wod Name: <%= wod.title %></li>
-	<li>Wod Type: For <%= wod.wod_type %></li>
-	<li>Wod Movements: <ul><% wod.movements.each do |move| %>
+	<li>WOD Name: <%= wod.title %></li>
+	<li>WOD Type: For <%= wod.wod_type %></li>
+	<li>WOD Description: <%= wod.description %></li>
+	<li>WOD Movements: <ul><% wod.movements.each do |move| %>
 		<li><%= move.quantity %> <%= move.name %></li>
 	<% end %></ul></li>	
 	_____________________
