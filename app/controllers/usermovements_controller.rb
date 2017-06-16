@@ -1,15 +1,11 @@
 class UsermovementsController < ApplicationController
 
-	before_action :restrict_access, only: [:index, :edit, :update, :destroy]
-
 	def index
-		@usermovements = []
-		Usermovement.all.each do |move|
-			if move.user_id == current_user.id
-				@usermovements << move
-			end	
-		end	
-		@user = current_user 
+		if params[:user_id]
+			@usermovements = User.find(params[:user_id]).usermovements
+		else
+			redirect_to user_path(current_user)
+		end		
 	end
 
 	def new
@@ -70,12 +66,5 @@ class UsermovementsController < ApplicationController
 
 	def usermovement_params
 		params.require(:usermovement).permit(:name, :date, :result, :pr)
-	end
-
-	def restrict_access
-		if !@usermovement || @usermovement.user_id != current_user.id 
-			flash[:notice] = "You do not have any movements or this is not your information to access"
-			redirect_to user_path(current_user)
-		end	
 	end
 end
