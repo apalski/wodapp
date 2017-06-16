@@ -57,7 +57,7 @@ class UsermovementsController < ApplicationController
 
 	def set_usermovement
 		@usermovement = Usermovement.find(params[:id])
-	end
+	end	
 
 	def set_user
 		@user = current_user
