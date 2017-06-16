@@ -1,5 +1,7 @@
 class WodsController < ApplicationController
 
+	before_action :restrict_access, only: [:new, :create, :edit, :update, :destroy]
+
 	def index
 		@wods = Wod.all
 	end
@@ -53,5 +55,9 @@ class WodsController < ApplicationController
 		params.require(:wod).permit(:title, :wod_type, :description, movement_ids: [], movements_attributes: [:name, :movement_type, :quantity])
 	end
 
-	
+	def restrict_access	
+		if current_user.owner == false
+			redirect_to user_path(current_user), notice: "You can't view this page, contact your box owner"
+		end	
+	end
 end
