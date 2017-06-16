@@ -4,7 +4,7 @@
 <%= form_for @userwod do |f| %>
 	<%= @userwod.name %><br>
 	<%= render 'form', f: f %>
-	<%= f.submit %>
+	<%= f.submit "Update WOD" %>
 <% end %>	
 
 <%= link_to "Delete", userwod_path(@userwod), method: :delete %>

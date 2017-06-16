@@ -2,9 +2,9 @@
 
 <%= form_for @userwod do |f| %>
 	<% names = @wods.map {|moves| [moves.title]} %>
-	<%= f.select :name, names, :prompt => "Select One", :selected => params[:name] %><br>
+	<%= f.select :name, names, :prompt => "Select One", :selected => params[:name] %><br><br>
 	<%= render 'form', f: f %>
-	<%= f.submit %>	
+	<%= f.submit "Create WOD" %>	
 <% end %>	
 
 <h1>WOD descriptions:</h1>
