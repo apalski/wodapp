@@ -59084,3 +59084,6 @@ NoMethodError (undefined method `[]' for nil:NilClass):
 
 
 Started GET "/auth/github" for ::1 at 2017-06-16 09:53:20 +1000
+
+
+Started GET "/auth/github" for ::1 at 2017-06-16 10:05:04 +1000

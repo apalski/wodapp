@@ -8,6 +8,6 @@ Rails.application.routes.draw do
  post '/sessions/create', to: 'sessions#create'
  delete '/sessions/destroy', to: 'sessions#destroy'
 
- get '/auth/github/callback', to: 'sessions#create'
+ get '/auth/:profile/callback', to: 'sessions#create'
  
 end
