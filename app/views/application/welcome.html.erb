@@ -4,7 +4,7 @@
 <ul>
 	<li><%= link_to "You can enter a new movement result", new_usermovement_path %></li>
 	<li><%= link_to "You can enter a new WOD result", new_userwod_path %></li>
-	<li><%= link_to "You can see all your movement results", usermovements_path(@user) %></li>
+	<li><%= link_to "You can see all your movement results", user_usermovements_path(@user) %></li>
 	<li><%= link_to "You can see all your WOD results", userwods_path(@user) %></li>
 	<li><%= link_to "You can view your profile page", user_path(@user) %></li>
 	<% if current_user.owner == true %>

@@ -15,14 +15,13 @@ class UsermovementsController < ApplicationController
 	end
 
 	def create
-		@user = current_user
 		@usermovement = Usermovement.new(usermovement_params)
 		if @usermovement.save
 			move = Movement.all.find_by(name: @usermovement.name)
-			@usermovement.user_id = @user.id
+			@usermovement.user_id = current_user.id
 			@usermovement.movement_type = move.movement_type
 			@usermovement.save
-			redirect_to usermovement_path(@usermovement)
+			redirect_to user_usermovement_path(current_user, @usermovement)
 		else
 			render :new
 		end		
