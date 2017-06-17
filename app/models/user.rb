@@ -20,4 +20,5 @@ class User < ActiveRecord::Base
 	      user.password_digest = SecureRandom.urlsafe_base64
 	    end
   	end
+
 end
