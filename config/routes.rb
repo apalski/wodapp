@@ -3,10 +3,8 @@ Rails.application.routes.draw do
 	 root 'application#welcome'	
 	 resources :users do
 	 	resources :usermovements
-	 	resources :userwods, only: [:show, :index,]
+	 	resources :userwods
 	 end
-	 
-	 resources :userwods, only: [:new, :create, :update, :edit, :destroy]
 
 	 namespace :admin do
 	 	resources :movements
