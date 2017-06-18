@@ -35,7 +35,11 @@ class UserwodsController < ApplicationController
 	end
 
 	def show
-		set_userwod
+		if set_userwod
+			set_userwod
+		else
+			redirect_to user_userwods_path(current_user), notice: "WOD not found"
+		end		
 	end
 
 	def edit
@@ -70,7 +74,7 @@ class UserwodsController < ApplicationController
 	end
 
 	def userwod_params
-		params.require(:userwod).permit(:name, :date, :result, :wod_type, :pr)
+		params.require(:userwod).permit(:name, :date, :result, :wod_type, :pr, :user_id)
 	end
 end
 
