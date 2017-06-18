@@ -9,9 +9,13 @@ class UsermovementsController < ApplicationController
 	end
 
 	def new
-		set_user
-		@usermovement = Usermovement.new(user_id: params[:user_id])
-		set_movement
+		if params[:user_id]
+			set_user
+			@usermovement = Usermovement.new(user_id: params[:user_id])
+			set_movement
+		else
+			redirect_to users_path, notice: "User not found"
+		end		
 	end
 
 	def create
@@ -30,18 +34,40 @@ class UsermovementsController < ApplicationController
 	end
 
 	def show
-		set_usermovement
+		if params[:user_id]
+			set_user
+			if current_user.id.to_s != params[:user_id]
+				redirect_to user_usermovements_path(@user), notice: "Movement not found"
+			else
+				set_usermovement
+			end		
+		else
+			set_usermovement
+		end			
 	end
 
 	def edit
-		set_user
-		set_usermovement
-		set_movement
+		if params[:user_id]
+			set_user
+			if @user.nil?
+				redirect_to users_path, notice: "User not found"
+			elsif @usermovement && @user.id == @usermovement.user_id
+				set_usermovement
+				set_movement
+			else
+				redirect_to user_usermovements_path(@user), notice: "Movement not found"	
+			end
+		else
+			set_movement
+		end	
 	end
 
 	def update
 		set_usermovement
 		if @usermovement.update(usermovement_params)
+			if @usermovement.pr == true
+				update_pr(@usermovement)
+			end	
 			redirect_to user_usermovement_path(current_user, @usermovement)
 		else
 			render :edit
@@ -62,11 +88,11 @@ class UsermovementsController < ApplicationController
 	end
 
 	def set_user
-		@user = User.find_by(params[:user_id])
+		@user = User.find_by(id: params[:user_id])
 	end
 
 	def set_usermovement
-		@usermovement = Usermovement.find(params[:id])
+		@usermovement = Usermovement.find_by(id: params[:id])
 	end	
 
 	def set_user
