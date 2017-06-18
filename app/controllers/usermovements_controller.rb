@@ -9,9 +9,9 @@ class UsermovementsController < ApplicationController
 	end
 
 	def new
-		@user = User.find_by(params[:user_id])
+		set_user
 		@usermovement = Usermovement.new(user_id: params[:user_id])
-		@movements = Movement.all
+		set_movement
 	end
 
 	def create
@@ -34,8 +34,9 @@ class UsermovementsController < ApplicationController
 	end
 
 	def edit
+		set_user
 		set_usermovement
-		@movements = Movement.all
+		set_movement
 	end
 
 	def update
@@ -55,6 +56,14 @@ class UsermovementsController < ApplicationController
 	end
 
 	private
+
+	def set_movement
+		@movements = Movement.all
+	end
+
+	def set_user
+		@user = User.find_by(params[:user_id])
+	end
 
 	def set_usermovement
 		@usermovement = Usermovement.find(params[:id])
