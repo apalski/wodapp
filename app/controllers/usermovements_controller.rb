@@ -9,13 +9,13 @@ class UsermovementsController < ApplicationController
 		if params[:user_id] == current_user.id.to_s
 			@usermovements = User.find_by(id: params[:user_id]).usermovements
 		else
-			redirect_to user_usermovements_path(current_user), notice: "Movement not found"	
+			redirect_to user_usermovements_path(current_user), notice: "Movements not found"	
 		end		
 	end
 
 	def new
 		@usermovement = Usermovement.new(user_id: params[:user_id])
-		@user = current_user
+		set_user
 		set_movement
 	end
 
@@ -44,7 +44,7 @@ class UsermovementsController < ApplicationController
 
 	def edit
 		set_usermovement
-		@user = current_user
+		set_user
 		set_movement
 	end
 
@@ -65,6 +65,10 @@ class UsermovementsController < ApplicationController
 	end
 
 	private
+
+	def set_user
+		@user = current_user
+	end
 
 	def set_movement
 		@movements = Movement.all
