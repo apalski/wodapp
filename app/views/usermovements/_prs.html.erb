@@ -1,0 +1,9 @@
+
+<ul> <% usermovements.each do |move| %>
+		<% if move.pr %>
+			<li><%= move.name %></li>
+			<li><%= move.date %></li>
+			<li><%= move.result %></li>
+		<% end %>		
+	 <% end %>
+</ul>	  

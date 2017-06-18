@@ -5,4 +5,9 @@
 	<% @userwods.each do |userwod| %>
 		<%= render 'show', userwod: userwod %><br>
 	<% end %>	
-</ul>	
+</ul>
+
+<h3><%= link_to "Enter a new WOD result", new_userwod_path %></h3><br>	
+
+<h1>These are your current PRs</h1>
+	<%= render 'usermovements/prs', usermovements: @userwods %>
