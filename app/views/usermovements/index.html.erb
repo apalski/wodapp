@@ -7,4 +7,15 @@
 	<% end %>	
 </ul>
 
+<h1>These are your current movement PRs</h1>
+<ul> <% @usermovements.each do |move| %>
+		<% if move.pr %>
+			<li><%= move.name %></li>
+			<li><%= move.date %></li>
+			<li><%= move.result %></li>
+		<% end %>		
+	 <% end %>
+</ul>	  
+
+
 <%= link_to "Create a new movement", new_usermovement_path %>
