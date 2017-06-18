@@ -6,7 +6,11 @@ module ApplicationHelper
 	end
 
 	def update_pr(newpr)
-		moves = Usermovement.select {|move| move.pr == true if newpr.name == move.name}
+		if newpr.class == Usermovement
+			moves = Usermovement.select {|move| move.pr == true if newpr.name == move.name}
+		else
+			moves = Userwod.select {|move| move.pr == true if newpr.name == move.name}
+		end	
 		if moves.size > 1
 			moves[0].pr = false
 			moves[0].save

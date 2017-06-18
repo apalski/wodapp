@@ -20,6 +20,9 @@ class UserwodsController < ApplicationController
 			@userwod.user_id = current_user.id
 			@userwod.wod_type = wod.wod_type
 			@userwod.save
+			if @userwod.pr == true
+				update_pr(@userwod)
+			end	
 			redirect_to user_userwod_path(current_user, @userwod)
 		else
 			render :new

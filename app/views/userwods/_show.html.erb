@@ -3,4 +3,5 @@
 <li>Name: <%= userwod.name %></li>
 <li>WOD Type: <%= userwod.wod_type %></li>
 <li>Result: <%= userwod.result %></li>
-<li>PR (true/false): <%= userwod.pr %></li>
+<li>PR (true/false): <%= userwod.pr %></li><br>
+<%= link_to "Delete", userwod_path(userwod), method: :delete %>
