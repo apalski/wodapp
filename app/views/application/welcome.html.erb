@@ -6,8 +6,8 @@
 	<li><%= link_to "Enter a new WOD result", new_userwod_path %></li>
 	<li><%= link_to "See all your movement results", user_usermovements_path(@user) %></li>
 	<li><%= link_to "See all your WOD results", user_userwods_path(@user) %></li>
-	<li><%= link_to "See all available movements", movements_path %></li>
-	<li><%= link_to "See all available WODs", wods_path %></li>
+	<li><%= link_to "See all available movements", admin_movements_path %></li>
+	<li><%= link_to "See all available WODs", admin_wods_path %></li>
 	<li><%= link_to "View your profile page", user_path(@user) %></li>
 	<% if current_user.owner == true %>
 		<li><%= link_to "View current users of WODapp", users_path %></li>

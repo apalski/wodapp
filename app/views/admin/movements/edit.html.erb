@@ -1,0 +1,9 @@
+
+<h1>Edit movement: </h1>
+
+<%= form_for @movement do |f| %>
+	<%= render 'form', f: f %>
+	<%= f.submit %>	
+<% end %><br>	
+
+<%= link_to "Delete", movement_path(@movement), method: :delete %> 

@@ -12,13 +12,14 @@ class SessionsController < ApplicationController
 			end	
 			redirect_to root_path
 		else
-			@user = User.find_by(:email => params[:user][:email])
+			@user = User.find_by(:name => params[:user][:name])
+			binding.pry
 			if @user && @user.authenticate(params[:user][:password])
 				session[:user_id] = @user.id
 				redirect_to root_path
 			else
 				flash[:notice] = "You couldn't be signed in, please check your name and password and try again"
-				redirect_to new_sessions_path
+				redirect_to sessions_new_path
 			end
 		end
 	end

@@ -10,7 +10,8 @@ Rails.application.routes.draw do
 	 resources :userwods, only: [:new, :create, :update, :edit, :destroy]
 
 	 namespace :admin do
-	 	resources :movements, :wods
+	 	resources :movements
+	 	resources :wods
 	 end	
 
 	 get '/sessions/new', to: 'sessions#new'

@@ -1,0 +1,16 @@
+
+<h1>Create a new WOD</h1>
+
+<%= form_for @wod do |f| %>
+	<%= render 'form', f: f %>
+	<%= f.fields_for :movements do |move| %>
+		<%= move.label :quantity %>
+		<%= move.text_field :quantity %><br>
+		<%= move.label :name %>
+		<%= move.text_field :name %><br>
+		<%= move.label :movement_type %>
+		<%= move.text_field :movement_type %><br>
+	<% end %>	
+	<%= f.submit %>
+<% end %>
+	

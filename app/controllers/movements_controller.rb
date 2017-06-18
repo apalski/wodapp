@@ -1,4 +1,4 @@
-class MovementsController < ApplicationController
+class Admin::MovementsController < ApplicationController
 
 	before_action :restrict_access, only: [:new, :create, :edit, :update, :destroy]
 

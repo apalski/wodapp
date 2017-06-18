@@ -1,4 +1,4 @@
-class WodsController < ApplicationController
+class Admin::WodsController < ApplicationController
 
 	before_action :restrict_access, only: [:new, :create, :edit, :update, :destroy]
 
