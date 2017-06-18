@@ -2,9 +2,14 @@ class UsermovementsController < ApplicationController
 
 	def index
 		if params[:user_id]
-			@usermovements = User.find(params[:user_id]).usermovements
+			set_user
+			if params[:user_id] == current_user.id.to_s
+				@usermovements = User.find(params[:user_id]).usermovements
+			else
+				redirect_to user_path(current_user), notice: "No movements to display"	
+			end	
 		else
-			redirect_to user_path(current_user)
+			redirect_to user_path(current_user), notice: "No movements to display"
 		end		
 	end
 
@@ -75,10 +80,19 @@ class UsermovementsController < ApplicationController
 	end
 
 	def destroy
-		set_usermovement.destroy
-		respond_to do |format|
-			format.html {redirect_to user_usermovements_path(current_user), notice: "Movement was successfully deleted"}
-		end	
+		if params[:user_id]
+			set_user
+			if params[:user_id] == current_user.id.to_s
+				set_usermovement.destroy
+				respond_to do |format|
+					format.html {redirect_to user_usermovements_path(current_user), notice: "Movement was successfully deleted"}
+				end
+			else 
+				redirect_to	redirect_to user_usermovements_path(@user), notice: "Movement not found"
+			end
+		else
+			redirect_to user_usermovements_path(@user), notice: "Movement not found"
+		end			
 	end
 
 	private
