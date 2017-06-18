@@ -9,5 +9,6 @@
 			<li>Result Achieved: <%= usermovement.result %> reps</li><br>
 		<% end %>			
 		<li>Movement done for: <%= usermovement.movement_type %></li><br>
-		<li>PR? (true/false): <%= usermovement.pr %></li>
+		<li>PR? (true/false): <%= usermovement.pr %></li><br>
+		<%= link_to "delete movement", usermovement_path( 	usermovement), method: :delete %>
 		<h3>_______________________</h3><br>
