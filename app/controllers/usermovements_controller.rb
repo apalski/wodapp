@@ -1,5 +1,10 @@
 class UsermovementsController < ApplicationController
 
+	include UsermovementsHelper
+
+	before_action :check_user
+	skip_before_action :check_user, only: [:index, :new, :create]
+
 	def index
 		if params[:user_id] == current_user.id.to_s
 			@usermovements = User.find_by(id: params[:user_id]).usermovements
@@ -9,9 +14,9 @@ class UsermovementsController < ApplicationController
 	end
 
 	def new
-			@usermovement = Usermovement.new(user_id: params[:user_id])
-			@user = current_user
-			set_movement
+		@usermovement = Usermovement.new(user_id: params[:user_id])
+		@user = current_user
+		set_movement
 	end
 
 	def create
@@ -30,25 +35,17 @@ class UsermovementsController < ApplicationController
 	end
 
 	def show
-		if current_user.id.to_s == params[:user_id]
-			if set_usermovement && set_usermovement.user_id == current_user.id
-				set_usermovement
-			else
-				redirect_to user_usermovements_path(current_user), notice: "Movement not found"
-			end	
-		else	
+		if set_usermovement 
+			set_usermovement
+		else
 			redirect_to user_usermovements_path(current_user), notice: "Movement not found"
 		end			
 	end
 
 	def edit
-		if current_user.id == set_usermovement.user_id
-			set_usermovement
-			@user = current_user
-			set_movement
-		else
-			redirect_to user_usermovements_path(current_user), notice: "Movement not found"	
-		end
+		set_usermovement
+		@user = current_user
+		set_movement
 	end
 
 	def update
@@ -61,14 +58,10 @@ class UsermovementsController < ApplicationController
 	end
 
 	def destroy
-		if params[:user_id] == current_user.id.to_s
-			set_usermovement.destroy
-			respond_to do |format|
-				format.html {redirect_to user_usermovements_path(current_user), notice: "Movement was successfully deleted"}
-			end
-		else 
-			redirect_to	redirect_to user_usermovements_path(@user), notice: "Movement not found"
-		end	
+		set_usermovement.destroy
+		respond_to do |format|
+			format.html {redirect_to user_usermovements_path(current_user), notice: "Movement was successfully deleted"}
+		end
 	end
 
 	private
