@@ -7,7 +7,7 @@
 	<% end %>	
 </ul>
 
-<h3><%= link_to "Enter a new WOD result", new_userwod_path %></h3><br>	
+<h3><%= link_to "Enter a new WOD result", new_user_userwod_path(current_user) %></h3><br>	
 
 <h1>These are your current PRs</h1>
 	<%= render 'usermovements/prs', usermovements: @userwods %>
