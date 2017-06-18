@@ -20,6 +20,9 @@ class UsermovementsController < ApplicationController
 			@usermovement.user_id = current_user.id
 			@usermovement.movement_type = move.movement_type
 			@usermovement.save
+			if @usermovement.pr == true
+				update_pr(@usermovement)
+			end	
 			redirect_to user_usermovement_path(current_user, @usermovement)
 		else
 			render :new
