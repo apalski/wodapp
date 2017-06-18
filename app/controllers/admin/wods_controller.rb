@@ -54,10 +54,4 @@ class Admin::WodsController < ApplicationController
 	def wod_params
 		params.require(:wod).permit(:title, :wod_type, :description, movement_ids: [], movements_attributes: [:name, :movement_type, :quantity])
 	end
-
-	def restrict_access	
-		if current_user.owner == false
-			redirect_to user_path(current_user), notice: "You can't view this page, contact your box owner"
-		end	
-	end
 end
