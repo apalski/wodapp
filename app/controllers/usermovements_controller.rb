@@ -9,7 +9,8 @@ class UsermovementsController < ApplicationController
 	end
 
 	def new
-		@usermovement = Usermovement.new
+		@user = User.find_by(params[:user_id])
+		@usermovement = Usermovement.new(user_id: params[:user_id])
 		@movements = Movement.all
 	end
 
@@ -17,7 +18,6 @@ class UsermovementsController < ApplicationController
 		@usermovement = Usermovement.new(usermovement_params)
 		if @usermovement.save
 			move = Movement.all.find_by(name: @usermovement.name)
-			@usermovement.user_id = current_user.id
 			@usermovement.movement_type = move.movement_type
 			@usermovement.save
 			if @usermovement.pr == true
@@ -65,6 +65,6 @@ class UsermovementsController < ApplicationController
 	end
 
 	def usermovement_params
-		params.require(:usermovement).permit(:name, :date, :result, :pr)
+		params.require(:usermovement).permit(:name, :date, :result, :pr, :user_id)
 	end
 end

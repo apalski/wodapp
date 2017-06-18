@@ -5,4 +5,4 @@
 	<%= f.submit "Update movement" %>	
 <% end %>	
 		
-<%= link_to "Delete", usermovement_path(@usermovement), method: :delete %> 	
+<%= link_to "Delete", user_usermovement_path(current_user, @usermovement), method: :delete %> 	

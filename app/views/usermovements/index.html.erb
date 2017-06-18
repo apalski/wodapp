@@ -7,7 +7,7 @@
 	<% end %>	
 </ul>
 
-<h3><%= link_to "Enter a new movement result", new_usermovement_path %></h3><br>
+<h3><%= link_to "Enter a new movement result", new_user_usermovement_path(current_user) %></h3><br>
 
 <h1>These are your current PRs</h1>
 	<%= render 'prs', usermovements: @usermovements %>

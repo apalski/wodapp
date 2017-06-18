@@ -2,7 +2,7 @@
 <h1>Welcome to WODapp <%= @user.name %></h1>
 
 <ul>
-	<li><%= link_to "Enter a new movement result", new_usermovement_path %></li>
+	<li><%= link_to "Enter a new movement result", new_user_usermovement_path(current_user) %></li>
 	<li><%= link_to "Enter a new WOD result", new_userwod_path %></li>
 	<li><%= link_to "See all your movement results", user_usermovements_path(@user) %></li>
 	<li><%= link_to "See all your WOD results", user_userwods_path(@user) %></li>
