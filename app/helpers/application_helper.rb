@@ -9,6 +9,7 @@ module ApplicationHelper
 		moves = Usermovement.select {|move| move.pr == true}
 		if moves.size > 1
 			moves[0].pr = false
+			moves[0].save
 		end		
 	end
 end
