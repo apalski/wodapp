@@ -3,17 +3,17 @@ class Admin::WodsController < ApplicationController
 	before_action :restrict_access, only: [:new, :create, :edit, :update, :destroy]
 
 	def index
-		@wods = Wod.all
+		@wods = Admin::Wod.all
 	end
 
 	def new
-		@wod = Wod.new
+		@wod = Admin::Wod.new
 		@wod.movements.build
 		@wod.movements.build
 	end
 
 	def create
-		@wod = Wod.new(wod_params)
+		@wod = Admin::Wod.new(wod_params)
 		if @wod.save
 			redirect_to wod_path(@wod)
 		else

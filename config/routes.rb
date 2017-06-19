@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 	 	resources :userwods
 	 end
 
-	 scope module: 'admin' do
+	 namespace :admin do
 	 	resources :movements, :wods
 	 end	
 

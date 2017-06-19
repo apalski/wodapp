@@ -4,8 +4,7 @@ class Admin::Movement < ActiveRecord::Base
 	has_many :move_wods
 	has_many :wods, through: :move_wods
 
-	validates :name, presence: true
+	validates :name, :movement_type, :quantity, presence: true
 	validates :name, uniqueness: true
 	validates :movement_type, inclusion: {in: %w(time weight repetitions), message: "%{value} is not a valid type"}
-	validates :quantity, numericality: true
 end
