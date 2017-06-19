@@ -6,7 +6,9 @@
 	<%= f.label :name %>
 	<%= f.text_field :name %><br><br>
 	<% if current_user.owner == true %>
-		<%= f.label :owner %><br>
+		<%= f.label :password %>
+		<%= f.password_field :password %><br><br>
+		<%= f.label :owner %>
 		<%= f.label :owner, "true", value: true %>
 		<%= f.radio_button :owner, true %>
 		<%= f.label :owner, "false", value: false %>

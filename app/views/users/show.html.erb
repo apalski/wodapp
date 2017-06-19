@@ -5,7 +5,7 @@
 	<li>User name: <%= @user.name %></li>
 	<li>Email address: <%= @user.email %></li>
 	<% if current_user.owner == true %>
-		<li>Owner Status <%= @user.owner %></li>
+		<li>Owner Status: <%= @user.owner %></li>
 	<% end %>	
 </ul>		
 
