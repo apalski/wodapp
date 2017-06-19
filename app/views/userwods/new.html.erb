@@ -1,6 +1,7 @@
 <h1>Enter WOD results:</h1>
 
 <%= form_for [@user, @userwod] do |f| %>
+	<%= render 'application/errors', target: @userwod %>
 	<% names = @wods.map {|moves| [moves.title]} %>
 	<%= f.select :name, names, :prompt => "Select One", :selected => params[:name] %><br><br>
 	<%= render 'form', f: f %>

@@ -16,11 +16,13 @@ class UserwodsController < ApplicationController
 	def new
 		@userwod = Userwod.new(user_id: params[:user_id])
 		set_user
-		@wods = Admin::Wod.all
+		set_wod
 	end
 
 	def create
 		@userwod = Userwod.new(userwod_params)
+		set_user
+		set_wod
 		if @userwod.save
 			wod = Admin::Wod.all.find_by(title: @userwod.name)
 			@userwod.wod_type = wod.wod_type
@@ -45,9 +47,12 @@ class UserwodsController < ApplicationController
 	def edit
 		set_userwod
 		set_user
+		set_wod
 	end
 
 	def update
+		set_user
+		set_wod
 		set_userwod
 		if @userwod.update(userwod_params)
 			redirect_to user_userwod_path(current_user, @userwod)
@@ -64,6 +69,10 @@ class UserwodsController < ApplicationController
 	end
 
 	private
+
+	def set_wod
+		@wods = Admin::Wod.all
+	end
 
 	def set_user
 		@user = current_user
