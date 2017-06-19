@@ -2,4 +2,7 @@
 	
 	<li>Name: <%= movement.name %></li>
 	<li>Movement Type: for <%= movement.movement_type %></li>
-	<li>Quantity: <%= movement.quantity %></li>
+	<li>Quantity: <%= movement.quantity %></li><br>
+	<%= link_to "Edit Movement", edit_admin_movement_path(movement) %><br>
+	<%= link_to "Delete", admin_movement_path(movement), method: :delete %><br>
+	__________________________________<br>
