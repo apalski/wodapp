@@ -16,13 +16,13 @@ class UserwodsController < ApplicationController
 	def new
 		@userwod = Userwod.new(user_id: params[:user_id])
 		set_user
-		@wods = Wod.all
+		@wods = Admin::Wod.all
 	end
 
 	def create
 		@userwod = Userwod.new(userwod_params)
 		if @userwod.save
-			wod = Wod.all.find_by(title: @userwod.name)
+			wod = Admin::Wod.all.find_by(title: @userwod.name)
 			@userwod.wod_type = wod.wod_type
 			@userwod.save
 			if @userwod.pr == true

@@ -1,4 +1,4 @@
-class Admin::Userwod < ActiveRecord::Base
+class Userwod < ActiveRecord::Base
 
 	belongs_to :user
 

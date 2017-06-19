@@ -2,6 +2,7 @@
 <h1>Enter movement results</h1>	
 
 <%= form_for [@user, @usermovement] do |f| %>
+	<%= render 'application/errors', target: @usermovement %>
 	<%= render 'form', f: f %>
 	<%= f.submit "Create movement" %>	
 <% end %>	

@@ -21,8 +21,10 @@ class UsermovementsController < ApplicationController
 
 	def create
 		@usermovement = Usermovement.new(usermovement_params)
+		set_user
+		set_movement
 		if @usermovement.save
-			move = Movement.all.find_by(name: @usermovement.name)
+			move = Admin::Movement.all.find_by(name: @usermovement.name)
 			@usermovement.movement_type = move.movement_type
 			@usermovement.save
 			if @usermovement.pr == true
@@ -71,7 +73,7 @@ class UsermovementsController < ApplicationController
 	end
 
 	def set_movement
-		@movements = Movement.all
+		@movements = Admin::Movement.all
 	end
 
 	def set_usermovement

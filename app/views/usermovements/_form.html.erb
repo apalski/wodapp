@@ -1,13 +1,21 @@
 
 
 		<%= f.hidden_field :user_id %>
-		<%= f.label :name %>
-		<% names = @movements.map {|move| [move.name]} %>
-		<%= f.select :name, names, :prompt => "Select One" %><br>
-		<%= f.label :date %>
-		<%= date_select :usermovement, :date %><br>
-		<%= f.label :result %>
-		<%= f.text_field :result %><br>
-		<%= f.label :pr %>
-		<%= f.check_box :pr %><br>
-		
+		<div class="field" >
+			<%= f.label :name %>
+			<% names = Admin::Movement.all.map {|move| [move.name]} %>
+			<%= f.select :name, names, :prompt => "Select One" %><br>
+		</div>
+		<div class="field" >
+			<%= f.label :date %>
+			<%= date_select :usermovement, :date %><br>
+		</div>
+		<div class="field" >	
+			<%= f.label :result %>
+			<%= f.text_field :result %><br>
+		</div>
+		<div class="field" >
+			<%= f.label :pr %>
+			<%= f.check_box :pr %><br>
+		</div>	
+			
