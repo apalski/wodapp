@@ -7,6 +7,7 @@ class Admin::Wod < ActiveRecord::Base
 	validates :title, presence: true
 	validates :title, uniqueness: true
 	validates :wod_type, inclusion: {in: %w(time weight repetitions), message: "%{value} is not a valid type"}
+	validates_associated :movements
 
 	def movements_attributes=(movements)
 		movements.each do |i, movement|

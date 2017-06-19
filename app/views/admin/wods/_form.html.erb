@@ -11,7 +11,4 @@
 		<%= f.label :description %>
 		<%= f.text_field :description %><br><br>
 	</div>
-	<%= render 'application/errors', target: @wod %>
-	<div class="field" >	
-		<%= f.collection_check_boxes :movement_ids, @movements, :id, :name %><br>
-	</div>	
+	<%= f.collection_check_boxes :movement_ids, @movements, :id, :name %><br>
