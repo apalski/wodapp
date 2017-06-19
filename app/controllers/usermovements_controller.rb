@@ -51,6 +51,8 @@ class UsermovementsController < ApplicationController
 	end
 
 	def update
+		set_user
+		set_movement
 		set_usermovement
 		if @usermovement.update(usermovement_params)
 			redirect_to user_usermovement_path(current_user, @usermovement)
