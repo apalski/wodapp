@@ -2,6 +2,7 @@
 <h1>Signup for Wodapp</h1>
 
 <%= form_for @user do |f| %>
+	<%= render 'application/errors', target: @user %>
 	<%= render 'form', f: f %>
 	<%= render 'sessions/form', f: f %>
 	<%= f.submit %>
