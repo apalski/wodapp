@@ -15,7 +15,7 @@ class Admin::WodsController < ApplicationController
 	def create
 		@wod = Admin::Wod.new(wod_params)
 		if @wod.save
-			redirect_to wod_path(@wod)
+			redirect_to admin_wod_path(@wod)
 		else
 			render :new
 		end		
@@ -32,7 +32,7 @@ class Admin::WodsController < ApplicationController
 	def update
 		set_wod
 		if @wod.update(wod_params)
-			redirect_to wod_path(@wod)
+			redirect_to admin_wod_path(@wod)
 		else
 			render :edit
 		end		
@@ -41,14 +41,14 @@ class Admin::WodsController < ApplicationController
 	def destroy
 		set_wod.destroy
 		respond_to do |format|
-			format.html {redirect_to wods_path, notice: "WOD was successfully deleted"}
+			format.html {redirect_to admin_wods_path, notice: "WOD was successfully deleted"}
 		end	
 	end
 
 	private
 
 	def set_wod
-		@wod = Wod.find(params[:id])
+		@wod = Admin::Wod.find(params[:id])
 	end
 
 	def wod_params
