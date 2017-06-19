@@ -8,11 +8,13 @@ class Admin::WodsController < ApplicationController
 
 	def new
 		@wod = Admin::Wod.new
-		@wod.movements.build
-		@wod.movements.build
+		@movement = @wod.movements.build
+		@movement = @wod.movements.build
+		set_movements
 	end
 
 	def create
+		set_movements
 		@wod = Admin::Wod.new(wod_params)
 		if @wod.save
 			redirect_to admin_wod_path(@wod)
@@ -26,10 +28,12 @@ class Admin::WodsController < ApplicationController
 	end
 
 	def edit
+		set_movements
 		set_wod
 	end
 
 	def update
+		set_movements
 		set_wod
 		if @wod.update(wod_params)
 			redirect_to admin_wod_path(@wod)
@@ -47,11 +51,15 @@ class Admin::WodsController < ApplicationController
 
 	private
 
+	def set_movements
+		@movements = Admin::Movement.all
+	end
+
 	def set_wod
 		@wod = Admin::Wod.find(params[:id])
 	end
 
 	def wod_params
-		params.require(:wod).permit(:title, :wod_type, :description, movement_ids: [], movements_attributes: [:name, :movement_type, :quantity])
+		params.require(:admin_wod).permit(:title, :wod_type, :description, movement_ids: [], movements_attributes: [:name, :movement_type, :quantity])
 	end
 end

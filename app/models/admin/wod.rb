@@ -10,7 +10,7 @@ class Admin::Wod < ActiveRecord::Base
 
 	def movements_attributes=(movements)
 		movements.each do |i, movement|
-			movement = Movement.all.find_or_create_by(movement)
+			movement = Admin::Movement.all.find_or_create_by(movement)
 			self.movements << movement
 		end	
 	end

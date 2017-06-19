@@ -1,8 +1,17 @@
 
-	<%= f.label :title %>
-	<%= f.text_field :title %><br><br>
-	<%= f.label :wod_type %>
-	<%= f.select :wod_type, ["weight", "time", "repetitions"], :prompt => "Select One" %><br><br>
-	<%= f.label :description %>
-	<%= f.text_field :description %>
-	<%= f.collection_check_boxes :movement_ids, Movement.all, :id, :name %><br>
+	<div class="field" >
+		<%= f.label :title %>
+		<%= f.text_field :title %><br><br>
+	</div>
+	<div class="field" >	
+		<%= f.label :wod_type %>
+		<%= f.select :wod_type, ["weight", "time", "repetitions"], :prompt => "Select One" %><br><br>
+	</div>
+	<div class="field" >	
+		<%= f.label :description %>
+		<%= f.text_field :description %><br><br>
+	</div>
+	<%= render 'application/errors', target: @wod %>
+	<div class="field" >	
+		<%= f.collection_check_boxes :movement_ids, @movements, :id, :name %><br>
+	</div>	

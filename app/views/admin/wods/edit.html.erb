@@ -2,9 +2,9 @@
 <h1>Edit WOD:</h1>
 
 <%= form_for @wod do |f| %>
-	<%= @wod.name %>
+	<%= render 'application/errors', target: @wod %>
 	<%= render 'form', f: f %><br>
 	<%= f.submit %>
 <% end %>
 
-<%= link_to "Delete", wod_path(@wod), method: :delete %>
+<%= link_to "Delete", admin_wod_path(@wod), method: :delete %>
