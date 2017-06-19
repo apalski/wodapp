@@ -14,5 +14,4 @@ class User < ActiveRecord::Base
 	def self.create_with_omniauth(auth_hash)
 	    User.create(uid: auth_hash["uid"], name: auth_hash["info"]["name"], email: auth_hash["info"]["email"], password: SecureRandom.base64(10))
   	end
-
 end

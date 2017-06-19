@@ -5,6 +5,13 @@
 	<%= render 'form', f: f %>
 	<%= f.label :name %>
 	<%= f.text_field :name %><br><br>
+	<% if current_user.owner == true %>
+		<%= f.label :owner %><br>
+		<%= f.label :owner, "true", value: true %>
+		<%= f.radio_button :owner, true %>
+		<%= f.label :owner, "false", value: false %>
+		<%= f.radio_button :owner, false %>
+	<% end %>	
 	<%= f.submit "Update Profile" %>	
 <% end %>	
 
