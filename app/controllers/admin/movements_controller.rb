@@ -17,7 +17,7 @@ class Admin::MovementsController < ApplicationController
 		@user = current_user
 		@movement = Movement.new(movement_params)
 		if @movement.save
-			redirect_to movement_path(@movement)
+			redirect_to admin_movement_path(@movement)
 		else
 			render :new
 		end		
