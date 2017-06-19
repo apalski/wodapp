@@ -2,6 +2,7 @@
 
 <%= form_for [@user, @userwod] do |f| %>
 	<%= render 'application/errors', target: @userwod %>
+	<%= f.label :name %>
 	<% names = @wods.map {|moves| [moves.title]} %>
 	<%= f.select :name, names, :prompt => "Select One", :selected => params[:name] %><br><br>
 	<%= render 'form', f: f %>

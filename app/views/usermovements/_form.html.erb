@@ -2,11 +2,6 @@
 
 		<%= f.hidden_field :user_id %>
 		<div class="field" >
-			<%= f.label :name %>
-			<% names = @movements.map {|move| [move.name]} %>
-			<%= f.select :name, names, :prompt => "Select One" %><br>
-		</div>
-		<div class="field" >
 			<%= f.label :date %>
 			<%= date_select :usermovement, :date %><br>
 		</div>
