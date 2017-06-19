@@ -6,9 +6,8 @@ Rails.application.routes.draw do
 	 	resources :userwods
 	 end
 
-	 namespace :admin do
-	 	resources :movements
-	 	resources :wods
+	 scope module: 'admin' do
+	 	resources :movements, :wods
 	 end	
 
 	 get '/sessions/new', to: 'sessions#new'
