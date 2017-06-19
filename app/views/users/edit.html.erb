@@ -5,6 +5,8 @@
 	<%= render 'form', f: f %>
 	<%= f.label :name %>
 	<%= f.text_field :name %><br><br>
+	<%= f.label :password %>
+	<%= f.password_field :password %><br><br>
 	<% if current_user.owner == true %>
 		<%= f.label :password %>
 		<%= f.password_field :password %><br><br>
@@ -16,5 +18,3 @@
 	<% end %>	
 	<%= f.submit "Update Profile" %>	
 <% end %>	
-
-<h2>To change your password please see your box owner</h2>

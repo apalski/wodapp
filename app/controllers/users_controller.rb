@@ -38,7 +38,7 @@ class UsersController < ApplicationController
 		set_user
 		if @user == current_user
 			if @user.update(user_params)
-				redirect_to users_path(@user)
+				redirect_to user_path(@user)
 			else
 				render :edit
 			end	
