@@ -6,7 +6,7 @@
 	<%= f.label :name %>
 	<%= f.text_field :name %><br><br>
 	<%= f.label :password %>
-	<%= f.password_field :password %><br><br>
+	<%= f.password_field :password, placeholder: "Enter existing or new" %><br><br>
 	<% if current_user.owner == true %>
 		<%= f.label :password %>
 		<%= f.password_field :password %><br><br>
