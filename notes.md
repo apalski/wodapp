@@ -22,7 +22,7 @@ Project must haves:
 1. Users
 	Admin user creates all the WODs and the movements
 
-	Users have a name, email, password and admin (boolean true/false)
+	Users have a name, email, password and owner (boolean true/false)
 	Users have many WODs
 	Users have many movements
 
@@ -42,8 +42,7 @@ Project must haves:
 	WODs belong to a user
 	WODs have many movements
 
-	WODs are selected from a list of existing WODs created by Admin user - from a dropdown list of WOD names, the user receives the WOD description and can then enter a result or PR.
-	WODs can be listed by name (and then best result)? to group the same WOD to compare results
+	WODs are selected from a list of existing WODs created by Admin user - from a dropdown list of WOD names, the user receives the WOD description and can then enter a result and/or PR.
 
 3. user_Movements
 	Movements have a name, date, result, type ('time', 'weight' or 'repetitions') and PR (boolean true/false)
@@ -51,11 +50,10 @@ Project must haves:
 	Movements have many WODs
 
 	Movements are selected from a list of existing WODs created by the Admin user
-	Movements can be displayed by name (and then by best result)? to group the same movement to compare results
-
+	Movements can be displayed by name
 4. owner_WODs
 
 4. PRs are a boolean field in WODs and movements	
 	PRs can be listed by all, by WOD or by individual movements
-	Recording a PR for a WOD or movement removes it from previous WODs or movements of the same name?
+	Recording a PR for a WOD or movement removes it from previous WODs or movements of the same name
 
