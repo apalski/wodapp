@@ -55,6 +55,9 @@ class UserwodsController < ApplicationController
 		set_wod
 		set_userwod
 		if @userwod.update(userwod_params)
+			if @userwod.pr == true
+				update_pr(@userwod)
+			end	
 			redirect_to user_userwod_path(current_user, @userwod)
 		else
 			render :edit

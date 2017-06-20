@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20170608045642) do
   create_table "usermovements", force: :cascade do |t|
     t.string   "name"
     t.date     "date"
-    t.string   "type"
+    t.string   "cftype"
     t.float    "result"
     t.boolean  "pr",         default: false
     t.integer  "user_id"
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 20170608045642) do
 
   create_table "userwods", force: :cascade do |t|
     t.string   "name"
-    t.string   "type"
+    t.string   "cftype"
     t.date     "date"
     t.float    "result"
     t.boolean  "pr",         default: false

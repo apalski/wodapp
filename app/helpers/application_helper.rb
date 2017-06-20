@@ -13,21 +13,22 @@ module ApplicationHelper
 		end	
 		if moves.size > 1
 			combo = moves.combination(2).select {|a,b| a.name == b.name}
-			if combo[0].type == "time"
+			combo = combo.flatten
+			if combo[0].cftype == "time"
 				if combo[1].result > combo[0].result
-					combo[0].update_attribute(pr: true)
-					combo[1].update_attribute(pr: false)
+					combo[0].update_attribute(:pr, true)
+					combo[1].update_attribute(:pr, false)
 				else
-					combo[0].update_attribute(pr: false)
-					combo[1].update_attribute(pr: true)
+					combo[0].update_attribute(:pr, false)
+					combo[1].update_attribute(:pr, true)
 				end
 			else
 				if combo[0].result > combo[1].result
-					combo[0].update_attribute(pr: true)
-					combo[1].update_attribute(pr: false)
+					combo[0].update_attribute(:pr, true)
+					combo[1].update_attribute(:pr, false)
 				else
-					combo[0].update_attribute(pr: false)
-					combo[1].update_attribute(pr: true)
+					combo[0].update_attribute(:pr, false)
+					combo[1].update_attribute(:pr, true)
 				end
 			end		
 		end		

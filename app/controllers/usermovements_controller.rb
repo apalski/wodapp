@@ -55,6 +55,9 @@ class UsermovementsController < ApplicationController
 		set_movement
 		set_usermovement
 		if @usermovement.update(usermovement_params)
+			if @usermovement.pr == true
+				update_pr(@usermovement)
+			end	
 			redirect_to user_usermovement_path(current_user, @usermovement)
 		else
 			render :edit
