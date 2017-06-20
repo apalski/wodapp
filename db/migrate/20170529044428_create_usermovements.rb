@@ -3,7 +3,7 @@ class CreateUsermovements < ActiveRecord::Migration
     create_table :usermovements do |t|
     	t.string :name
     	t.date :date
-      t.string :movement_type
+      t.string :type
       t.float :result, :precision => 2, :scale => 2
     	t.boolean :pr, default: false
     	t.integer :user_id

@@ -1,14 +1,14 @@
 
 		<li>Movement: <%= usermovement.name %></li><br>
 		<li>Date Completed: <%= usermovement.date.strftime("%d %B %Y") %></li><br>
-		<% if usermovement.movement_type == "time" %>
+		<% if usermovement.type == "time" %>
 			<li>Result Achieved: <%= usermovement.result %> minutes</li><br>
-		<% elsif usermovement.movement_type == "weight" %>
+		<% elsif usermovement.type == "weight" %>
 			<li>Result Achieved: <%= usermovement.result %> kgs</li><br>
-		<% elsif usermovement.movement_type == "repetitions" %>
+		<% elsif usermovement.type == "repetitions" %>
 			<li>Result Achieved: <%= usermovement.result %> reps</li><br>
 		<% end %>			
-		<li>Movement done for: <%= usermovement.movement_type %></li><br>
+		<li>Movement done for: <%= usermovement.type %></li><br>
 		<li>PR? (true/false): <%= usermovement.pr %></li><br>
 		<%= link_to "Edit Movement", edit_user_usermovement_path(current_user, usermovement) %><br>
 		<%= link_to "Delete Movement", user_usermovement_path(current_user, usermovement), method: :delete %>

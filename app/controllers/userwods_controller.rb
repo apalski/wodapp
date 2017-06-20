@@ -25,7 +25,7 @@ class UserwodsController < ApplicationController
 		set_wod
 		if @userwod.save
 			wod = Admin::Wod.all.find_by(title: @userwod.name)
-			@userwod.wod_type = wod.wod_type
+			@userwod.type = wod.wod_type
 			@userwod.save
 			if @userwod.pr == true
 				update_pr(@userwod)
@@ -83,7 +83,7 @@ class UserwodsController < ApplicationController
 	end
 
 	def userwod_params
-		params.require(:userwod).permit(:name, :date, :result, :wod_type, :pr, :user_id)
+		params.require(:userwod).permit(:name, :date, :result, :type, :pr, :user_id)
 	end
 end
 
