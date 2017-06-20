@@ -14,12 +14,14 @@
 		
 			</header>  
 			<main role="main">
-
-				<%= render 'layouts/navigation' %>
-				<%= render 'layouts/messages' %>
-				<%= yield %>
-		
+				<div class="decorate">
+					<%= render 'layouts/navigation' %>
+					<%= render 'layouts/messages' %>
+					<%= yield %>
+				</div>
 			</main>
+			<div class="quote">
+			</div>
 		</div>
 	</body>
 </html>

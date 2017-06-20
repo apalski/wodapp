@@ -4,7 +4,7 @@ body {
 }
 
 div.container {
-    width: 100%;
+  width: 100%;
 }
 
 .field_with_errors {
@@ -14,30 +14,22 @@ div.container {
 }
 
 nav {
-    position: relative;
-    max-width: 500px;
-    margin: 0;
-    padding: 1em;
+  position: relative;
+  max-width: 500px;
+  margin: 0;
+  padding: 1em;
 }
 
 main {
-	background: lightgreen;
-    margin-left: 170px;
-    border-left: 1px solid gray;
-    padding: 1em;
-    overflow: hidden;
+  background: lightgreen;
+  margin-left: 170px;
+  border-left: 1px solid gray;
+  padding: 1em;
+  overflow: hidden;
 }
 
-div.index {
-	position: relative;
-	width: 50%;
-	border-right: 1px solid gray;
-}
-
-div.prs {
-	width: 50%;
-	display: block;
-	margin-top: 30px;
-	border-bottom: 900px;
-	border-right: 1px solid gray;
+div.decorate {
+  float: left;
+  background: lightgreen;
+  width: 50%;
 }

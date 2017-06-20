@@ -4,7 +4,7 @@ class Admin::Wod < ActiveRecord::Base
 	has_many :move_wods
 	has_many :movements, through: :move_wods
 
-	validates :title, presence: true
+	validates :title, :wod_type, presence: true
 	validates :title, uniqueness: true
 	validates :wod_type, inclusion: {in: %w(time weight repetitions), message: "%{value} is not a valid type"}
 	validates_associated :movements
