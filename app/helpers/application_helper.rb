@@ -7,13 +7,29 @@ module ApplicationHelper
 
 	def update_pr(newpr)
 		if newpr.class == Usermovement
-			moves = Usermovement.select {|move| move.pr == true if newpr.name == move.name}
+			moves = current_user.usermovements.by_pr
 		else
-			moves = Userwod.select {|move| move.pr == true if newpr.name == move.name}
+			moves = current_user.userwods.by_pr
 		end	
 		if moves.size > 1
-			moves[0].pr = false
-			moves[0].save
+			combo = moves.combination(2).select {|a,b| a.name == b.name}
+			if combo[0].type == "time"
+				if combo[1].result > combo[0].result
+					combo[0].update_attribute(pr: true)
+					combo[1].update_attribute(pr: false)
+				else
+					combo[0].update_attribute(pr: false)
+					combo[1].update_attribute(pr: true)
+				end
+			else
+				if combo[0].result > combo[1].result
+					combo[0].update_attribute(pr: true)
+					combo[1].update_attribute(pr: false)
+				else
+					combo[0].update_attribute(pr: false)
+					combo[1].update_attribute(pr: true)
+				end
+			end		
 		end		
 	end
 

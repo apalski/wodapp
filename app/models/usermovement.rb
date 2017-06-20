@@ -5,5 +5,5 @@ class Usermovement < ActiveRecord::Base
 	validates :name, :result, presence: true
 	validates :result, numericality: true
 
-	scope :pr, -> {where(pr: true)}
+	scope :by_pr, -> {where(pr: true)}
 end
