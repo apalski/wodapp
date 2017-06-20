@@ -25,7 +25,7 @@ class UsermovementsController < ApplicationController
 		set_movement
 		if @usermovement.save
 			move = Admin::Movement.all.find_by(name: @usermovement.name)
-			@usermovement.type = move.movement_type
+			@usermovement.cftype = move.movement_type
 			@usermovement.save
 			if @usermovement.pr == true
 				update_pr(@usermovement)
@@ -83,6 +83,6 @@ class UsermovementsController < ApplicationController
 	end	
 
 	def usermovement_params
-		params.require(:usermovement).permit(:name, :date, :result, :type, :pr, :user_id)
+		params.require(:usermovement).permit(:name, :date, :result, :cftype, :pr, :user_id)
 	end
 end
