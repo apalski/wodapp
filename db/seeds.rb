@@ -56,7 +56,7 @@ end
 
 def make_movements
   DATA[:movements].each do |movement|
-    new_movement = Movement.new
+    new_movement = Admin::Movement.new
     movement.each_with_index do |attribute, i|
       new_movement.send(DATA[:movement_keys][i]+"=", attribute)
     end
@@ -66,7 +66,7 @@ end
 
 def make_wods
   DATA[:wods].each do |wod|
-    new_wod = Wod.new
+    new_wod = Admin::Wod.new
     wod.each_with_index do |attribute, i|
       new_wod.send(DATA[:wod_keys][i]+"=", attribute)
     end
