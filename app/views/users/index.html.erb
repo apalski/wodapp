@@ -8,7 +8,7 @@
 		<li>Owner?: <%= user.owner %></li>
 		<%= link_to "Edit User", edit_user_path(user) %> |
 		<% if user != current_user  %>
-			<%= link_to "Delete User", users_path(user), method: :delete %>
+			<%= link_to "Delete User", user_path(user), method: :delete %>
 		<% end %>	
 		<br>___________________________
 	<% end %>

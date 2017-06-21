@@ -3,6 +3,7 @@
 	skip_before_action :require_signin, only: [:new, :create]
 	skip_before_action :restrict_access, only: [:new, :create]
 	before_action :user_own_data
+	skip_before_action :user_own_data, only: [:new, :create]
 
 	def index
 		if current_user.owner == true

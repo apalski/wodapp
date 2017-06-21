@@ -12,7 +12,7 @@
 		<%= f.label :password %>
 		<%= f.password_field :password, placeholder: "Enter existing or new" %><br><br>
 	</div>
-	<% if current_user.owner == true %>
+	<% if current_user.owner == true && current_user != @user %>
 		<div class="field" >
 			<%= f.label :owner %>
 			<%= f.label :owner, "true", value: true %>
