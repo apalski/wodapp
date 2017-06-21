@@ -64,9 +64,11 @@
 	private
 
 	def user_own_data
-		if current_user.id.to_s != params[:id]
-			flash[:notice] = "You don't have permission for this page, see your box owner"
-			redirect_to user_path(current_user)
+		if current_user.id.to_s != params[:id] 
+			if current_user.owner != true
+				flash[:notice] = "You don't have permission for this page, see your box owner"
+				redirect_to user_path(current_user)
+			end	
 		end	
 	end
 
