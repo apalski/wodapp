@@ -52,9 +52,7 @@
 			if !params[:user][:password].nil?
 				@user.update_attribute(:password, params[:user][:password])
 			end
-			if !params[:user][:owner].nil?	
-				@user.update_attribute(:owner, params[:user][:owner])
-			end	
+			@user.update_attribute(:owner, params[:user][:owner])
 			redirect_to root_path
 		end			
 	end
