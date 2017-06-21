@@ -14,10 +14,6 @@
 	</div>
 	<% if current_user.owner == true %>
 		<div class="field" >
-			<%= f.label :password %>
-			<%= f.password_field :password %><br><br>
-		</div>	
-		<div class="field" >
 			<%= f.label :owner %>
 			<%= f.label :owner, "true", value: true %>
 			<%= f.radio_button :owner, true %>
