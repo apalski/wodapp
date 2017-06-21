@@ -32,7 +32,12 @@
 	end
 
 	def edit
-		set_user
+		if current_user.uid.nil?
+			set_user
+		else
+			flash[:notice] = "You registered with Github and cannot edit your profile"
+				redirect_to user_path(current_user)	
+		end	
 	end
 
 	def update
