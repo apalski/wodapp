@@ -6,5 +6,6 @@
 	<%= render 'form', f: f %><br>
 	<%= f.submit %>
 <% end %>
-
-<%= link_to "Delete", admin_wod_path(@wod), method: :delete %>
+<% if current_user.owner == true %>
+	<%= link_to "Delete", admin_wod_path(@wod), method: :delete %>
+<% end %>	

@@ -6,5 +6,6 @@
 	<%= render 'form', f: f %>
 	<%= f.submit %>	
 <% end %><br>	
-
-<%= link_to "Delete", movement_path(@movement), method: :delete %> 
+<% if current_user.owner == true %>
+	<%= link_to "Delete", movement_path(@movement), method: :delete %> 
+<% end %>	

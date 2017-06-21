@@ -2,6 +2,7 @@
 
 	skip_before_action :require_signin, only: [:new, :create]
 	skip_before_action :restrict_access, only: [:new, :create]
+	before_action :user_own_data
 
 	def index
 		if current_user.owner == true
@@ -61,6 +62,13 @@
 	end
 
 	private
+
+	def user_own_data
+		if current_user.id.to_s != params[:id]
+			flash[:notice] = "You don't have permission for this page, see your box owner"
+			redirect_to user_path(current_user)
+		end	
+	end
 
 	def set_user
 		@user = User.find(params[:id])

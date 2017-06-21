@@ -1,6 +1,6 @@
 class Admin::WodsController < ApplicationController
 
-	before_action :restrict_access, only: [:new, :create, :edit, :update, :destroy]
+	before_action :restrict_access, only: [:new, :create, :edit,  :show, :update, :destroy]
 
 	def index
 		@wods = Admin::Wod.all
