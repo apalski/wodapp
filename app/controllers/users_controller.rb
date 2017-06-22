@@ -15,7 +15,11 @@
 	end
 
 	def new
-		@user = User.new
+		if !current_user
+			@user = User.new
+		else
+			redirect_to user_path(current_user)	
+		end	
 	end
 
 	def create

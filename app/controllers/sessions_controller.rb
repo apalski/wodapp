@@ -2,6 +2,12 @@
 class SessionsController < ApplicationController
 
 	skip_before_action :require_signin, only: [:new, :create]
+
+	def new
+		if current_user
+			redirect_to user_path(current_user)
+		end	
+	end
 	
 	def create     
 		if auth_hash = request.env['omniauth.auth']
