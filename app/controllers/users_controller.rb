@@ -36,7 +36,7 @@
 		if current_user.owner == true || current_user.uid.nil? 
 			set_user
 		else
-			flash[:notice] = "You registered with Github and cannot edit your profile"
+			flash[:notice] = "You must be password registered to edit your profile"
 				redirect_to user_path(current_user)	
 		end	
 	end
