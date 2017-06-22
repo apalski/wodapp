@@ -7,5 +7,5 @@
 	<%= f.submit %>	
 <% end %><br>	
 <% if current_user.owner == true %>
-	<%= link_to "Delete", movement_path(@movement), method: :delete %> 
+	<%= link_to "Delete", admin_movement_path(@movement), method: :delete %> 
 <% end %>	

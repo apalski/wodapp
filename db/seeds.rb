@@ -16,25 +16,25 @@ DATA = {
   :movement_keys =>
    ["name", "movement_type", "quantity", "owner_id"],
   :movements => [
-    ["Dead Lift", "weight", 10, 1],
-    ["Clean & Jerk", "weight", 8, 1],
-    ["Push Jerk", "weight", 10, 1],
-    ["Push Press", "weight", 11, 1],
-    ["Snatch", "weight", 9, 1],
+    ["Dead Lift", "weight", 1, 1],
+    ["Clean & Jerk", "weight", 1, 1],
+    ["Push Jerk", "weight", 1, 1],
+    ["Push Press", "weight", 1, 1],
+    ["Snatch", "weight", 1, 1],
     ["400m Run", "time", 1, 1],
-    ["Burpees", "repetitions", 30, 1],
-    ["Air Squats", "repetitions", 50, 1],
-    ["Box Jumps", "repetitions", 20, 1]
+    ["Burpees", "repetitions", 1, 1],
+    ["Air Squats", "repetitions", 1, 1],
+    ["Box Jumps", "repetitions", 1, 1]
   ],
 
   :wod_keys =>
     ["title", "wod_type", "description", "owner_id"],
   :wods => [
-    ["Helen", "time", "15 minute cap", "1"],
-    ["Grace", "time", "10 minute cap", 1],
+    ["Helen", "time", "3 rounds", "1"],
+    ["Grace", "time", "30 reps", 1],
     ["Dead Lift Day", "weight", "1RM", 1],
-    ["Murph", "time", "50 minute cap", 1],
-    ["Karen", "repetitions", "20 minute cap", 1]
+    ["Murph", "time", "1 round 50 minute cap", 1],
+    ["Karen", "time", "20 minute cap", 1]
   ] 
 }
 
