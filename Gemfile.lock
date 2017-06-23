@@ -154,7 +154,6 @@ GEM
     omniauth-oauth2 (1.4.0)
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
-    pg (0.20.0)
     pry (0.10.4)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -292,7 +291,6 @@ DEPENDENCIES
   launchy
   omniauth
   omniauth-github
-  pg
   pry
   rack_session_access
   rails (= 4.2.0)
