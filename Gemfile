@@ -36,3 +36,4 @@ gem "pg", group: :production
 gem "faker"
 gem "friendly_id"
 gem 'rails_12factor', group: :production
+gem 'google-analytics-rails'
