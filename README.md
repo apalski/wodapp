@@ -3,14 +3,13 @@ A personal results tracker for CrossFit workouts and movements. (CrossFit Inc. d
 
 ## Table of Contents
 * Introduction
-* Installation & Usage
-* Development
+* Usage
 * Contributing
 * Licence
 
 ## Introduction
-Wodapp allows you to track your personal workout progress. Wodapp is hosted by your box and comes with your membership subscription.
-With Wodapp you can:
+WODapp allows you to track your personal workout progress. Wodapp is hosted by your box and comes with your membership subscription.
+With WODapp you can:
 	* Record your results for the days WOD
 	* Record individual movement results
 	* Record your PRs
@@ -20,9 +19,8 @@ With Wodapp you can:
 	* View all your WODs results
 	* View all your PRs
 
-## Installation & Usage	
-
-## Development
+## Usage	
+WODapp can be used at https://ancient-oasis-63996.herokuapp.com.
 
 ## Contributing
 Bug reports and pull requests are welcome on GitHub at https://github.com/apalski/wodapp. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
