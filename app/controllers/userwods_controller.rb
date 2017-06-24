@@ -7,7 +7,7 @@ class UserwodsController < ApplicationController
 
 	def index
 		if params[:user_id] == current_user.id.to_s
-			@userwods = User.find(params[:user_id]).userwods
+			@userwods = User.find(params[:user_id]).userwods.sort {|a,b| a.name <=> b.name}
 		else
 			redirect_to user_userwods_path(current_user), notice: "WODs not found"	
 		end		

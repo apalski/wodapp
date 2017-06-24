@@ -7,7 +7,7 @@ class UsermovementsController < ApplicationController
 
 	def index
 		if params[:user_id] == current_user.id.to_s
-			@usermovements = User.find_by(id: params[:user_id]).usermovements
+			@usermovements = User.find_by(id: params[:user_id]).usermovements.sort {|a,b| a.name <=> b.name}
 		else
 			redirect_to user_usermovements_path(current_user), notice: "Movements not found"	
 		end		

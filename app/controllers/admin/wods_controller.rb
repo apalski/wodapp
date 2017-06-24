@@ -3,7 +3,7 @@ class Admin::WodsController < ApplicationController
 	before_action :restrict_access, only: [:new, :create, :edit,  :show, :update, :destroy]
 
 	def index
-		@wods = Admin::Wod.all
+		@wods = Admin::Wod.all.sort {|a,b| a.title <=> b.title}
 	end
 
 	def new

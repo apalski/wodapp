@@ -3,7 +3,7 @@ class Admin::MovementsController < ApplicationController
 	before_action :restrict_access, only: [:new, :create, :edit, :show, :update, :destroy]
 
 	def index
-		@movements = Admin::Movement.all
+		@movements = Admin::Movement.all.sort {|a,b| a.name <=> b.name}
 		@user = current_user
 	end
 
