@@ -11,11 +11,8 @@ class SessionsController < ApplicationController
 	
 	def create    
 		if auth_hash = request.env['omniauth.auth']
-			if @user = User.find_by(name: auth_hash["info"]["name"])
-				session[:user_id] = @user.id
-			else @user = User.create_with_omniauth(auth_hash)
-				session[:user_id] = @user.id
-			end	
+			@user = User.create_with_omniauth(auth_hash)
+			session[:user_id] = @user.id
 			redirect_to root_path
 		else
 			@user = User.find_by(:name => params[:user][:name])

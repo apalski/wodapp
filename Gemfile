@@ -12,6 +12,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'bcrypt'
 gem 'omniauth'
 gem 'omniauth-github'
+gem 'omniauth-facebook'
 gem "figaro"
 
 group :test, :development do

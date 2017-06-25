@@ -12,6 +12,15 @@ class User < ActiveRecord::Base
 	validates :password, length: {minimum: 6}
 
 	def self.create_with_omniauth(auth_hash)
-	    User.create(uid: auth_hash["uid"], name: auth_hash["info"]["name"], email: auth_hash["info"]["email"], password: SecureRandom.base64(10))
+	    user = User.find_or_create_by(uid: auth_hash["uid"])
+	    user.email = "#{auth_hash["uid"]}@#{auth_hash["provider"]}.com"
+	    user.password = SecureRandom.base64(10)
+	    user.name = auth_hash["info"]["name"]
+	    if User.exists?(user)
+	    	user
+	    else
+	    	user.save!
+	    	user
+	    end		
   	end
 end
