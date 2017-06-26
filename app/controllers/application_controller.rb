@@ -10,15 +10,15 @@ class ApplicationController < ActionController::Base
 	include ApplicationHelper
 
 	def welcome
-		redirect_to controller: 'sessions', action: 'new' unless current_user
 		@user = current_user
 	end
 
 	private
 
+	# Restrict access to welcome page and app to signed in users
 	def require_signin
 		unless current_user
-			flash[:notice] = "You must be a registered user and be signed in to use WODapp"
+			flash[:notice] = "You must be signed in to use WODapp"
 			redirect_to new_user_path
 		end	
 	end

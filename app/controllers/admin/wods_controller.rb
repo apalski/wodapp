@@ -1,8 +1,10 @@
 class Admin::WodsController < ApplicationController
 
+	# Only allows the users who are owners to access the actions
 	before_action :restrict_access, only: [:new, :create, :edit,  :show, :update, :destroy]
 
 	def index
+		# alphabetize the list of wods
 		@wods = Admin::Wod.all.sort {|a,b| a.title <=> b.title}
 	end
 

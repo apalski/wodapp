@@ -1,8 +1,10 @@
 class Admin::MovementsController < ApplicationController
 
+	# Only allows the users who are owners to access the actions
 	before_action :restrict_access, only: [:new, :create, :edit, :show, :update, :destroy]
 
 	def index
+		# alphabetize the list of movements
 		@movements = Admin::Movement.all.sort {|a,b| a.name <=> b.name}
 		@user = current_user
 	end

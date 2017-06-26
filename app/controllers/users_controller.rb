@@ -1,11 +1,15 @@
 	class UsersController < ApplicationController
 
+	# Allow a new user to access the signin page and be created	
 	skip_before_action :require_signin, only: [:new, :create]
 	skip_before_action :restrict_access, only: [:new, :create]
+	# Only allows a user to view and edit their own data
 	before_action :user_own_data
+	# Allow a new user to access the signin page and be created	
 	skip_before_action :user_own_data, only: [:new, :create]
 
 	def index
+		# Ensure only an owner can view all users
 		if current_user.owner == true
 			@users = User.all
 		else
@@ -15,6 +19,7 @@
 	end
 
 	def new
+		# If user already signed in don't let the access the sign up page
 		if !current_user
 			@user = User.new
 		else
@@ -37,6 +42,8 @@
 	end
 
 	def edit
+		# Only allows a signed up user or an owner to edit their data
+		# Facebook or Github users don't have passwords and need an owner to edit their data
 		if current_user.owner == true || current_user.uid.nil? 
 			set_user
 		else
@@ -54,6 +61,7 @@
 				render :edit
 			end	
 		else 
+			# Allow edit of password and ownership by box owner
 			if !params[:user][:password].nil?
 				@user.update_attribute(:password, params[:user][:password])
 			end
@@ -71,6 +79,7 @@
 
 	private
 
+	# Identifies if current user is the owner of the data being accessed
 	def user_own_data
 		if current_user.id.to_s != params[:id] 
 			if current_user.owner != true

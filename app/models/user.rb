@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
 	validates :name,:email, uniqueness: true
 	validates :password, length: {minimum: 6}
 
+	# Creates a new Facebook or Github user if they don't already exist
 	def self.create_with_omniauth(auth_hash)
 	    user = User.find_or_create_by(uid: auth_hash["uid"])
 	    user.email = "#{auth_hash["uid"]}@#{auth_hash["provider"]}.com"

@@ -1,6 +1,7 @@
 
 module UserwodsHelper
 
+	# Ensure current user is the owner of the wod and the wod exists
 	def check_user
 		@userwod = Userwod.find_by(id: params[:id])
 		@user = User.find_by(id: params[:user_id])

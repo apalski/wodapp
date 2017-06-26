@@ -2,11 +2,14 @@ class UserwodsController < ApplicationController
 
 	include UserwodsHelper
 
+	# Ensure current user is the owner of the wod and the wod exists
 	before_action :check_user
+	# Allow user to create new wods, #index carries out its own check
 	skip_before_action :check_user, only: [:index, :new, :create]
 
 	def index
 		if params[:user_id] == current_user.id.to_s
+			# Selects only wods belonging to the current user and alphabetizes the returned list
 			@userwods = User.find(params[:user_id]).userwods.sort {|a,b| a.name <=> b.name}
 		else
 			redirect_to user_userwods_path(current_user), notice: "WODs not found"	
@@ -27,6 +30,7 @@ class UserwodsController < ApplicationController
 			wod = Admin::Wod.all.find_by(title: @userwod.name)
 			@userwod.cftype = wod.wod_type
 			@userwod.save
+			# Calls to #update_pr if PR is true to ensure only one PR for that type of wod exists
 			if @userwod.pr == true
 				update_pr(@userwod)
 			end	
@@ -55,6 +59,7 @@ class UserwodsController < ApplicationController
 		set_wod
 		set_userwod
 		if @userwod.update(userwod_params)
+			# Calls to #update_pr if PR is true to ensure only one PR for that type of wod exists
 			if @userwod.pr == true
 				update_pr(@userwod)
 			end	

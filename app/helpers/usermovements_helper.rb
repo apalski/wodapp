@@ -1,6 +1,7 @@
 
 module UsermovementsHelper
 
+	# Ensure current user is the owner of the movement and the movement exists
 	def check_user
 		@usermovement = Usermovement.find_by(id: params[:id])
 		@user = User.find_by(id: params[:user_id])
