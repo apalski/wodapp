@@ -5,3 +5,7 @@
 <% @wods.each do |wod| %>
 	<%= render 'show', wod: wod %><br>
 <% end %>
+
+<% if current_user.owner == true %>
+	<h2><%= link_to "Create a new wod", new_admin_wod_path %></h2>
+<% end %>	
