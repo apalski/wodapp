@@ -43,7 +43,7 @@
 
 	def edit
 		# Only allows a signed up user or an owner to edit their data
-		# Facebook or Github users don't have passwords and need an owner to edit their data
+		# Facebook users don't have passwords and need an owner to edit their data
 		if current_user.owner == true || current_user.uid.nil? 
 			set_user
 		else
