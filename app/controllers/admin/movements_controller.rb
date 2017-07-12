@@ -5,7 +5,7 @@ class Admin::MovementsController < ApplicationController
 
 	def index
 		# alphabetize the list of movements
-		@movements = Admin::Movement.all.sort {|a,b| a.name <=> b.name}
+		@movements = Admin::Movement.all.sort_by {|move| move.name.downcase}
 		@user = current_user
 	end
 

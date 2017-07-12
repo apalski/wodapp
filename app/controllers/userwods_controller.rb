@@ -10,13 +10,14 @@ class UserwodsController < ApplicationController
 	def index
 		if params[:user_id] == current_user.id.to_s
 			# Selects only wods belonging to the current user and alphabetizes the returned list
-			@userwods = User.find(params[:user_id]).userwods.sort {|a,b| a.name <=> b.name}
+			@userwods = User.find(params[:user_id]).userwods.sort_by {|wod| wod.name.downcase}
 		else
 			redirect_to user_userwods_path(current_user), notice: "WODs not found"	
 		end		
 	end
 
 	def new
+		@owner_wods = Admin::Wod.all.sort_by {|wod| wod.title.downcase}
 		@userwod = Userwod.new(user_id: params[:user_id])
 		set_user
 		set_wod

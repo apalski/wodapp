@@ -10,6 +10,7 @@
 		<% end %>			
 		<li>Movement done for: <%= usermovement.cftype %></li><br>
 		<li>PR? (true/false): <%= usermovement.pr %></li><br>
+		<li>Comment: <%= usermovement.comment %></li><br>
 		<%= link_to "Edit Movement", edit_user_usermovement_path(current_user, usermovement) %> |
 		<%= link_to "Delete Movement", user_usermovement_path(current_user, usermovement), method: :delete %>
 		<h3>_____________________________________</h3><br>

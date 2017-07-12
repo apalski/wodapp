@@ -10,7 +10,7 @@ class UsermovementsController < ApplicationController
 	def index
 		if params[:user_id] == current_user.id.to_s
 			# Selects only movements belonging to the current user and alphabetizes the returned list
-			@usermovements = User.find_by(id: params[:user_id]).usermovements.sort {|a,b| a.name <=> b.name}
+			@usermovements = User.find_by(id: params[:user_id]).usermovements.sort_by {|move| move.name.downcase}
 		else
 			redirect_to user_usermovements_path(current_user), notice: "Movements not found"	
 		end		
@@ -92,6 +92,6 @@ class UsermovementsController < ApplicationController
 	end	
 
 	def usermovement_params
-		params.require(:usermovement).permit(:name, :date, :result, :cftype, :pr, :user_id)
+		params.require(:usermovement).permit(:name, :date, :result, :cftype, :pr, :user_id, :comment)
 	end
 end

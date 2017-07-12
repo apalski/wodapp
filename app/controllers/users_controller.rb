@@ -11,7 +11,7 @@
 	def index
 		# Ensure only an owner can view all users
 		if current_user.owner == true
-			@users = User.all
+			@users = User.all.sort_by {|user| user.name.downcase}
 		else
 			flash[:notice] = "You don't have permission for this page, see your box owner"
 			redirect_to user_path(current_user)

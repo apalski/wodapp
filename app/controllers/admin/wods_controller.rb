@@ -5,7 +5,7 @@ class Admin::WodsController < ApplicationController
 
 	def index
 		# alphabetize the list of wods
-		@wods = Admin::Wod.all.sort {|a,b| a.title <=> b.title}
+		@wods = Admin::Wod.all.sort_by {|wod| wod.title.downcase}
 	end
 
 	def new
