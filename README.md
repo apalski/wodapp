@@ -20,7 +20,9 @@ With WODapp you can:
 	* View all your PRs
 
 ## Usage	
-WODapp can be used at https://ancient-oasis-63996.herokuapp.com.
+WODapp can be used at https://ancient-oasis-63996.herokuapp.com. To use all features you need to be an `owner` so use the following Signin:
+Name: Max Charles
+Password: friedfish
 
 ## Contributing
 Bug reports and pull requests are welcome on GitHub at https://github.com/apalski/wodapp. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
