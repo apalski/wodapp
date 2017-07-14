@@ -29,8 +29,9 @@ group :test, :development do
   gem "pry"
   gem "guard-rspec", require: false
   gem "thin"
-  gem 'web-console'
 end
+
+gem 'web-console', group: :development
 
 gem "bootstrap-sass", "~> 3.1.1"
 gem "pg", group: :production
